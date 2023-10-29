@@ -17,6 +17,8 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"obj_game","order":1,"path":"objects/obj_game/obj_game.yy",},
+    {"name":"spr_Heal","order":1,"path":"sprites/spr_Heal/spr_Heal.yy",},
     {"name":"RoomStartTown","order":1,"path":"rooms/RoomStartTown/RoomStartTown.yy",},
   ],
 }
