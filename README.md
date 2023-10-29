@@ -31,9 +31,12 @@ Will be updated in future. For 492.
 
 # Authors
 
-Name:           Email: 
 Lyn Cork        lyncork@sc.edu
+
 Chris Moore     cpm12@email.sc.edu
+
 Zandair Watkins zwatkins@email.sc.edu
+
 Meet Patel      meet@email.sc.edu
+
 Hollis Langford hollisol@email.sc.edu
