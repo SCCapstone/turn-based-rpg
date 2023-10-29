@@ -31,15 +31,17 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.0.98",
+    "IDEVersion": "2023.8.2.108",
   },
   "resources": [
     {"id":{"name":"obj_knight","path":"objects/obj_knight/obj_knight.yy",},},
+    {"id":{"name":"RoomStartTown","path":"rooms/RoomStartTown/RoomStartTown.yy",},},
     {"id":{"name":"spr_knight","path":"sprites/spr_knight/spr_knight.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
+    {"roomId":{"name":"RoomStartTown","path":"rooms/RoomStartTown/RoomStartTown.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [
