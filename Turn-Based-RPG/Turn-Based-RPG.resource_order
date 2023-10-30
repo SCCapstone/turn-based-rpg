@@ -19,6 +19,10 @@
   "ResourceOrderSettings": [
     {"name":"obj_game","order":1,"path":"objects/obj_game/obj_game.yy",},
     {"name":"spr_Heal","order":1,"path":"sprites/spr_Heal/spr_Heal.yy",},
+    {"name":"spr_Dagger","order":5,"path":"sprites/spr_Dagger/spr_Dagger.yy",},
     {"name":"RoomStartTown","order":1,"path":"rooms/RoomStartTown/RoomStartTown.yy",},
+    {"name":"spr_Greatsword","order":4,"path":"sprites/spr_Greatsword/spr_Greatsword.yy",},
+    {"name":"spr_Halberd","order":3,"path":"sprites/spr_Halberd/spr_Halberd.yy",},
+    {"name":"spr_Sword","order":2,"path":"sprites/spr_Sword/spr_Sword.yy",},
   ],
 }
