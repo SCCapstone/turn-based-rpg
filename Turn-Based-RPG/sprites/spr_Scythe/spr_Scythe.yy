@@ -1,11 +1,11 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_Sword",
-  "bbox_bottom": 24,
-  "bbox_left": 7,
-  "bbox_right": 25,
-  "bbox_top": 6,
+  "name": "spr_Scythe",
+  "bbox_bottom": 27,
+  "bbox_left": 2,
+  "bbox_right": 30,
+  "bbox_top": 5,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,15 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8fa6375c-cf5d-4bcd-b2a3-6e52e6644282",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9b25a04f-b38d-4031-9c31-cea1ba6f9fec",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 32,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"6ee5080c-d2a4-43d0-b0ac-aa4b4f42bb98","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"f83cafd0-14b5-401d-8eed-352e36643637","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c0e56e1a-02da-49be-bccb-ff28ac6f9b17","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -33,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_Sword",
+    "name": "spr_Scythe",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -55,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8fa6375c-cf5d-4bcd-b2a3-6e52e6644282","path":"sprites/spr_Sword/spr_Sword.yy",},},},"Disabled":false,"id":"433c8c4b-1223-4e3d-9b55-ab6e0c935c48","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9b25a04f-b38d-4031-9c31-cea1ba6f9fec","path":"sprites/spr_Scythe/spr_Scythe.yy",},},},"Disabled":false,"id":"f8159613-03bb-49c9-b7cb-9bd2a5d53832","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
