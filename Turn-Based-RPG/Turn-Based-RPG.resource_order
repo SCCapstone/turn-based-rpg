@@ -17,8 +17,10 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"spr_Sword","order":3,"path":"sprites/spr_Sword/spr_Sword.yy",},
     {"name":"obj_game","order":1,"path":"objects/obj_game/obj_game.yy",},
     {"name":"spr_Heal","order":1,"path":"sprites/spr_Heal/spr_Heal.yy",},
+    {"name":"spr_Scythe","order":2,"path":"sprites/spr_Scythe/spr_Scythe.yy",},
     {"name":"RoomStartTown","order":1,"path":"rooms/RoomStartTown/RoomStartTown.yy",},
   ],
 }
