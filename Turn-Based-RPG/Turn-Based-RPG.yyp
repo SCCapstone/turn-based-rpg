@@ -34,13 +34,16 @@
     "IDEVersion": "2023.8.2.106",
   },
   "resources": [
-    {"id":{"name":"spr_Sword","path":"sprites/spr_Sword/spr_Sword.yy",},},
     {"id":{"name":"obj_knight","path":"objects/obj_knight/obj_knight.yy",},},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},},
     {"id":{"name":"spr_Heal","path":"sprites/spr_Heal/spr_Heal.yy",},},
     {"id":{"name":"spr_Scythe","path":"sprites/spr_Scythe/spr_Scythe.yy",},},
+    {"id":{"name":"spr_Dagger","path":"sprites/spr_Dagger/spr_Dagger.yy",},},
     {"id":{"name":"RoomStartTown","path":"rooms/RoomStartTown/RoomStartTown.yy",},},
     {"id":{"name":"spr_knight","path":"sprites/spr_knight/spr_knight.yy",},},
+    {"id":{"name":"spr_Greatsword","path":"sprites/spr_Greatsword/spr_Greatsword.yy",},},
+    {"id":{"name":"spr_Halberd","path":"sprites/spr_Halberd/spr_Halberd.yy",},},
+    {"id":{"name":"spr_Sword","path":"sprites/spr_Sword/spr_Sword.yy",},},
     {"id":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
   ],
   "RoomOrderNodes": [
