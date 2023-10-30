@@ -44,7 +44,6 @@
     {"id":{"name":"spr_Greatsword","path":"sprites/spr_Greatsword/spr_Greatsword.yy",},},
     {"id":{"name":"spr_Halberd","path":"sprites/spr_Halberd/spr_Halberd.yy",},},
     {"id":{"name":"spr_Sword","path":"sprites/spr_Sword/spr_Sword.yy",},},
-    {"id":{"name":"spr_strawberry","path":"sprites/spr_strawberry/spr_strawberry.yy",},},
     {"id":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
   ],
   "RoomOrderNodes": [

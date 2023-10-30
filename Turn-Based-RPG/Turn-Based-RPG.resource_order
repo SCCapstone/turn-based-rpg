@@ -25,6 +25,5 @@
     {"name":"spr_Greatsword","order":4,"path":"sprites/spr_Greatsword/spr_Greatsword.yy",},
     {"name":"spr_Halberd","order":3,"path":"sprites/spr_Halberd/spr_Halberd.yy",},
     {"name":"spr_Sword","order":2,"path":"sprites/spr_Sword/spr_Sword.yy",},
-    {"name":"spr_strawberry","order":6,"path":"sprites/spr_strawberry/spr_strawberry.yy",},
   ],
 }
