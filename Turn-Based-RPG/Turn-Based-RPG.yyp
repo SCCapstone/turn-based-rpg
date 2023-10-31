@@ -36,6 +36,7 @@
   "resources": [
     {"id":{"name":"obj_knight","path":"objects/obj_knight/obj_knight.yy",},},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},},
+    {"id":{"name":"spr_strawberry","path":"sprites/spr_strawberry/spr_strawberry.yy",},},
     {"id":{"name":"spr_Heal","path":"sprites/spr_Heal/spr_Heal.yy",},},
     {"id":{"name":"spr_Scythe","path":"sprites/spr_Scythe/spr_Scythe.yy",},},
     {"id":{"name":"spr_Dagger","path":"sprites/spr_Dagger/spr_Dagger.yy",},},
