@@ -18,7 +18,6 @@
   ],
   "ResourceOrderSettings": [
     {"name":"obj_game","order":1,"path":"objects/obj_game/obj_game.yy",},
-    {"name":"spr_strawberry","order":6,"path":"sprites/spr_strawberry/spr_strawberry.yy",},
     {"name":"spr_Heal","order":1,"path":"sprites/spr_Heal/spr_Heal.yy",},
     {"name":"spr_Scythe","order":2,"path":"sprites/spr_Scythe/spr_Scythe.yy",},
     {"name":"spr_Dagger","order":5,"path":"sprites/spr_Dagger/spr_Dagger.yy",},
