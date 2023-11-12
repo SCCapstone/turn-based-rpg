@@ -15,12 +15,12 @@
     {"name":"Sounds","order":3,"path":"folders/Sounds.yy",},
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Characters","order":13,"path":"folders/Sprites/Characters.yy",},
+    {"name":"Tiles","order":15,"path":"folders/Sprites/Tiles.yy",},
     {"name":"UI","order":12,"path":"folders/Sprites/UI.yy",},
     {"name":"Weapons","order":11,"path":"folders/Sprites/Weapons.yy",},
     {"name":"World Map","order":14,"path":"folders/Sprites/World Map.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"Tiles","order":15,"path":"folders/Sprites/Tiles.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_knight","order":1,"path":"sprites/spr_knight/spr_knight.yy",},
