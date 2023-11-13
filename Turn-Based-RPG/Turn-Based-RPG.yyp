@@ -65,8 +65,10 @@
     {"id":{"name":"spr_Greatsword","path":"sprites/spr_Greatsword/spr_Greatsword.yy",},},
     {"id":{"name":"spr_Halberd","path":"sprites/spr_Halberd/spr_Halberd.yy",},},
     {"id":{"name":"spr_mapBackground","path":"sprites/spr_mapBackground/spr_mapBackground.yy",},},
+    {"id":{"name":"spr_startScreenBackground","path":"sprites/spr_startScreenBackground/spr_startScreenBackground.yy",},},
     {"id":{"name":"spr_Sword","path":"sprites/spr_Sword/spr_Sword.yy",},},
     {"id":{"name":"spr_grass_tiles","path":"sprites/spr_grass_tiles/spr_grass_tiles.yy",},},
+    {"id":{"name":"RoomStartScreen","path":"rooms/RoomStartScreen/RoomStartScreen.yy",},},
     {"id":{"name":"spr_node","path":"sprites/spr_node/spr_node.yy",},},
     {"id":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
   ],
@@ -75,6 +77,7 @@
     {"roomId":{"name":"RoomStartTown","path":"rooms/RoomStartTown/RoomStartTown.yy",},},
     {"roomId":{"name":"RoomWorldMap","path":"rooms/RoomWorldMap/RoomWorldMap.yy",},},
     {"roomId":{"name":"RoomPlains","path":"rooms/RoomPlains/RoomPlains.yy",},},
+    {"roomId":{"name":"RoomStartScreen","path":"rooms/RoomStartScreen/RoomStartScreen.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [

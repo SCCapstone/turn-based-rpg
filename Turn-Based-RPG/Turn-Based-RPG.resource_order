@@ -41,7 +41,9 @@
     {"name":"spr_Greatsword","order":1,"path":"sprites/spr_Greatsword/spr_Greatsword.yy",},
     {"name":"spr_Halberd","order":2,"path":"sprites/spr_Halberd/spr_Halberd.yy",},
     {"name":"spr_mapBackground","order":2,"path":"sprites/spr_mapBackground/spr_mapBackground.yy",},
+    {"name":"spr_startScreenBackground","order":3,"path":"sprites/spr_startScreenBackground/spr_startScreenBackground.yy",},
     {"name":"spr_Sword","order":4,"path":"sprites/spr_Sword/spr_Sword.yy",},
+    {"name":"RoomStartScreen","order":4,"path":"rooms/RoomStartScreen/RoomStartScreen.yy",},
     {"name":"spr_node","order":1,"path":"sprites/spr_node/spr_node.yy",},
   ],
 }
