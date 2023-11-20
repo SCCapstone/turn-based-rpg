@@ -1,15 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_status_ui",
-  "eventList": [],
+  "name": "obj_enemy_unit",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
     "name": "Battle",
     "path": "folders/Objects/Battle.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_unit",
+    "path": "objects/obj_unit/obj_unit.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -25,10 +30,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_status_ui",
-    "path": "sprites/spr_status_ui/spr_status_ui.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }
