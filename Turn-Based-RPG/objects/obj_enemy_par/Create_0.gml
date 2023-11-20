@@ -18,6 +18,6 @@ aggro_duration = 5;
 
 // script
 enemy_script[ENEMY_STATE.IDLE] = -1;
-enemy_script[ENEMY_STATE.WANDER] = -1;
+enemy_script[ENEMY_STATE.ROAM] = -1;
 enemy_script[ENEMY_STATE.CHASE] = -1;
 

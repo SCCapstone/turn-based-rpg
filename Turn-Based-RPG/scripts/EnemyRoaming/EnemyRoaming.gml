@@ -1,9 +1,9 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function enemy_wander(){
+function enemy_roaming(){
 	x += x_spd;
 	y += y_spd;
-	if (time_passed > enemy_wander_distance / enemy_speed) { // moves enemy
+	if (time_passed > roam_distance / enemy_speed) { // moves enemy
 	                                                       // to a destination
 		x_spd = 0;
 		y_spd = 0;
@@ -12,8 +12,8 @@ function enemy_wander(){
 			wait = 0;
 			time_passed = 0;
 			dir = point_direction(x,y,xstart,ystart) + irandom_range(-45,45);
-			x_to = x + lengthdir_x(enemy_wander_distance, dir);
-			y_to = y + lengthdir_y(enemy_wander_distance, dir);
+			x_to = x + lengthdir_x(roam_distance, dir);
+			y_to = y + lengthdir_y(roam_distance, dir);
 		}
 	} else {  // moves to a new destination
 		time_passed++;

@@ -18,6 +18,6 @@ function enemy_chase(){  // sets the enemy to chase the player
 		}
 		if (_distance_move >= give_up)  // sets the enemy back to wander once
 		                                // player reaches certain distance
-			state = ENEMY_STATE.WANDER;
+			state = ENEMY_STATE.ROAM;
 	}
 }

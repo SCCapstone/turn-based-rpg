@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "EnemyWander",
+  "name": "EnemyRoaming",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
