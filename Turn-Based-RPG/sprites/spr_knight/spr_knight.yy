@@ -26,7 +26,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c47434ce-cec1-4862-a425-6b2dd34fc960","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 7,
+  "origin": 9,
   "parent": {
     "name": "Characters",
     "path": "folders/Sprites/Characters.yy",
@@ -65,7 +65,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 15,
+    "xorigin": 16,
     "yorigin": 31,
   },
   "swatchColours": null,
