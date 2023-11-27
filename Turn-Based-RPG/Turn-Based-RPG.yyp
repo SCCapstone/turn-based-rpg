@@ -42,7 +42,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.2.108",
+    "IDEVersion": "2023.8.0.98",
   },
   "resources": [
     {"id":{"name":"fnt_pixeloid_8","path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},},
@@ -54,7 +54,6 @@
     {"id":{"name":"spr_menu_border","path":"sprites/spr_menu_border/spr_menu_border.yy",},},
     {"id":{"name":"obj_battle","path":"objects/obj_battle/obj_battle.yy",},},
     {"id":{"name":"obj_enemy_test","path":"objects/obj_enemy_test/obj_enemy_test.yy",},},
-    {"id":{"name":"spr_status_ui","path":"sprites/spr_status_ui/spr_status_ui.yy",},},
     {"id":{"name":"spr_test","path":"sprites/spr_test/spr_test.yy",},},
     {"id":{"name":"obj_pointer","path":"objects/obj_pointer/obj_pointer.yy",},},
     {"id":{"name":"obj_archer","path":"objects/obj_archer/obj_archer.yy",},},
@@ -69,6 +68,7 @@
     {"id":{"name":"EnemyTemplates","path":"scripts/EnemyTemplates/EnemyTemplates.yy",},},
     {"id":{"name":"obj_status_ui","path":"objects/obj_status_ui/obj_status_ui.yy",},},
     {"id":{"name":"EnemyState","path":"scripts/EnemyState/EnemyState.yy",},},
+    {"id":{"name":"obj_shadow","path":"objects/obj_shadow/obj_shadow.yy",},},
     {"id":{"name":"spr_tree","path":"sprites/spr_tree/spr_tree.yy",},},
     {"id":{"name":"ts_grass_tiles","path":"tilesets/ts_grass_tiles/ts_grass_tiles.yy",},},
     {"id":{"name":"spr_Scythe","path":"sprites/spr_Scythe/spr_Scythe.yy",},},
@@ -104,9 +104,9 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"RoomAccessMenu","path":"rooms/RoomAccessMenu/RoomAccessMenu.yy",},},
     {"roomId":{"name":"RoomWorldMap","path":"rooms/RoomWorldMap/RoomWorldMap.yy",},},
+    {"roomId":{"name":"RoomStartTown","path":"rooms/RoomStartTown/RoomStartTown.yy",},},
     {"roomId":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
     {"roomId":{"name":"RoomStartScreen","path":"rooms/RoomStartScreen/RoomStartScreen.yy",},},
-    {"roomId":{"name":"RoomStartTown","path":"rooms/RoomStartTown/RoomStartTown.yy",},},
     {"roomId":{"name":"RoomPlains","path":"rooms/RoomPlains/RoomPlains.yy",},},
   ],
   "templateType": "game",
