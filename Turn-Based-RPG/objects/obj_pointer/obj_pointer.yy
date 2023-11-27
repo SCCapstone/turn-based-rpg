@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_knight",
-    "path": "sprites/spr_knight/spr_knight.yy",
+    "name": "spr_pointer",
+    "path": "sprites/spr_pointer/spr_pointer.yy",
   },
   "spriteMaskId": null,
   "visible": true,
