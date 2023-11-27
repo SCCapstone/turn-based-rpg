@@ -29,5 +29,13 @@ if (place_meeting(x, y + y_spd, obj_tree) == true) {
 	y_spd = 0;
 }
 
+if (place_meeting(x + x_spd, y, obj_wall) == true) {
+	x_spd = 0;
+}
+
+if (place_meeting(x, y + y_spd, obj_wall) == true) {
+	y_spd = 0;
+}
+
 x += x_spd;
 y += y_spd;
