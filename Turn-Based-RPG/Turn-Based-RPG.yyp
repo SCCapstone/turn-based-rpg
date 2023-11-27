@@ -50,6 +50,7 @@
     {"id":{"name":"EnemyRoaming","path":"scripts/EnemyRoaming/EnemyRoaming.yy",},},
     {"id":{"name":"spr_archer","path":"sprites/spr_archer/spr_archer.yy",},},
     {"id":{"name":"spr_knight","path":"sprites/spr_knight/spr_knight.yy",},},
+    {"id":{"name":"spr_menu_border","path":"sprites/spr_menu_border/spr_menu_border.yy",},},
     {"id":{"name":"obj_battle","path":"objects/obj_battle/obj_battle.yy",},},
     {"id":{"name":"obj_enemy_test","path":"objects/obj_enemy_test/obj_enemy_test.yy",},},
     {"id":{"name":"spr_status_ui","path":"sprites/spr_status_ui/spr_status_ui.yy",},},
