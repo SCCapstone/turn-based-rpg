@@ -110,8 +110,8 @@
     {"id":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"RoomWorldMap","path":"rooms/RoomWorldMap/RoomWorldMap.yy",},},
     {"roomId":{"name":"RoomAccessMenu","path":"rooms/RoomAccessMenu/RoomAccessMenu.yy",},},
+    {"roomId":{"name":"RoomWorldMap","path":"rooms/RoomWorldMap/RoomWorldMap.yy",},},
     {"roomId":{"name":"RoomStartTown","path":"rooms/RoomStartTown/RoomStartTown.yy",},},
     {"roomId":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
     {"roomId":{"name":"RoomStartScreen","path":"rooms/RoomStartScreen/RoomStartScreen.yy",},},

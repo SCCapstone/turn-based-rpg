@@ -14,3 +14,5 @@ option[2] = "Quit game";
 
 // The length of the array, stored for ease of access
 op_length = array_length(option);
+
+pos = 0;
