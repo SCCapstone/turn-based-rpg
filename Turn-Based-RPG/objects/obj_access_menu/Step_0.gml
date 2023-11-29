@@ -3,7 +3,7 @@ up_key = keyboard_check_pressed(ord("W"));
 down_key = keyboard_check_pressed(ord("S"));
 left_key = keyboard_check_pressed(ord("A"));
 right_key = keyboard_check_pressed(ord("D"));
-accept_key = keyboard_check_pressed(vk_enter)
+accept_key = keyboard_check_pressed(ord("E"));
 
 // Move through the menu
 pos += down_key - up_key;
