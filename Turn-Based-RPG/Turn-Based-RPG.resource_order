@@ -7,6 +7,7 @@
     {"name":"Objects","order":9,"path":"folders/Objects.yy",},
     {"name":"Battle","order":6,"path":"folders/Objects/Battle.yy",},
     {"name":"Enemy","order":4,"path":"folders/Objects/Enemy.yy",},
+    {"name":"Plains and Forest","order":9,"path":"folders/Objects/Plains and Forest.yy",},
     {"name":"Town","order":8,"path":"folders/Objects/Town.yy",},
     {"name":"World Map","order":3,"path":"folders/Objects/World Map.yy",},
     {"name":"Particle Systems","order":15,"path":"folders/Particle Systems.yy",},
@@ -27,7 +28,6 @@
     {"name":"World Map","order":3,"path":"folders/Sprites/World Map.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"Plains and Forest","order":9,"path":"folders/Objects/Plains and Forest.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"fnt_pixeloid_8","order":1,"path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},
