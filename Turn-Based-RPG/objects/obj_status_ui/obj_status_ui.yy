@@ -25,10 +25,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_status_ui",
-    "path": "sprites/spr_status_ui/spr_status_ui.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

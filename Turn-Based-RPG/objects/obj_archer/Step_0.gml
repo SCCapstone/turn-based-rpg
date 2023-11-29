@@ -1,3 +1,3 @@
-// idle movement pie
+// Idle movement
 
 image_speed = .005;
