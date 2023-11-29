@@ -49,8 +49,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Start screen",
-    "path": "folders/Sprites/Start screen.yy",
+    "name": "World Map",
+    "path": "folders/Sprites/World Map.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
