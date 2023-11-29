@@ -4,6 +4,7 @@
 // Will call the battle system when any of the child enemies collide with the
 // player
 
+instance_destroy();
 
 
 
