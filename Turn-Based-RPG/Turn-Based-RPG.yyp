@@ -18,6 +18,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Battle","folderPath":"folders/Objects/Battle.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Enemy","folderPath":"folders/Objects/Enemy.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Plains and Forest","folderPath":"folders/Objects/Plains and Forest.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"World Map","folderPath":"folders/Objects/World Map.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Particle Systems","folderPath":"folders/Particle Systems.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Paths","folderPath":"folders/Paths.yy",},
@@ -60,6 +61,7 @@
     {"id":{"name":"spr_placeholder_background","path":"sprites/spr_placeholder_background/spr_placeholder_background.yy",},},
     {"id":{"name":"obj_unit","path":"objects/obj_unit/obj_unit.yy",},},
     {"id":{"name":"PartyData","path":"scripts/PartyData/PartyData.yy",},},
+    {"id":{"name":"RoomForest","path":"rooms/RoomForest/RoomForest.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},},
     {"id":{"name":"spr_Heal","path":"sprites/spr_Heal/spr_Heal.yy",},},
@@ -105,6 +107,7 @@
     {"roomId":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
     {"roomId":{"name":"RoomStartScreen","path":"rooms/RoomStartScreen/RoomStartScreen.yy",},},
     {"roomId":{"name":"RoomStartTown","path":"rooms/RoomStartTown/RoomStartTown.yy",},},
+    {"roomId":{"name":"RoomForest","path":"rooms/RoomForest/RoomForest.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [
