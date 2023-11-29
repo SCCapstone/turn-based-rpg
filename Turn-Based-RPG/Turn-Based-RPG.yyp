@@ -39,6 +39,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"World Map","folderPath":"folders/Sprites/World Map.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Plains and Forest","folderPath":"folders/Objects/Plains and Forest.yy",},
   ],
   "IncludedFiles": [],
   "isEcma": false,
