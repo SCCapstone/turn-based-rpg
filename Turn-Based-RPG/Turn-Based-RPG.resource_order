@@ -22,6 +22,7 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Backgrounds","order":7,"path":"folders/Sprites/Backgrounds.yy",},
     {"name":"Characters","order":2,"path":"folders/Sprites/Characters.yy",},
+    {"name":"Start screen","order":10,"path":"folders/Sprites/Start screen.yy",},
     {"name":"Tiles","order":4,"path":"folders/Sprites/Tiles.yy",},
     {"name":"Town","order":9,"path":"folders/Sprites/Town.yy",},
     {"name":"UI","order":1,"path":"folders/Sprites/UI.yy",},

@@ -33,6 +33,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Sprites.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Backgrounds","folderPath":"folders/Sprites/Backgrounds.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Characters","folderPath":"folders/Sprites/Characters.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Start screen","folderPath":"folders/Sprites/Start screen.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tiles","folderPath":"folders/Sprites/Tiles.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Town","folderPath":"folders/Sprites/Town.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"UI","folderPath":"folders/Sprites/UI.yy",},
