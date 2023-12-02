@@ -1,17 +1,17 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "RoomWorldMap",
+  "name": "rm_world_map",
   "creationCodeFile": "",
   "inheritCode": false,
   "inheritCreationOrder": false,
   "inheritLayers": false,
   "instanceCreationOrder": [
-    {"name":"inst_42F8B788","path":"rooms/RoomWorldMap/RoomWorldMap.yy",},
-    {"name":"inst_249F9397","path":"rooms/RoomWorldMap/RoomWorldMap.yy",},
-    {"name":"inst_37FE5CE7","path":"rooms/RoomWorldMap/RoomWorldMap.yy",},
-    {"name":"inst_706C6185","path":"rooms/RoomWorldMap/RoomWorldMap.yy",},
-    {"name":"inst_3E30F52A","path":"rooms/RoomWorldMap/RoomWorldMap.yy",},
+    {"name":"inst_42F8B788","path":"rooms/rm_world_map/rm_world_map.yy",},
+    {"name":"inst_249F9397","path":"rooms/rm_world_map/rm_world_map.yy",},
+    {"name":"inst_37FE5CE7","path":"rooms/rm_world_map/rm_world_map.yy",},
+    {"name":"inst_706C6185","path":"rooms/rm_world_map/rm_world_map.yy",},
+    {"name":"inst_3E30F52A","path":"rooms/rm_world_map/rm_world_map.yy",},
   ],
   "isDnd": false,
   "layers": [
