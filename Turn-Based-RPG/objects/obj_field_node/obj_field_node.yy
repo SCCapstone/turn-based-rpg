@@ -28,8 +28,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_node",
-    "path": "sprites/spr_node/spr_node.yy",
+    "name": "spr_field",
+    "path": "sprites/spr_field/spr_field.yy",
   },
   "spriteMaskId": null,
   "visible": true,

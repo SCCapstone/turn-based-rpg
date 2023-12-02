@@ -69,7 +69,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_62DFECDD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"rotation":0.0,"scaleX":9.500006,"scaleY":0.5,"x":0.0,"y":344.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6ED52828","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":5.4,"x":-64.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_16F018A2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"rotation":0.0,"scaleX":9.500006,"scaleY":0.5,"x":0.0,"y":-32.0,},
-      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
   ],
   "parent": {
     "name": "Rooms",
