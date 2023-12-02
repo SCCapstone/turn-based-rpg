@@ -11,7 +11,7 @@ function enemy_roaming(){
 		if (++wait >= wait_duration) { // sets a new destination for the enemy
 			wait = 0;
 			time_passed = 0;
-			dir = point_direction(x,y,xstart,ystart) + irandom_range(-45,45);
+			dir = point_direction(x,y,xstart,ystart) + irandom_range(-35,50);
 			x_to = x + lengthdir_x(roam_distance, dir);
 			y_to = y + lengthdir_y(roam_distance, dir);
 		}
