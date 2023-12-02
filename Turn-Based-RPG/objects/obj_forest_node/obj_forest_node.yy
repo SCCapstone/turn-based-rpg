@@ -1,8 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_node",
-  "eventList": [],
+  "name": "obj_forest_node",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
@@ -26,8 +28,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_node",
-    "path": "sprites/spr_node/spr_node.yy",
+    "name": "spr_forest",
+    "path": "sprites/spr_forest/spr_forest.yy",
   },
   "spriteMaskId": null,
   "visible": true,

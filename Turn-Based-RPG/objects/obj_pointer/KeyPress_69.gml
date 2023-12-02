@@ -7,3 +7,7 @@ if location == 0 {
 if location == 1 {
 	room_goto(rm_plains);
 }
+
+if location == 2 {
+	room_goto(rm_forest);
+}
