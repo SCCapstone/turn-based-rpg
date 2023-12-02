@@ -1,7 +1,7 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "RoomMainMenu",
+  "name": "rm_start_screen",
   "creationCodeFile": "",
   "inheritCode": false,
   "inheritCreationOrder": false,

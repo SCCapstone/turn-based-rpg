@@ -1,14 +1,14 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "RoomStartTown",
+  "name": "rm_start_town",
   "creationCodeFile": "",
   "inheritCode": false,
   "inheritCreationOrder": false,
   "inheritLayers": false,
   "instanceCreationOrder": [
-    {"name":"inst_AFB3E00","path":"rooms/RoomStartTown/RoomStartTown.yy",},
-    {"name":"inst_7DFF4E74","path":"rooms/RoomStartTown/RoomStartTown.yy",},
+    {"name":"inst_AFB3E00","path":"rooms/rm_start_town/rm_start_town.yy",},
+    {"name":"inst_7DFF4E74","path":"rooms/rm_start_town/rm_start_town.yy",},
   ],
   "isDnd": false,
   "layers": [

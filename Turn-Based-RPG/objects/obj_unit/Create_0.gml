@@ -1,4 +1,4 @@
-sprite_index = sprites.idle;
+sprite_index = _sprites.idle;
 
 
 

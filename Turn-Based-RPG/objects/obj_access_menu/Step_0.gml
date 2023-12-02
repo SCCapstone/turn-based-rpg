@@ -19,7 +19,7 @@ if (accept_key) {
 	switch (pos) {
 	
 		case 0: 
-			room_goto(RoomWorldMap);
+			room_goto(rm_world_map);
 		break;
 	
 		case 1:

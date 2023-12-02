@@ -1,16 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-
-
-
-
-
-
-
-
-
-
-
-// Inherit the parent event
+// Flip sprite xscale to face left
 event_inherited();
 image_xscale = -1;
