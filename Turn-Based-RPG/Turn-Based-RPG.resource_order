@@ -48,7 +48,6 @@
     {"name":"obj_village_node","order":2,"path":"objects/obj_village_node/obj_village_node.yy",},
     {"name":"obj_access_menu","order":7,"path":"objects/obj_access_menu/obj_access_menu.yy",},
     {"name":"EnemyTemplates","order":1,"path":"scripts/EnemyTemplates/EnemyTemplates.yy",},
-    {"name":"obj_status_ui","order":1,"path":"objects/obj_status_ui/obj_status_ui.yy",},
     {"name":"EnemyState","order":1,"path":"scripts/EnemyState/EnemyState.yy",},
     {"name":"obj_shadow","order":6,"path":"objects/obj_shadow/obj_shadow.yy",},
     {"name":"spr_tree","order":6,"path":"sprites/spr_tree/spr_tree.yy",},

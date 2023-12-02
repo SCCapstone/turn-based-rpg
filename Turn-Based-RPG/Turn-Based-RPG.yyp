@@ -45,7 +45,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.2.108",
+    "IDEVersion": "2023.8.0.98",
   },
   "resources": [
     {"id":{"name":"fnt_pixeloid_8","path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},},
@@ -74,7 +74,6 @@
     {"id":{"name":"obj_village_node","path":"objects/obj_village_node/obj_village_node.yy",},},
     {"id":{"name":"obj_access_menu","path":"objects/obj_access_menu/obj_access_menu.yy",},},
     {"id":{"name":"EnemyTemplates","path":"scripts/EnemyTemplates/EnemyTemplates.yy",},},
-    {"id":{"name":"obj_status_ui","path":"objects/obj_status_ui/obj_status_ui.yy",},},
     {"id":{"name":"EnemyState","path":"scripts/EnemyState/EnemyState.yy",},},
     {"id":{"name":"obj_shadow","path":"objects/obj_shadow/obj_shadow.yy",},},
     {"id":{"name":"spr_tree","path":"sprites/spr_tree/spr_tree.yy",},},
