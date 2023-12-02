@@ -5,19 +5,19 @@ if at the starting village location, level has been cleared, and the D key is pr
 
 updates location
 */
-if location == 0 && obj_village_node.is_cleared == true && keyboard_check_pressed(ord("D")) {
+if state == 0 && location == 0 && obj_village_node.is_cleared == true && keyboard_check_pressed(ord("D")) {
 	state = 1;
 }
 
-if location == 1 && keyboard_check_pressed(ord("S")) {
+if state == 0 && location == 1 && keyboard_check_pressed(ord("S")) {
 	state = 2;
 }
 
-if location == 1 && obj_field_node.is_cleared = true && keyboard_check_pressed(ord("D")) {
+if state == 0 && location == 1 && obj_field_node.is_cleared = true && keyboard_check_pressed(ord("D")) {
 	state = 3;
 }
 
-if location == 2 && keyboard_check_pressed(ord("W")) {
+if state == 0 && location == 2 && keyboard_check_pressed(ord("W")) {
 	state = 4;
 }
 
