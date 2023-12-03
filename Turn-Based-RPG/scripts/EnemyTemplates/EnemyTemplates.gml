@@ -2,7 +2,7 @@ global.enemies =
 {
 	archer: 
 	{
-		_name: "archer",
+		_name: "Archer",
 		_hp: 60,
 		_speed: 5,
 		_max_hp: 60,

@@ -12,6 +12,8 @@ _p_state = "alive"; // State of entire friendly party
 _e_state = "alive"; // State of entire enemy party
 _moved = false; // Ensures units only move once
 _gameover = false;
+_timer = 0;
+_show_wpn = false;
 
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {
