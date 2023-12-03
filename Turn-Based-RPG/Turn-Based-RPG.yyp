@@ -99,6 +99,7 @@
     {"id":{"name":"rm_world_map","path":"rooms/rm_world_map/rm_world_map.yy",},},
     {"id":{"name":"spr_roof","path":"sprites/spr_roof/spr_roof.yy",},},
     {"id":{"name":"obj_enemy_unit","path":"objects/obj_enemy_unit/obj_enemy_unit.yy",},},
+    {"id":{"name":"obj_villager","path":"objects/obj_villager/obj_villager.yy",},},
     {"id":{"name":"spr_field","path":"sprites/spr_field/spr_field.yy",},},
     {"id":{"name":"Battle","path":"scripts/Battle/Battle.yy",},},
     {"id":{"name":"obj_house","path":"objects/obj_house/obj_house.yy",},},
