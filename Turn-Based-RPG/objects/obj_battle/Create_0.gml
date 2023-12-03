@@ -10,6 +10,8 @@ _p_num = 0; // Counter for player array
 _e_num = 0; // Counter for enemy array
 _p_state = "alive"; // State of entire friendly party
 _e_state = "alive"; // State of entire enemy party
+_moved = false; // Ensures units only move once
+_gameover = false;
 
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {
@@ -74,10 +76,12 @@ _debugtxt += "]\n"
 
 // Determine which party moves first before alternating control
 if (party_units[0]._speed > enemy_units[0]._speed) {
-	_debugtxt += "Friendly party moves first!\nBegin player " + string(_p_num+1) + "'s turn";
+	_debugtxt += "Friendly party moves first!\nBegin player " + string(_p_num) + "'s turn";
+	_e_num = -1;
 	_turn = "player";
 } else {
-	_debugtxt += "Enemy party moves first!\nBegin enemy " + string(_e_num+1) + "'s turn";
+	_debugtxt += "Enemy party moves first!\nBegin enemy " + string(_e_num) + "'s turn";
+	_p_num = -1;
 	_turn = "enemy";
 }
 
