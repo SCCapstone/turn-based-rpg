@@ -10,7 +10,4 @@ facing guide:
 2 = away from user
 3 = left
 4 = right
-<<<<<<< Updated upstream
-=======
 */
->>>>>>> Stashed changes
