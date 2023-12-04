@@ -1,20 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_enemy_test",
+  "name": "obj_goal",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Enemy",
-    "path": "folders/Objects/Enemy.yy",
+    "name": "Plains and Forest",
+    "path": "folders/Objects/Plains and Forest.yy",
   },
-  "parentObjectId": {
-    "name": "obj_enemy_par",
-    "path": "objects/obj_enemy_par/obj_enemy_par.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -31,8 +28,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_archer",
-    "path": "sprites/spr_archer/spr_archer.yy",
+    "name": "spr_test",
+    "path": "sprites/spr_test/spr_test.yy",
   },
   "spriteMaskId": null,
   "visible": true,

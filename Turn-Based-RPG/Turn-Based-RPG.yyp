@@ -46,7 +46,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.0.98",
+    "IDEVersion": "2023.8.2.108",
   },
   "resources": [
     {"id":{"name":"fnt_pixeloid_8","path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},},
@@ -82,6 +82,7 @@
     {"id":{"name":"spr_tree","path":"sprites/spr_tree/spr_tree.yy",},},
     {"id":{"name":"ts_grass_tiles","path":"tilesets/ts_grass_tiles/ts_grass_tiles.yy",},},
     {"id":{"name":"spr_scythe","path":"sprites/spr_scythe/spr_scythe.yy",},},
+    {"id":{"name":"obj_goal","path":"objects/obj_goal/obj_goal.yy",},},
     {"id":{"name":"snd_bow_shoot","path":"sounds/snd_bow_shoot/snd_bow_shoot.yy",},},
     {"id":{"name":"rm_town","path":"rooms/rm_town/rm_town.yy",},},
     {"id":{"name":"spr_house","path":"sprites/spr_house/spr_house.yy",},},
@@ -105,6 +106,7 @@
     {"id":{"name":"spr_roof","path":"sprites/spr_roof/spr_roof.yy",},},
     {"id":{"name":"obj_enemy_unit","path":"objects/obj_enemy_unit/obj_enemy_unit.yy",},},
     {"id":{"name":"obj_villager","path":"objects/obj_villager/obj_villager.yy",},},
+    {"id":{"name":"spr_tree_top","path":"sprites/spr_tree_top/spr_tree_top.yy",},},
     {"id":{"name":"spr_field","path":"sprites/spr_field/spr_field.yy",},},
     {"id":{"name":"Battle","path":"scripts/Battle/Battle.yy",},},
     {"id":{"name":"obj_house","path":"objects/obj_house/obj_house.yy",},},
@@ -122,8 +124,8 @@
     {"id":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_access_menu","path":"rooms/rm_access_menu/rm_access_menu.yy",},},
     {"roomId":{"name":"rm_plains","path":"rooms/rm_plains/rm_plains.yy",},},
+    {"roomId":{"name":"rm_access_menu","path":"rooms/rm_access_menu/rm_access_menu.yy",},},
     {"roomId":{"name":"rm_world_map","path":"rooms/rm_world_map/rm_world_map.yy",},},
     {"roomId":{"name":"rm_start_town","path":"rooms/rm_start_town/rm_start_town.yy",},},
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
