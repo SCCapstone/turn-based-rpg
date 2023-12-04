@@ -11,14 +11,3 @@ facing guide:
 3 = left
 4 = right
 */
-
-// Create Health event
-health = 100;
-
-// Damage done by enemy
-var damage = 10;
-health -= damage;
-
-// Healing
-var healingAmount = 20;
-health = clamp(health + healingAmount, 0, 100);
