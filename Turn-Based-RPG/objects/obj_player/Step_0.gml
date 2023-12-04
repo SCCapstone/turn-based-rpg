@@ -24,3 +24,7 @@ if (keyboard_check(ord("D")) && place_free(x + collision_speed, y)) { //move rig
 	image_index = 3;
 	facing = 4;
 }
+
+if (health <= 0) {
+    //player vanishes from the screen
+}
