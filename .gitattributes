@@ -1,0 +1,3 @@
+# Ignore .yy files - they aren't code and GitHub
+# mistakenly thinks they are of the language "Yacc" 
+*.yy linguist-generated=true
