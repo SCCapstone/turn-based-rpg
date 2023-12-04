@@ -1,14 +1,12 @@
-global.enemies =
+global.enemies = 
 {
-	archer:
+	archer: 
 	{
-		name: "archer",
-		hp: 60,
-		mp: 20,
+		_name: "Archer",
+		_hp: 60,
 		_speed: 5,
-		max_hp: 60,
-		max_mp: 20,
-		attacks: [],
-		sprites: { idle: spr_archer_still }
+		_max_hp: 60,
+		_attacks: [global.attacks.bow_shoot],
+		_sprites: { idle: spr_archer_still }
 	}
 }

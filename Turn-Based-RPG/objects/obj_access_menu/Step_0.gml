@@ -19,11 +19,11 @@ if (accept_key) {
 	switch (pos) {
 	
 		case 0: 
-			room_goto(RoomWorldMap);
+			room_goto(rm_world_map);
 		break;
 	
 		case 1:
-			battle_start([global.enemies.archer], spr_field_background);
+			battle_start([global.enemies.archer, global.enemies.archer], spr_field_background);
 		break;
 	
 		case 2:
