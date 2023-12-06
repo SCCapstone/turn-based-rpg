@@ -47,7 +47,7 @@
     {"name":"obj_unit","order":2,"path":"objects/obj_unit/obj_unit.yy",},
     {"name":"rm_access_menu","order":5,"path":"rooms/rm_access_menu/rm_access_menu.yy",},
     {"name":"spr_forest","order":5,"path":"sprites/spr_forest/spr_forest.yy",},
-    {"name":"spr_Heal","order":2,"path":"sprites/spr_Heal/spr_Heal.yy",},
+    {"name":"spr_heal","order":2,"path":"sprites/spr_heal/spr_heal.yy",},
     {"name":"obj_village_node","order":2,"path":"objects/obj_village_node/obj_village_node.yy",},
     {"name":"obj_access_menu","order":7,"path":"objects/obj_access_menu/obj_access_menu.yy",},
     {"name":"EnemyTemplates","order":1,"path":"scripts/EnemyTemplates/EnemyTemplates.yy",},
