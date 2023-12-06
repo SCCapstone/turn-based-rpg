@@ -6,6 +6,7 @@
     {"name":"Notes","order":13,"path":"folders/Notes.yy",},
     {"name":"Objects","order":9,"path":"folders/Objects.yy",},
     {"name":"Battle","order":6,"path":"folders/Objects/Battle.yy",},
+    {"name":"Buttons","order":10,"path":"folders/Objects/Buttons.yy",},
     {"name":"Enemy","order":4,"path":"folders/Objects/Enemy.yy",},
     {"name":"Plains and Forest","order":9,"path":"folders/Objects/Plains and Forest.yy",},
     {"name":"Town","order":8,"path":"folders/Objects/Town.yy",},
@@ -30,7 +31,6 @@
     {"name":"World Map","order":3,"path":"folders/Sprites/World Map.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"Buttons","order":10,"path":"folders/Objects/Buttons.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"fnt_pixeloid_8","order":1,"path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},
