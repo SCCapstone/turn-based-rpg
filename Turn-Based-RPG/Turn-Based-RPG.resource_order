@@ -22,6 +22,7 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Backgrounds","order":7,"path":"folders/Sprites/Backgrounds.yy",},
     {"name":"Characters","order":2,"path":"folders/Sprites/Characters.yy",},
+    {"name":"spr_buttons","order":11,"path":"folders/Sprites/spr_buttons.yy",},
     {"name":"Start screen","order":10,"path":"folders/Sprites/Start screen.yy",},
     {"name":"Tiles","order":4,"path":"folders/Sprites/Tiles.yy",},
     {"name":"Town","order":9,"path":"folders/Sprites/Town.yy",},
@@ -29,6 +30,7 @@
     {"name":"World Map","order":3,"path":"folders/Sprites/World Map.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
+    {"name":"Buttons","order":10,"path":"folders/Objects/Buttons.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"fnt_pixeloid_8","order":1,"path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},
@@ -81,7 +83,6 @@
     {"name":"spr_startScreenBackground","order":2,"path":"sprites/spr_startScreenBackground/spr_startScreenBackground.yy",},
     {"name":"spr_sword","order":4,"path":"sprites/spr_sword/spr_sword.yy",},
     {"name":"spr_leave_map","order":8,"path":"sprites/spr_leave_map/spr_leave_map.yy",},
-    {"name":"Sprite18","order":16,"path":"sprites/Sprite18/Sprite18.yy",},
     {"name":"rm_start_screen","order":4,"path":"rooms/rm_start_screen/rm_start_screen.yy",},
   ],
 }
