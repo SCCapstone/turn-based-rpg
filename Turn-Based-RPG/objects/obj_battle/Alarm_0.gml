@@ -26,7 +26,7 @@ if (_turn == "player") { // Begin enemy turn
 else if (_turn == "enemy") { // Begin player turn
 	while (true) { // Repeat until living unit is found
 
-		if (_p_num+1 < _p_length) {
+		if (_p_num+1 < _p_length && _firstmove == false) {
 			_p_num++; // Increment player party array
 		} else {
 			_p_num = 0; // Wrap around to index 0

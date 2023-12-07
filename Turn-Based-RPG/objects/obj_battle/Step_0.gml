@@ -7,7 +7,13 @@ up_key = keyboard_check_pressed(ord("W"));
 down_key = keyboard_check_pressed(ord("S"));
 accept_key = keyboard_check_pressed(ord("E"));
 
-//show_debug_message(_e_num);
+_is_target += down_key - up_key;
+if (_is_target >= _e_length) {
+	_is_target = 0;
+}
+if (_is_target < 0) {
+	_is_target = _e_length - 1;
+}
 
 if (_turn == "player" && _moved == false) { // Player turn
 	// Begin attack on E button pressed
@@ -69,9 +75,9 @@ if (_turn == "player" && _moved == false) { // Player turn
 			if (party_units[_enemy_target]._hp <= 0) {
 				party_units[_enemy_target]._hp = 0;
 				show_debug_message(party_units[_enemy_target]._name + " was killed!");
-				party_units[_p_num].visible = false; // Make instance invisible, can't remove it or it messes things up
-				party_units[_p_num]._is_dead = true;
-				instance_destroy(party_shadows[_p_num]);
+				party_units[_enemy_target].visible = false; // Make instance invisible, can't remove it or it messes things up
+				party_units[_enemy_target]._is_dead = true;
+				instance_destroy(party_shadows[_enemy_target]);
 				_gameover = check_gameover(party_units, enemy_units); // Check if either party is defeated
 			}
 		
