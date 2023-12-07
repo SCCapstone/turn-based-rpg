@@ -17,6 +17,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Notes","folderPath":"folders/Notes.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Battle","folderPath":"folders/Objects/Battle.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Buttons","folderPath":"folders/Objects/Buttons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Enemy","folderPath":"folders/Objects/Enemy.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Plains and Forest","folderPath":"folders/Objects/Plains and Forest.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Town","folderPath":"folders/Objects/Town.yy",},
@@ -42,13 +43,12 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"World Map","folderPath":"folders/Sprites/World Map.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Buttons","folderPath":"folders/Objects/Buttons.yy",},
   ],
   "IncludedFiles": [],
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.2.108",
+    "IDEVersion": "2023.8.0.98",
   },
   "resources": [
     {"id":{"name":"fnt_pixeloid_8","path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},},
@@ -128,8 +128,8 @@
     {"id":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_start_screen","path":"rooms/rm_start_screen/rm_start_screen.yy",},},
     {"roomId":{"name":"rm_access_menu","path":"rooms/rm_access_menu/rm_access_menu.yy",},},
+    {"roomId":{"name":"rm_start_screen","path":"rooms/rm_start_screen/rm_start_screen.yy",},},
     {"roomId":{"name":"rm_world_map","path":"rooms/rm_world_map/rm_world_map.yy",},},
     {"roomId":{"name":"rm_plains","path":"rooms/rm_plains/rm_plains.yy",},},
     {"roomId":{"name":"rm_start_town","path":"rooms/rm_start_town/rm_start_town.yy",},},
