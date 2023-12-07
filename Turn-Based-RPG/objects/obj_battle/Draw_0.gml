@@ -23,7 +23,7 @@ for (var i = 0; i < _p_length; i++) {
 		if (i == _p_num) {
 			draw_set_color(c_yellow); // Draw current unit text in yellow
 		}
-		if (char._is_dead == true) {
+		if (party_units[i]._is_dead) {
 			draw_set_color(c_red);	// Draw dead unit text in red
 		}
 		draw_text(x+12, y+141+(i*12),char._name);	//Draws party's names
@@ -32,6 +32,16 @@ for (var i = 0; i < _p_length; i++) {
 		draw_set_color(c_white); // Reset color to white so non-selected units are still drawn in white
 }
 
-if (_turn == "player") {
-	draw_sprite(spr_arrow,0,enemy_units[_pos].x + 2,enemy_units[_pos].y + 8){depth = 2};
+if (_turn == "player" && _e_state == "alive") {
+	if (enemy_units[_is_target]._is_dead) {
+		for (var i = 0; i < _e_length; i++) {
+			if (enemy_units[i]._is_dead == false) {
+				_is_target = i;
+				draw_sprite(spr_arrow,0,enemy_units[_is_target].x + 2,enemy_units[_is_target].y + 8);
+			}
+		}
+	}
+	draw_sprite(spr_arrow,0,enemy_units[_is_target].x + 2,enemy_units[_is_target].y + 8);
 }
+
+
