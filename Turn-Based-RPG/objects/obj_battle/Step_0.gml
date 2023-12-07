@@ -9,11 +9,11 @@ accept_key = keyboard_check_pressed(ord("E"));
 
 // Move through the menu
 _pos += down_key - up_key;
-if (_pos >= _p_length) {
+if (_pos >= _e_length) {
 	_pos = 0;
 }
 if (_pos < 0) {
-	_pos = _p_length - 1;
+	_pos = _e_length - 1;
 }
 
 _is_target = _pos;
@@ -26,7 +26,7 @@ if (_turn == "player" && _moved == false) { // Player turn
 			var _dmg = irandom_range(party_units[_p_num]._attacks[0]._dmg_min, 
 			party_units[_p_num]._attacks[0]._dmg_max);
 			// Select random enemy to target (placeholder)
-			var _target = select_target(enemy_units, _e_length);
+			var _target = _is_target
 			
 			// Debug message
 			show_debug_message("Player " + string(_p_num) + " (" + party_units[_p_num]._name + 
