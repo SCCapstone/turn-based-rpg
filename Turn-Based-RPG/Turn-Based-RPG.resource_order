@@ -60,7 +60,6 @@
     {"name":"spr_scythe","order":3,"path":"sprites/spr_scythe/spr_scythe.yy",},
     {"name":"rm_town","order":6,"path":"rooms/rm_town/rm_town.yy",},
     {"name":"spr_shadow","order":8,"path":"sprites/spr_shadow/spr_shadow.yy",},
-    {"name":"rm_start_town","order":1,"path":"rooms/rm_start_town/rm_start_town.yy",},
     {"name":"spr_bow","order":5,"path":"sprites/spr_bow/spr_bow.yy",},
     {"name":"snd_sword_slash","order":2,"path":"sounds/snd_sword_slash/snd_sword_slash.yy",},
     {"name":"spr_knight_still","order":2,"path":"sprites/spr_knight_still/spr_knight_still.yy",},
