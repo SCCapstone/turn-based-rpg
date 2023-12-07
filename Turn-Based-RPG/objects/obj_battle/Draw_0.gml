@@ -20,12 +20,14 @@ if (_show_wpn == true &&_turn == "enemy") { // Flash enemy weapon
 
 for (var i = 0; i < array_length(party_units); i++) {
 		var char = party_units[i];	//Stores a party unit
-		
-		// TODO Change color of currently active party member to yellow, discuss with Chris to find currently active party member
-		draw_text(x+12, y+140+(i*10),char._name);	//Draws party's names
-		draw_text(x+70, y+140+(i*10), "HP: " + string(char._hp) + "/" + string(char._max_hp));	//Draw's party's HP values
-		// TODO Change names and HP values to red when dead
+		if (i = _p_num) {
+			draw_set_color(c_yellow);
+		}
+		if (char._is_dead) {
+			draw_set_color(c_red);	
+		}
+		draw_text(x+12, y+141+(i*12),char._name);	//Draws party's names
+		draw_text(x+87, y+141+(i*12), "HP: " + string(char._hp) + "/" + string(char._max_hp));	//Draw's party's HP values
+		draw_text(x+143, y+141+(i*12), "MP: " + string(char._mp) + "/" + string(char._max_mp));	//Draw's party's HP values
 		draw_set_color(c_white);
-		
-		// TODO Draw MP values
 }
