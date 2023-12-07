@@ -9,7 +9,6 @@ if (_turn == "player" && _moved == false) { // Player turn
 			// Determine random damage
 			var _dmg = irandom_range(party_units[_p_num]._attacks[0]._dmg_min, 
 			party_units[_p_num]._attacks[0]._dmg_max);
-		
 			// Select random enemy to target (placeholder)
 			var _target = select_target(enemy_units, _e_length);
 			
@@ -27,9 +26,9 @@ if (_turn == "player" && _moved == false) { // Player turn
 			if (enemy_units[_target]._hp <= 0) { // Check if target was killed
 				enemy_units[_target]._hp = 0;
 				show_debug_message(enemy_units[_target]._name + " was killed!");
-				instance_destroy(enemy_units[_e_num]);
+				enemy_units[_e_num].visible = false; // Make instance invisible, can't remove it or it messes things up
+				enemy_units[_e_num]._is_dead = true;
 				instance_destroy(enemy_shadows[_e_num]);
-				enemy_units[_e_num] = "x"; // Magic letter to let array know this unit is dead
 				_gameover = check_gameover(party_units, enemy_units); // Check if either party is defeated
 			}
 		
@@ -63,9 +62,9 @@ if (_turn == "player" && _moved == false) { // Player turn
 			if (party_units[_target]._hp <= 0) {
 				party_units[_target]._hp = 0;
 				show_debug_message(party_units[_target]._name + " was killed!");
-				instance_destroy(party_units[_p_num]);
+				party_units[_p_num].visible = false; // Make instance invisible, can't remove it or it messes things up
+				party_units[_p_num]._is_dead = true;
 				instance_destroy(party_shadows[_p_num]);
-				party_units[_p_num] = "x"; // Magic letter to let array know this unit is dead
 				_gameover = check_gameover(party_units, enemy_units); // Check if either party is defeated
 			}
 		

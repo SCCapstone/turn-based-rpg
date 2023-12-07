@@ -1,0 +1,1 @@
+randomize(); // Reseed random variable
