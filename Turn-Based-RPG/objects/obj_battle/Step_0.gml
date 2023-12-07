@@ -2,9 +2,25 @@
 // NOTE all attacks are hardcoded to call attacks[0] (a unit's first attack),
 // this will be changed when support for multiple attacks is added
 
+// Get inputs
+up_key = keyboard_check_pressed(ord("W"));
+down_key = keyboard_check_pressed(ord("S"));
+accept_key = keyboard_check_pressed(ord("E"));
+
+// Move through the menu
+_pos += down_key - up_key;
+if (_pos >= _p_length) {
+	_pos = 0;
+}
+if (_pos < 0) {
+	_pos = _p_length - 1;
+}
+
+_is_target = _pos;
+
 if (_turn == "player" && _moved == false) { // Player turn
 	// Begin attack on E button pressed
-	if (keyboard_check_pressed(ord("E"))) { // Zandair needs to replace this button press with UI elements
+	if (accept_key) { // Zandair needs to replace this button press with UI elements
 		if (_gameover == false) {
 			// Determine random damage
 			var _dmg = irandom_range(party_units[_p_num]._attacks[0]._dmg_min, 

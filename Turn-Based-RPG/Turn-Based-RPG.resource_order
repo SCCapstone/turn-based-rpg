@@ -46,6 +46,7 @@
     {"name":"obj_pointer","order":1,"path":"objects/obj_pointer/obj_pointer.yy",},
     {"name":"obj_forest_node","order":4,"path":"objects/obj_forest_node/obj_forest_node.yy",},
     {"name":"obj_archer","order":1,"path":"objects/obj_archer/obj_archer.yy",},
+    {"name":"spr_arrow","order":12,"path":"sprites/spr_arrow/spr_arrow.yy",},
     {"name":"obj_unit","order":2,"path":"objects/obj_unit/obj_unit.yy",},
     {"name":"rm_access_menu","order":5,"path":"rooms/rm_access_menu/rm_access_menu.yy",},
     {"name":"spr_forest","order":5,"path":"sprites/spr_forest/spr_forest.yy",},

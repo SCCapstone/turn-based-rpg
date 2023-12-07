@@ -14,6 +14,8 @@ _moved = false; // Ensures units only move once
 _gameover = false;
 _timer = 0;
 _show_wpn = false;
+_is_target = _p_num;
+_pos = 0;
 
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {

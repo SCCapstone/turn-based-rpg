@@ -69,6 +69,7 @@
     {"id":{"name":"obj_forest_node","path":"objects/obj_forest_node/obj_forest_node.yy",},},
     {"id":{"name":"obj_archer","path":"objects/obj_archer/obj_archer.yy",},},
     {"id":{"name":"spr_placeholder_background","path":"sprites/spr_placeholder_background/spr_placeholder_background.yy",},},
+    {"id":{"name":"spr_arrow","path":"sprites/spr_arrow/spr_arrow.yy",},},
     {"id":{"name":"obj_unit","path":"objects/obj_unit/obj_unit.yy",},},
     {"id":{"name":"PartyData","path":"scripts/PartyData/PartyData.yy",},},
     {"id":{"name":"rm_forest","path":"rooms/rm_forest/rm_forest.yy",},},
