@@ -14,8 +14,7 @@ _moved = false; // Ensures units only move once
 _gameover = false;
 _timer = 0;
 _show_wpn = false;
-_is_target = _p_num;
-_pos = 0;
+_is_target = 0;
 
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {
@@ -81,11 +80,11 @@ _debugtxt += "]\n"
 // Determine which party moves first before alternating control
 if (party_units[0]._speed > enemy_units[0]._speed) {
 	_debugtxt += "Friendly party moves first!\nBegin player " + string(_p_num) + "'s turn";
-	_e_num = -1;
+	//_e_num = -1;
 	_turn = "player";
 } else {
 	_debugtxt += "Enemy party moves first!\nBegin enemy " + string(_e_num) + "'s turn";
-	_p_num = -1;
+	//_p_num = -1;
 	_turn = "enemy";
 }
 
