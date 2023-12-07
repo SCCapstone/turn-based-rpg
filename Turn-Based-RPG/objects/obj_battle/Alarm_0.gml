@@ -2,32 +2,24 @@
 _moved = false;
 
 if (_turn == "player") { // Begin enemy turn
-	for (var i = _e_num; _e_num < _e_length; _e_num++) {
-		if (enemy_units[_e_num]._is_dead == false) {
-			break	
-		} else if (_e_num+1 < _e_length) {
+	
+	while (true) { // Repeat until living unit is found
+	
+		if (_e_num+1 < _e_length && _firstmove == false) {
 			_e_num++; // Increment enemy party array
 		} else {
-			_e_num = 0;
+			_e_num = 0; // Wrap around to index 0
+		}
+		
+		if (enemy_units[_e_num]._is_dead == false) {
+			break;
+		} else {
+			show_debug_message("Enemy " + string(_e_num) + " is dead, skipping...");
 		}
 	}
-	
-	//while (true) { // Repeat until living unit is found
-	
-		//if (_e_num+1 < _e_length) {
-			//_e_num++; // Increment enemy party array
-		//} else {
-			//_e_num = 0; // Wrap around to index 0
-		//}
-		
-		//if (enemy_units[_e_num]._is_dead == false) {
-			//break;
-		//} else {
-			//show_debug_message("Enemy " + string(_e_num) + " is dead, skipping...");
-		//}
-	//}
 	show_debug_message("Begin enemy " + string(_e_num) + "'s turn");
 	_show_wpn = false;
+	_firstmove = false;
 	_turn = "enemy"; // Switch to enemy turn
 } 
 

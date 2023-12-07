@@ -32,16 +32,20 @@ for (var i = 0; i < _p_length; i++) {
 		draw_set_color(c_white); // Reset color to white so non-selected units are still drawn in white
 }
 
-if (_turn == "player" && _e_state == "alive") {
-	if (enemy_units[_is_target]._is_dead) {
-		for (var i = 0; i < _e_length; i++) {
-			if (enemy_units[i]._is_dead == false) {
-				_is_target = i;
-				draw_sprite(spr_arrow,0,enemy_units[_is_target].x + 2,enemy_units[_is_target].y + 8);
-			}
-		}
-	}
-	draw_sprite(spr_arrow,0,enemy_units[_is_target].x + 2,enemy_units[_is_target].y + 8);
+for (var i = 0; i < _e_length; i++) {
+	draw_text(enemy_units[i].x + 2,enemy_units[i].y + 8, "HP: " + string(enemy_units[i]._hp));
 }
+
+//if (_turn == "player" && _e_state == "alive") {
+//	if (enemy_units[_is_target]._is_dead) {
+//		for (var i = 0; i < _e_length; i++) {
+//			if (enemy_units[i]._is_dead == false) {
+//				//_is_target = i;
+//				draw_sprite(spr_arrow,0,enemy_units[_is_target].x + 2,enemy_units[_is_target].y + 8);
+//			}
+//		}
+//	}
+//	draw_sprite(spr_arrow,0,enemy_units[_is_target].x + 2,enemy_units[_is_target].y + 8);
+//}
 
 

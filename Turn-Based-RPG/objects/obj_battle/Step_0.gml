@@ -7,11 +7,11 @@ up_key = keyboard_check_pressed(ord("W"));
 down_key = keyboard_check_pressed(ord("S"));
 accept_key = keyboard_check_pressed(ord("E"));
 
-show_debug_message(_e_num);
+//show_debug_message(_e_num);
 
 if (_turn == "player" && _moved == false) { // Player turn
 	// Begin attack on E button pressed
-	if (accept_key) { // Zandair needs to replace this button press with UI elements
+	if (accept_key) {
 		if (_gameover == false) {
 			// Determine random damage
 			var _dmg = irandom_range(party_units[_p_num]._attacks[0]._dmg_min, 
@@ -33,9 +33,9 @@ if (_turn == "player" && _moved == false) { // Player turn
 			if (enemy_units[_is_target]._hp <= 0) { // Check if target was killed
 				enemy_units[_is_target]._hp = 0;
 				show_debug_message(enemy_units[_is_target]._name + " was killed!");
-				enemy_units[_e_num].visible = false; // Make instance invisible, can't remove it or it messes things up
-				enemy_units[_e_num]._is_dead = true;
-				instance_destroy(enemy_shadows[_e_num]);
+				enemy_units[_is_target].visible = false; // Make instance invisible, can't remove it or it messes things up
+				enemy_units[_is_target]._is_dead = true;
+				instance_destroy(enemy_shadows[_is_target]);
 				_gameover = check_gameover(party_units, enemy_units); // Check if either party is defeated
 			}
 		

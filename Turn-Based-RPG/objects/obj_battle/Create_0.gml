@@ -15,6 +15,7 @@ _gameover = false;
 _timer = 0;
 _show_wpn = false;
 _is_target = 0;
+_firstmove = true;
 
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {
