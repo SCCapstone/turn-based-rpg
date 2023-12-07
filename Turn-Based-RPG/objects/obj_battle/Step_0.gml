@@ -26,7 +26,7 @@ if (_turn == "player" && _moved == false) { // Player turn
 			var _dmg = irandom_range(party_units[_p_num]._attacks[0]._dmg_min, 
 			party_units[_p_num]._attacks[0]._dmg_max);
 			// Select random enemy to target (placeholder)
-			var _target = _is_target
+			var _target = _pos
 			
 			// Debug message
 			show_debug_message("Player " + string(_p_num) + " (" + party_units[_p_num]._name + 

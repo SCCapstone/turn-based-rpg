@@ -20,10 +20,10 @@ if (_show_wpn == true &&_turn == "enemy") { // Flash enemy weapon
 
 for (var i = 0; i < _p_length; i++) {
 		var char = party_units[i];	// Stores a party unit
-		if (i = _p_num) {
+		if (i == _p_num) {
 			draw_set_color(c_yellow); // Draw current unit text in yellow
 		}
-		if (char._is_dead) {
+		if (char._is_dead == true) {
 			draw_set_color(c_red);	// Draw dead unit text in red
 		}
 		draw_text(x+12, y+141+(i*12),char._name);	//Draws party's names
@@ -33,8 +33,5 @@ for (var i = 0; i < _p_length; i++) {
 }
 
 if (_turn == "player") {
-	draw_sprite(spr_arrow,0,enemy_units[_is_target].x + 2,enemy_units[_is_target ].y + 8) {depth = 2};
+	draw_sprite(spr_arrow,0,enemy_units[_pos].x + 2,enemy_units[_pos].y + 8){depth = 2};
 }
-
-
-
