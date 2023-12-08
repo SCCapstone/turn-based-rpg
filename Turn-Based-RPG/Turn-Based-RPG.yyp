@@ -48,7 +48,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.2.108",
+    "IDEVersion": "2023.11.0.121",
   },
   "resources": [
     {"id":{"name":"fnt_pixeloid_8","path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},},
@@ -91,7 +91,6 @@
     {"id":{"name":"spr_house","path":"sprites/spr_house/spr_house.yy",},},
     {"id":{"name":"spr_shadow","path":"sprites/spr_shadow/spr_shadow.yy",},},
     {"id":{"name":"spr_dagger","path":"sprites/spr_dagger/spr_dagger.yy",},},
-    {"id":{"name":"rm_start_town","path":"rooms/rm_start_town/rm_start_town.yy",},},
     {"id":{"name":"spr_bow","path":"sprites/spr_bow/spr_bow.yy",},},
     {"id":{"name":"snd_sword_slash","path":"sounds/snd_sword_slash/snd_sword_slash.yy",},},
     {"id":{"name":"spr_knight_still","path":"sprites/spr_knight_still/spr_knight_still.yy",},},
@@ -134,8 +133,8 @@
     {"roomId":{"name":"rm_world_map","path":"rooms/rm_world_map/rm_world_map.yy",},},
     {"roomId":{"name":"rm_start_town","path":"rooms/rm_start_town/rm_start_town.yy",},},
     {"roomId":{"name":"rm_plains","path":"rooms/rm_plains/rm_plains.yy",},},
-    {"roomId":{"name":"rm_forest","path":"rooms/rm_forest/rm_forest.yy",},},
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
+    {"roomId":{"name":"rm_forest","path":"rooms/rm_forest/rm_forest.yy",},},
     {"roomId":{"name":"rm_town","path":"rooms/rm_town/rm_town.yy",},},
   ],
   "templateType": "game",
