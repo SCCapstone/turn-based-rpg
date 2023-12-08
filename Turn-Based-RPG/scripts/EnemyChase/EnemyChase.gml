@@ -3,11 +3,13 @@
 function enemy_chase(){  // sets the enemy to chase the player
 	x += x_spd;
 	y += y_spd;
+	image_index = spr_move;
 	if (instance_exists(obj_player)) {
 		x_to = obj_player.x;
 		y_to = obj_player.y;
 	
 		var _distance_move = point_distance(x,y,x_to,y_to);
+		image_speed = 1.0;
 		dir = point_direction(x,y,x_to,y_to);
 		if (_distance_move > enemy_speed) {
 			x_spd = lengthdir_x(enemy_speed, dir);
@@ -15,7 +17,11 @@ function enemy_chase(){  // sets the enemy to chase the player
 		} else {
 			h_speed = lengthdir_x(_distance_move, dir);
 			v_speed = lengthdir_y(_distance_move, dir);
+			x_spd = lengthdir_x(_distance_move, dir);
+			y_spd = lengthdir_y(_distance_move, dir);
 		}
+		if (x_spd != 0)
+			image_xscale = sign(x_spd);
 		if (_distance_move >= give_up)  // sets the enemy back to wander once
 		                                // player reaches certain distance
 			state = ENEMY_STATE.ROAM;
