@@ -3,7 +3,6 @@
 function enemy_roaming(){
 	x += x_spd;
 	y += y_spd;
-	image_index = spr_move;
 	if (time_passed > roam_distance / enemy_speed) { // moves enemy
 	                                                       // to a destination
 		x_spd = 0;
@@ -18,7 +17,6 @@ function enemy_roaming(){
 		}
 	} else {  // moves to a new destination
 		time_passed++;
-		image_speed = 1.0;
 		var _distance_move = point_distance(x,y,x_to,y_to);
 		var _speed_move = enemy_speed;
 		if(_distance_move < enemy_speed)
@@ -26,8 +24,6 @@ function enemy_roaming(){
 		dir = point_direction(x,y,x_to,y_to);
 		x_spd = lengthdir_x(_speed_move, dir);
 		y_spd = lengthdir_y(_speed_move, dir);
-		if (x_spd != 0)
-			image_xscale = sign(x_spd);
 	}
   //Aggro check
 	if (++aggro >= aggro_duration) { // checks for the aggro variable and
