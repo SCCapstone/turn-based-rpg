@@ -6,7 +6,7 @@ draw_set_color(c_white);
 
 draw_sprite(battle_background,0,x,y); // Draw background
 
-draw_sprite_stretched(spr_menu_background,0,x+3,y+137,200,60); // Draw UI background
+draw_sprite_stretched(spr_menu_background,0,x+global.ui_x_buffer,y+global.ui_y_buffer,200,60); // Draw UI background
 
 if (_show_wpn == true &&_turn == "player") { // Flash player weapon
 	draw_sprite_ext(party_units[_p_num]._attacks[0]._sprite, 0, 
