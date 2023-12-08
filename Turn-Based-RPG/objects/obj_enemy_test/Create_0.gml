@@ -4,6 +4,7 @@
 
 // Inherit the parent event
 event_inherited();
+spr_move = spr_archer;
 
 state = ENEMY_STATE.ROAM;
 
