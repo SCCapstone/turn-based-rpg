@@ -54,4 +54,8 @@ if (_p_state == "defeated") {
 return false;
 }
 
+function calculate_resistance(_team, _character, _type) {
+	return 0;	
+}
+
 // TODO function battle_end
