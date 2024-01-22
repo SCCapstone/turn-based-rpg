@@ -1,3 +1,4 @@
+function attacks() {
 global.attacks = 
 {
 	sword_slash:
@@ -27,4 +28,5 @@ global.attacks =
 		_sprite: spr_bow,
 		_sound: snd_bow_shoot
 	}
+}
 }

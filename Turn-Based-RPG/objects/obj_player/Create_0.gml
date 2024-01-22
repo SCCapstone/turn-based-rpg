@@ -2,6 +2,10 @@
 _speed = 2; //how fast the player moves
 collision_speed = _speed + 1;
 
+// Sets user to character array 0
+unit = character[0];
+unit.actor = id;
+
 //variable to indicate where player is facing
 facing = 1;
 /*
