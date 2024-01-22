@@ -17,7 +17,7 @@ if (_turn == "player") { // Begin enemy turn
 			show_debug_message("Enemy " + string(_e_num) + " is dead, skipping...");
 		}
 	}
-	show_debug_message("Begin enemy " + string(_e_num) + "'s turn");
+	show_debug_message("Begin Enemy " + string(_e_num) + "'s turn");
 	_show_wpn = false;
 	_firstmove = false;
 	_turn = "enemy"; // Switch to enemy turn
@@ -39,7 +39,7 @@ else if (_turn == "enemy") { // Begin player turn
 		}
 
 	}
-	show_debug_message("Begin player " + string(_p_num) + "'s turn");
+	show_debug_message("Begin Player " + string(_p_num) + "'s turn");
 	_show_wpn = false;
 	_turn = "player"; // Switch to player turn
-} 
+}
