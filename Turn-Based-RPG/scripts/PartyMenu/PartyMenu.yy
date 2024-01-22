@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "PartyData",
+  "name": "PartyMenu",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
