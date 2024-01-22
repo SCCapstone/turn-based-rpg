@@ -54,4 +54,29 @@ if (_p_state == "defeated") {
 return false;
 }
 
+// Call this function to factor in a character's damage 
+// resistance before dealing damage to them
+function calculate_damage(_character, _type, _dmg) {
+	var _res = 0; // Target's armor resistance
+	
+	if (_type == "slash") {
+		_res = (_character._armor_head._prot_slash 
+		+ _character._armor_chest._prot_slash
+		+ _character._armor_legs._prot_slash);
+	} else if (_type == "pierce") {
+		_res = (_character._armor_head._prot_pierce
+		+ _character._armor_chest._prot_pierce
+		+ _character._armor_legs._prot_pierce);
+	} else {
+		return 0;
+	}
+	_new_dmg = ceil(_dmg * ((100 - _res) / 100));
+	
+	show_debug_message(_character._name + " blocked " + string(_dmg - _new_dmg) 
+	+ " damage due to " + string(_res) + " " + string(_type) + " resistance. Damage taken: "
+	+ string(_new_dmg) + ".")
+	
+	return _new_dmg;
+}
+
 // TODO function battle_end

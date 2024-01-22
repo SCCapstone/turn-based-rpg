@@ -27,7 +27,7 @@ if (_turn == "player" && _moved == false) { // Player turn
 			
 			// Debug message
 			show_debug_message("Player " + string(_p_num) + " (" + party_units[_p_num]._name + 
-			") attacked enemy " + string(_is_target) + " (" + enemy_units[_is_target]._name + ") for " + 
+			") attacked Enemy " + string(_is_target) + " (" + enemy_units[_is_target]._name + ") for " + 
 			string(_dmg) + " damage using " + party_units[_p_num]._attacks[0]._weapon + "!"); 
 			
 			// Play attack sound and flash weapon
@@ -35,7 +35,9 @@ if (_turn == "player" && _moved == false) { // Player turn
 			_show_wpn = true;
 		
 			// Decrease targeted enemy health
-			enemy_units[_is_target]._hp -= _dmg;
+			enemy_units[_is_target]._hp -= calculate_damage(enemy_units[_is_target], 
+			party_units[_p_num]._attacks[0]._dmgtype, _dmg)
+			
 			if (enemy_units[_is_target]._hp <= 0) { // Check if target was killed
 				enemy_units[_is_target]._hp = 0;
 				show_debug_message(enemy_units[_is_target]._name + " was killed!");
@@ -63,7 +65,7 @@ if (_turn == "player" && _moved == false) { // Player turn
 		
 		// Debug message
 		show_debug_message("Enemy " + string(_e_num) + " (" + enemy_units[_e_num]._name + 
-		") attacked player " + string(_enemy_target) + " (" + party_units[_enemy_target]._name + ") for " + 
+		") attacked Player " + string(_enemy_target) + " (" + party_units[_enemy_target]._name + ") for " + 
 		string(_dmg) + " damage using " + enemy_units[_e_num]._attacks[0]._weapon + "!");
 		
 		// Play attack sound and flash weapon
@@ -71,7 +73,9 @@ if (_turn == "player" && _moved == false) { // Player turn
 		_show_wpn = true;
 		
 		// Decrease targeted player's health
-			party_units[_enemy_target]._hp -= _dmg;
+			party_units[_enemy_target]._hp -= calculate_damage(party_units[_enemy_target], 
+			enemy_units[_e_num]._attacks[0]._dmgtype, _dmg)
+			
 			if (party_units[_enemy_target]._hp <= 0) {
 				party_units[_enemy_target]._hp = 0;
 				show_debug_message(party_units[_enemy_target]._name + " was killed!");
