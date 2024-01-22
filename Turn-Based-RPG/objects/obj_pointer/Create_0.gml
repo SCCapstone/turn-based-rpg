@@ -14,4 +14,6 @@ state = 0;
 2 = at field, S key pressed
 3 = at field, field cleared, D key pressed
 4 = at forest, W key pressed
+5 = at forest, D key pressed
+6 = at castle, S key pressed
 */
