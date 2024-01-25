@@ -87,6 +87,7 @@
     {"id":{"name":"obj_access_menu","path":"objects/obj_access_menu/obj_access_menu.yy",},},
     {"id":{"name":"EnemyTemplates","path":"scripts/EnemyTemplates/EnemyTemplates.yy",},},
     {"id":{"name":"EnemyState","path":"scripts/EnemyState/EnemyState.yy",},},
+    {"id":{"name":"fnt_UI_TEST","path":"fonts/fnt_UI_TEST/fnt_UI_TEST.yy",},},
     {"id":{"name":"obj_shadow","path":"objects/obj_shadow/obj_shadow.yy",},},
     {"id":{"name":"spr_tree","path":"sprites/spr_tree/spr_tree.yy",},},
     {"id":{"name":"ts_grass_tiles","path":"tilesets/ts_grass_tiles/ts_grass_tiles.yy",},},

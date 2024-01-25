@@ -59,6 +59,7 @@
     {"name":"obj_access_menu","order":6,"path":"objects/obj_access_menu/obj_access_menu.yy",},
     {"name":"EnemyTemplates","order":1,"path":"scripts/EnemyTemplates/EnemyTemplates.yy",},
     {"name":"EnemyState","order":1,"path":"scripts/EnemyState/EnemyState.yy",},
+    {"name":"fnt_UI_TEST","order":2,"path":"fonts/fnt_UI_TEST/fnt_UI_TEST.yy",},
     {"name":"obj_shadow","order":6,"path":"objects/obj_shadow/obj_shadow.yy",},
     {"name":"spr_tree","order":6,"path":"sprites/spr_tree/spr_tree.yy",},
     {"name":"obj_castle_node","order":5,"path":"objects/obj_castle_node/obj_castle_node.yy",},
