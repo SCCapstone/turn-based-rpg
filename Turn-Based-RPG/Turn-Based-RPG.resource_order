@@ -86,6 +86,5 @@
     {"name":"spr_startScreenBackground","order":2,"path":"sprites/spr_startScreenBackground/spr_startScreenBackground.yy",},
     {"name":"spr_sword","order":4,"path":"sprites/spr_sword/spr_sword.yy",},
     {"name":"spr_leave_map","order":8,"path":"sprites/spr_leave_map/spr_leave_map.yy",},
-    {"name":"rm_start_screen","order":4,"path":"rooms/rm_start_screen/rm_start_screen.yy",},
   ],
 }
