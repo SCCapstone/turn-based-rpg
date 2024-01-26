@@ -11,3 +11,7 @@ if location == 1 {
 if location == 2 {
 	room_goto(rm_forest);
 }
+
+if location == 3 {
+	room_goto(rm_castle);
+}

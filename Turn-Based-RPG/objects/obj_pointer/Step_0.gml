@@ -21,6 +21,14 @@ if state == 0 && location == 2 && keyboard_check_pressed(ord("W")) {
 	state = 4;
 }
 
+if state == 0 && location == 2 && keyboard_check_pressed(ord("D")) {
+	state = 5;
+}
+
+if state == 0 && location == 3 && keyboard_check_pressed(ord("S")) {
+	state = 6;
+}
+
 //from village to field
 if state = 1 {
 	if point_distance(x, y, 50, 162) = 0 { //checks if pointer at starting area
@@ -75,6 +83,36 @@ if point_distance(x, y, 256, 96) = 0 {
 		move_towards_point(96, 64, 1);
 	}
 	if point_distance(x, y, 96, 64) = 0 { 
+		speed = 0;
+		location = map_locations[1];
+		state = 0;
+	}
+}
+
+//from forest to castle
+if state = 5 {
+if point_distance(x, y, 256, 96) = 0 { 
+		move_towards_point(320, 96, 1); 
+	}
+	if point_distance(x, y, 320, 96) = 0 { 
+		move_towards_point(320, 44, 1);
+	}
+	if point_distance(x, y, 320, 44) = 0 { 
+		speed = 0;
+		location = 3;
+		state = 0;
+	}
+}
+
+//from castle to forest
+if state = 6 {
+if point_distance(x, y, 320, 44) = 0 { 
+		move_towards_point(320, 96, 1); 
+	}
+	if point_distance(x, y, 320, 96) = 0 { 
+		move_towards_point(256, 96, 1);
+	}
+	if point_distance(x, y, 256, 96) = 0 { 
 		speed = 0;
 		location = map_locations[1];
 		state = 0;
