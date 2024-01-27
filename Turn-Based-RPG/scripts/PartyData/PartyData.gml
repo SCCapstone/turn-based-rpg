@@ -24,7 +24,7 @@ global.party =
 		// TODO
 			
 		// Misc
-		_sprites: { idle: spr_knight_still },
+		_sprites: { idle: spr_knight},
 		_is_dead: false
 	},
 	{
@@ -50,7 +50,7 @@ global.party =
 		// TODO
 			
 		// Misc
-		_sprites: { idle: spr_knight_still },
+		_sprites: { idle: spr_knight },
 		_is_dead: false
 	}
 ]

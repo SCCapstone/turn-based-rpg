@@ -31,8 +31,8 @@
   "properties": [],
   "solid": true,
   "spriteId": {
-    "name": "spr_archer",
-    "path": "sprites/spr_archer/spr_archer.yy",
+    "name": "spr_villager_1",
+    "path": "sprites/spr_villager_1/spr_villager_1.yy",
   },
   "spriteMaskId": null,
   "visible": true,
