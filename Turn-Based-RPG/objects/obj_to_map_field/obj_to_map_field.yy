@@ -1,15 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_to_map",
+  "name": "obj_to_map_field",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Town",
-    "path": "folders/Objects/Town.yy",
+    "name": "Plains and Forest",
+    "path": "folders/Objects/Plains and Forest.yy",
   },
   "parentObjectId": null,
   "persistent": false,
