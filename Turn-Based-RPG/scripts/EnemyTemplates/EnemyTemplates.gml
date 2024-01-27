@@ -22,7 +22,7 @@ global.enemies =
 		_armor_legs: global.armor.leather_boots,
 		
 		// Misc
-		_sprites: { idle: spr_archer_still },
+		_sprites: { idle: spr_archer },
 		_is_dead: false
 	}, 
 	knightEnemy:
@@ -46,7 +46,7 @@ global.enemies =
 		_armor_legs: global.armor.steel_plate_greaves,
 		
 		// Misc
-		_sprites: { idle: spr_knight_still },
+		_sprites: { idle: spr_knight },
 		_is_dead: false
 	}
 }
