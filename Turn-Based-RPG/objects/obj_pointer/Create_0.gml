@@ -1,10 +1,40 @@
 //runs when instance of pointer is created
 
-//holds the location (node) that the pointer is currently at
-map_locations = [0,1,2,3];
+//location guide below
+/*
+0 = village
+1 = field
+2 = forest
+3 = castle
+*/
 
-//PLACEHOLDER LOCATION VALUE
-location = map_locations[0];
+//these move the pointer to the node it should be at when the map room starts
+if global.location == 0 {
+	x = 50;
+	y = 162;
+}
+
+if global.location == 1 {
+	x = 96;
+	y = 64;
+}
+
+if global.location == 2 {
+	x = 256;
+	y = 96;
+}
+
+if global.location == 3 {
+	x = 320;
+	y = 44;
+}
+//location guide below
+/*
+0 = village
+1 = field
+2 = forest
+3 = castle
+*/
 
 //State guide below
 state = 0;
