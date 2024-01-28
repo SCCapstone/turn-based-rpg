@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.504694,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Weapon Effects",
+    "path": "folders/Sounds/Weapon Effects.yy",
   },
   "preload": false,
   "sampleRate": 44100,
