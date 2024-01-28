@@ -28,8 +28,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Characters",
-    "path": "folders/Sprites/Characters.yy",
+    "name": "Misc",
+    "path": "folders/Sprites/Characters/Misc.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
