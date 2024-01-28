@@ -24,6 +24,8 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Backgrounds","order":7,"path":"folders/Sprites/Backgrounds.yy",},
     {"name":"Characters","order":2,"path":"folders/Sprites/Characters.yy",},
+    {"name":"Misc","order":10,"path":"folders/Sprites/Characters/Misc.yy",},
+    {"name":"Non-Hostile NPCs","order":9,"path":"folders/Sprites/Characters/Non-Hostile NPCs.yy",},
     {"name":"spr_buttons","order":11,"path":"folders/Sprites/spr_buttons.yy",},
     {"name":"Start screen","order":10,"path":"folders/Sprites/Start screen.yy",},
     {"name":"Tiles","order":4,"path":"folders/Sprites/Tiles.yy",},
@@ -32,8 +34,7 @@
     {"name":"World Map","order":3,"path":"folders/Sprites/World Map.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"Non-Hostile NPCs","order":9,"path":"folders/Sprites/Characters/Non-Hostile NPCs.yy",},
-    {"name":"Misc","order":10,"path":"folders/Sprites/Characters/Misc.yy",},
+    {"name":"Testing","order":10,"path":"folders/Scripts/Testing.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"fnt_pixeloid_8","order":1,"path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},
