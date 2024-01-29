@@ -21,7 +21,6 @@
     {"name":"Enemy movement","order":2,"path":"folders/Scripts/Enemy movement.yy",},
     {"name":"Misc","order":11,"path":"folders/Scripts/Misc.yy",},
     {"name":"StatClass","order":9,"path":"folders/Scripts/StatClass.yy",},
-    {"name":"Testing","order":10,"path":"folders/Scripts/Testing.yy",},
     {"name":"Sequences","order":11,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":3,"path":"folders/Sounds.yy",},
