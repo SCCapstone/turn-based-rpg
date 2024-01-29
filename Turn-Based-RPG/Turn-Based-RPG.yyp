@@ -78,6 +78,7 @@
     {"id":{"name":"obj_forest_node","path":"objects/obj_forest_node/obj_forest_node.yy",},},
     {"id":{"name":"obj_archer","path":"objects/obj_archer/obj_archer.yy",},},
     {"id":{"name":"ts_grassy","path":"tilesets/ts_grassy/ts_grassy.yy",},},
+    {"id":{"name":"rm_behavioral_test","path":"rooms/rm_behavioral_test/rm_behavioral_test.yy",},},
     {"id":{"name":"spr_placeholder_background","path":"sprites/spr_placeholder_background/spr_placeholder_background.yy",},},
     {"id":{"name":"spr_arrow","path":"sprites/spr_arrow/spr_arrow.yy",},},
     {"id":{"name":"obj_unit","path":"objects/obj_unit/obj_unit.yy",},},
@@ -130,6 +131,7 @@
     {"id":{"name":"rm_world_map","path":"rooms/rm_world_map/rm_world_map.yy",},},
     {"id":{"name":"spr_roof","path":"sprites/spr_roof/spr_roof.yy",},},
     {"id":{"name":"obj_enemy_unit","path":"objects/obj_enemy_unit/obj_enemy_unit.yy",},},
+    {"id":{"name":"obj_behavioral_test","path":"objects/obj_behavioral_test/obj_behavioral_test.yy",},},
     {"id":{"name":"obj_villager","path":"objects/obj_villager/obj_villager.yy",},},
     {"id":{"name":"spr_villager_f_2","path":"sprites/spr_villager_f_2/spr_villager_f_2.yy",},},
     {"id":{"name":"spr_tree_top","path":"sprites/spr_tree_top/spr_tree_top.yy",},},
@@ -154,6 +156,7 @@
     {"roomId":{"name":"rm_forest","path":"rooms/rm_forest/rm_forest.yy",},},
     {"roomId":{"name":"rm_town","path":"rooms/rm_town/rm_town.yy",},},
     {"roomId":{"name":"rm_castle","path":"rooms/rm_castle/rm_castle.yy",},},
+    {"roomId":{"name":"rm_behavioral_test","path":"rooms/rm_behavioral_test/rm_behavioral_test.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [
