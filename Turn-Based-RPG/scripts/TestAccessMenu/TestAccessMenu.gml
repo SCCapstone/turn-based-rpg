@@ -23,3 +23,18 @@ function select_quit_game() {
 	keyboard_key_press(ord("S"));
 	keyboard_key_press(ord("E"));	
 }
+
+function test_select_map_menu() {
+	select_map_menu();
+	// to-do : if map menu opens test passes
+}
+
+function test_select_battle() {
+	select_battle();
+	// to-do : if battle opens test passes
+}
+
+function test_select_quit_game() {
+	select_quit_game();
+	// to-do : ifi game quits test passes
+} 
