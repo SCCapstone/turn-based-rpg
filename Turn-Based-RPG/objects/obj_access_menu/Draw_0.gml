@@ -7,7 +7,6 @@ draw_sprite_ext(sprite_index, image_index, x, y, round(width/sprite_width), roun
 // Set the font and initial index for text drawing
 
 draw_set_font(fnt_pixeloid);
-//draw_set_font(fnt_UI_TEST);
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 

@@ -19,7 +19,7 @@ _firstmove = true;
 
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {
-	party_units[i] = instance_create_depth(x+50+(i*8), y+75+(i*20), depth-1*(i+1), obj_friendly_unit, global.party[i]);
+	party_units[i] = instance_create_depth(x+65+(i*8), y+107+(i*20), depth-1*(i+1), obj_friendly_unit, global.party[i]);
 	party_shadows[i] = instance_create_depth(x+51+(i*8), y+87+(i*20), depth-1*(i+1), obj_shadow);
 	array_push(units, party_units[i]); // Push friendly units to units array
 	array_push(shadows, party_shadows[i]); // Push party shadows to shadow array
@@ -27,7 +27,7 @@ for (var i = 0; i < array_length(global.party); i++) {
 
 // Create enemy party
 for (var i = 0; i < array_length(enemies); i++) {
-	enemy_units[i] = instance_create_depth(x+300-(i*8), y+75+(i*20), depth-1*(i+1), obj_enemy_unit, enemies[i]);
+	enemy_units[i] = instance_create_depth(x+283-(i*8), y+107+(i*20), depth-1*(i+1), obj_enemy_unit, enemies[i]);
 	enemy_shadows[i] = instance_create_depth(x+268-(i*8), y+87+(i*20), depth-1*(i+1), obj_shadow);
 	array_push(units, enemy_units[i]); // Push enemy units to units array
 	array_push(shadows, enemy_shadows[i]); // Push enemy shadows to shadow array

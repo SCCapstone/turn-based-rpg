@@ -18,7 +18,8 @@ if (pos < 0) {
 if (accept_key) {
 	switch (pos) {
 	
-		case 0: 
+		case 0:
+			global.location = 0;
 			room_goto(rm_world_map);
 		break;
 	
