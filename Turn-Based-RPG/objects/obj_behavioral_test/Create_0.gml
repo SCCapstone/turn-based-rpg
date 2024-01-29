@@ -1,9 +1,6 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-
 // runs access menu event
 function run_access_menu() {
-	// TODO : execute start access menu
+	room_goto(rm_access_menu);
 }
 
 // selects map menu from the access menu
