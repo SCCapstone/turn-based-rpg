@@ -1,8 +1,8 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 
-// starts game; first screen that appears should be access menu
-function run_game() {
+// runs access menu event
+function run_access_menu() {
 }
 
 // selects map menu from the access menu
@@ -26,15 +26,18 @@ function select_quit_game() {
 
 function test_select_map_menu() {
 	select_map_menu();
-	// to-do : if map menu opens test passes
+	// to-do : if map menu opens test passescase 0:
+	// check for new room location rm_world_map
 }
 
 function test_select_battle() {
 	select_battle();
 	// to-do : if battle opens test passes
+	// check for battle_start
 }
 
 function test_select_quit_game() {
 	select_quit_game();
 	// to-do : ifi game quits test passes
+	// check for game_end() call
 } 
