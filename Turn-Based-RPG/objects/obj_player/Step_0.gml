@@ -24,3 +24,10 @@ if (keyboard_check(ord("D")) && place_free(x + collision_speed, y)) { //move rig
 	image_index = 3;
 	facing = 4;
 }
+if keyboard_check_pressed(ord("P")) {
+    if (!instance_exists(obj_stats_screen)) {
+        instance_create_layer(0, 0, "Stats", obj_stats_screen); // Open the stats screen when "P" is pressed
+    } else {
+        instance_destroy(obj_stats_screen); // Close the stats screen when "P" is pressed again
+    }
+}

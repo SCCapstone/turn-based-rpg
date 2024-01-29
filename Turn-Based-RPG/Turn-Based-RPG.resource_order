@@ -9,6 +9,7 @@
     {"name":"Game Objects","order":13,"path":"folders/Objects/Game Objects.yy",},
     {"name":"Game World","order":11,"path":"folders/Objects/Game World.yy",},
     {"name":"Plains and Forest","order":8,"path":"folders/Objects/Plains and Forest.yy",},
+    {"name":"Stats","order":11,"path":"folders/Objects/Stats.yy",},
     {"name":"Town","order":7,"path":"folders/Objects/Town.yy",},
     {"name":"UI","order":12,"path":"folders/Objects/UI.yy",},
     {"name":"World Map","order":3,"path":"folders/Objects/World Map.yy",},
@@ -21,6 +22,7 @@
     {"name":"Enemy movement","order":2,"path":"folders/Scripts/Enemy movement.yy",},
     {"name":"Misc","order":11,"path":"folders/Scripts/Misc.yy",},
     {"name":"StatClass","order":9,"path":"folders/Scripts/StatClass.yy",},
+    {"name":"Testing","order":13,"path":"folders/Scripts/Testing.yy",},
     {"name":"Sequences","order":11,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":3,"path":"folders/Sounds.yy",},
@@ -37,7 +39,6 @@
     {"name":"World Map","order":3,"path":"folders/Sprites/World Map.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"Testing","order":13,"path":"folders/Scripts/Testing.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"Stats","order":1,"path":"scripts/Stats/Stats.yy",},
