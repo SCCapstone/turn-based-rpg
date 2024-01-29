@@ -24,10 +24,14 @@ function select_quit_game() {
 	keyboard_key_press(ord("E"));	
 }
 
+// tests that the map menu was seleected by checking the room
 function test_select_map_menu() {
 	select_map_menu();
-	// to-do : if map menu opens test passes
-	// check for new room location rm_world_map
+	if (room == rm_world_map) { 
+		return true; }
+	else {
+		return false;
+	}
 }
 
 function test_select_battle() {
