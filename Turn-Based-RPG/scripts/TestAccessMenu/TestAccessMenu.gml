@@ -28,8 +28,8 @@ function select_quit_game() {
 function test_select_map_menu() {
 	select_map_menu();
 	if (room == rm_world_map) { 
-		return true; }
-	else {
+		return true; 
+	} else {
 		return false;
 	}
 }
@@ -37,7 +37,7 @@ function test_select_map_menu() {
 function test_select_battle() {
 	select_battle();
 	// TODO: if battle opens test passes
-	// check for battle_start
+		// check for battle_start
 }
 
 function test_select_quit_game() {
