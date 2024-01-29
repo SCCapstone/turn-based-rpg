@@ -36,12 +36,15 @@ function test_select_map_menu() {
 
 function test_select_battle() {
 	select_battle();
-	// to-do : if battle opens test passes
+	// TODO: if battle opens test passes
 	// check for battle_start
 }
 
 function test_select_quit_game() {
 	select_quit_game();
-	// to-do : ifi game quits test passes
-	// check for game_end() call
+	if (_gameover == true) {
+		return true;
+	} else {
+		return false;
+	}	
 } 
