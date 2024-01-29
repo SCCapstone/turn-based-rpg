@@ -26,7 +26,7 @@ function select_quit_game() {
 
 function test_select_map_menu() {
 	select_map_menu();
-	// to-do : if map menu opens test passescase 0:
+	// to-do : if map menu opens test passes
 	// check for new room location rm_world_map
 }
 
