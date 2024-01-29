@@ -37,6 +37,7 @@
     {"name":"World Map","order":3,"path":"folders/Sprites/World Map.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
+    {"name":"Testing","order":13,"path":"folders/Scripts/Testing.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"Stats","order":1,"path":"scripts/Stats/Stats.yy",},
