@@ -17,6 +17,7 @@
     {"name":"Scripts","order":5,"path":"folders/Scripts.yy",},
     {"name":"Battle Functionality","order":3,"path":"folders/Scripts/Battle Functionality.yy",},
     {"name":"Enemy movement","order":2,"path":"folders/Scripts/Enemy movement.yy",},
+    {"name":"StatClass","order":9,"path":"folders/Scripts/StatClass.yy",},
     {"name":"Sequences","order":11,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":3,"path":"folders/Sounds.yy",},
@@ -31,7 +32,7 @@
     {"name":"World Map","order":3,"path":"folders/Sprites/World Map.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"StatClass","order":9,"path":"folders/Scripts/StatClass.yy",},
+    {"name":"Stats","order":11,"path":"folders/Objects/Stats.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"fnt_pixeloid_8","order":1,"path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},
