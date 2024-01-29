@@ -3,6 +3,7 @@
 
 // runs access menu event
 function run_access_menu() {
+	// TODO : execute start access menu
 }
 
 // selects map menu from the access menu
