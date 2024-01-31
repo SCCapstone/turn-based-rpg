@@ -27,6 +27,15 @@ global.attacks =
 		_dmg_max: 25,
 		_sprite: spr_bow,
 		_sound: snd_bow_shoot
+	},
+	fireball:
+	{
+		_weapon: "Staff",
+		_dmgtype: "magic",
+		_dmg_min: 25,
+		_dmg_max: 35,
+		_sprite: spr_fireball,
+		_sound: snd_fireball
 	}
 }
 }

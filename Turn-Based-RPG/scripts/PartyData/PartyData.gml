@@ -2,17 +2,17 @@ function party_data() {
 global.party =
 [
 	{
-		_name: "Knight 1",
+		_name: "Sorcerer",
 		
 		// Stats
-		_hp: 60,
-		_mp: 20,
+		_hp: 40,
+		_mp: 50,
 		_speed: 8,
-		_max_mp: 20,
-		_max_hp: 60,
+		_max_mp: 50,
+		_max_hp: 40,
 		
 		// Movesets
-		_attacks: [global.attacks.sword_slash],
+		_attacks: [global.attacks.fireball],
 		
 		// Equipment
 		// _weapon TODO
@@ -24,15 +24,15 @@ global.party =
 		// TODO
 			
 		// Misc
-		_sprites: { idle: spr_knight},
+		_sprites: { idle: spr_sorcerer},
 		_is_dead: false
 	},
 	{
-		_name: "Knight 2",
+		_name: "Knight",
 		
 		// Stats
 		_hp: 60,
-		_mp: 20,
+		_mp: 0,
 		_speed: 7,
 		_max_mp: 20,
 		_max_hp: 60,

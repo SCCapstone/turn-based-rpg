@@ -6,9 +6,9 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "bitDepth": 1,
+  "bitDepth": 0,
   "bitRate": 128,
-  "compression": 0,
+  "compression": 3,
   "conversionMode": 0,
   "duration": 0.504694,
   "parent": {
@@ -18,6 +18,6 @@
   "preload": false,
   "sampleRate": 44100,
   "soundFile": "snd_bow_shoot.wav",
-  "type": 0,
+  "type": 1,
   "volume": 1.0,
 }

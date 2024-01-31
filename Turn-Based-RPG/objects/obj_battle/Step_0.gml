@@ -91,3 +91,15 @@ if (_turn == "player" && _moved == false) { // Player turn
 	} 
 	_moved = true;
 }
+
+if (_show_wpn == true &&_turn == "player") { // Flash player weapon
+	instance_create_depth(party_units[_p_num].x+10, party_units[_p_num].y-2, party_units[_p_num].depth-1,
+	obj_party_weapon, global.party[_p_num])
+	_show_wpn = false;
+}
+
+if (_show_wpn == true &&_turn == "enemy") { // Flash enemy weapon
+	instance_create_depth(enemy_units[_e_num].x-10, enemy_units[_e_num].y-2, enemy_units[_e_num].depth-1,
+	obj_enemy_weapon, enemies[_e_num])
+	_show_wpn = false;
+}

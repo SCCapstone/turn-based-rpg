@@ -73,9 +73,15 @@ function calculate_damage(_character, _type, _dmg) {
 		_res = (_character._armor_head._prot_pierce
 		+ _character._armor_chest._prot_pierce
 		+ _character._armor_legs._prot_pierce);
-	} else {
+	} else if (_type == "magic") {
+		_res = (_character._armor_head._prot_magic
+		+ _character._armor_chest._prot_magic
+		+ _character._armor_legs._prot_magic);
+	}
+	else {
 		return 0;
 	}
+	
 	_new_dmg = ceil(_dmg * ((100 - _res) / 100));
 	
 	// Catch 32-bit signed int overflow

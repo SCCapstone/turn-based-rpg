@@ -6,9 +6,9 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "bitDepth": 1,
+  "bitDepth": 0,
   "bitRate": 128,
-  "compression": 0,
+  "compression": 3,
   "conversionMode": 0,
   "duration": 1.312041,
   "parent": {
@@ -16,8 +16,8 @@
     "path": "folders/Sounds/Weapon Effects.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_sword_slash.wav",
-  "type": 0,
+  "type": 1,
   "volume": 1.0,
 }
