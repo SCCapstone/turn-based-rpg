@@ -40,7 +40,7 @@ var _swapped;
 for (var i = 0; i < _p_length-1; i++) {  // Turn order for friendly party
 	_swapped = false;
 	for (var j = 0; j < _p_length-i-1; j++) {
-		if (party_units[j]._speed < party_units[j+1]._speed) {
+		if (party_units[j]._spd < party_units[j+1]._spd) {
 			var _temp = party_units[j];
 			party_units[j] = party_units[j+1];
 			party_units[j+1] = _temp;
@@ -54,7 +54,7 @@ for (var i = 0; i < _p_length-1; i++) {  // Turn order for friendly party
 for (var i = 0; i < _e_length-1; i++) {  // Turn order for enemy party
 	_swapped = false;
 	for (var j = 0; j < _e_length-i-1; j++) {
-		if (enemy_units[j]._speed < enemy_units[j+1]._speed) {
+		if (enemy_units[j]._spd < enemy_units[j+1]._spd) {
 			var _temp = enemy_units[j];
 			enemy_units[j] = enemy_units[j+1];
 			enemy_units[j+1] = _temp;
@@ -79,7 +79,7 @@ for (var i = 0; i < _e_length; i++) {
 _debugtxt += "]\n"
 
 // Determine which party moves first before alternating control
-if (party_units[0]._speed > enemy_units[0]._speed) {
+if (party_units[0]._spd > enemy_units[0]._spd) {
 	_debugtxt += "Friendly party moves first!\nBegin player " + string(_p_num) + "'s turn";
 	//_e_num = -1;
 	_turn = "player";

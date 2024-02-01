@@ -35,10 +35,10 @@
     {"name":"Tiles","order":4,"path":"folders/Sprites/Tiles.yy",},
     {"name":"Town","order":9,"path":"folders/Sprites/Town.yy",},
     {"name":"UI","order":1,"path":"folders/Sprites/UI.yy",},
+    {"name":"Status Effects","order":12,"path":"folders/Sprites/UI/Status Effects.yy",},
     {"name":"World Map","order":3,"path":"folders/Sprites/World Map.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"Status Effects","order":12,"path":"folders/Sprites/UI/Status Effects.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"Stats","order":1,"path":"scripts/Stats/Stats.yy",},

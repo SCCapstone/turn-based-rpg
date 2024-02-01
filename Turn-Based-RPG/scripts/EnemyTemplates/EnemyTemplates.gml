@@ -8,7 +8,7 @@ global.enemies =
 		//Stats
 		_hp: 60,
 		_mp: 20,
-		_speed: 6,
+		_spd: 6,
 		_max_hp: 60,
 		_max_mp: 20,
 		
@@ -32,7 +32,7 @@ global.enemies =
 		// Stats
 		_hp: 60,
 		_mp: 20,
-		_speed: 4,
+		_spd: 4,
 		_max_mp: 20,
 		_max_hp: 60,
 		

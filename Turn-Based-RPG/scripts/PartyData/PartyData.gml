@@ -1,3 +1,5 @@
+// This script contains all persistent information regarding 
+// members of the player party, including stats, health, mp, etc.
 function party_data() {
 global.party =
 [
@@ -5,12 +7,20 @@ global.party =
 		_name: "Sorcerer",
 		
 		// Stats
-		_hp: 40,
-		_mp: 50,
-		_speed: 8,
-		_max_mp: 50,
-		_max_hp: 40,
+		_hp: 50,		// Current HP
+		_mp: 50,		// Current MP
 		
+		_lvl: 1,		// Level
+		_xp: 0,			// Experience/XP
+
+		_max_hp: 50,    // Health
+		_max_mp: 50,    // Mana
+		_spd: 8,		// Speed
+		_str: 0,		// Strength
+		_dex: 0,		// Dexterity
+		_int: 0,        // Intelligence
+		_agi: 0,		// Agility
+
 		// Movesets
 		_attacks: [global.attacks.fireball],
 		
@@ -24,18 +34,27 @@ global.party =
 		// TODO
 			
 		// Misc
-		_sprites: { idle: spr_sorcerer},
-		_is_dead: false
+		_sprites: {idle: spr_sorcerer},
+		_is_dead: false,
+		_is_player: false  // TODO
 	},
 	{
 		_name: "Knight",
 		
 		// Stats
-		_hp: 60,
-		_mp: 0,
-		_speed: 7,
-		_max_mp: 20,
-		_max_hp: 60,
+		_hp: 70,		// Current HP
+		_mp: 20,		// Current MP
+		
+		_lvl: 1,		// Level
+		_xp: 0,			// Experience/XP
+
+		_max_hp: 70,    // Health
+		_max_mp: 20,    // Mana
+		_spd: 7,		// Speed
+		_str: 0,		// Strength
+		_dex: 0,		// Dexterity
+		_int: 0,        // Intelligence
+		_agi: 0,		// Agility
 		
 		// Movesets
 		_attacks: [global.attacks.scythe_slash],
@@ -50,8 +69,9 @@ global.party =
 		// TODO
 			
 		// Misc
-		_sprites: { idle: spr_knight },
-		_is_dead: false
+		_sprites: {idle: spr_knight},
+		_is_dead: false,
+		_is_player: true  // TODO
 	}
 ]
 }
