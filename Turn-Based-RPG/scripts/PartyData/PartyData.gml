@@ -22,10 +22,10 @@ global.party =
 		_agi: 0,		// Agility
 
 		// Movesets
-		_attacks: [global.attacks.fireball],
 		
 		// Equipment
-		// _weapon TODO
+		_weapon: global.weapons.sword,
+		
 		_armor_head: global.armor.knightly_plumed_helmet,
 		_armor_chest: global.armor.steel_plate_armor,
 		_armor_legs: global.armor.steel_plate_greaves,
@@ -57,10 +57,10 @@ global.party =
 		_agi: 0,		// Agility
 		
 		// Movesets
-		_attacks: [global.attacks.scythe_slash],
 		
 		// Equipment
-		// _weapon TODO
+		_weapon: global.weapons.scythe,
+		
 		_armor_head: global.armor.knightly_plumed_helmet,
 		_armor_chest: global.armor.steel_plate_armor,
 		_armor_legs: global.armor.steel_plate_greaves,

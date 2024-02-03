@@ -17,6 +17,11 @@ _show_wpn = false;
 _is_target = 0;
 _firstmove = true;
 
+_attack = false;
+_magic = false;
+_prayer = false;
+_move_choice = -1;
+
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {
 	party_units[i] = instance_create_depth(x+49+(i*8), y+76+(i*20), -1*(i+1), obj_friendly_unit, global.party[i]);
@@ -81,11 +86,9 @@ _debugtxt += "]\n"
 // Determine which party moves first before alternating control
 if (party_units[0]._spd > enemy_units[0]._spd) {
 	_debugtxt += "Friendly party moves first!\nBegin player " + string(_p_num) + "'s turn";
-	//_e_num = -1;
 	_turn = "player";
 } else {
 	_debugtxt += "Enemy party moves first!\nBegin enemy " + string(_e_num) + "'s turn";
-	//_p_num = -1;
 	_turn = "enemy";
 }
 

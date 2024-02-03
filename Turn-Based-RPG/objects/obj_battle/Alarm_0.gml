@@ -1,4 +1,5 @@
 // Resolve battle state transition
+
 _moved = false;
 
 if (_turn == "player") { // Begin enemy turn
