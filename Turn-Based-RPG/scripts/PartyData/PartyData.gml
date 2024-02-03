@@ -22,16 +22,17 @@ global.party =
 		_agi: 0,		// Agility
 
 		// Movesets
+		_spells: [global.spells.fireball],
+		_prayers: [],
 		
 		// Equipment
 		_weapon: global.weapons.sword,
+		_magic_weapon: global.magic_weapons.staff,
+		_prayer_book: global.prayer_books.scroll,
 		
 		_armor_head: global.armor.knightly_plumed_helmet,
 		_armor_chest: global.armor.steel_plate_armor,
 		_armor_legs: global.armor.steel_plate_greaves,
-		
-		// Inventory 
-		// TODO
 			
 		// Misc
 		_sprites: {idle: spr_sorcerer},
@@ -57,16 +58,17 @@ global.party =
 		_agi: 0,		// Agility
 		
 		// Movesets
+		_spells: [global.spells.fireball],
+		_prayers: [],
 		
 		// Equipment
 		_weapon: global.weapons.scythe,
+		_magic_weapon: noone,
+		_prayer_book: noone,
 		
 		_armor_head: global.armor.knightly_plumed_helmet,
 		_armor_chest: global.armor.steel_plate_armor,
 		_armor_legs: global.armor.steel_plate_greaves,
-		
-		// Inventory 
-		// TODO
 			
 		// Misc
 		_sprites: {idle: spr_knight},

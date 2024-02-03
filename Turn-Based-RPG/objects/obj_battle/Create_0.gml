@@ -2,8 +2,11 @@
 
 instance_deactivate_all(true); // Pauses overworld
 
+// Placeholder arrays
 units = []; // Holds list of all units
 shadows = []; // Holds list of unit shadows
+
+// Placeholder variables
 _debugtxt = "Turn order: \n"; // Holds debug message for console output
 _turn = ""; // Player or enemy turn
 _p_num = 0; // Counter for player array
@@ -11,20 +14,25 @@ _e_num = 0; // Counter for enemy array
 _p_state = "alive"; // State of entire friendly party
 _e_state = "alive"; // State of entire enemy party
 _moved = false; // Ensures units only move once
-_gameover = false;
-_timer = 0;
-_show_wpn = false;
-_is_target = 0;
+_gameover = false; // If game is over or not
+_timer = 0; // Timer for alarms
+_show_wpn = false; // For spawning weapon object
+_show_magic_wpn = false;
+_show_prayer_book = false;
+_show_spell = false;
+_dmg = 0;
+_target = 0; // Holds player target
+_enemy_target = 0; // Holds enemy target
 _firstmove = true;
-
-_attack = false;
-_magic = false;
-_prayer = false;
-_move_choice = -1;
+_attack = false; // Attack move
+_magic = false; // Magic move
+_prayer = false; // Prayer move
+_move_choice = -1; // Move number
+_finish = false; // Jumps to move resolution
 
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {
-	party_units[i] = instance_create_depth(x+49+(i*8), y+76+(i*20), -1*(i+1), obj_friendly_unit, global.party[i]);
+	party_units[i] = instance_create_depth(x+49+(i*8), y+76+(i*20), -1*(i+1), obj_party_unit, global.party[i]);
 	party_shadows[i] = instance_create_depth(x+51+(i*8), y+87+(i*20), 5, obj_shadow);
 	array_push(units, party_units[i]); // Push friendly units to units array
 	array_push(shadows, party_shadows[i]); // Push party shadows to shadow array

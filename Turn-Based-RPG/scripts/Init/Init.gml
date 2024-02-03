@@ -6,6 +6,10 @@ function init(){
 	armor();
 	attacks();
 	weapons();
+	magic_weapons();
+	prayer_books();
+	spells();
+	prayers();
 	party_data();
 	enemy_templates();
 }
@@ -30,10 +34,10 @@ function print_test_result(_result, _expected, _size, _offset) {
 	}
 }
 
-// Returns 
 function get_move_choice() {
-	return ( 
-	(keyboard_key >= ord("0") && keyboard_key <= ord("9"))
-    ? keyboard_key - ord("0") : -1
-	)
+	if ((keyboard_key >= ord("0") && keyboard_key <= ord("9"))) {
+		return keyboard_key - ord("0")
+	} else { 
+		return -1
+	}
 }

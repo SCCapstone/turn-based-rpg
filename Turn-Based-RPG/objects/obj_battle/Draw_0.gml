@@ -42,14 +42,14 @@ if (_gameover == false) {
 		
 	}
 	if (_turn == "player" && _e_state == "alive") {
-		if (enemy_units[_is_target]._is_dead) {
+		if (enemy_units[_target]._is_dead) {
 			for (var i = 0; i < _e_length; i++) {
 				if (enemy_units[i]._is_dead == false) {
-					_is_target = i;
-					draw_sprite(spr_arrow,0,enemy_units[_is_target].x + 4,enemy_units[_is_target].y + 10);
+					_target = i;
+					draw_sprite(spr_arrow,0,enemy_units[_target].x + 4,enemy_units[_target].y + 10);
 				}
 			}
 		}
-		draw_sprite(spr_arrow,0,enemy_units[_is_target].x + 4,enemy_units[_is_target].y + 10);
+		draw_sprite(spr_arrow,0,enemy_units[_target].x + 4,enemy_units[_target].y + 10);
 	}
 }

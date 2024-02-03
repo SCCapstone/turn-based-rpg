@@ -58,11 +58,6 @@ return false;
 // resistance before dealing damage to them
 function calculate_damage(_character, _type, _dmg) {
 	
-	// Catch 32-bit signed int overflow
-	if (_dmg > 2147483647 ) {
-		_dmg = 2147483647
-	}
-	
 	var _res = 0; // Target's armor resistance
 	
 	if (_type == "slash") {
@@ -83,11 +78,6 @@ function calculate_damage(_character, _type, _dmg) {
 	}
 	
 	_new_dmg = ceil(_dmg * ((100 - _res) / 100));
-	
-	// Catch 32-bit signed int overflow
-	if (_new_dmg > 2147483647 ) {
-		_new_dmg = 2147483647
-	}
 	
 	show_debug_message(_character._name + " blocked " + string(_dmg - _new_dmg) 
 	+ " damage due to " + string(_res) + " " + string(_type) + " resistance. Damage taken: "
