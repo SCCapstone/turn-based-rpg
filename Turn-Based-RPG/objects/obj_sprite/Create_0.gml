@@ -5,5 +5,6 @@
 _sprite = noone;
 _scale = 0;
 _draw = false;
+_time = 45;
 
-alarm[0] = 45
+alarm[0] = _time

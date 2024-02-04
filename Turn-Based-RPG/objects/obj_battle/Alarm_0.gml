@@ -2,7 +2,7 @@
 
 _moved = false;
 
-if (_turn == "player") { // Begin enemy turn
+if (_turn == "player") { // Begin conclusion of player turn
 	while (true) { // Repeat until living unit is found
 		if (_e_num+1 < _e_length && _firstmove == false) {
 			_e_num++; // Increment enemy party array
@@ -17,40 +17,15 @@ if (_turn == "player") { // Begin enemy turn
 		}
 	}
 	
-	show_debug_message("Begin Enemy " + string(_e_num) + "'s turn");
+	_firstmove = false; // End player turn
 	
-	// Update all enemy status effects
-	for (var e = 0; e < array_length(enemy_units); e++) {
-			if(!is_undefined(enemy_units[e]._effects)) {
-				for(var i = 0; i < array_length(enemy_units[e]._effects); i++) {
-					// Inflict random damage
-					var temp = irandom_range(enemy_units[e]._effects[i]._dmg_min,
-					enemy_units[e]._effects[i]._dmg_max)
-					enemy_units[e]._hp -= temp;
-				
-					show_debug_message(string(enemy_units[e]._effects[i]._name) + " dealt "
-					+ string(temp) + " damage to " + string(enemy_units[e]._name) + "!");
-				
-					// Decrease status effect length by 1
-					enemy_units[e]._effects_remaining_turns[i]--;
-				
-					show_debug_message("Resulting duration of " + string(enemy_units[e]._effects[i]._name) + ": "
-					+ string(enemy_units[e]._effects_remaining_turns[i]));
-				
-					// Remove status effect if no remaining turns
-					if (enemy_units[e]._effects_remaining_turns[i] < 1) {
-						array_delete(enemy_units[e]._effects, i, 1);
-						array_delete(enemy_units[e]._effects_remaining_turns, i, 1);
-					}
-				}
-			}
-		}
-	_firstmove = false;
-	_move_choice = -1;
-	_turn = "enemy"; // Switch to enemy turn
+	show_debug_message("Begin Enemy " + string(_e_num) + "'s turn");
+	update_status_effects(enemy_units); // Update enemy status effects
+	check_gameover(party_units, enemy_units);
+	_turn = "enemy"; // Begin enemy turn
 } 
 
-else if (_turn == "enemy") { // Begin player turn
+else if (_turn == "enemy") { // Begin conclusion of enemy turn
 	while (true) { // Repeat until living unit is found
 		if (_p_num+1 < _p_length && _firstmove == false) {
 			_p_num++; // Increment player party array
@@ -63,9 +38,10 @@ else if (_turn == "enemy") { // Begin player turn
 		} else {
 			show_debug_message("Player " + string(_p_num) + " is dead, skipping...");
 		}
-
-	}
+	} // End enemy turn
 	
 	show_debug_message("Begin Player " + string(_p_num) + "'s turn");
-	_turn = "player"; // Switch to player turn
+	update_status_effects(party_units); // Update player party status effects
+	check_gameover(party_units, enemy_units);
+	_turn = "player"; // Begin player turn
 }

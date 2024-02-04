@@ -35,7 +35,7 @@ function print_test_result(_result, _expected, _size, _offset) {
 	}
 }
 
-function get_move_choice() {
+function get_move_num() {
 	if ((keyboard_key >= ord("0") && keyboard_key <= ord("9"))) {
 		return keyboard_key - ord("0")
 	} else { 

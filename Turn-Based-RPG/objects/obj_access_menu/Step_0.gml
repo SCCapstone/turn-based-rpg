@@ -24,7 +24,7 @@ if (accept_key) {
 		break;
 	
 		case 1:
-			battle_start([global.enemies.archer, global.enemies.knightEnemy], spr_field_background);
+			battle_start([global.enemies.mercenary, global.enemies.dark_wizard], spr_field_background);
 		break;
 	
 		case 2:

@@ -9,18 +9,6 @@ function battle_start(_enemies, _background) {
 	);
 }
 
-// Call this function to select a random target from the indicated party
-function select_target(party, p_length) {
-	while (true) {
-		_select = irandom_range(0,_p_length-1);
-		if (party_units[_select]._is_dead == false) { // On selecting dead party member, try again
-			break;
-		}	
-	}
-	show_debug_message("Targeting " + party_units[_select]._name);
-	return _select;
-}
-
 // Call this function to see if either party is dead
 function check_gameover(party_units, enemy_units) {
 	_gameover = false; // Assume false
@@ -57,7 +45,6 @@ return false;
 // Call this function to factor in a character's damage 
 // resistance before dealing damage to them
 function calculate_damage(_character, _type, _dmg) {
-	
 	var _res = 0; // Target's armor resistance
 	
 	if (_type == "slash") {
@@ -96,6 +83,39 @@ function calculate_damage(_character, _type, _dmg) {
 	+ string(_new_dmg) + ".")
 	
 	return _new_dmg;
+}
+
+// Update the selected party's status effects
+function update_status_effects(_party) {
+	for (var e = 0; e < array_length(_party); e++) {
+		if(!is_undefined(_party[e]._effects)) {
+			for(var i = 0; i < array_length(_party[e]._effects); i++) {
+				// Inflict random damage
+				var temp = irandom_range(_party[e]._effects[i]._dmg_min,
+				_party[e]._effects[i]._dmg_max)
+				_party[e]._hp -= temp;
+				if(_party[e]._hp <= 0) { // Check if still alive
+					_party[e]._hp = 0;
+					_party[e]._is_dead = true;
+				}
+				
+				show_debug_message(string(_party[e]._effects[i]._name) + " dealt "
+				+ string(temp) + " damage to " + string(_party[e]._name) + "!");
+				
+				// Decrease status effect length by 1
+				_party[e]._effects_remaining_turns[i]--;
+				
+				show_debug_message("Resulting duration of " + string(_party[e]._effects[i]._name) + ": "
+				+ string(_party[e]._effects_remaining_turns[i]));
+				
+				// Remove status effect if no remaining turns
+				if (_party[e]._effects_remaining_turns[i] < 1) {
+					array_delete(_party[e]._effects, i, 1);
+					array_delete(_party[e]._effects_remaining_turns, i, 1);
+				}
+			}
+		}
+	}
 }
 
 // TODO function battle_end

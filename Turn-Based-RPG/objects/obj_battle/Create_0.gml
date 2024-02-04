@@ -25,24 +25,22 @@ _dmg = 0;
 _target = 0; // Holds player target
 _enemy_target = 0; // Holds enemy target
 _firstmove = true;
-_attack = false; // Attack move
-_magic = false; // Magic move
-_prayer = false; // Prayer move
-_move_choice = -1; // Move number
+_move_type = -1; // 0 - attack, 1 - magic, 2 - prayer
+_move_num = -1; // Move number
 _finish = false; // Jumps to move resolution
 
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {
-	party_units[i] = instance_create_depth(x+49+(i*8), y+76+(i*20), -1*(i+1), obj_party_unit, global.party[i]);
-	party_shadows[i] = instance_create_depth(x+51+(i*8), y+87+(i*20), 5, obj_shadow);
+	party_units[i] = instance_create_depth(x+29+(i*8), y+76+(i*20), -2*(i+1), obj_party_unit, global.party[i]);
+	party_shadows[i] = instance_create_depth(x+31+(i*8), y+87+(i*20), -2*(i+1)+1, obj_shadow);
 	array_push(units, party_units[i]); // Push friendly units to units array
 	array_push(shadows, party_shadows[i]); // Push party shadows to shadow array
 }
 
 // Create enemy party
 for (var i = 0; i < array_length(enemies); i++) {
-	enemy_units[i] = instance_create_depth(x+299-(i*8), y+76+(i*20), -1*(i+1), obj_enemy_unit, enemies[i]);
-	enemy_shadows[i] = instance_create_depth(x+268-(i*8), y+87+(i*20), 5, obj_shadow);
+	enemy_units[i] = instance_create_depth(x+289-(i*8), y+76+(i*20), -2*(i+1), obj_enemy_unit, enemies[i]);
+	enemy_shadows[i] = instance_create_depth(x+257-(i*8), y+87+(i*20), -2*(i+1)+1, obj_shadow);
 	array_push(units, enemy_units[i]); // Push enemy units to units array
 	array_push(shadows, enemy_shadows[i]); // Push enemy shadows to shadow array
 }

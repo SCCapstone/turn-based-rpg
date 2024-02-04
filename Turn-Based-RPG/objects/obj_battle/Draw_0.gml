@@ -46,10 +46,10 @@ if (_gameover == false) {
 			for (var i = 0; i < _e_length; i++) {
 				if (enemy_units[i]._is_dead == false) {
 					_target = i;
-					draw_sprite(spr_arrow,0,enemy_units[_target].x + 4,enemy_units[_target].y + 10);
+					draw_sprite(spr_arrow,0,enemy_units[_target].x - 7,enemy_units[_target].y + 10);
 				}
 			}
 		}
-		draw_sprite(spr_arrow,0,enemy_units[_target].x + 4,enemy_units[_target].y + 10);
+		draw_sprite(spr_arrow,0,enemy_units[_target].x - 7,enemy_units[_target].y + 10);
 	}
 }
