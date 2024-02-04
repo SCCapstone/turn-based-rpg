@@ -23,7 +23,7 @@ global.party =
 
 		// Movesets
 		_spells: [global.spells.fireball],
-		_prayers: [],
+		_prayers: [global.prayers.chill],
 		
 		// Equipment
 		_weapon: global.weapons.sword,
@@ -36,6 +36,8 @@ global.party =
 			
 		// Misc
 		_sprites: {idle: spr_sorcerer},
+		_effects: [],
+		_effects_remaining_turns: [],
 		_is_dead: false,
 		_is_player: false  // TODO
 	},
@@ -59,12 +61,12 @@ global.party =
 		
 		// Movesets
 		_spells: [global.spells.fireball],
-		_prayers: [],
+		_prayers: [global.prayers.chill],
 		
 		// Equipment
-		_weapon: global.weapons.scythe,
+		_weapon: global.weapons.sword,
 		_magic_weapon: noone,
-		_prayer_book: noone,
+		_prayer_book: global.prayer_books.scroll,
 		
 		_armor_head: global.armor.knightly_plumed_helmet,
 		_armor_chest: global.armor.steel_plate_armor,
@@ -72,6 +74,8 @@ global.party =
 			
 		// Misc
 		_sprites: {idle: spr_knight},
+		_effects: [],
+		_effects_remaining_turns: [],
 		_is_dead: false,
 		_is_player: true  // TODO
 	}

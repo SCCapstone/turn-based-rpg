@@ -3,6 +3,7 @@
 // Call this in a game object to ensure all game scripts load in correct order 
 // Always have this in a new room unless you want everything to break
 function init(){
+	status_effects();
 	armor();
 	attacks();
 	weapons();

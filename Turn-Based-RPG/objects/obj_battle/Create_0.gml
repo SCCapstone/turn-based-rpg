@@ -19,6 +19,7 @@ _timer = 0; // Timer for alarms
 _show_wpn = false; // For spawning weapon object
 _show_magic_wpn = false;
 _show_prayer_book = false;
+_show_prayer = false;
 _show_spell = false;
 _dmg = 0;
 _target = 0; // Holds player target

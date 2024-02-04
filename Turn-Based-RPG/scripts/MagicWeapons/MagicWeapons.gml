@@ -1,5 +1,5 @@
 function magic_weapons(){
-	global.magic_weapons =
+global.magic_weapons =
 	{
 		staff: 
 		{

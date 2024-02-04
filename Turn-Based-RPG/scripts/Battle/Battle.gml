@@ -68,10 +68,22 @@ function calculate_damage(_character, _type, _dmg) {
 		_res = (_character._armor_head._prot_pierce
 		+ _character._armor_chest._prot_pierce
 		+ _character._armor_legs._prot_pierce);
+	} else if (_type == "blunt") {
+		_res = (_character._armor_head._prot_blunt
+		+ _character._armor_chest._prot_blunt
+		+ _character._armor_legs._prot_blunt);
 	} else if (_type == "magic") {
 		_res = (_character._armor_head._prot_magic
 		+ _character._armor_chest._prot_magic
 		+ _character._armor_legs._prot_magic);
+	} else if (_type == "fire") {
+		_res = (_character._armor_head._prot_fire
+		+ _character._armor_chest._prot_fire
+		+ _character._armor_legs._prot_fire);
+	} else if (_type == "ice") {
+		_res = (_character._armor_head._prot_ice
+		+ _character._armor_chest._prot_ice
+		+ _character._armor_legs._prot_ice);
 	}
 	else {
 		return 0;

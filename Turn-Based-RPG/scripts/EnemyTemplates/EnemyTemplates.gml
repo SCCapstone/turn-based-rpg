@@ -23,6 +23,8 @@ global.enemies =
 		
 		// Misc
 		_sprites: { idle: spr_archer },
+		_effects: [],
+		_effects_remaining_turns: [],
 		_is_dead: false
 	}, 
 	knightEnemy:
@@ -47,6 +49,8 @@ global.enemies =
 		
 		// Misc
 		_sprites: { idle: spr_knight },
+		_effects: [],
+		_effects_remaining_turns: [],
 		_is_dead: false
 	}
 }
