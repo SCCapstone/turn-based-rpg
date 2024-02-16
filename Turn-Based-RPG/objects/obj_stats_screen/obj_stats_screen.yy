@@ -14,7 +14,7 @@
     "path": "folders/Objects/Stats.yy",
   },
   "parentObjectId": null,
-  "persistent": false,
+  "persistent": true,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
   "physicsFriction": 0.2,
@@ -29,10 +29,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_menu_background",
-    "path": "sprites/spr_menu_background/spr_menu_background.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }
