@@ -89,6 +89,7 @@
     {"name":"spr_shadow","order":1,"path":"sprites/spr_shadow/spr_shadow.yy",},
     {"name":"spr_bow","order":5,"path":"sprites/spr_bow/spr_bow.yy",},
     {"name":"snd_sword_slash","order":2,"path":"sounds/snd_sword_slash/snd_sword_slash.yy",},
+    {"name":"ts_house","order":5,"path":"tilesets/ts_house/ts_house.yy",},
     {"name":"spr_villager_m_2","order":3,"path":"sprites/spr_villager_m_2/spr_villager_m_2.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
     {"name":"obj_unit_test","order":1,"path":"objects/obj_unit_test/obj_unit_test.yy",},
@@ -118,6 +119,7 @@
     {"name":"spr_mapBackground","order":1,"path":"sprites/spr_mapBackground/spr_mapBackground.yy",},
     {"name":"spr_sword","order":4,"path":"sprites/spr_sword/spr_sword.yy",},
     {"name":"spr_leave_map","order":3,"path":"sprites/spr_leave_map/spr_leave_map.yy",},
+    {"name":"spr_houses","order":9,"path":"sprites/spr_houses/spr_houses.yy",},
     {"name":"obj_wall1x1","order":4,"path":"objects/obj_wall1x1/obj_wall1x1.yy",},
   ],
 }
