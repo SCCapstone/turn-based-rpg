@@ -5,7 +5,7 @@ right_key = keyboard_check_pressed(ord("D"));
 
 if (keyboard_check_pressed(ord("P"))) {
 	show_stats = !show_stats;
-	obj_player.disabled = !obj_player.disabled;
+	obj_player._disabled = !obj_player._disabled;
 }
 
 if (!show_stats) exit;

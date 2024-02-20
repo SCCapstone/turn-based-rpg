@@ -79,6 +79,7 @@
     {"name":"EnemyTemplates","order":1,"path":"scripts/EnemyTemplates/EnemyTemplates.yy",},
     {"name":"EnemyState","order":1,"path":"scripts/EnemyState/EnemyState.yy",},
     {"name":"spr_frozen","order":2,"path":"sprites/spr_frozen/spr_frozen.yy",},
+    {"name":"obj_battle_menu","order":9,"path":"objects/obj_battle_menu/obj_battle_menu.yy",},
     {"name":"obj_shadow","order":6,"path":"objects/obj_shadow/obj_shadow.yy",},
     {"name":"obj_party_weapon","order":7,"path":"objects/obj_party_weapon/obj_party_weapon.yy",},
     {"name":"spr_tree","order":1,"path":"sprites/spr_tree/spr_tree.yy",},

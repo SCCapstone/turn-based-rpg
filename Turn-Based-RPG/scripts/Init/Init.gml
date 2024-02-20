@@ -18,11 +18,11 @@ global.textbox_height = 60;
 global.namebox_width = 157;
 global.namebox_height = 23;
 global.ui_x_buffer = 3;
-global.ui_y_buffer = 114;
+global.ui_y_buffer = 117;
 global.text_x_buffer = 6;
 global.text_y_buffer = 4;
 global.namebox_x_buffer = 3;
-global.namebox_y_buffer = 90;
+global.namebox_y_buffer = 92;
 global.text_max_width = (global.textbox_width - (2 * (global.ui_x_buffer))) * 7.2;
 
 // Simpler draw text function
