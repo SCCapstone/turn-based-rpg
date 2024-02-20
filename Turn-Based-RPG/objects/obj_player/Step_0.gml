@@ -1,30 +1,62 @@
 //runs each frame
 //IMPORTANT: OBJECTS MUST BE MARKED "Solid" TO HAVE WORKING NON-BASIC COLLISION WITH PLAYER
 
+//Move the Sprite
+//right
+if (_target_x > x) {
+	x += 2;
+}
+//left
+if (_target_x < x) {
+	x -= 2;
+}
+//down
+if (_target_y > y) {
+	y += 2;
+}
+//up
+if (_target_y < y) {
+	y -= 2;
+}
+
+//check if reached destination
+if (_target_x == x && _target_y == y) {
+	_moving = false;
+} 
+
+//key presses
 if (_disabled == false) {
-	if (keyboard_check(ord("W")) && place_free(x, y - collision_speed)) { //move up, place_free handles collisions with objects marked solid. More infor on place_free in documentation.
-		y -= _speed;
+	if (keyboard_check(ord("W")) && place_free(x, y - _collision_dist)) && !_moving { //move up, place_free handles collisions with objects marked solid. More infor on place_free in documentation.
+		_moving = true;
+		_target_y -= 16;
+		//y -= _speed;
 		image_index = 1;
 		facing = 2;
 		_prev_speaker = noone;
 	}
 
-	if (keyboard_check(ord("A")) && place_free(x - collision_speed, y)) { //move left
-		x -= _speed;
+	if (keyboard_check(ord("A")) && place_free(x - _collision_dist, y)) && !_moving {//move left
+		_moving = true;
+		_target_x -= 16;
+		//x -= _speed;
 		image_index = 2;
 		facing = 3;
 		_prev_speaker = noone;
 	}
 
-	if (keyboard_check(ord("S")) && place_free(x, y + collision_speed)) { //move down
-		y += _speed;
+	if (keyboard_check(ord("S")) && place_free(x, y + _collision_dist)) && !_moving { //move down
+		_moving = true;
+		_target_y += 16;
+		//y += _speed;
 		image_index = 0;
 		facing = 1;
 		_prev_speaker = noone;
 	}
 
-	if (keyboard_check(ord("D")) && place_free(x + collision_speed, y)) { //move right
-		x += _speed;
+	if (keyboard_check(ord("D")) && place_free(x + _collision_dist, y)) && !_moving { //move right
+		_moving = true;
+		_target_x += 16;
+		//x += _speed;
 		image_index = 3;
 		facing = 4;
 		_prev_speaker = noone;
