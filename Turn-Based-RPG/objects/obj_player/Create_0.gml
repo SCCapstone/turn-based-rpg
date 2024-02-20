@@ -2,9 +2,11 @@
 _speed = 2; //how fast the player moves
 collision_speed = _speed + 1;
 
-// Sets user to character array 0
-unit = character[0];
-unit.actor = id;
+_disabled = false;
+
+_speaker = noone;
+_prev_speaker = noone;
+
 
 //variable to indicate where player is facing
 facing = 1;
@@ -15,3 +17,4 @@ facing guide:
 3 = left
 4 = right
 */
+

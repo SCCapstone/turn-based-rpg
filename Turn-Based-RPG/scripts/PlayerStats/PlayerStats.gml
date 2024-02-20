@@ -37,6 +37,60 @@ function Player(_name, _lvl, _xp, _initial_stats, _ending_stats) : Character(_na
 	}
 	
 	//Function for putting stat points into different stats
-	if (stat_points > 0) {
+	/*function allocate_add(stat) {
+		if (stat_points > 0) {
+			switch (stat) {
+				case STAT.HP:
+					stats.hp += 1;
+					break;
+				case STAT.MP:
+					stats.mp += 1;
+					break;
+				case STAT.STR:
+                    stats.str += 1;
+                    break;
+                case STAT.AGIL:
+                    stats.agil += 1;
+                    break;
+                case STAT.ENDU:
+                    stats.endu += 1;
+                    break;
+                case STAT.CC:
+                    stats.cc += 1;
+                    break;
+                case STAT.SPD:
+                    stats.spd += 1;
+                    break;
+			}
+			stat_points -= 1;
+			return stats;
+		}
 	}
+	function allocate_minus(stat) {
+		switch (stat) {
+			case STAT.HP:
+				stats.hp -= 1;
+				break;
+			case STAT.MP:
+				stats.mp -= 1;
+				break;
+			case STAT.STR:
+                    stats.str -= 1;
+                    break;
+                case STAT.AGIL:
+                    stats.agil -= 1;
+                    break;
+                case STAT.ENDU:
+                    stats.endu -= 1;
+                    break;
+                case STAT.CC:
+                    stats.cc -= 1;
+                    break;
+                case STAT.SPD:
+                    stats.spd -= 1;
+                    break;
+			}
+			stat_points += 1;
+			return stats;
+	}*/
 }

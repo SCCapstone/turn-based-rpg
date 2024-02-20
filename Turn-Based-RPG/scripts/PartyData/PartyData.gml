@@ -12,6 +12,7 @@ global.party =
 		
 		_lvl: 1,		// Level
 		_xp: 0,			// Experience/XP
+		_max_xp: 100,	// Max XP
 
 		_max_hp: 50,    // Health
 		_max_mp: 50,    // Mana
@@ -49,6 +50,7 @@ global.party =
 		
 		_lvl: 1,		// Level
 		_xp: 0,			// Experience/XP
+		_max_xp: 100,	// Max XP
 
 		_max_hp: 70,    // Health
 		_max_mp: 0,     // Mana

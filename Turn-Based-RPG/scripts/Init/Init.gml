@@ -19,6 +19,17 @@ function init(){
 global.op_border = 8;
 global.op_space = 16;
 global.op_margin = 5000;
+global.textbox_width = 314;
+global.textbox_height = 60;
+global.namebox_width = 157;
+global.namebox_height = 23;
+global.ui_x_buffer = 3;
+global.ui_y_buffer = 117;
+global.text_x_buffer = 6;
+global.text_y_buffer = 4;
+global.namebox_x_buffer = 3;
+global.namebox_y_buffer = 92;
+global.text_max_width = (global.textbox_width - (2 * (global.ui_x_buffer))) * 7.2;
 
 // Simpler draw text function
 function draw_text_relative(_text, _color, _size, _offset) {

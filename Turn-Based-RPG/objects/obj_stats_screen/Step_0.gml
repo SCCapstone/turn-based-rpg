@@ -3,42 +3,48 @@ down_key = keyboard_check_pressed(ord("S"));
 left_key = keyboard_check_pressed(ord("A"));
 right_key = keyboard_check_pressed(ord("D"));
 
-if (up_key) {
-	selection -= 1;
-	if (selection < 0) {
-		selection = 6;
-	}
+if (keyboard_check_pressed(ord("P"))) {
+	show_stats = !show_stats;
+	obj_player._disabled = !obj_player._disabled;
 }
-if (down_key) {
-	selection += 1;
-	if (selection > 6) {
-		selection = 0;
-	}
+
+if (!show_stats) exit;
+
+pos += down_key - up_key;
+
+if (pos >= op_length) {
+	pos = 0;
 }
+
+if (pos < 0) {
+	pos = op_length - 1;
+}
+
 
 // adds a skill point to the respective stat and reduces the skill point number by 1
 if (right_key && skill_points > 0) {
-	switch (selection) {
+	/*character[0].allocate_add(selection);
+	character[0].stat_points -= 1;*/
+	switch (pos) {
 		case 0:
-			character[0].stats.hp += 1;
+			global.party[0]._max_hp += 1;
+			global.party[0]._hp = global.party[0]._max_hp;
 			break;
 		case 1:
-			character[0].stats.mp += 1;
+			global.party[0]._max_mp += 1;
+			global.party[0]._mp = global.party[0]._max_mp
 			break;
 		case 2:
-			character[0].stats.str += 1;
+			global.party[0]._str += 1;
 			break;
 		case 3:
-			character[0].stats.agil += 1;
+			global.party[0]._agi += 1;
 			break;
 		case 4:
-			character[0].stats.endu += 1;
+			global.party[0]._dex += 1;
 			break;
 		case 5:
-			character[0].stats.cc += 1;
-			break;
-		case 6:
-			character[0].stats.spd += 1;
+			global.party[0]._spd += 1;
 			break;
 	}
 	skill_points -= 1;
@@ -46,41 +52,68 @@ if (right_key && skill_points > 0) {
 
 // removes points from respective stat and increases skill points
 if (left_key) {
-	switch (selection) {
+	//character[0].allocate_minus(selection);
+	switch (pos) {
 		case 0:
-			character[0].stats.hp -= 1;
+			if ( global.party[0]._max_hp > 1) {
+				global.party[0]._max_hp -= 1;
+				skill_points += 1;
+				global.party[0]._hp = global.party[0]._max_hp;
+			} else {
+				global.party[0]._max_hp = 1;
+			}
 			break;
 		case 1:
-			character[0].stats.mp -= 1;
+			if ( global.party[0]._max_mp > 1) {
+				global.party[0]._max_mp -= 1;
+				skill_points += 1;
+				global.party[0]._mp = global.party[0]._max_mp;
+			} else {
+				global.party[0]._max_mp = 1;
+			}
 			break;
 		case 2:
-			character[0].stats.str -= 1;
+			if ( global.party[0]._str > 0) {
+				global.party[0]._str -= 1;
+				skill_points += 1;
+			} else {
+				global.party[0]._str = 0;
+			}
 			break;
 		case 3:
-			character[0].stats.agil -= 1;
+			if ( global.party[0]._agi > 0) {
+				global.party[0]._agi -= 1;
+				skill_points += 1;
+			} else {
+				global.party[0]._agi = 0;
+			}
 			break;
 		case 4:
-			character[0].stats.endu -= 1;
+			if ( global.party[0]._dex > 0) {
+				global.party[0]._dex -= 1;
+				skill_points += 1;
+			} else {
+				global.party[0]._dex = 0;
+			}
 			break;
 		case 5:
-			character[0].stats.cc -= 1;
-			break;
-		case 6:
-			character[0].stats.spd -= 1;
+			if ( global.party[0]._spd > 0) {
+				global.party[0]._spd -= 1;
+				skill_points += 1;
+			} else {
+				global.party[0]._spd = 0;
+			}
 			break;
 	}
-	skill_points += 1;
 }
 
-function getUpdatedStats() {  // Supposed to update the chararcter stats 
-	                          // so the new stats can be called in PartyData
-							  // currently not working
-	return character[0].stats;
+if (global.party[0]._xp >= global.party[0]._max_xp) {
+	global.party[0]._lvl++;
+	global.party[0]._xp = 0;
+	global.party[0]._max_xp = 100 * global.party[0]._lvl;
+	skill_points += 10;
 }
 
-if keyboard_check_pressed(ord("P")) {
-    instance_destroy(obj_stats_screen); // Close the stats screen when "P" is pressed
-}
 
 
 
