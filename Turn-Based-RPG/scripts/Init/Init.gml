@@ -3,8 +3,14 @@
 // Call this in a game object to ensure all game scripts load in correct order 
 // Always have this in a new room unless you want everything to break
 function init(){
+	status_effects();
 	armor();
 	attacks();
+	weapons();
+	magic_weapons();
+	prayer_books();
+	spells();
+	prayers();
 	party_data();
 	enemy_templates();
 }
@@ -37,5 +43,13 @@ function print_test_result(_result, _expected, _size, _offset) {
 		draw_text_relative("OK", c_green, _size, _offset)
 	} else {
 		draw_text_relative("FAILED", c_red, _size, _offset)
+	}
+}
+
+function get_move_num() {
+	if ((keyboard_key >= ord("0") && keyboard_key <= ord("9"))) {
+		return keyboard_key - ord("0")
+	} else { 
+		return -1
 	}
 }
