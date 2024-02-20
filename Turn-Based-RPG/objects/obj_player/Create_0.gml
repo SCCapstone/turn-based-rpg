@@ -2,7 +2,10 @@
 _speed = 2; //how fast the player moves
 collision_speed = _speed + 1;
 
-disabled = false;
+_disabled = false;
+
+_speaker = noone;
+_prev_speaker = noone;
 
 
 //variable to indicate where player is facing

@@ -68,6 +68,7 @@
     {"name":"PartyData","order":2,"path":"scripts/PartyData/PartyData.yy",},
     {"name":"spr_burn","order":1,"path":"sprites/spr_burn/spr_burn.yy",},
     {"name":"spr_tree_for_tiles","order":5,"path":"sprites/spr_tree_for_tiles/spr_tree_for_tiles.yy",},
+    {"name":"obj_NPC","order":3,"path":"objects/obj_NPC/obj_NPC.yy",},
     {"name":"spr_fences","order":7,"path":"sprites/spr_fences/spr_fences.yy",},
     {"name":"rm_access_menu","order":5,"path":"rooms/rm_access_menu/rm_access_menu.yy",},
     {"name":"spr_stun","order":4,"path":"sprites/spr_stun/spr_stun.yy",},
@@ -120,6 +121,7 @@
     {"name":"spr_sword","order":4,"path":"sprites/spr_sword/spr_sword.yy",},
     {"name":"spr_leave_map","order":3,"path":"sprites/spr_leave_map/spr_leave_map.yy",},
     {"name":"spr_houses","order":9,"path":"sprites/spr_houses/spr_houses.yy",},
+    {"name":"CreateTextbox","order":1,"path":"scripts/CreateTextbox/CreateTextbox.yy",},
     {"name":"obj_wall1x1","order":4,"path":"objects/obj_wall1x1/obj_wall1x1.yy",},
   ],
 }
