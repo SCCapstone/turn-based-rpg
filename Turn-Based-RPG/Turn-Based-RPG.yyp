@@ -54,6 +54,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"UI","folderPath":"folders/Sprites/UI.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Status Effects","folderPath":"folders/Sprites/UI/Status Effects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Weapons","folderPath":"folders/Sprites/Weapons.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Magic Weapons","folderPath":"folders/Sprites/Weapons/Magic Weapons.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Prayer Books","folderPath":"folders/Sprites/Weapons/Prayer Books.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"World Map","folderPath":"folders/Sprites/World Map.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
