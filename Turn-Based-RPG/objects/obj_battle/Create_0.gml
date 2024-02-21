@@ -23,6 +23,7 @@ _show_prayer = false;
 _show_spell = false;
 _dmg = 0;
 _target = 0; // Holds player target
+_temp_target = 0; // Holds player target
 _enemy_target = 0; // Holds enemy target
 _firstmove = true;
 _move_type = -1; // 0 - attack, 1 - magic, 2 - prayer
@@ -76,6 +77,11 @@ for (var i = 0; i < _e_length-1; i++) {  // Turn order for enemy party
 			break;
 		}
 	}
+}
+
+// Create array for storing player party XP changes
+for (var i = 0; i < _p_length; i++) {
+	xp_gained[i] = 0;
 }
 
 // Debug code for turn order functionality

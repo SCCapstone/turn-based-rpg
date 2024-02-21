@@ -8,7 +8,7 @@ global.spells = {
 		_dmg_max: 30,
 		_sound: snd_fireball,
 		_sprite: spr_fireball,
-		_mp_cost: 30
+		_mp_cost: 10
 		// TODO Secondary damage
 	}
 }
