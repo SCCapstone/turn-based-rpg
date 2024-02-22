@@ -3,10 +3,13 @@ down_key = keyboard_check_pressed(ord("S"));
 left_key = keyboard_check_pressed(ord("A"));
 right_key = keyboard_check_pressed(ord("D"));
 
-if (keyboard_check_pressed(ord("P"))) {
+if (keyboard_check_pressed(ord("P")) && room != rm_world_map && room != rm_access_menu) {
 	show_stats = !show_stats;
 	obj_player._disabled = !obj_player._disabled;
-}
+} else if (keyboard_check_pressed(ord("P")) && room == rm_world_map) {
+	show_stats = !show_stats;
+	obj_pointer._disabled = !obj_pointer._disabled;
+} 
 
 if (!show_stats) exit;
 
@@ -27,7 +30,9 @@ if (right_key && skill_points > 0) {
 	character[0].stat_points -= 1;*/
 	switch (pos) {
 		case 0:
-			global.party[0]._max_hp += 1;
+			hp += 1;
+			global.party[0]._max_hp = global.party[0]._max_hp * (hp/10);
+			//global.party[0]._max_hp += 1;
 			global.party[0]._hp = global.party[0]._max_hp;
 			break;
 		case 1:
@@ -107,12 +112,12 @@ if (left_key) {
 	}
 }
 
-if (global.party[0]._xp >= global.party[0]._max_xp) {
-	global.party[0]._lvl++;
+/*if (global.party[0]._xp >= global.party[0]._max_xp) {
+	global.party[0]._lvl += 1;
 	global.party[0]._xp = 0;
 	global.party[0]._max_xp = 100 * global.party[0]._lvl;
 	skill_points += 10;
-}
+}*/
 
 
 
