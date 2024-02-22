@@ -1,4 +1,4 @@
-// Call this function to start or end battles
+// Call this function to start battles
 function battle_start(_enemies, _background) {
 	instance_create_depth (
 		camera_get_view_x(view_camera[0]),
@@ -40,6 +40,18 @@ if (_p_state == "defeated") {
 }
 
 return false;
+}
+
+// Call this function to change a character's hp, either
+// positively or negatively
+function change_hp(_character, _type, _dmg) {
+	if(_dmg > 0) {
+		// Call damage calculation function
+		_character._hp -= calculate_damage(_character, _type, _dmg);
+	} else {
+		// If _dmg <= 0, simply add HP
+		_character._hp -= _dmg;
+	}
 }
 
 // Call this function to factor in a character's damage 
@@ -118,4 +130,13 @@ function update_status_effects(_party) {
 	}
 }
 
-// TODO function battle_end
+function kill_enemy(target) {
+	enemy_units[target].visible = false; // Make target instance invisible, can't remove it or it messes things up
+	enemy_units[target]._is_dead = true;
+	instance_destroy(enemy_shadows[target]);
+}
+
+
+function battle_end() {
+	
+}

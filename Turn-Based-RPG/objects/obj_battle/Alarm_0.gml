@@ -21,7 +21,9 @@ if (_turn == "player") { // Begin conclusion of player turn
 	
 	show_debug_message("Begin Enemy " + string(_e_num) + "'s turn");
 	update_status_effects(enemy_units); // Update enemy status effects
-	check_gameover(party_units, enemy_units);
+	if (check_gameover(party_units, enemy_units)) {
+		instance_destroy();	
+	}
 	_turn = "enemy"; // Begin enemy turn
 } 
 
@@ -42,6 +44,8 @@ else if (_turn == "enemy") { // Begin conclusion of enemy turn
 	
 	show_debug_message("Begin Player " + string(_p_num) + "'s turn");
 	update_status_effects(party_units); // Update player party status effects
-	check_gameover(party_units, enemy_units);
+	if (check_gameover(party_units, enemy_units)) {
+		instance_destroy();
+	}
 	_turn = "player"; // Begin player turn
 }

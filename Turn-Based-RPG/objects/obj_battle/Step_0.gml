@@ -74,8 +74,8 @@ if (_turn == "player" && _moved == false && _gameover == false) {
 		audio_play_sound(party_units[_p_num]._weapon._attacks[_move_num]._sound, 1, false);
 		_show_wpn = true;
 		
-		// Decrease targeted enemy health
-		enemy_units[_target]._hp -= calculate_damage(enemy_units[_target], 
+		// Change targeted enemy health
+		change_hp(enemy_units[_target], 
 		party_units[_p_num]._weapon._attacks[_move_num]._dmgtype, _dmg)
 			
 		_finish = true; // Jump to end
@@ -100,7 +100,7 @@ if (_turn == "player" && _moved == false && _gameover == false) {
 		}
 		
 		// Decrease targeted enemy health
-		enemy_units[_target]._hp -= calculate_damage(enemy_units[_target], 
+		change_hp(enemy_units[_target], 
 		party_units[_p_num]._spells[_move_num]._dmgtype, _dmg)
 		
 		// Decrease player MP
@@ -156,9 +156,11 @@ if (_turn == "player" && _moved == false && _gameover == false) {
 		if (enemy_units[_target]._hp <= 0) { // Check if target was killed
 			enemy_units[_target]._hp = 0;
 			show_debug_message(enemy_units[_target]._name + " was killed!");
-			enemy_units[_target].visible = false; // Make target instance invisible, can't remove it or it messes things up
-			enemy_units[_target]._is_dead = true;
-			instance_destroy(enemy_shadows[_target]);
+			kill_enemy(_target);
+			// Reward party member with XP
+			xp_gained[_p_num] += enemy_units[_target]._xp_val;
+			show_debug_message(party_units[_p_num]._name + " gained " + 
+			string(enemy_units[_target]._xp_val) + " XP.");
 			_gameover = check_gameover(party_units, enemy_units); // Check if either party is defeated
 		}
 		
@@ -214,7 +216,7 @@ if (_turn == "enemy" && _moved == false) {
 			_show_wpn = true;
 		
 			// Decrease target's health
-			party_units[_target]._hp -= calculate_damage(party_units[_target], 
+			change_hp(party_units[_target], 
 			enemy_units[_e_num]._weapon._attacks[_move_num]._dmgtype, _dmg)
 			
 			_finish = true; // Jump to end
@@ -239,7 +241,7 @@ if (_turn == "enemy" && _moved == false) {
 			}
 		
 			// Decrease targeted player health
-			party_units[_target]._hp -= calculate_damage(enemy_units[_target], 
+			change_hp(enemy_units[_target], 
 			enemy_units[_e_num]._spells[_move_num]._dmgtype, _dmg)
 		
 			// Decrease enemy MP
