@@ -1,4 +1,6 @@
 {
   "FolderOrderSettings": [],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"spr_inventory_slots","order":1,"path":"sprites/spr_inventory_slots/spr_inventory_slots.yy",},
+  ],
 }

@@ -72,6 +72,7 @@
     {"id":{"name":"spr_sorcerer","path":"sprites/spr_sorcerer/spr_sorcerer.yy",},},
     {"id":{"name":"EnemyChase","path":"scripts/EnemyChase/EnemyChase.yy",},},
     {"id":{"name":"spr_1x1","path":"sprites/spr_1x1/spr_1x1.yy",},},
+    {"id":{"name":"spr_inventory_slots","path":"sprites/spr_inventory_slots/spr_inventory_slots.yy",},},
     {"id":{"name":"EnemyRoaming","path":"scripts/EnemyRoaming/EnemyRoaming.yy",},},
     {"id":{"name":"ts_cobble","path":"tilesets/ts_cobble/ts_cobble.yy",},},
     {"id":{"name":"spr_chest","path":"sprites/spr_chest/spr_chest.yy",},},
