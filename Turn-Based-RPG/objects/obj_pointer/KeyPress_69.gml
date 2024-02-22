@@ -1,13 +1,17 @@
 //if the enter key is pressed, brings user into selected level
 
-if location == 0 {
+if global.location == 0 {
 	room_goto(rm_town);
 }
 
-if location == 1 {
+if global.location == 1 {
 	room_goto(rm_plains);
 }
 
-if location == 2 {
+if global.location == 2 {
 	room_goto(rm_forest);
+}
+
+if global.location == 3 {
+	room_goto(rm_castle);
 }

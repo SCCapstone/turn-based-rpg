@@ -1,10 +1,9 @@
 // Resolve battle state transition
+
 _moved = false;
 
-if (_turn == "player") { // Begin enemy turn
-	
+if (_turn == "player") { // Begin conclusion of player turn
 	while (true) { // Repeat until living unit is found
-	
 		if (_e_num+1 < _e_length && _firstmove == false) {
 			_e_num++; // Increment enemy party array
 		} else {
@@ -17,15 +16,19 @@ if (_turn == "player") { // Begin enemy turn
 			show_debug_message("Enemy " + string(_e_num) + " is dead, skipping...");
 		}
 	}
-	show_debug_message("Begin enemy " + string(_e_num) + "'s turn");
-	_show_wpn = false;
-	_firstmove = false;
-	_turn = "enemy"; // Switch to enemy turn
+	
+	_firstmove = false; // End player turn
+	
+	show_debug_message("Begin Enemy " + string(_e_num) + "'s turn");
+	update_status_effects(enemy_units); // Update enemy status effects
+	if (check_gameover(party_units, enemy_units)) {
+		instance_destroy();	
+	}
+	_turn = "enemy"; // Begin enemy turn
 } 
 
-else if (_turn == "enemy") { // Begin player turn
+else if (_turn == "enemy") { // Begin conclusion of enemy turn
 	while (true) { // Repeat until living unit is found
-
 		if (_p_num+1 < _p_length && _firstmove == false) {
 			_p_num++; // Increment player party array
 		} else {
@@ -37,9 +40,12 @@ else if (_turn == "enemy") { // Begin player turn
 		} else {
 			show_debug_message("Player " + string(_p_num) + " is dead, skipping...");
 		}
-
+	} // End enemy turn
+	
+	show_debug_message("Begin Player " + string(_p_num) + "'s turn");
+	update_status_effects(party_units); // Update player party status effects
+	if (check_gameover(party_units, enemy_units)) {
+		instance_destroy();
 	}
-	show_debug_message("Begin player " + string(_p_num) + "'s turn");
-	_show_wpn = false;
-	_turn = "player"; // Switch to player turn
-} 
+	_turn = "player"; // Begin player turn
+}

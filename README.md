@@ -19,15 +19,13 @@ Open project in GameMaker. To run the code, press F5, or click the play button (
 
 # Testing
 
-Will be updated in future. For 492.
-
 ## Testing Technology
 
-Will be updated in future. For 492.
+Since unit testing is not a supported feature in GameMaker Studio, all unit tests are enabled by functions created by the team, which compare expected and received output and display the compiled results in an executable game window.
 
 ## Running Tests
 
-Will be updated in future. For 492.
+To run Unit Test 1, enter the "Testing" folder and then navigate to the "Unit Tests" folder. From there, simply run "unit_text_1.exe" and the results will be displayed.
 
 # Authors
 
@@ -37,6 +35,8 @@ Chris Moore     cpm12@email.sc.edu
 
 Zandair Watkins zwatkins@email.sc.edu
 
-Meet Patel      meet@email.sc.edu
-
 Hollis Langford hollisol@email.sc.edu
+
+Hadley Blalock  hblalock@email.sc.edu
+
+Meet Patel      meet@email.sc.edu (former member)

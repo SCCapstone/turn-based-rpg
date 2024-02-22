@@ -5,20 +5,28 @@ if at the starting village location, level has been cleared, and the D key is pr
 
 updates location
 */
-if state == 0 && location == 0 && obj_village_node.is_cleared == true && keyboard_check_pressed(ord("D")) {
+if state == 0 && global.location == 0 && obj_village_node.is_cleared == true && keyboard_check_pressed(ord("D")) {
 	state = 1;
 }
 
-if state == 0 && location == 1 && keyboard_check_pressed(ord("S")) {
+if state == 0 && global.location == 1 && keyboard_check_pressed(ord("S")) {
 	state = 2;
 }
 
-if state == 0 && location == 1 && obj_field_node.is_cleared = true && keyboard_check_pressed(ord("D")) {
+if state == 0 && global.location == 1 && obj_field_node.is_cleared = true && keyboard_check_pressed(ord("D")) {
 	state = 3;
 }
 
-if state == 0 && location == 2 && keyboard_check_pressed(ord("W")) {
+if state == 0 && global.location == 2 && keyboard_check_pressed(ord("W")) {
 	state = 4;
+}
+
+if state == 0 && global.location == 2 && keyboard_check_pressed(ord("D")) {
+	state = 5;
+}
+
+if state == 0 && global.location == 3 && keyboard_check_pressed(ord("S")) {
+	state = 6;
 }
 
 //from village to field
@@ -31,7 +39,7 @@ if state = 1 {
 	}
 	if point_distance(x, y, 96, 64) = 0 { //if distance between pointer and 96,162 is 0, stop moving
 		speed = 0;
-		location = map_locations[1];
+		global.location = 1
 		state = 0;
 	}
 }
@@ -46,7 +54,7 @@ if state = 2 {
 	}
 	if point_distance(x, y, 50, 162) = 0 { //if distance between pointer and 50,162 is 0, stop moving
 		speed = 0;
-		location = map_locations[0];
+		global.location = 0
 		state = 0;
 	}
 }
@@ -61,7 +69,7 @@ if state = 3 {
 	}
 	if point_distance(x, y, 256, 96) = 0 { 
 		speed = 0;
-		location = map_locations[2];
+		global.location = 2
 		state = 0;
 	}
 }
@@ -76,7 +84,37 @@ if point_distance(x, y, 256, 96) = 0 {
 	}
 	if point_distance(x, y, 96, 64) = 0 { 
 		speed = 0;
-		location = map_locations[1];
+		global.location = 1
+		state = 0;
+	}
+}
+
+//from forest to castle
+if state = 5 {
+if point_distance(x, y, 256, 96) = 0 { 
+		move_towards_point(320, 96, 1); 
+	}
+	if point_distance(x, y, 320, 96) = 0 { 
+		move_towards_point(320, 44, 1);
+	}
+	if point_distance(x, y, 320, 44) = 0 { 
+		speed = 0;
+		global.location = 3;
+		state = 0;
+	}
+}
+
+//from castle to forest
+if state = 6 {
+if point_distance(x, y, 320, 44) = 0 { 
+		move_towards_point(320, 96, 1); 
+	}
+	if point_distance(x, y, 320, 96) = 0 { 
+		move_towards_point(256, 96, 1);
+	}
+	if point_distance(x, y, 256, 96) = 0 { 
+		speed = 0;
+		global.location = 2;
 		state = 0;
 	}
 }

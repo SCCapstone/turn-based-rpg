@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Turn-Based-RPG",
-    "path": "Turn-Based-RPG.yyp",
+    "name": "Data Scripts",
+    "path": "folders/Scripts/Data Scripts.yy",
   },
 }
