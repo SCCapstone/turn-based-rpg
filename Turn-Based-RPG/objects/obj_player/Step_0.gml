@@ -67,15 +67,19 @@ if (_disabled == false) {
 	if (keyboard_check(ord("E"))) {
 		if (facing == 1) {
 			_speaker = collision_line(x + 15, y + 15, x + 15, y + 39, obj_NPC, false, true);
+		show_debug_message(_speaker);
 		} 
 		if (facing == 2) {
 			_speaker =  collision_line(x + 15, y + 15, x + 15, y + 4, obj_NPC, false, true);
+			show_debug_message(_speaker);
 		}
 		if (facing == 3) {
 			_speaker =  collision_line(x + 15, y + 15, x - 11, y + 15, obj_NPC, false, true);
+			show_debug_message(_speaker);
 		}
 		if (facing == 4) {
 			_speaker =  collision_line(x + 15, y + 15, x + 35, y + 15, obj_NPC, false, true);
+			show_debug_message(_speaker);
 		}
 		
 		if (_speaker != noone && _speaker != _prev_speaker) {
@@ -84,4 +88,5 @@ if (_disabled == false) {
 		}
 	}
 }
+
  
