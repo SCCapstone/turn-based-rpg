@@ -5,6 +5,7 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -13,8 +14,8 @@
     "path": "folders/Objects/Game World/Enemy.yy",
   },
   "parentObjectId": {
-    "name": "obj_enemy_par",
-    "path": "objects/obj_enemy_par/obj_enemy_par.yy",
+    "name": "obj_parent_depth",
+    "path": "objects/obj_parent_depth/obj_parent_depth.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -36,5 +37,5 @@
     "path": "sprites/spr_archer/spr_archer.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

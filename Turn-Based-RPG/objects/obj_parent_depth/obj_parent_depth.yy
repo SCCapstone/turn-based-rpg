@@ -1,20 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_tree",
+  "name": "obj_parent_depth",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Plains and Forest",
-    "path": "folders/Objects/Plains and Forest.yy",
+    "name": "Depth System",
+    "path": "folders/Objects/Depth System.yy",
   },
-  "parentObjectId": {
-    "name": "obj_parent_depth",
-    "path": "objects/obj_parent_depth/obj_parent_depth.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -29,11 +26,8 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [],
-  "solid": true,
-  "spriteId": {
-    "name": "spr_tree",
-    "path": "sprites/spr_tree/spr_tree.yy",
-  },
+  "solid": false,
+  "spriteId": null,
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }
