@@ -48,11 +48,12 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.2.108",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"fnt_pixeloid_8","path":"fonts/fnt_pixeloid_8/fnt_pixeloid_8.yy",},},
     {"id":{"name":"spr_play","path":"sprites/spr_play/spr_play.yy",},},
+    {"id":{"name":"obj_inventory","path":"objects/obj_inventory/obj_inventory.yy",},},
     {"id":{"name":"spr_townBackground","path":"sprites/spr_townBackground/spr_townBackground.yy",},},
     {"id":{"name":"EnemyChase","path":"scripts/EnemyChase/EnemyChase.yy",},},
     {"id":{"name":"spr_archer_still","path":"sprites/spr_archer_still/spr_archer_still.yy",},},
@@ -96,6 +97,7 @@
     {"id":{"name":"snd_sword_slash","path":"sounds/snd_sword_slash/snd_sword_slash.yy",},},
     {"id":{"name":"spr_knight_still","path":"sprites/spr_knight_still/spr_knight_still.yy",},},
     {"id":{"name":"obj_enemy_par","path":"objects/obj_enemy_par/obj_enemy_par.yy",},},
+    {"id":{"name":"Inventory","path":"scripts/Inventory/Inventory.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"obj_friendly_unit","path":"objects/obj_friendly_unit/obj_friendly_unit.yy",},},
     {"id":{"name":"spr_pointer","path":"sprites/spr_pointer/spr_pointer.yy",},},

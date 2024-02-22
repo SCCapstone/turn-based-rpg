@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "PartyMenu",
-    "path": "folders/Scripts/PartyMenu.yy",
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
   },
 }
