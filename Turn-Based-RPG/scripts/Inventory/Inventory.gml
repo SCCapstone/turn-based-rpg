@@ -1,3 +1,4 @@
+// inventory
 function Inventory() constructor {
 	_inventory = []
 	_max_inventory_size = 60;
