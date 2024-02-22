@@ -1,6 +1,11 @@
 width = 0;
 height = 0;
 
+// The margins around all text in the object
+op_border = 8;
+// The space between each line of text
+op_space = 12;
+
 // The text that is displayed. Note: Text wrap is not a thing.
 // Each line of text must be defined separately and each object must be resized manually
 option[0] = "Map menu";
@@ -11,8 +16,3 @@ option[2] = "Quit game";
 op_length = array_length(option);
 
 pos = 0;
-
-// Global text properties were moved to Init script
-op_border = global.op_border
-op_space = global.op_space
-op_margin = global.op_margin

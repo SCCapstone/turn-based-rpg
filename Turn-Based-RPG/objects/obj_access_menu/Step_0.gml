@@ -18,13 +18,12 @@ if (pos < 0) {
 if (accept_key) {
 	switch (pos) {
 	
-		case 0:
-			global.location = 0;
+		case 0: 
 			room_goto(rm_world_map);
 		break;
 	
 		case 1:
-			battle_start([global.enemies.mercenary, global.enemies.dark_wizard], spr_field_background);
+			battle_start([global.enemies.archer, global.enemies.knightEnemy], spr_field_background);
 		break;
 	
 		case 2:

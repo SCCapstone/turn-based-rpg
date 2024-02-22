@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Movesets",
-    "path": "folders/Scripts/Data Scripts/Movesets.yy",
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
   },
 }
