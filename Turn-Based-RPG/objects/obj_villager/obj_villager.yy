@@ -39,5 +39,5 @@
     "path": "sprites/spr_villager_m_1/spr_villager_m_1.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

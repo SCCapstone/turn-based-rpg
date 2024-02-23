@@ -1,34 +1,24 @@
 // This code is run when a battle sequence is initiated.
 
-instance_deactivate_all(true); // Pauses overworld
+// Pauses overworld
+instance_deactivate_all(true); 
 
 // Placeholder arrays
 units = []; // Holds list of all units
 shadows = []; // Holds list of unit shadows
 
 // Placeholder variables
-_debugtxt = "Turn order: \n"; // Holds debug message for console output
-_turn = ""; // Player or enemy turn
-_p_num = 0; // Counter for player array
-_e_num = 0; // Counter for enemy array
-_p_state = "alive"; // State of entire friendly party
-_e_state = "alive"; // State of entire enemy party
-_moved = false; // Ensures units only move once
-_gameover = false; // If game is over or not
-_timer = 0; // Timer for alarms
-_show_wpn = false; // For spawning weapon object
-_show_magic_wpn = false;
-_show_prayer_book = false;
-_show_prayer = false;
-_show_spell = false;
-_dmg = 0;
-_target = 0; // Holds player target
-_temp_target = 0; // Holds player target
-_enemy_target = 0; // Holds enemy target
-_firstmove = true;
-_move_type = -1; // 0 - attack, 1 - magic, 2 - prayer
-_move_num = -1; // Move number
-_finish = false; // Jumps to move resolution
+state = turn.player; // Player or enemy turn
+target = 0; // Holds targeted character
+
+p_num = 0; // Counter for player array
+e_num = 0; // Counter for enemy array
+
+moved = false; // Ensures units only move once
+finished = false; // Jumps to end of move
+move_type = -1; // 0 - attack, 1 - magic, 2 - prayer
+move_num = -1; // Move number
+dmg = 0; // Attack damage value
 
 // Create player party
 for (var i = 0; i < array_length(global.party); i++) {
@@ -47,12 +37,13 @@ for (var i = 0; i < array_length(enemies); i++) {
 }
 
 // Determine turn orders for both parties (two bubble sorts)
-_p_length = array_length(party_units);
-_e_length = array_length(enemy_units);
+p_length = array_length(party_units);
+e_length = array_length(enemy_units);
 var _swapped;
-for (var i = 0; i < _p_length-1; i++) {  // Turn order for friendly party
+
+for (var i = 0; i < p_length-1; i++) {  // Turn order for friendly party
 	_swapped = false;
-	for (var j = 0; j < _p_length-i-1; j++) {
+	for (var j = 0; j < p_length-i-1; j++) {
 		if (party_units[j]._spd < party_units[j+1]._spd) {
 			var _temp = party_units[j];
 			party_units[j] = party_units[j+1];
@@ -64,9 +55,10 @@ for (var i = 0; i < _p_length-1; i++) {  // Turn order for friendly party
 		}
 	}
 }
-for (var i = 0; i < _e_length-1; i++) {  // Turn order for enemy party
+
+for (var i = 0; i < e_length-1; i++) {  // Turn order for enemy party
 	_swapped = false;
-	for (var j = 0; j < _e_length-i-1; j++) {
+	for (var j = 0; j < e_length-i-1; j++) {
 		if (enemy_units[j]._spd < enemy_units[j+1]._spd) {
 			var _temp = enemy_units[j];
 			enemy_units[j] = enemy_units[j+1];
@@ -80,30 +72,32 @@ for (var i = 0; i < _e_length-1; i++) {  // Turn order for enemy party
 }
 
 // Create array for storing player party XP changes
-for (var i = 0; i < _p_length; i++) {
+for (var i = 0; i < p_length; i++) {
 	xp_gained[i] = 0;
 }
 
+// Holds debug message for printing turn order
+var turn_order = "Turn order: \n"; 
+
 // Debug code for turn order functionality
-_debugtxt += "Friendly Party: [";
-for (var i = 0; i < _p_length; i++) {
-	_debugtxt += string(i+1) + ". " + party_units[i]._name + " ";
+turn_order += "Friendly Party: [";
+for (var i = 0; i < p_length; i++) {
+	turn_order += string(i+1) + ". " + party_units[i]._name + " ";
 }
 
-_debugtxt += "]\nEnemy Party: [";
-for (var i = 0; i < _e_length; i++) {
-	_debugtxt += string(i+1) + ". " + enemy_units[i]._name + " ";
+turn_order += "]\nEnemy Party: [";
+for (var i = 0; i < e_length; i++) {
+	turn_order += string(i+1) + ". " + enemy_units[i]._name + " ";
 }
-_debugtxt += "]\n"
+turn_order += "]\n"
 
 // Determine which party moves first before alternating control
 if (party_units[0]._spd > enemy_units[0]._spd) {
-	_debugtxt += "Friendly party moves first!\nBegin player " + string(_p_num) + "'s turn";
-	_turn = "player";
+	turn_order += "Friendly party moves first!\nBegin player " + string(p_num) + "'s turn";
+	state = turn.player;
 } else {
-	_debugtxt += "Enemy party moves first!\nBegin enemy " + string(_e_num) + "'s turn";
-	_turn = "enemy";
+	turn_order += "Enemy party moves first!\nBegin enemy " + string(e_num) + "'s turn";
+	state = turn.enemy;
 }
 
-show_debug_message(_debugtxt);  // Print create event debug text
-_debugtxt = "";  // Reset debug text
+show_debug_message(turn_order);  // Print turn order
