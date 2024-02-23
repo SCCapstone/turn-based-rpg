@@ -14,9 +14,9 @@ draw_sprite(battle_background,0,x,y){depth = 10}; // Draw background
 
 draw_sprite_stretched(spr_menu_background,0,x+global.ui_x_buffer,y+global.ui_y_buffer,200,60); // Draw UI background
 
-for(var i = 0; i < _p_length; i++) {
+for(var i = 0; i < p_length; i++) {
 	_char = party_units[i];	// Stores a character whose stats will be drawn
-	if (i == _p_num) {	// Checks to see what player character is the currently active character
+	if (i == p_num) {	// Checks to see what player character is the currently active character
 		draw_set_color(c_yellow); // Sets font color to yellow
 		draw_text_ext_transformed(x+12, y+141+(i*12),_char._name, op_space, 3000, .1, .1, 0)
 		draw_text_ext_transformed(x+87, y+141+(i*12), "HP: " + string(_char._hp) + "/" + string(_char._max_hp), op_space, 3000, .1, .1, 0)
@@ -36,20 +36,20 @@ for(var i = 0; i < _p_length; i++) {
 	draw_set_color(c_white);	// Sets font back to white
 }
 
-if (_gameover == false) {
-	for (var i = 0; i < _e_length; i++) {
+if (true) {
+	for (var i = 0; i < e_length; i++) {
 		draw_text_ext_transformed(enemy_units[i].x - 61,enemy_units[i].y + 6, "HP: " + string(enemy_units[i]._hp), op_space, 3000, .1, .1, 0)
 		
 	}
-	if (_turn == "player" && _e_state == "alive") {
-		if (enemy_units[_target]._is_dead) {
-			for (var i = 0; i < _e_length; i++) {
+	if (state == turn.player) {
+		if (enemy_units[target]._is_dead) {
+			for (var i = 0; i < e_length; i++) {
 				if (enemy_units[i]._is_dead == false) {
-					_target = i;
-					draw_sprite(spr_arrow,0,enemy_units[_target].x - 7,enemy_units[_target].y + 10);
+					target = i;
+					draw_sprite(spr_arrow,0,enemy_units[target].x - 7,enemy_units[target].y + 10);
 				}
 			}
 		}
-		draw_sprite(spr_arrow,0,enemy_units[_target].x - 7,enemy_units[_target].y + 10);
+		draw_sprite(spr_arrow,0,enemy_units[target].x - 7,enemy_units[target].y + 10);
 	}
 }
