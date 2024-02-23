@@ -126,18 +126,6 @@ function change_hp(character, type, dmg) {
 	}
 }
 
-// Call this function to change a character's hp, either
-// positively or negatively
-function change_hp(_character, _type, _dmg) {
-	if(_dmg > 0) {
-		// Call damage calculation function
-		_character._hp -= calculate_damage(_character, _type, _dmg);
-	} else {
-		// If _dmg <= 0, simply add HP
-		_character._hp -= _dmg;
-	}
-}
-
 // Call this function to factor in a character's damage 
 // resistance before dealing damage to them
 function calculate_damage(character, type, dmg) {
