@@ -6,7 +6,7 @@ global.enemies =
 		_name: "Dark Wizard",
 		
 		// Stats
-		_hp: 50,		// Current HP
+		_hp: 20,		// Current HP
 		_mp: 50,		// Current MP
 		
 		_lvl: 1,		// Level
@@ -82,7 +82,7 @@ global.enemies =
 		_name: "Mercenary Archer",
 		
 		//Stats
-		_hp: 60,
+		_hp: 20,
 		_mp: 0,
 		
 		_lvl: 1,		// Level

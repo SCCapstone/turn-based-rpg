@@ -45,7 +45,7 @@ function determine_move_num(_enemy, _move_type) {
 // Takes in target party and number of members
 function select_target(party, p_length) {
 	while (true) {
-		_select = irandom_range(0,_p_length-1);
+		_select = irandom_range(0,p_length-1);
 		if (party_units[_select]._is_dead == false) { // On selecting dead party member, try again
 			break;
 		}	

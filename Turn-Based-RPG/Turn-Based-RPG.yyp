@@ -17,6 +17,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Notes","folderPath":"folders/Notes.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Battle","folderPath":"folders/Objects/Battle.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Depth System","folderPath":"folders/Objects/Depth System.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Game Objects","folderPath":"folders/Objects/Game Objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Game World","folderPath":"folders/Objects/Game World.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Enemy","folderPath":"folders/Objects/Game World/Enemy.yy",},
