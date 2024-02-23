@@ -8,9 +8,6 @@ global.enemies =
 		// Stats
 		_hp: 20,		// Current HP
 		_mp: 50,		// Current MP
-		
-		_lvl: 1,		// Level
-		_xp: 0,			// Experience/XP
 
 		_max_hp: 50,    // Health
 		_max_mp: 50,    // Mana
@@ -38,6 +35,7 @@ global.enemies =
 		_effects: [],
 		_effects_remaining_turns: [],
 		_is_dead: false,
+		_xp_val: 50
 	},
 	dark_knight:
 	{
@@ -46,9 +44,6 @@ global.enemies =
 		// Stats
 		_hp: 70,		// Current HP
 		_mp: 0,		// Current MP
-		
-		_lvl: 1,		// Level
-		_xp: 0,			// Experience/XP
 
 		_max_hp: 70,    // Health
 		_max_mp: 0,     // Mana
@@ -76,6 +71,7 @@ global.enemies =
 		_effects: [],
 		_effects_remaining_turns: [],
 		_is_dead: false,
+		_xp_val: 65
 	},
 	mercenary:
 	{
@@ -84,9 +80,6 @@ global.enemies =
 		//Stats
 		_hp: 20,
 		_mp: 0,
-		
-		_lvl: 1,		// Level
-		_xp: 0,			// Experience/XP
 
 		_max_hp: 70,    // Health
 		_max_mp: 0,     // Mana
@@ -113,7 +106,8 @@ global.enemies =
 		_sprites: { idle: spr_archer },
 		_effects: [],
 		_effects_remaining_turns: [],
-		_is_dead: false
+		_is_dead: false,
+		_xp_val: 40
 	},
 }
 }
