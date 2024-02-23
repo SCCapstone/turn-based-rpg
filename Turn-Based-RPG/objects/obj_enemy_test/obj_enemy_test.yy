@@ -14,8 +14,8 @@
     "path": "folders/Objects/Game World/Enemy.yy",
   },
   "parentObjectId": {
-    "name": "obj_parent_depth",
-    "path": "objects/obj_parent_depth/obj_parent_depth.yy",
+    "name": "obj_enemy_par",
+    "path": "objects/obj_enemy_par/obj_enemy_par.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
