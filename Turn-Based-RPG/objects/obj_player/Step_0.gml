@@ -34,7 +34,12 @@ if (_disabled == false) {
 		facing = 2;
 		_prev_speaker = noone;
 	}
-
+	
+	if keyboard_check(ord("W")) && place_free(x, y - _collision_dist) == false { //allows player to face towards obstacles that can't be moved into
+		image_index = 1;
+		facing = 2;
+	}
+	
 	if (keyboard_check(ord("A")) && place_free(x - _collision_dist, y)) && !_moving {//move left
 		_moving = true;
 		_target_x -= 16;
@@ -42,6 +47,11 @@ if (_disabled == false) {
 		image_index = 2;
 		facing = 3;
 		_prev_speaker = noone;
+	}
+	
+	if keyboard_check(ord("A")) && place_free(x - _collision_dist, y) == false { //allows player to face towards obstacles that can't be moved into
+		image_index = 2;
+		facing = 3;
 	}
 
 	if (keyboard_check(ord("S")) && place_free(x, y + _collision_dist)) && !_moving { //move down
@@ -51,6 +61,11 @@ if (_disabled == false) {
 		image_index = 0;
 		facing = 1;
 		_prev_speaker = noone;
+	}
+	
+	if keyboard_check(ord("S")) && place_free(x, y + _collision_dist) == false { //allows player to face towards obstacles that can't be moved into
+		image_index = 0;
+		facing = 1;
 	}
 
 	if (keyboard_check(ord("D")) && place_free(x + _collision_dist, y)) && !_moving { //move right
@@ -62,23 +77,28 @@ if (_disabled == false) {
 		_prev_speaker = noone;
 	}
 	
+	if keyboard_check(ord("D")) && place_free(x + _collision_dist, y) == false { //allows player to face towards obstacles that can't be moved into
+		image_index = 3;
+		facing = 4;
+	}
+	
 	// When E is pressed, the player will look for an NPC in the direction it is facing.
 	// This can be copied and repurposed for other objects by changing obj_NPC in the collision line function
 	if (keyboard_check(ord("E"))) {
 		if (facing == 1) {
-			_speaker = collision_line(x + 15, y + 15, x + 15, y + 39, obj_NPC, false, true);
+			_speaker = collision_line(x + 8, y, x, y + 44, obj_NPC, false, true);
 		show_debug_message(_speaker);
 		} 
 		if (facing == 2) {
-			_speaker =  collision_line(x + 15, y + 15, x + 15, y + 4, obj_NPC, false, true);
+			_speaker =  collision_line(x + 8, y + 28, x, y - 16, obj_NPC, false, true);
 			show_debug_message(_speaker);
 		}
 		if (facing == 3) {
-			_speaker =  collision_line(x + 15, y + 15, x - 11, y + 15, obj_NPC, false, true);
+			_speaker =  collision_line(x, y + 26, x - 16, y + 26, obj_NPC, false, true);
 			show_debug_message(_speaker);
 		}
 		if (facing == 4) {
-			_speaker =  collision_line(x + 15, y + 15, x + 35, y + 15, obj_NPC, false, true);
+			_speaker =  collision_line(x + 16, y + 26, x + 16, y + 26, obj_NPC, false, true);
 			show_debug_message(_speaker);
 		}
 		
