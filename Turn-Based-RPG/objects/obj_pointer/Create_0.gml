@@ -28,6 +28,9 @@ if global.location == 3 {
 	x = 320;
 	y = 44;
 }
+
+_disabled = false;
+
 //location guide below
 /*
 0 = village

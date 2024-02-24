@@ -1,142 +1,324 @@
-// Call this function to start battles
-function battle_start(_enemies, _background) {
+// Enumeration of battle states (turns)
+enum turn {
+	player,
+	enemy,
+	gameover,
+}
+
+// Enumeration of items/magic to display on screen
+enum display {
+	weapon,
+	magic_weapon,
+	spell,
+	prayer_book,
+	prayer,
+}
+
+// Call this function to start a battle with a 
+// defined set of enemies and a chosen background
+function battle_start(enemies, background) {
 	instance_create_depth (
 		camera_get_view_x(view_camera[0]),
 		camera_get_view_y(view_camera[0]),
 		0,
 		obj_battle,
-		{enemies: _enemies, trigger: id, battle_background: _background}
+		{enemies: enemies, trigger: id, battle_background: background}
 	);
 }
 
-// Call this function to see if either party is dead
-function check_gameover(party_units, enemy_units) {
-	_gameover = false; // Assume false
+function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_units) {
+	// Switch to player turn
+	if (state == turn.enemy) {
+		// Update status effects before turn begins
+		update_status_effects(party_units);
+		// Save the position of the character that previously moved
+		var p_select = p_turn;
+		// Find the next living character to give the turn to
+		while (true) {
+			if (p_select+1 < array_length(party_units)) {
+				// If p_select less than party array length,
+				// check next character in party
+				p_select++; 
+			} else {
+				// Otherwise, wrap around to beginning of party array
+				p_select = 0; 
+			}
+
+			// Check to see if this character is alive
+			// Otherwise, continue while() loop
+			if (party_units[p_select]._is_dead == false) {
+				// Give this character and their party the next turn
+				p_num = p_select;
+				show_debug_message("Beginning player " + string(p_select) + "'s turn")
+				return turn.player;
+			}
+			
+			show_debug_message("Player " + string(p_select) + " is dead, skipping...");
+			
+			// If the entire array has been searched, no characters in 
+			// this party are left alive, so the game is over.
+			if(p_select == p_turn) {
+				state = turn.gameover;
+				show_debug_message("Enemy team is victorious. [BATTLE OVER]");
+				break;
+			} 
+		}
+	}
 	
-// Check if the enemy party has been defeated
-	var _e_state = "defeated"; // Assume enemy party is defeated
-	for (var i = 0; i < _e_length; i++) {
-		if (enemy_units[i]._is_dead == false) {
-			_e_state = "alive"; // If any members are alive, state = alive
+	// Switch to enemy turn
+	if (state == turn.player) {
+		// Update status effects before turn begins
+		update_status_effects(enemy_units);
+		// Save the position of the character that previously moved
+		var e_select = e_turn;
+		// Find the next living character to give the turn to
+		while (true) {
+			if (e_select+1 < array_length(enemy_units)) {
+				// If p_select less than party array length,
+				// check next character in party
+				e_select++; 
+			} else {
+				// Otherwise, wrap around to beginning of party array
+				e_select = 0; 
+			}
+
+			// Check to see if this character is alive
+			// Otherwise, continue while() loop
+			if (enemy_units[e_select]._is_dead == false) {
+				// Give this character and their party the next turn
+				e_num = e_select;
+				show_debug_message("Beginning enemy " + string(e_select) + "'s turn")
+				return turn.enemy;
+			}
+			
+			show_debug_message("Enemy " + string(e_select) + " is dead, skipping...");
+			
+			// If the entire array has been searched, no characters in 
+			// this party are left alive, so the game is over.
+			if(e_select == e_turn) {
+				state = turn.gameover;
+				show_debug_message("Player team is victorious. [BATTLE OVER]");
+				break;
+			} 
 		}
 	}
-
-// Check if the friendly party has been defeated
-	var _p_state = "defeated"; // Assume friendly party is defeated
-	for (var i = 0; i < _p_length; i++) {
-		if (party_units[i]._is_dead == false) {
-			_p_state = "alive"; // If any members are alive, state = alive
-		}
+	
+	// If either party is defeated, destroy battle instance
+	if (state == turn.gameover) {
+		instance_destroy();
 	}
-
-if (_e_state == "defeated") {
-	show_debug_message("Game Over! Player party wins.");
-	return true;
 }
 
-if (_p_state == "defeated") {
-	show_debug_message("Game Over! Enemy party wins.");
-	return true;
-}
-
-return false;
-}
-
-// Call this function to change a character's hp, either
-// positively or negatively
-function change_hp(_character, _type, _dmg) {
-	if(_dmg > 0) {
+// Call this function to change a character's hp, 
+// either positively or negatively
+function change_hp(character, type, dmg) {
+	if(dmg > 0) {
 		// Call damage calculation function
-		_character._hp -= calculate_damage(_character, _type, _dmg);
+		character._hp -= calculate_damage(character, type, dmg);
+		// Check to see if this killed the selected character
+		if(character._hp <= 0) { 
+			kill_target(character);
+		}
+		// Check if character was killed
 	} else {
 		// If _dmg <= 0, simply add HP
-		_character._hp -= _dmg;
+		character._hp -= dmg;
 	}
 }
 
 // Call this function to factor in a character's damage 
 // resistance before dealing damage to them
-function calculate_damage(_character, _type, _dmg) {
-	var _res = 0; // Target's armor resistance
+function calculate_damage(character, type, dmg) {
+	var res = 0; // Target's armor resistance
 	
-	if (_type == "slash") {
-		_res = (_character._armor_head._prot_slash 
-		+ _character._armor_chest._prot_slash
-		+ _character._armor_legs._prot_slash);
-	} else if (_type == "pierce") {
-		_res = (_character._armor_head._prot_pierce
-		+ _character._armor_chest._prot_pierce
-		+ _character._armor_legs._prot_pierce);
-	} else if (_type == "blunt") {
-		_res = (_character._armor_head._prot_blunt
-		+ _character._armor_chest._prot_blunt
-		+ _character._armor_legs._prot_blunt);
-	} else if (_type == "magic") {
-		_res = (_character._armor_head._prot_magic
-		+ _character._armor_chest._prot_magic
-		+ _character._armor_legs._prot_magic);
-	} else if (_type == "fire") {
-		_res = (_character._armor_head._prot_fire
-		+ _character._armor_chest._prot_fire
-		+ _character._armor_legs._prot_fire);
-	} else if (_type == "ice") {
-		_res = (_character._armor_head._prot_ice
-		+ _character._armor_chest._prot_ice
-		+ _character._armor_legs._prot_ice);
+	if (type == "slash") {
+		res = (character._armor_head._prot_slash 
+		+ character._armor_chest._prot_slash
+		+ character._armor_legs._prot_slash);
+	} else if (type == "pierce") {
+		res = (character._armor_head._prot_pierce
+		+ character._armor_chest._prot_pierce
+		+ character._armor_legs._prot_pierce);
+	} else if (type == "blunt") {
+		res = (character._armor_head._prot_blunt
+		+ character._armor_chest._prot_blunt
+		+ character._armor_legs._prot_blunt);
+	} else if (type == "magic") {
+		res = (character._armor_head._prot_magic
+		+ character._armor_chest._prot_magic
+		+ character._armor_legs._prot_magic);
+	} else if (type == "fire") {
+		res = (character._armor_head._prot_fire
+		+ character._armor_chest._prot_fire
+		+ character._armor_legs._prot_fire);
+	} else if (type == "ice") {
+		res = (character._armor_head._prot_ice
+		+ character._armor_chest._prot_ice
+		+ character._armor_legs._prot_ice);
 	}
 	else {
 		return 0;
 	}
 	
-	_new_dmg = ceil(_dmg * ((100 - _res) / 100));
+	new_dmg = ceil(dmg * ((100 - res) / 100));
 	
-	show_debug_message(_character._name + " blocked " + string(_dmg - _new_dmg) 
-	+ " damage due to " + string(_res) + " " + string(_type) + " resistance. Damage taken: "
-	+ string(_new_dmg) + ".")
+	show_debug_message(character._name + " blocked " + string(dmg - new_dmg) 
+	+ " damage due to " + string(res) + " " + string(type) 
+	+ " resistance. Damage taken: " + string(new_dmg) + ".")
 	
-	return _new_dmg;
+	return new_dmg;
 }
 
-// Update the selected party's status effects
-function update_status_effects(_party) {
-	for (var e = 0; e < array_length(_party); e++) {
-		if(!is_undefined(_party[e]._effects)) {
-			for(var i = 0; i < array_length(_party[e]._effects); i++) {
-				// Inflict random damage
-				var temp = irandom_range(_party[e]._effects[i]._dmg_min,
-				_party[e]._effects[i]._dmg_max)
-				_party[e]._hp -= temp;
-				if(_party[e]._hp <= 0) { // Check if still alive
-					_party[e]._hp = 0;
-					_party[e]._is_dead = true;
+// Update the targeted party's status effects
+function update_status_effects(party) {
+	// Check each character in the party
+	for (var e = 0; e < array_length(party); e++) {
+		// Check each status effect of selected character
+		if(!is_undefined(party[e]._effects)) {
+			for(var i = 0; i < array_length(party[e]._effects); i++) {
+				// If character is alive, inflict damage
+				if(party[e]._is_dead == false) {
+					// Inflict random damage
+					var temp = irandom_range(party[e]._effects[i]._dmg_min,
+					party[e]._effects[i]._dmg_max)
+					// Prayers ignore armor, so no need to call change_hp()
+					party[e]._hp -= temp;
+					// Check to see if status effect killed character
+					if(party[e]._hp <= 0) { 
+						kill_target(party[e]);
+					}
+					show_debug_message(string(party[e]._effects[i]._name) + " dealt "
+					+ string(temp) + " damage to " + string(party[e]._name) + "!");
 				}
 				
-				show_debug_message(string(_party[e]._effects[i]._name) + " dealt "
-				+ string(temp) + " damage to " + string(_party[e]._name) + "!");
-				
-				// Decrease status effect length by 1
-				_party[e]._effects_remaining_turns[i]--;
-				
-				show_debug_message("Resulting duration of " + string(_party[e]._effects[i]._name) + ": "
-				+ string(_party[e]._effects_remaining_turns[i]));
-				
-				// Remove status effect if no remaining turns
-				if (_party[e]._effects_remaining_turns[i] < 1) {
-					array_delete(_party[e]._effects, i, 1);
-					array_delete(_party[e]._effects_remaining_turns, i, 1);
+				// Check if character is alive again, in case they were just killed
+				if(party[e]._is_dead == false) {
+					// If alive, decrease their current status effect length by 1
+					party[e]._effects_remaining_turns[i]--;
+					show_debug_message("Resulting duration of " + 
+					string(party[e]._effects[i]._name) + ": "
+					+ string(party[e]._effects_remaining_turns[i]));
+					
+					// If the status effect has run its course, delete it from the character
+					if (party[e]._effects_remaining_turns[i] < 1) {
+						array_delete(party[e]._effects, i, 1);
+						array_delete(party[e]._effects_remaining_turns, i, 1);
+					}
+				} else {
+					// If character is dead, set remaining turns on current status effect to 0
+					party[e]._effects_remaining_turns[i] = 0;
 				}
 			}
 		}
 	}
 }
 
-function kill_enemy(target) {
-	enemy_units[target].visible = false; // Make target instance invisible, can't remove it or it messes things up
-	enemy_units[target]._is_dead = true;
-	instance_destroy(enemy_shadows[target]);
+// Kill the targeted character
+function kill_target(_target) {
+	// Set hp to 0 and _is_dead to true
+	_target._hp = 0;
+	_target._is_dead = true;
+	// Make the target's shadow invisible
+	if (state == turn.enemy) {
+		party_shadows[target].visible = false;
+	} else {
+		enemy_shadows[target].visible = false;
+	}
+	// Make target invisible, can't 
+	// destroy it or it messes things up
+	_target.visible = false; 
 }
 
+// Code for showing move-related sprites
+function flash_item(type) {
+	if (state == turn.player) {
+		if (type = display.weapon) { // Flash player weapon
+			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
+			obj_sprite, global.party[p_num])
+			temp._sprite = party_units[p_num]._weapon._sprite;
+			temp._scale = 1;
+			temp._time = 1000;
+		}
 
-function battle_end() {
+		if (type = display.spell) { // Flash player magic weapon
+			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
+			obj_sprite, global.party[p_num]);
+			temp._sprite = party_units[p_num]._magic_weapon._sprite;
+			temp._scale = 1;
+		}
+
+		if (type = display.magic_weapon) { // Flash player spell
+			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, party_units[p_num].depth-1,
+			obj_sprite, global.party[p_num]);
+			temp._sprite = party_units[p_num]._spells[move_num]._sprite;
+			temp._scale = 1;
+			_show_spell = false;
+		}
+
+		if (type = display.prayer_book) { // Flash player prayer book
+			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
+			obj_sprite, global.party[p_num]);
+			temp._sprite = party_units[p_num]._prayer_book._sprite;
+			temp._scale = 1;
+			_show_prayer_book = false;
+		}
+
+		if (type = display.prayer) { // Flash player prayer
+			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, party_units[p_num].depth-1,
+			obj_sprite, global.party[p_num]);
+			temp._sprite = party_units[p_num]._prayers[move_num]._sprite;
+			temp._scale = 1;
+			_show_prayer = false;
+		}
+	}
 	
+	if (state == turn.enemy) {
+		if (type = display.weapon) { // Flash enemy weapon
+			var temp = instance_create_depth(enemy_units[e_num].x-13, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
+			obj_sprite, enemies[e_num])
+			temp._sprite = enemy_units[e_num]._weapon._sprite;
+			temp._scale = -1;
+		}
+
+		if (type = display.spell) { // Flash enemy spell
+			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
+			obj_sprite, enemies[e_num])
+			temp._sprite = enemy_units[e_num]._spells[move_num]._sprite;
+			temp._scale = -1;
+		}
+
+		if (type = display.magic_weapon) { // Flash enemy magic weapon
+			var temp = instance_create_depth(enemy_units[e_num].x-13, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
+			obj_sprite, enemies[e_num])
+			temp._sprite = enemy_units[e_num]._magic_weapon._sprite;
+			temp._scale = -1;
+		}
+
+		if (type = display.prayer_book) { // Flash enemy prayer book
+			var temp = instance_create_depth(enemy_units[e_num].x-13, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
+			obj_sprite, enemies[e_num])
+			temp._sprite = enemy_units[e_num]._prayer_book._sprite;
+			temp._scale = -1;
+		}
+
+		if (type = display.prayer) { // Flash enemy prayer
+			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
+			obj_sprite, enemies[e_num])
+			temp._sprite = enemy_units[e_num]._prayers[move_num]._sprite;
+			temp._scale = -1;
+		}
+	}
+}
+
+// This function is run at a battle's end, and
+// primarily concerns giving the party members XP
+function battle_end(party_units, xp_gained) {
+	// Increase XP for each party member
+	for (var i = 0; i < array_length(party_units); i++) {
+		if (xp_gained[i] > 0) {
+			global.party[i]._xp += xp_gained[i];
+			show_debug_message(string(global.party[i]._name) + " gained "
+			+ string(xp_gained[i]) + " XP!");
+		}
+	}
 }

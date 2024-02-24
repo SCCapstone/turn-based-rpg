@@ -1,6 +1,6 @@
 // This code dictates the flow of battle.
 
-// Key placeholders
+// Keypress placeholders
 var up_key = keyboard_check_pressed(ord("W"));
 var down_key = keyboard_check_pressed(ord("S"));
 var accept_key = keyboard_check_pressed(ord("E"));
@@ -9,390 +9,293 @@ var magic_key = keyboard_check_pressed(ord("K"));
 var prayer_key = keyboard_check_pressed(ord("L"));
 
 // Code for selecting enemy
-_target += down_key - up_key;
-if (_target >= _e_length) {
-	_target = 0;
+target += down_key - up_key;
+if (target >= e_length) {
+	target = 0;
 }
-if (_target < 0) {
-	_target = _e_length - 1;
+if (target < 0) {
+	target = e_length - 1;
 }
 
 // Player turn
-if (_turn == "player" && _moved == false && _gameover == false) {
+if (state == turn.player && moved == false) {
 	// Determine move type (mutually exclusive)
 	if (attack_key && 
-		party_units[_p_num]._weapon != noone) { // 'J' keypress
-		_move_type = 0;
-		_move_num = -1;
+		party_units[p_num]._weapon != noone) { // 'J' keypress
+		move_type = 0;
+		move_num = -1;
 	} else if (magic_key &&
-		!is_undefined(party_units[_p_num]._spells)
-		&& array_length(party_units[_p_num]._spells) > 0) { // 'K keypress
-		_move_type = 1;
-		_move_num = -1;
+		!is_undefined(party_units[p_num]._spells)
+		&& array_length(party_units[p_num]._spells) > 0) { // 'K keypress
+		move_type = 1;
+		move_num = -1;
 	} else if (prayer_key &&
-		!is_undefined(party_units[_p_num]._prayers)
-		&& array_length(party_units[_p_num]._prayers) > 0) { // 'L' keypress
-		_move_type = 2;
-		_move_num = -1;
+		!is_undefined(party_units[p_num]._prayers)
+		&& array_length(party_units[p_num]._prayers) > 0) { // 'L' keypress
+		move_type = 2;
+		move_num = -1;
 	}
 	
 	// Determine move choice from number keypress (1-9)
 	if (get_move_num() != -1) {
-		_move_num = get_move_num();
-		if (_move_type == 0 && array_length(party_units[_p_num]._weapon._attacks) < _move_num) {
-			_move_num = 0; // Default to first attack
-		} else if (_move_type == 1 && array_length(party_units[_p_num]._spells) < _move_num) {
-			_move_num = 0;
-		} else if (_move_type == 2 && array_length(party_units[_p_num]._prayers) < _move_num) {
-			_move_num = 0;
+		move_num = get_move_num();
+		if (move_type == 0 && array_length(party_units[p_num]._weapon._attacks) < move_num) {
+			move_num = 0; // Default to first attack
+		} else if (move_type == 1 && array_length(party_units[p_num]._spells) < move_num) {
+			move_num = 0;
+		} else if (move_type == 2 && array_length(party_units[p_num]._prayers) < move_num) {
+			move_num = 0;
 		} else {
-		_move_num-- // Decrement by 1 (i.e., pressing '1' = move 0)
+		move_num-- // Decrement by 1 (i.e., pressing '1' = move 0)
 		}
 		
 		// Ensure player has enough MP to cast spell
-		if (_move_type == 1 && array_length(party_units[_p_num]._spells) > 0
-		&& party_units[_p_num]._mp < party_units[_p_num]._spells[_move_num]._mp_cost) {
-			_move_type = -1; // Reset move type
-			_move_num = -1; // Reset move num
+		if (move_type == 1 && array_length(party_units[p_num]._spells) > 0
+		&& party_units[p_num]._mp < party_units[p_num]._spells[move_num]._mp_cost) {
+			move_type = -1; // Reset move type
+			move_num = -1; // Reset move num
 			show_debug_message("Not enough MP to cast!");
 		}
 	}
 	
 	// Attack ('J')
-	if (_move_type == 0 && _move_num != -1) {
+	if (move_type == 0 && move_num != -1) {
 
 		// Determine random damage from the selected attack's damage range
-		_dmg = irandom_range(party_units[_p_num]._weapon._attacks[_move_num]._dmg_min, 
-		party_units[_p_num]._weapon._attacks[_move_num]._dmg_max);
+		dmg = irandom_range(party_units[p_num]._weapon._attacks[move_num]._dmg_min, 
+		party_units[p_num]._weapon._attacks[move_num]._dmg_max);
 			
 		// Show debug message
-		show_debug_message("Player " + string(_p_num) + " (" + party_units[_p_num]._name + 
-		") attacked Enemy " + string(_target) + " (" + enemy_units[_target]._name + ") for " + 
-		string(_dmg) + " damage using " + party_units[_p_num]._weapon._name + "!"); 
+		show_debug_message("Player " + string(p_num) + " (" + party_units[p_num]._name + 
+		") attacked Enemy " + string(target) + " (" + enemy_units[target]._name + ") for " + 
+		string(dmg) + " damage using " + party_units[p_num]._weapon._name + "!"); 
 			
 		// Play attack sound and flash weapon
-		audio_play_sound(party_units[_p_num]._weapon._attacks[_move_num]._sound, 1, false);
-		_show_wpn = true;
+		audio_play_sound(party_units[p_num]._weapon._attacks[move_num]._sound, 1, false);
+		flash_item(display.weapon);
 		
 		// Change targeted enemy health
-		change_hp(enemy_units[_target], 
-		party_units[_p_num]._weapon._attacks[_move_num]._dmgtype, _dmg)
+		change_hp(enemy_units[target], 
+		party_units[p_num]._weapon._attacks[move_num]._dmgtype, dmg)
 			
-		_finish = true; // Jump to end
+		finished = true; // Jump to end
 	}
 	
 	// Magic ('K')
-	if (_move_type == 1 && _move_num != -1) {
+	if (move_type == 1 && move_num != -1) {
 		// Determine random damage from the selected spells's damage range
-		_dmg = irandom_range(party_units[_p_num]._spells[_move_num]._dmg_min, 
-		party_units[_p_num]._spells[_move_num]._dmg_max);
+		dmg = irandom_range(party_units[p_num]._spells[move_num]._dmg_min, 
+		party_units[p_num]._spells[move_num]._dmg_max);
 		
 		// Show debug message
-		show_debug_message("Player " + string(_p_num) + " (" + party_units[_p_num]._name + 
-		") cast " + party_units[_p_num]._spells[_move_num]._name+ " at Enemy " + string(_target) + " (" + enemy_units[_target]._name + ") for " + 
-		string(_dmg) + " damage!"); 
+		show_debug_message("Player " + string(p_num) + " (" + party_units[p_num]._name + 
+		") cast " + party_units[p_num]._spells[move_num]._name+ " at Enemy " + string(target) + " (" + enemy_units[target]._name + ") for " + 
+		string(dmg) + " damage!"); 
 		
 		// Play spell sound and flash projectile
-		audio_play_sound(party_units[_p_num]._spells[_move_num]._sound, 1, false);
-		_show_spell = true;
-		if (party_units[_p_num]._magic_weapon != noone) { // If player has magic weapon, flash it
-			_show_magic_wpn = true;
+		audio_play_sound(party_units[p_num]._spells[move_num]._sound, 1, false);
+		flash_item(display.spell);
+		if (party_units[p_num]._magic_weapon != noone) { // If player has magic weapon, flash it
+			flash_item(display.magic_weapon);
 		}
 		
 		// Decrease targeted enemy health
-		change_hp(enemy_units[_target], 
-		party_units[_p_num]._spells[_move_num]._dmgtype, _dmg)
+		change_hp(enemy_units[target], 
+		party_units[p_num]._spells[move_num]._dmgtype, dmg)
 		
 		// Decrease player MP
-		party_units[_p_num]._mp -= party_units[_p_num]._spells[_move_num]._mp_cost
+		party_units[p_num]._mp -= party_units[p_num]._spells[move_num]._mp_cost
 		
-		_finish = true; // Jump to end
+		finished = true; // Jump to end
 	}
 	
 	// Prayers ('L')
-	if (_move_type == 2 && _move_num != -1) {
+	if (move_type == 2 && move_num != -1) {
 		// Determine length of prayer effect
 		
-		_dmg = 0; // placeholder
+		dmg = 0; // placeholder
 		
 		// Play prayer sound
-		audio_play_sound(party_units[_p_num]._prayers[_move_num]._sound, 1, false);
-		_show_prayer = true;
-		if (party_units[_p_num]._prayer_book != noone) { // If player has prayer book, flash it
-			_show_prayer_book = true;
+		audio_play_sound(party_units[p_num]._prayers[move_num]._sound, 1, false);
+		flash_item(display.prayer);
+		if (party_units[p_num]._prayer_book != noone) { // If player has prayer book, flash it
+			flash_item(display.prayer_book);
 		}
 		
 		// Inflict status effect if prayer has one
 		
-		if(!is_undefined(party_units[_p_num]._prayers[_move_num]._effects)) {
-			if(!is_undefined(enemy_units[_e_num]._effects) 
-			&& array_length(enemy_units[_target]._effects) > 0 // Make sure enemy has an effect
-			&& party_units[_p_num]._prayers[_move_num]._effects[0] != enemy_units[_target]._effects[0]) {
+		if(!is_undefined(party_units[p_num]._prayers[move_num]._effects)) {
+			if(!is_undefined(enemy_units[e_num]._effects) 
+			&& array_length(enemy_units[target]._effects) > 0 // Make sure enemy has an effect
+			&& party_units[p_num]._prayers[move_num]._effects[0] != enemy_units[target]._effects[0]) {
 			// If player already has this status effect, do this
 			
 			// TODO
 			} else { // If player doesn't already have this effect, inflict it
 				// Currently hardcoded to 1 effect per prayer [0]
-				array_push(enemy_units[_target]._effects, 
-				party_units[_p_num]._prayers[_move_num]._effects[0]);
+				array_push(enemy_units[target]._effects, 
+				party_units[p_num]._prayers[move_num]._effects[0]);
 			
-				show_debug_message("Gave " + string(enemy_units[_target]._name) + " the " +
-				string(enemy_units[_target]._effects[0]._name) + " effect");
+				show_debug_message("Gave " + string(enemy_units[target]._name) + " the " +
+				string(enemy_units[target]._effects[0]._name) + " effect");
 			
 				// Determine random status effect length
-				var temp = irandom_range(party_units[_p_num]._prayers[_move_num]._effects[0]._duration_min,
-				party_units[_p_num]._prayers[_move_num]._effects[0]._duration_max);
-				array_push(enemy_units[_target]._effects_remaining_turns, temp);
+				var temp = irandom_range(party_units[p_num]._prayers[move_num]._effects[0]._duration_min,
+				party_units[p_num]._prayers[move_num]._effects[0]._duration_max);
+				array_push(enemy_units[target]._effects_remaining_turns, temp);
 				
 				show_debug_message("Effect duration: " + string(temp));
 			}
 		}
 		
-		_finish = true; // Jump to end
+		finished = true; // Jump to end
 	}
 	
-	// This executes after a move is complete (_finish = true)
-	if (_finish) { 
-		if (enemy_units[_target]._hp <= 0) { // Check if target was killed
-			enemy_units[_target]._hp = 0;
-			show_debug_message(enemy_units[_target]._name + " was killed!");
-			kill_enemy(_target);
+	// This executes after a move is complete (finished = true)
+	if (finished) { 
+		// Check if player successfully killed target 
+		// Still needs to be implemented for status effects
+		if (enemy_units[target]._is_dead == true) {
 			// Reward party member with XP
-			xp_gained[_p_num] += enemy_units[_target]._xp_val;
-			show_debug_message(party_units[_p_num]._name + " gained " + 
-			string(enemy_units[_target]._xp_val) + " XP.");
-			_gameover = check_gameover(party_units, enemy_units); // Check if either party is defeated
+			xp_gained[p_num] += enemy_units[target]._xp_val;
+			show_debug_message(party_units[p_num]._name + " gained " + 
+			string(enemy_units[target]._xp_val) + " XP.");
 		}
 		
 		// Wait 120 frames and transition to next battle state
-		if (alarm[0] < 0 && _gameover == false) {
+		if (alarm[0] < 0) {
 			alarm[0] = 120; 
 		}
 		
 		// Reset move variables
-		_moved = true;
-		_move_type = -1;
-		_finish = false;
+		moved = true;
+		move_type = -1;
+		finished = false;
 	}
 } // End player turn
 
 // Enemy turn
-if (_turn == "enemy" && _moved == false) { 
-	if (_gameover == false) {
-		// Determine move type and number
-		_move_type = determine_move_type(enemy_units[_e_num]);
-		_move_num = determine_move_num(enemy_units[_e_num], _move_type);
+if (state == turn.enemy && moved == false) {
+	// Determine move type and number
+	move_type = determine_move_type(enemy_units[e_num]);
+	move_num = determine_move_num(enemy_units[e_num], move_type);
+		
+	// Show debug message
+	var temp;
+	switch(move_type) {
+		case 0: temp = "attack";
+			break;
+		case 1: temp = "spell";
+			break;
+		case 2: temp = "prayer";
+			break;
+		default: temp = "unknown";
+			break;
+		}
+		show_debug_message("Using " + string(temp) + " #" + string(move_num))
+		
+	// Select random living player to attack
+	target = select_target(party_units, p_length);
+		
+	// Attack
+	if (move_type == 0 && move_num != -1) {
+		// Determine random damage from the selected attack's damage range
+		dmg = irandom_range(enemy_units[e_num]._weapon._attacks[move_num]._dmg_min, 
+		enemy_units[e_num]._weapon._attacks[move_num]._dmg_max);
+			
+		// Show debug message
+		show_debug_message("Player " + string(e_num) + " (" + enemy_units[e_num]._name + 
+		") attacked Enemy " + string(target) + " (" + party_units[target]._name + ") for " + 
+		string(dmg) + " damage using " + enemy_units[e_num]._weapon._name + "!"); 
+			
+		// Play attack sound and flash weapon
+		audio_play_sound(enemy_units[e_num]._weapon._attacks[move_num]._sound, 1, false);
+		flash_item(display.weapon);
+		
+		// Decrease target's health
+		change_hp(party_units[target], 
+		enemy_units[e_num]._weapon._attacks[move_num]._dmgtype, dmg)
+		
+		finished = true; // Jump to end
+	}
+		
+	// Magic
+	if (move_type == 1 && move_num != -1) {
+		// Determine random damage from the selected spells's damage range
+		dmg = irandom_range(enemy_units[e_num]._spells[move_num]._dmg_min, 
+		enemy_units[e_num]._spells[move_num]._dmg_max);
 		
 		// Show debug message
-		var temp;
-		switch(_move_type) {
-			case 0: temp = "attack";
-				break;
-			case 1: temp = "spell";
-				break;
-			case 2: temp = "prayer";
-				break;
-			default: temp = "unknown";
-				break;
-		}
-		show_debug_message("Using " + string(temp) + " #" + string(_move_num))
+		show_debug_message("Enemy " + string(e_num) + " (" + enemy_units[e_num]._name + 
+		") cast " + enemy_units[e_num]._spells[move_num]._name+ " at player " + string(target) + " (" + enemy_units[target]._name + ") for " + 
+		string(dmg) + " damage!"); 
 		
-		// Select random living player to attack
-		_target = select_target(party_units, _p_length);
-		
-		// Attack
-		if (_move_type == 0 && _move_num != -1) {
-			// Determine random damage from the selected attack's damage range
-			_dmg = irandom_range(enemy_units[_e_num]._weapon._attacks[_move_num]._dmg_min, 
-			enemy_units[_e_num]._weapon._attacks[_move_num]._dmg_max);
-			
-			// Show debug message
-			show_debug_message("Player " + string(_e_num) + " (" + enemy_units[_e_num]._name + 
-			") attacked Enemy " + string(_target) + " (" + party_units[_target]._name + ") for " + 
-			string(_dmg) + " damage using " + enemy_units[_e_num]._weapon._name + "!"); 
-			
-			// Play attack sound and flash weapon
-			audio_play_sound(enemy_units[_e_num]._weapon._attacks[_move_num]._sound, 1, false);
-			_show_wpn = true;
-		
-			// Decrease target's health
-			change_hp(party_units[_target], 
-			enemy_units[_e_num]._weapon._attacks[_move_num]._dmgtype, _dmg)
-			
-			_finish = true; // Jump to end
+		// Play spell sound and flash projectile
+		audio_play_sound(enemy_units[e_num]._spells[move_num]._sound, 1, false);
+		flash_item(display.spell);
+		if (enemy_units[e_num]._magic_weapon != noone) { // If player has magic weapon, flash it
+			flash_item(display.magic_weapon);
 		}
 		
-		// Magic
-		if (_move_type == 1 && _move_num != -1) {
-			// Determine random damage from the selected spells's damage range
-			_dmg = irandom_range(enemy_units[_e_num]._spells[_move_num]._dmg_min, 
-			enemy_units[_e_num]._spells[_move_num]._dmg_max);
+		// Decrease targeted player health
+		change_hp(party_units[target], 
+		enemy_units[e_num]._spells[move_num]._dmgtype, dmg)
 		
-			// Show debug message
-			show_debug_message("Enemy " + string(_e_num) + " (" + enemy_units[_e_num]._name + 
-			") cast " + enemy_units[_e_num]._spells[_move_num]._name+ " at player " + string(_target) + " (" + enemy_units[_target]._name + ") for " + 
-			string(_dmg) + " damage!"); 
+		// Decrease enemy MP
+		enemy_units[e_num]._mp -= enemy_units[e_num]._spells[move_num]._mp_cost
 		
-			// Play spell sound and flash projectile
-			audio_play_sound(enemy_units[_e_num]._spells[_move_num]._sound, 1, false);
-			_show_spell = true;
-			if (enemy_units[_e_num]._magic_weapon != noone) { // If player has magic weapon, flash it
-				_show_magic_wpn = true;
-			}
+		finished = true; // Jump to end
+	}
 		
-			// Decrease targeted player health
-			change_hp(enemy_units[_target], 
-			enemy_units[_e_num]._spells[_move_num]._dmgtype, _dmg)
+	// Prayer
+	if (move_type == 2 && move_num != -1) {
+		// Determine length of prayer effect
+	
+		dmg = 0; // placeholder
 		
-			// Decrease enemy MP
-			enemy_units[_e_num]._mp -= enemy_units[_e_num]._spells[_move_num]._mp_cost
-		
-			_finish = true; // Jump to end
+		// Play prayer sound
+		audio_play_sound(enemy_units[e_num]._prayers[move_num]._sound, 1, false);
+		flash_item(display.prayer);
+		if (enemy_units[e_num]._prayer_book != noone) { // If player has prayer book, flash it
+			flash_item(display.prayer_book);
 		}
 		
-		// Prayer
-		if (_move_type == 2 && _move_num != -1) {
-			// Determine length of prayer effect
+		// Inflict status effect if prayer has one
 		
-			_dmg = 0; // placeholder
-		
-			// Play prayer sound
-			audio_play_sound(enemy_units[_e_num]._prayers[_move_num]._sound, 1, false);
-			_show_prayer = true;
-			if (enemy_units[_e_num]._prayer_book != noone) { // If player has prayer book, flash it
-				_show_prayer_book = true;
-			}
-		
-			// Inflict status effect if prayer has one
-		
-			if(!is_undefined(enemy_units[_e_num]._prayers[_move_num]._effects)) {
-				if(!is_undefined(enemy_units[_e_num]._effects) 
-				&& array_length(enemy_units[_target]._effects) > 0 // Make sure enemy has an effect
-				&& enemy_units[_e_num]._prayers[_move_num]._effects[0] != enemy_units[_target]._effects[0]) {
-				// If player already has this status effect, do this
+		if(!is_undefined(enemy_units[e_num]._prayers[move_num]._effects)) {
+			if(!is_undefined(enemy_units[e_num]._effects) 
+			&& array_length(enemy_units[target]._effects) > 0 // Make sure enemy has an effect
+			&& enemy_units[e_num]._prayers[move_num]._effects[0] != enemy_units[target]._effects[0]) {
+			// If player already has this status effect, do this
 			
-				// TODO
-				} else { // If player doesn't already have this effect, inflict it
-					// Currently hardcoded to 1 effect per prayer [0]
-					array_push(party_units[_target]._effects, 
-					enemy_units[_e_num]._prayers[_move_num]._effects[0]);
+			// TODO
+			} else { // If player doesn't already have this effect, inflict it
+				// Currently hardcoded to 1 effect per prayer [0]
+				array_push(party_units[target]._effects, 
+				enemy_units[e_num]._prayers[move_num]._effects[0]);
 			
-					show_debug_message("Gave " + string(party_units[_target]._name) + " the " +
-					string(party_units[_target]._effects[0]._name) + " effect");
+				show_debug_message("Gave " + string(party_units[target]._name) + " the " +
+				string(party_units[target]._effects[0]._name) + " effect");
 			
-					// Determine random status effect length
-					var temp = irandom_range(enemy_units[_e_num]._prayers[_move_num]._effects[0]._duration_min,
-					enemy_units[_e_num]._prayers[_move_num]._effects[0]._duration_max);
-					array_push(party_units[_target]._effects_remaining_turns, temp);
+				// Determine random status effect length
+				var temp = irandom_range(enemy_units[e_num]._prayers[move_num]._effects[0]._duration_min,
+				enemy_units[e_num]._prayers[move_num]._effects[0]._duration_max);
+				array_push(party_units[target]._effects_remaining_turns, temp);
 				
-					show_debug_message("Effect duration: " + string(temp));
-				}
+				show_debug_message("Effect duration: " + string(temp));
 			}
-			_finish = true; // Jump to end
 		}
+		finished = true; // Jump to end
+	}
 		
-		// This executes after a move is complete (_finish = true)
-		if (_finish) {
-			if (party_units[_target]._hp <= 0) { // Check if target was killed
-				party_units[_target]._hp = 0;
-				show_debug_message(party_units[_target]._name + " was killed!");
-				party_units[_target].visible = false; // Make instance invisible, can't remove it or it messes things up
-				party_units[_target]._is_dead = true;
-				instance_destroy(party_shadows[_target]);
-				_gameover = check_gameover(party_units, enemy_units); // Check if either party is defeated
-			}
-			
+	// This executes after a turn is complete (finished = true)
+	if (finished) {
 		// Wait 120 frames and transition to next battle state
-		if (_gameover == false) {
-			alarm[0] = 120; 
-		}
-	} 
+		alarm[0] = 120; 
+	}
 	
 	// Reset move variables
-	_moved = true;
-	_move_type = -1;
-	_finish = false;
-	}
+	moved = true;
+	move_type = -1;
+	finished = false;
 } // End enemy turn
-
-// Code for showing move-related sprites
-if (_show_wpn == true &&_turn == "player") { // Flash player weapon
-	var temp = instance_create_depth(party_units[_p_num].x+13, party_units[_p_num].y+24, party_units[_p_num].depth-1,
-	obj_sprite, global.party[_p_num])
-	temp._sprite = party_units[_p_num]._weapon._sprite;
-	temp._scale = 1;
-	temp._time = 1000;
-	_show_wpn = false;
-}
-
-if (_show_magic_wpn == true &&_turn == "player") { // Flash player magic weapon
-	var temp = instance_create_depth(party_units[_p_num].x+13, party_units[_p_num].y+24, party_units[_p_num].depth-1,
-	obj_sprite, global.party[_p_num]);
-	temp._sprite = party_units[_p_num]._magic_weapon._sprite;
-	temp._scale = 1;
-	_show_magic_wpn = false;
-}
-
-if (_show_spell == true &&_turn == "player") { // Flash player spell
-	var temp = instance_create_depth(party_units[_p_num].x+42, party_units[_p_num].y-2, party_units[_p_num].depth-1,
-	obj_sprite, global.party[_p_num]);
-	temp._sprite = party_units[_p_num]._spells[_move_num]._sprite;
-	temp._scale = 1;
-	_show_spell = false;
-}
-
-if (_show_prayer_book == true &&_turn == "player") { // Flash player prayer book
-	var temp = instance_create_depth(party_units[_p_num].x+13, party_units[_p_num].y+24, party_units[_p_num].depth-1,
-	obj_sprite, global.party[_p_num]);
-	temp._sprite = party_units[_p_num]._prayer_book._sprite;
-	temp._scale = 1;
-	_show_prayer_book = false;
-}
-
-if (_show_prayer == true &&_turn == "player") { // Flash player prayer
-	var temp = instance_create_depth(party_units[_p_num].x+42, party_units[_p_num].y-2, party_units[_p_num].depth-1,
-	obj_sprite, global.party[_p_num]);
-	temp._sprite = party_units[_p_num]._prayers[_move_num]._sprite;
-	temp._scale = 1;
-	_show_prayer = false;
-}
-
-if (_show_wpn == true &&_turn == "enemy") { // Flash enemy weapon
-	var temp = instance_create_depth(enemy_units[_e_num].x-13, enemy_units[_e_num].y+24, enemy_units[_e_num].depth-1,
-	obj_sprite, enemies[_e_num])
-	temp._sprite = enemy_units[_e_num]._weapon._sprite;
-	temp._scale = -1;
-	_show_wpn = false;
-}
-
-if (_show_spell == true &&_turn == "enemy") { // Flash enemy spell
-	var temp = instance_create_depth(enemy_units[_e_num].x-42, enemy_units[_e_num].y-2, enemy_units[_e_num].depth-1,
-	obj_sprite, enemies[_e_num])
-	temp._sprite = enemy_units[_e_num]._spells[_move_num]._sprite;
-	temp._scale = -1;
-	_show_spell = false;
-}
-
-if (_show_magic_wpn == true &&_turn == "enemy") { // Flash enemy magic weapon
-	var temp = instance_create_depth(enemy_units[_e_num].x-13, enemy_units[_e_num].y+24, enemy_units[_e_num].depth-1,
-	obj_sprite, enemies[_e_num])
-	temp._sprite = enemy_units[_e_num]._magic_weapon._sprite;
-	temp._scale = -1;
-	_show_magic_wpn = false;
-}
-
-if (_show_prayer_book == true &&_turn == "enemy") { // Flash enemy prayer book
-	var temp = instance_create_depth(enemy_units[_e_num].x-13, enemy_units[_e_num].y+24, enemy_units[_e_num].depth-1,
-	obj_sprite, enemies[_e_num])
-	temp._sprite = enemy_units[_e_num]._prayer_book._sprite;
-	temp._scale = -1;
-	_show_prayer_book = false;
-}
-
-if (_show_prayer == true &&_turn == "enemy") { // Flash enemy prayer
-	var temp = instance_create_depth(enemy_units[_e_num].x-42, enemy_units[_e_num].y-2, enemy_units[_e_num].depth-1,
-	obj_sprite, enemies[_e_num])
-	temp._sprite = enemy_units[_e_num]._prayers[_move_num]._sprite;
-	temp._scale = -1;
-	_show_prayer = false;
-}

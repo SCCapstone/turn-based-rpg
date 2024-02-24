@@ -5,28 +5,30 @@ if at the starting village location, level has been cleared, and the D key is pr
 
 updates location
 */
-if state == 0 && global.location == 0 && obj_village_node.is_cleared == true && keyboard_check_pressed(ord("D")) {
-	state = 1;
-}
+if ( _disabled == false){
+	if state == 0 && global.location == 0 && obj_village_node.is_cleared == true && keyboard_check_pressed(ord("D")) {
+		state = 1;
+	}
 
-if state == 0 && global.location == 1 && keyboard_check_pressed(ord("S")) {
-	state = 2;
-}
+	if state == 0 && global.location == 1 && keyboard_check_pressed(ord("S")) {
+		state = 2;
+	}
 
-if state == 0 && global.location == 1 && obj_field_node.is_cleared = true && keyboard_check_pressed(ord("D")) {
-	state = 3;
-}
+	if state == 0 && global.location == 1 && obj_field_node.is_cleared = true && keyboard_check_pressed(ord("D")) {
+		state = 3;
+	}
 
-if state == 0 && global.location == 2 && keyboard_check_pressed(ord("W")) {
-	state = 4;
-}
+	if state == 0 && global.location == 2 && keyboard_check_pressed(ord("W")) {
+		state = 4;
+	}
 
-if state == 0 && global.location == 2 && keyboard_check_pressed(ord("D")) {
-	state = 5;
-}
+	if state == 0 && global.location == 2 && keyboard_check_pressed(ord("D")) {
+		state = 5;
+	}
 
-if state == 0 && global.location == 3 && keyboard_check_pressed(ord("S")) {
-	state = 6;
+	if state == 0 && global.location == 3 && keyboard_check_pressed(ord("S")) {
+		state = 6;
+	}
 }
 
 //from village to field
