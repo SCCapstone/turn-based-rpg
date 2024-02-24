@@ -13,5 +13,6 @@
     {"name":"spr_obj_tree","order":7,"path":"sprites/spr_obj_tree/spr_obj_tree.yy",},
     {"name":"spr_flowers","order":4,"path":"sprites/spr_flowers/spr_flowers.yy",},
     {"name":"ts_tree","order":1,"path":"tilesets/ts_tree/ts_tree.yy",},
+    {"name":"Inventory","order":1,"path":"scripts/Inventory/Inventory.yy",},
   ],
 }

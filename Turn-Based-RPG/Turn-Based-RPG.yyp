@@ -165,6 +165,7 @@
     {"id":{"name":"spr_village","path":"sprites/spr_village/spr_village.yy",},},
     {"id":{"name":"spr_menu_background","path":"sprites/spr_menu_background/spr_menu_background.yy",},},
     {"id":{"name":"ts_tree","path":"tilesets/ts_tree/ts_tree.yy",},},
+    {"id":{"name":"Inventory","path":"scripts/Inventory/Inventory.yy",},},
     {"id":{"name":"spr_villager_f_1","path":"sprites/spr_villager_f_1/spr_villager_f_1.yy",},},
     {"id":{"name":"fnt_pixeloid","path":"fonts/fnt_pixeloid/fnt_pixeloid.yy",},},
     {"id":{"name":"rm_plains","path":"rooms/rm_plains/rm_plains.yy",},},
