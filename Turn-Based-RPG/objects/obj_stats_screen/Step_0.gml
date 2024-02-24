@@ -43,15 +43,15 @@ if (right_key && skill_points > 0) {
 	switch (pos) {
 		case 0:
 			hp += 1; // value to show the points in the hp stat
-			new_hp = hp/10 * 100; // convets the stat into a percentage
-			global.party[0]._max_hp = global.party[0]._max_hp + new_hp; // adds that percentage to the base hp stat
+			new_hp = hp/10; // convets the stat into a percentage
+			global.party[0]._max_hp += global.party[0]._max_hp * new_hp; // adds that percentage to the base hp stat
 			//global.party[0]._max_hp += 1;
 			global.party[0]._hp = global.party[0]._max_hp; // sets current health to the new max
 			break;
 		case 1:
 			mp += 1;
-			new_mp = mp/10 * 100;
-			global.party[0]._max_mp = global.party[0]._max_mp + new_mp;
+			new_mp = mp/10;
+			global.party[0]._max_mp += global.party[0]._max_mp * new_mp;
 			//global.party[0]._max_mp += 1;
 			global.party[0]._mp = global.party[0]._max_mp
 			break;
@@ -80,8 +80,8 @@ if (left_key) {
 		case 0:
 			if ( hp > 0) {
 				hp -= 1;
-				new_hp = hp/10 * 100;
-				global.party[0]._max_hp = global.party[0]._max_hp - new_hp;
+				new_hp = hp/10;
+				global.party[0]._max_hp -= global.party[0]._max_hp * new_hp;
 				//global.party[0]._max_hp -= 1;
 				skill_points += 1;
 				global.party[0]._hp = global.party[0]._max_hp;
@@ -92,13 +92,13 @@ if (left_key) {
 		case 1:
 			if ( global.party[0]._max_mp > 0) {
 				mp -= 1;
-				new_mp = mp/10 * 100;
-				global.party[0]._max_mp = global.party[0]._max_mp - new_mp;
+				new_mp = mp/10;
+				global.party[0]._max_mp -= global.party[0]._max_mp * new_mp;
 				//global.party[0]._max_mp -= 1;
 				skill_points += 1;
 				global.party[0]._mp = global.party[0]._max_mp;
 			} else {
-				global.party[0]._max_mp = 0;
+				mp = 0;
 			}
 			break;
 		case 2:
