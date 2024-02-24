@@ -25,10 +25,10 @@ if (pos = 0) {
 	draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 }
 if (pos = 1) {
-	draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.party[0]._max_mp), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+	draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 	draw_text_ext_transformed_color(stat_description_x, stat_info_y + 15, "Mana: Total Magical energy.", op_space, op_margin, text_size - .02, text_size - .02, 0, c_white, c_white, c_white, c_white, 1);
 } else {
-	draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.party[0]._max_mp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+	draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 }
 if ( pos = 2) {
 	draw_text_ext_transformed_color(stat_info_x, stat_info_y + 30, "STR: " + string(global.party[0]._str), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
