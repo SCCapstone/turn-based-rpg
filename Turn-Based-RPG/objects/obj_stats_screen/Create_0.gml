@@ -10,6 +10,8 @@ skill_points = 0; // stat points available
 //scale = 4;
 hp = 0;
 new_hp = 0;
+mp = 0;
+new_mp = 0;
 
 gui_width = display_get_gui_width();
 gui_height = display_get_gui_height();
