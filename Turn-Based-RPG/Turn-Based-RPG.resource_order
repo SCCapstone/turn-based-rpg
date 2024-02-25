@@ -1,4 +1,19 @@
 {
-  "FolderOrderSettings": [],
-  "ResourceOrderSettings": [],
+  "FolderOrderSettings": [
+    {"name":"Depth System","order":1,"path":"folders/Objects/Depth System.yy",},
+    {"name":"Inventory","order":3,"path":"folders/Objects/Inventory.yy",},
+  ],
+  "ResourceOrderSettings": [
+    {"name":"obj_sign","order":1,"path":"objects/obj_sign/obj_sign.yy",},
+    {"name":"spr_nu_tree","order":6,"path":"sprites/spr_nu_tree/spr_nu_tree.yy",},
+    {"name":"spr_flower_sparce","order":5,"path":"sprites/spr_flower_sparce/spr_flower_sparce.yy",},
+    {"name":"spr_bench","order":3,"path":"sprites/spr_bench/spr_bench.yy",},
+    {"name":"obj_depth_sorter","order":1,"path":"objects/obj_depth_sorter/obj_depth_sorter.yy",},
+    {"name":"spr_pot","order":2,"path":"sprites/spr_pot/spr_pot.yy",},
+    {"name":"spr_sign","order":1,"path":"sprites/spr_sign/spr_sign.yy",},
+    {"name":"spr_obj_tree","order":7,"path":"sprites/spr_obj_tree/spr_obj_tree.yy",},
+    {"name":"spr_flowers","order":4,"path":"sprites/spr_flowers/spr_flowers.yy",},
+    {"name":"ts_tree","order":1,"path":"tilesets/ts_tree/ts_tree.yy",},
+    {"name":"Inventory","order":1,"path":"scripts/Inventory/Inventory.yy",},
+  ],
 }

@@ -4,19 +4,11 @@
   "name": "ts_tree",
   "autoTileSets": [],
   "macroPageTiles": {
-    "SerialiseHeight": 27,
-    "SerialiseWidth": 15,
-    "TileCompressedData": [
-      -351,
-      0,
-      1,
-      4,
-      -53,
-      0,
-    ],
-    "TileDataFormat": 1,
+    "SerialiseHeight": 0,
+    "SerialiseWidth": 0,
+    "TileSerialiseData": [],
   },
-  "out_columns": 4,
+  "out_columns": 3,
   "out_tilehborder": 2,
   "out_tilevborder": 2,
   "parent": {
@@ -24,15 +16,15 @@
     "path": "folders/Tile Sets.yy",
   },
   "spriteId": {
-    "name": "spr_tree_for_tiles",
-    "path": "sprites/spr_tree_for_tiles/spr_tree_for_tiles.yy",
+    "name": "spr_nu_tree",
+    "path": "sprites/spr_nu_tree/spr_nu_tree.yy",
   },
   "spriteNoExport": false,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
   },
-  "tile_count": 16,
+  "tile_count": 12,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -47,10 +39,6 @@
       9,
       10,
       11,
-      12,
-      13,
-      14,
-      15,
     ],
     "SerialiseFrameCount": 1,
   },

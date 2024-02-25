@@ -90,7 +90,7 @@ if (_disabled == false) {
 		show_debug_message(_speaker);
 		} 
 		if (facing == 2) {
-			_speaker =  collision_line(x + 8, y + 28, x, y - 16, obj_NPC, false, true);
+			_speaker =  collision_line(x + 8, y + 28, x, y, obj_NPC, false, true);
 			show_debug_message(_speaker);
 		}
 		if (facing == 3) {
