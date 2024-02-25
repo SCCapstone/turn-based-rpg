@@ -20,6 +20,8 @@ move_type = -1; // 0 - attack, 1 - magic, 2 - prayer
 move_num = -1; // Move number
 dmg = 0; // Attack damage value
 dmg_source = damage_source.misc; // Attack damage source
+_menu = noone;
+_active = false;
 
 
 // Create player party

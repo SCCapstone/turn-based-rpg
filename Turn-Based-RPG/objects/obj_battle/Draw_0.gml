@@ -36,20 +36,6 @@ for(var i = 0; i < p_length; i++) {
 	draw_set_color(c_white);	// Sets font back to white
 }
 
-if (true) {
 	for (var i = 0; i < e_length; i++) {
 		draw_text_ext_transformed(enemy_units[i].x - 61,enemy_units[i].y + 6, "HP: " + string(enemy_units[i]._hp), op_space, 3000, .1, .1, 0)
-		
-	}
-	if (state == turn.player) {
-		if (enemy_units[target]._is_dead) {
-			for (var i = 0; i < e_length; i++) {
-				if (enemy_units[i]._is_dead == false) {
-					target = i;
-					draw_sprite(spr_arrow,0,enemy_units[target].x - 7,enemy_units[target].y + 10);
-				}
-			}
-		}
-		draw_sprite(spr_arrow,0,enemy_units[target].x - 7,enemy_units[target].y + 10);
-	}
 }

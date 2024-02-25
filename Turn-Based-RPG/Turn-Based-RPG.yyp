@@ -95,6 +95,7 @@
     {"id":{"name":"obj_depth_sorter","path":"objects/obj_depth_sorter/obj_depth_sorter.yy",},},
     {"id":{"name":"ts_fences","path":"tilesets/ts_fences/ts_fences.yy",},},
     {"id":{"name":"snd_scythe_slash","path":"sounds/snd_scythe_slash/snd_scythe_slash.yy",},},
+    {"id":{"name":"CreateBattleMenu","path":"scripts/CreateBattleMenu/CreateBattleMenu.yy",},},
     {"id":{"name":"obj_pointer","path":"objects/obj_pointer/obj_pointer.yy",},},
     {"id":{"name":"obj_forest_node","path":"objects/obj_forest_node/obj_forest_node.yy",},},
     {"id":{"name":"obj_archer","path":"objects/obj_archer/obj_archer.yy",},},
