@@ -24,6 +24,15 @@ if (!show_stats) exit;
 /*
  When the show stats variable switches from false to true the code below will run
 */
+if (keyboard_check_pressed(ord("O"))) {
+	pos2 += 1;
+}
+if (pos2 >= party_switch) {
+	pos2 = 0;
+}
+if (pos2 < 0) {
+	pos2 = party_switch - 1;
+}
 
 pos += down_key - up_key;
 
@@ -37,97 +46,207 @@ if (pos < 0) {
 
 
 // adds a skill point to the respective stat and reduces the skill point number by 1
-if (right_key && skill_points > 0) {
-	/*character[0].allocate_add(selection);
-	character[0].stat_points -= 1;*/
-	switch (pos) {
-		case 0:
-			hp += 1;
-			new_hp = hp/10 * 100
-			global.party[0]._max_hp = global.party[0]._max_hp + new_hp;
-			//global.party[0]._max_hp += 1;
-			global.party[0]._hp = global.party[0]._max_hp;
-			break;
-		case 1:
-			global.party[0]._max_mp += 1;
-			global.party[0]._mp = global.party[0]._max_mp
-			break;
-		case 2:
-			global.party[0]._str += 1;
-			break;
-		case 3:
-			global.party[0]._agi += 1;
-			break;
-		case 4:
-			global.party[0]._dex += 1;
-			break;
-		case 5:
-			global.party[0]._spd += 1;
-			break;
+switch (pos2) {
+	case 0:
+		if (right_key && skill_points > 0) {
+		/*character[0].allocate_add(selection);
+		character[0].stat_points -= 1;*/
+		switch (pos) {
+			case 0:
+				hp += 1; // value to show the points in the hp stat
+				new_hp = hp/10; // convets the stat into a percentage
+				global.party[0]._max_hp += round(global.party[0]._max_hp * new_hp); // adds that percentage to the base hp stat
+				//global.party[0]._max_hp += 1;
+				global.party[0]._hp = global.party[0]._max_hp; // sets current health to the new max
+				break;
+			case 1:
+				mp += 1;
+				new_mp = mp/10;
+				global.party[0]._max_mp += round(global.party[0]._max_mp * new_mp);
+				//global.party[0]._max_mp += 1;
+				global.party[0]._mp = global.party[0]._max_mp
+				break;
+			case 2:
+				global.party[0]._str += 1;
+				break;
+			case 3:
+				global.party[0]._agi += 1;
+				break;
+			case 4:
+				global.party[0]._dex += 1;
+				break;
+			case 5:
+				global.party[0]._spd += 1;
+				break;
+		}
+		skill_points -= 1;
 	}
-	skill_points -= 1;
-}
 
-// removes points from respective stat and increases skill points
-// Certain stats such as Hp, Mp, and Spd will be unable to be lower than 1 and as such will be
-// unable to grant a skill point when trying to go under 1
-if (left_key) {
-	//character[0].allocate_minus(selection);
-	switch (pos) {
-		case 0:
-			if ( hp > 0) {
-				hp -= 1;
-				new_hp = hp/10 * 100;
-				global.party[0]._max_hp = global.party[0]._max_hp - new_hp;
-				//global.party[0]._max_hp -= 1;
-				skill_points += 1;
-				global.party[0]._hp = global.party[0]._max_hp;
-			} else {
-				hp = 0;
-			}
-			break;
-		case 1:
-			if ( global.party[0]._max_mp > 1) {
-				global.party[0]._max_mp -= 1;
-				skill_points += 1;
-				global.party[0]._mp = global.party[0]._max_mp;
-			} else {
-				global.party[0]._max_mp = 1;
-			}
-			break;
-		case 2:
-			if ( global.party[0]._str > 0) {
-				global.party[0]._str -= 1;
-				skill_points += 1;
-			} else {
-				global.party[0]._str = 0;
-			}
-			break;
-		case 3:
-			if ( global.party[0]._agi > 0) {
-				global.party[0]._agi -= 1;
-				skill_points += 1;
-			} else {
-				global.party[0]._agi = 0;
-			}
-			break;
-		case 4:
-			if ( global.party[0]._dex > 0) {
-				global.party[0]._dex -= 1;
-				skill_points += 1;
-			} else {
-				global.party[0]._dex = 0;
-			}
-			break;
-		case 5:
-			if ( global.party[0]._spd > 1) {
-				global.party[0]._spd -= 1;
-				skill_points += 1;
-			} else {
-				global.party[0]._spd = 1;
-			}
-			break;
+	// removes points from respective stat and increases skill points
+	// Certain stats such as Hp, Mp, and Spd will be unable to be lower than 1 and as such will be
+	// unable to grant a skill point when trying to go under 1
+	if (left_key) {
+		//character[0].allocate_minus(selection);
+		switch (pos) {
+			case 0:
+				if ( hp > 0) {
+					hp -= 1;
+					new_hp = hp/10;
+					global.party[0]._max_hp -= round(global.party[0]._max_hp * new_hp);
+					//global.party[0]._max_hp -= 1;
+					skill_points += 1;
+					global.party[0]._hp = global.party[0]._max_hp;
+				} else {
+					hp = 0;
+				}
+				break;
+			case 1:
+				if ( mp > 0) {
+					mp -= 1;
+					new_mp = mp/10;
+					global.party[0]._max_mp -= round(global.party[0]._max_mp * new_mp);
+					//global.party[0]._max_mp -= 1;
+					skill_points += 1;
+					global.party[0]._mp = global.party[0]._max_mp;
+				} else {
+					mp = 0;
+				}
+				break;
+			case 2:
+				if ( global.party[0]._str > 0) {
+					global.party[0]._str -= 1;
+					skill_points += 1;
+				} else {
+					global.party[0]._str = 0;
+				}
+				break;
+			case 3:
+				if ( global.party[0]._agi > 0) {
+					global.party[0]._agi -= 1;
+					skill_points += 1;
+				} else {
+					global.party[0]._agi = 0;
+				}
+				break;
+			case 4:
+				if ( global.party[0]._dex > 0) {
+					global.party[0]._dex -= 1;
+					skill_points += 1;
+				} else {
+					global.party[0]._dex = 0;
+				}
+				break;
+			case 5:
+				if ( global.party[0]._spd > 1) {
+					global.party[0]._spd -= 1;
+					skill_points += 1;
+				} else {
+					global.party[0]._spd = 1;
+				}
+				break;
+		}
 	}
+	break;
+	case 1:
+		if (right_key && skill_points > 0) {
+		/*character[0].allocate_add(selection);
+		character[0].stat_points -= 1;*/
+		switch (pos) {
+			case 0:
+				hp2 += 1; // value to show the points in the hp stat
+				new_hp2 = hp2/10; // convets the stat into a percentage
+				global.party[1]._max_hp += round(global.party[1]._max_hp * new_hp2); // adds that percentage to the base hp stat
+				//global.party[0]._max_hp += 1;
+				global.party[1]._hp = global.party[1]._max_hp; // sets current health to the new max
+				break;
+			case 1:
+				mp2 += 1;
+				new_mp2 = mp2/10;
+				global.party[1]._max_mp += round(global.party[1]._max_mp * new_mp2);
+				//global.party[0]._max_mp += 1;
+				global.party[1]._mp = global.party[1]._max_mp
+				break;
+			case 2:
+				global.party[1]._str += 1;
+				break;
+			case 3:
+				global.party[1]._agi += 1;
+				break;
+			case 4:
+				global.party[1]._dex += 1;
+				break;
+			case 5:
+				global.party[1]._spd += 1;
+				break;
+		}
+		skill_points -= 1;
+	}
+
+	// removes points from respective stat and increases skill points
+	// Certain stats such as Hp, Mp, and Spd will be unable to be lower than 1 and as such will be
+	// unable to grant a skill point when trying to go under 1
+	if (left_key) {
+		//character[0].allocate_minus(selection);
+		switch (pos) {
+			case 0:
+				if ( hp2 > 0) {
+					hp2 -= 1;
+					new_hp2 = hp2/10;
+					global.party[1]._max_hp -= round(global.party[1]._max_hp * new_hp2);
+					//global.party[0]._max_hp -= 1;
+					skill_points += 1;
+					global.party[1]._hp = global.party[1]._max_hp;
+				} else {
+					hp = 0;
+				}
+				break;
+			case 1:
+				if ( mp2 > 0) {
+					mp2 -= 1;
+					new_mp2 = mp2/10;
+					global.party[1]._max_mp -= round(global.party[1]._max_mp * new_mp2);
+					//global.party[0]._max_mp -= 1;
+					skill_points += 1;
+					global.party[1]._mp = global.party[1]._max_mp;
+				} else {
+					mp = 0;
+				}
+				break;
+			case 2:
+				if ( global.party[1]._str > 0) {
+					global.party[1]._str -= 1;
+					skill_points += 1;
+				} else {
+					global.party[1]._str = 0;
+				}
+				break;
+			case 3:
+				if ( global.party[1]._agi > 0) {
+					global.party[1]._agi -= 1;
+					skill_points += 1;
+				} else {
+					global.party[1]._agi = 0;
+				}
+				break;
+			case 4:
+				if ( global.party[1]._dex > 0) {
+					global.party[1]._dex -= 1;
+					skill_points += 1;
+				} else {
+					global.party[1]._dex = 0;
+				}
+				break;
+			case 5:
+				if ( global.party[1]._spd > 1) {
+					global.party[1]._spd -= 1;
+					skill_points += 1;
+				} else {
+					global.party[1]._spd = 1;
+				}
+				break;
+		}
+	}
+	break;
 }
 
 if (global.party[0]._xp >= global.party[0]._max_xp) {

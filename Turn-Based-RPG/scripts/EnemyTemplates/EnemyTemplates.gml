@@ -6,16 +6,16 @@ global.enemies =
 		_name: "Dark Wizard",
 		
 		// Stats
-		_hp: 20,		// Current HP
-		_mp: 50,		// Current MP
+		_hp: 60,		// Current HP
+		_mp: 100,		// Current MP
 
-		_max_hp: 50,    // Health
-		_max_mp: 50,    // Mana
+		_max_hp: 60,    // Health
+		_max_mp: 100,    // Mana
 		_spd: 7,		// Speed
 		_str: 0,		// Strength
 		_dex: 0,		// Dexterity
-		_int: 0,        // Intelligence
-		_agi: 0,		// Agility
+		_int: 12,        // Intelligence
+		_agi: 10,		// Agility
 
 		// Movesets
 		_spells: [global.spells.fireball],
@@ -42,16 +42,16 @@ global.enemies =
 		_name: "Dark Knight",
 		
 		// Stats
-		_hp: 70,		// Current HP
+		_hp: 90,		// Current HP
 		_mp: 0,		// Current MP
 
-		_max_hp: 70,    // Health
+		_max_hp: 90,    // Health
 		_max_mp: 0,     // Mana
 		_spd: 6,		// Speed
-		_str: 0,		// Strength
+		_str: 10,		// Strength
 		_dex: 0,		// Dexterity
 		_int: 0,        // Intelligence
-		_agi: 0,		// Agility
+		_agi: 5,		// Agility
 		
 		// Movesets
 		_spells: [],
@@ -67,7 +67,7 @@ global.enemies =
 		_armor_legs: global.armor.steel_plate_greaves,
 			
 		// Misc
-		_sprites: {idle: spr_knight},
+		_sprites: {idle: spr_knight_og},
 		_effects: [],
 		_effects_remaining_turns: [],
 		_is_dead: false,
@@ -78,16 +78,16 @@ global.enemies =
 		_name: "Mercenary Archer",
 		
 		//Stats
-		_hp: 20,
+		_hp: 75,
 		_mp: 0,
 
-		_max_hp: 70,    // Health
+		_max_hp: 75,    // Health
 		_max_mp: 0,     // Mana
 		_spd: 6,		// Speed
 		_str: 0,		// Strength
-		_dex: 0,		// Dexterity
+		_dex: 10,		// Dexterity
 		_int: 0,        // Intelligence
-		_agi: 0,		// Agility
+		_agi: 15,		// Agility
 		
 		// Movesets
 		_spells: [],
