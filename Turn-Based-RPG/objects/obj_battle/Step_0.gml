@@ -75,8 +75,9 @@ if (state == turn.player && moved == false) {
 		flash_item(display.weapon);
 		
 		// Change targeted enemy health
-		change_hp(enemy_units[target], 
-		party_units[p_num]._weapon._attacks[move_num]._dmgtype, dmg)
+		change_hp(party_units[p_num], enemy_units[target], dmg,
+		party_units[p_num]._weapon._attacks[move_num]._dmgtype,
+		party_units[p_num]._weapon._type)
 			
 		finished = true; // Jump to end
 	}
@@ -100,8 +101,8 @@ if (state == turn.player && moved == false) {
 		}
 		
 		// Decrease targeted enemy health
-		change_hp(enemy_units[target], 
-		party_units[p_num]._spells[move_num]._dmgtype, dmg)
+		change_hp(party_units[p_num], enemy_units[target], dmg,
+		party_units[p_num]._spells[move_num]._dmgtype, damage_source.spell);
 		
 		// Decrease player MP
 		party_units[p_num]._mp -= party_units[p_num]._spells[move_num]._mp_cost
@@ -213,8 +214,9 @@ if (state == turn.enemy && moved == false) {
 		flash_item(display.weapon);
 		
 		// Decrease target's health
-		change_hp(party_units[target], 
-		enemy_units[e_num]._weapon._attacks[move_num]._dmgtype, dmg)
+		change_hp(enemy_units[e_num], party_units[target], dmg,
+		enemy_units[e_num]._weapon._attacks[move_num]._dmgtype, 
+		enemy_units[e_num]._weapon._type)
 		
 		finished = true; // Jump to end
 	}
@@ -238,8 +240,8 @@ if (state == turn.enemy && moved == false) {
 		}
 		
 		// Decrease targeted player health
-		change_hp(party_units[target], 
-		enemy_units[e_num]._spells[move_num]._dmgtype, dmg)
+		change_hp(enemy_units[e_num], party_units[target], dmg,
+		enemy_units[e_num]._spells[move_num]._dmgtype, damage_source.spell)
 		
 		// Decrease enemy MP
 		enemy_units[e_num]._mp -= enemy_units[e_num]._spells[move_num]._mp_cost
