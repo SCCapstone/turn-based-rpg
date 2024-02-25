@@ -4,6 +4,7 @@
     {"name":"Inventory","order":3,"path":"folders/Objects/Inventory.yy",},
     {"name":"Battle","order":1,"path":"folders/Sprites/Battle.yy",},
     {"name":"Characters","order":2,"path":"folders/Sprites/Characters.yy",},
+    {"name":"Consumables","order":8,"path":"folders/Sprites/Consumables.yy",},
     {"name":"Tiles","order":3,"path":"folders/Sprites/Tiles.yy",},
     {"name":"Town","order":4,"path":"folders/Sprites/Town.yy",},
     {"name":"UI","order":5,"path":"folders/Sprites/UI.yy",},
@@ -11,7 +12,6 @@
     {"name":"Magic Weapons","order":4,"path":"folders/Sprites/Weapons/Magic Weapons.yy",},
     {"name":"Prayer Books","order":5,"path":"folders/Sprites/Weapons/Prayer Books.yy",},
     {"name":"World Map","order":7,"path":"folders/Sprites/World Map.yy",},
-    {"name":"Consumables","order":8,"path":"folders/Sprites/Consumables.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_sign","order":1,"path":"objects/obj_sign/obj_sign.yy",},

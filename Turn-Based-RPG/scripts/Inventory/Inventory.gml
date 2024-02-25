@@ -10,6 +10,8 @@ enum item_type {
 function Inventory() constructor {
 	_inventory = []
 	_max_inventory_size = 60;
+	_inventory_width = 10;
+	_inventory_height = 6;
 
 	// Need to keep track of item indexes
 	_index = 0;
@@ -20,10 +22,6 @@ function Inventory() constructor {
 				item: _item,
 				type: _type,
 				index: _index,
-        
-	_inventory_width = 10;
-	_inventory_height = 6;
-        
 			});
 			// Debug message for console
 			show_debug_message("Pushed " + _item._name + " to inventory"
