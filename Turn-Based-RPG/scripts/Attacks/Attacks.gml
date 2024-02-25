@@ -3,6 +3,7 @@ global.attacks =
 {
 	sword_slash: 
 	{
+		_name: "Slash",
 		_dmgtype: "slash",
 		_dmg_min: 10,
 		_dmg_max: 30,
@@ -10,6 +11,7 @@ global.attacks =
 	},
 	sword_stab:
 	{
+		_name: "Stab",
 		_dmgtype: "pierce",
 		_dmg_min: 10,
 		_dmg_max: 30,
@@ -17,6 +19,7 @@ global.attacks =
 	},
 	scythe_slash:
 	{
+		_name: "Slash",
 		_dmgtype: "slash",
 		_dmg_min: 15,
 		_dmg_max: 35,
@@ -24,6 +27,7 @@ global.attacks =
 	},
 	bow_shoot:
 	{
+		_name: "Single shot",
 		_dmgtype: "pierce",
 		_dmg_min: 15,
 		_dmg_max: 25,
@@ -31,6 +35,7 @@ global.attacks =
 	},
 	fireball:
 	{
+		_name: "Fireball",
 		_dmgtype: "magic",
 		_dmg_min: 25,
 		_dmg_max: 35,
