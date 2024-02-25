@@ -4,13 +4,13 @@ enum item_type {
 	magic_weapon,
 	prayer_book,
 	armor, // TODO
-	
 }
 
 // inventory
 function Inventory() constructor {
 	_inventory = []
 	_max_inventory_size = 60;
+
 	// Need to keep track of item indexes
 	_index = 0;
 	
@@ -20,6 +20,10 @@ function Inventory() constructor {
 				item: _item,
 				type: _type,
 				index: _index,
+        
+	_inventory_width = 10;
+	_inventory_height = 6;
+        
 			});
 			// Debug message for console
 			show_debug_message("Pushed " + _item._name + " to inventory"
@@ -45,4 +49,8 @@ function inv_test() {
 	consume_item(global.party[0], 0);
 	consume_item(global.party[0], 0);
 	consume_item(global.party[0], 0);
-}
+  }
+  
+	item_selected  = function(_index) {
+		_inventory[_index].hover = true;
+	}
