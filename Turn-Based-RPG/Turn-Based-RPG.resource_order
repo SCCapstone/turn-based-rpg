@@ -1,8 +1,4 @@
 {
-  "FolderOrderSettings": [
-    {"name":"Depth System","order":1,"path":"folders/Objects/Depth System.yy",},
-  ],
-  "ResourceOrderSettings": [
-    {"name":"obj_depth_sorter","order":1,"path":"objects/obj_depth_sorter/obj_depth_sorter.yy",},
-  ],
+  "FolderOrderSettings": [],
+  "ResourceOrderSettings": [],
 }

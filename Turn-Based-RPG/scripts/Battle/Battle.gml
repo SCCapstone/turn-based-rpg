@@ -14,6 +14,16 @@ enum display {
 	prayer,
 }
 
+// Different damage sources, mainly for 
+// attacks damage scaling with character stats
+enum damage_source {
+	melee,
+	ranged,
+	prayer,
+	spell,
+	misc
+}
+
 // Call this function to start a battle with a 
 // defined set of enemies and a chosen background
 function battle_start(enemies, background) {
@@ -110,25 +120,117 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 }
 
 // Call this function to change a character's hp, 
-// either positively or negatively
-function change_hp(character, type, dmg) {
-	if(dmg > 0) {
-		// Call damage calculation function
-		character._hp -= calculate_damage(character, type, dmg);
+// either positively or negatively, while factoring in
+// the attacker's stats and the defender's damage resistances
+// and dodge chance.
+// Takes the attacking character, defending character,
+// amount of damage dealt, type of damage, and source of damage
+function change_hp(attacker, defender, _dmg, dmg_type, dmg_source) {
+	if(_dmg > 0) {
+		// Roll dodge chance
+		if (roll_dodge(attacker, defender, dmg_source)) {
+			return 0;	
+		}
+		// Factor in the attacker's stats to increase damage
+		_dmg = calculate_damage_scaling(attacker, _dmg, dmg_source);
+		// Factor in the defender's resistances to reduce damage
+		_dmg = calculate_resistance(defender, _dmg, dmg_type);
+		// Change defender HP
+		defender._hp -= _dmg;
 		// Check to see if this killed the selected character
-		if(character._hp <= 0) { 
-			kill_target(character);
+		if(defender._hp <= 0) { 
+			kill_target(defender);
 		}
 		// Check if character was killed
 	} else {
 		// If _dmg <= 0, simply add HP
-		character._hp -= dmg;
+		defender._hp -= _dmg;
 	}
+}
+
+// Rolls the defender's dodge chance, determining if an attack lands or not.
+// Returns false if attacker lands the hit, returns true if defender dodges.
+function roll_dodge(attacker, defender, dmg_source) {
+	// Difference between defender's AGI*3
+	// and attacker's relevant attack stat*2
+	var dodge = 0;
+	var attacker_stat = "";
+	switch (dmg_source) {
+		// Miscellaneous sources of damage never miss
+		case damage_source.misc:
+			return false;
+		// Prayers never miss (for now)
+		case damage_source.prayer:
+			return false;
+		case damage_source.melee:
+			attacker_stat = string(attacker._str) + " STR";
+			dodge = 3*defender._agi - 2*attacker._str;
+			break;
+		case damage_source.ranged:
+			attacker_stat = string(attacker._dex) + " DEX"
+			dodge = 3*defender._agi - 2*attacker._dex;
+			break;
+		case damage_source.spell:
+			attacker_stat = string(attacker._int) + " INT";
+			dodge = 3*defender._agi - 2*attacker._int;
+			break;
+	}
+	// Min dodge capped at 3%, because why not?
+	if (dodge < 3) {
+		dodge = 3;	
+	}
+	// Max dodge capped at 85%
+	else if (dodge > 85) {
+		dodge = 85;	
+	}
+	
+	show_debug_message(string(defender._name) + " has " + string(defender._agi) 
+	+ " AGI compared to " + string(attacker._name) + "'s " + attacker_stat
+	+ ", resulting in a " + string(dodge) + "% chance to dodge.");
+		
+	// If accuracy < dodge, attack misses
+	var accuracy = irandom_range(1, 100);
+	if (accuracy <= dodge) {
+		show_debug_message("MISS!"); 
+		return true;
+	} else {
+		show_debug_message("HIT!"); 
+		return false;	
+	}
+}
+
+// Scales damage up with appropriate stats
+function calculate_damage_scaling(attacker, _dmg, dmg_source) {
+	var attacker_stat = "";
+	var increase;
+	switch (dmg_source) {
+		case damage_source.misc:
+			return _dmg;
+		case damage_source.prayer:
+			return _dmg;
+		case damage_source.melee:
+			attacker_stat = string(attacker._str) + " STR";
+			increase = (attacker._str / 20);
+			break;
+		case damage_source.ranged:
+			attacker_stat = string(attacker._dex) + " DEX"
+			increase = (attacker._dex / 20);
+			break;
+		case damage_source.spell:
+			attacker_stat = string(attacker._int) + " INT";
+			increase = (attacker._int / 20);
+			break;
+	}
+	show_debug_message("Attack power increased by " + string(increase*100)
+	+ "% due to " + string(attacker._name) + "'s " + attacker_stat);
+	return round(_dmg + (_dmg*increase));
 }
 
 // Call this function to factor in a character's damage 
 // resistance before dealing damage to them
-function calculate_damage(character, type, dmg) {
+// Takes defending character, amount of damage dealt, and
+// the type of damage
+function calculate_resistance(character, dmg, type) {
 	var res = 0; // Target's armor resistance
 	
 	if (type == "slash") {
