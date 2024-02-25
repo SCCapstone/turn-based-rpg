@@ -7,7 +7,7 @@ global.party =
 		_name: "Sorcerer",
 		
 		// Stats
-		_hp: 150,		// Current HP
+		_hp: 10,		// Current HP
 		_mp: 50,		// Current MP
 		
 		_lvl: 1,		// Level

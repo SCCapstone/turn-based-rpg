@@ -13,6 +13,11 @@ function init(){
 	prayers();
 	party_data();
 	enemy_templates();
+	consumables();
+	Inventory();
+	
+	// Run inventory test
+	inv_test();
 }
 
 // Sets default text properties
