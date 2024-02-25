@@ -2,6 +2,7 @@
   "FolderOrderSettings": [
     {"name":"Depth System","order":1,"path":"folders/Objects/Depth System.yy",},
     {"name":"Inventory","order":3,"path":"folders/Objects/Inventory.yy",},
+    {"name":"Inventory","order":1,"path":"folders/Sprites/Inventory.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_sign","order":1,"path":"objects/obj_sign/obj_sign.yy",},
