@@ -174,6 +174,11 @@ if (state == turn.player && moved == false) {
 		}
 	}
 	
+	// Items
+	if (move_type == 3) {
+		finished = true;
+	}
+	
 	// This executes after a move is complete (finished = true)
 	if (finished) { 
 		// Check if player successfully killed target 
