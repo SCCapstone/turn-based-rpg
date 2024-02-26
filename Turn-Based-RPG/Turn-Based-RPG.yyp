@@ -181,7 +181,6 @@
     {"id":{"name":"Weapons","path":"scripts/Weapons/Weapons.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"spr_obj_tree","path":"sprites/spr_obj_tree/spr_obj_tree.yy",},},
-    {"id":{"name":"spr_sorcerer","path":"sprites/spr_sorcerer/spr_sorcerer.yy",},},
     {"id":{"name":"obj_unit_test","path":"objects/obj_unit_test/obj_unit_test.yy",},},
     {"id":{"name":"spr_castle","path":"sprites/spr_castle/spr_castle.yy",},},
     {"id":{"name":"obj_party_unit","path":"objects/obj_party_unit/obj_party_unit.yy",},},
