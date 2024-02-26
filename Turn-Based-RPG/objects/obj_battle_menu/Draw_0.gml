@@ -12,7 +12,7 @@ if (_selected_type == noone) { // Draws available move types
 		if (_pos == i) {
 			_c = c_yellow;
 		}
-		draw_text_ext_transformed_color(244, y+123+(i*12), _move_types[i], global.op_space, 3000, .1, .1, 0, _c, _c, _c, _c, 1)
+		draw_text_ext_transformed_color(x+244, y+123+(i*12), _move_types[i], global.op_space, 3000, .1, .1, 0, _c, _c, _c, _c, 1)
 	}
 } else if (_selected_move == noone && _exists == noone) { // Draws available moves of a specific type
 	for (var i = 0; i < array_length(_move_choices); i++) {
