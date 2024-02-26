@@ -5,6 +5,7 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -13,8 +14,8 @@
     "path": "folders/Objects/Game World.yy",
   },
   "parentObjectId": {
-    "name": "obj_villager",
-    "path": "objects/obj_villager/obj_villager.yy",
+    "name": "obj_NPC",
+    "path": "objects/obj_NPC/obj_NPC.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -30,11 +31,11 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [],
-  "solid": false,
+  "solid": true,
   "spriteId": {
     "name": "spr_cool_wizard",
     "path": "sprites/spr_cool_wizard/spr_cool_wizard.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

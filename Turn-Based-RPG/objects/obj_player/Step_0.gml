@@ -87,22 +87,25 @@ if (_disabled == false) {
 	if (keyboard_check(ord("E"))) {
 		if (facing == 1) {
 			_speaker = collision_line(x + 8, y, x, y + 44, obj_NPC, false, true);
-		show_debug_message(_speaker);
 		} 
 		if (facing == 2) {
 			_speaker =  collision_line(x + 8, y + 28, x, y, obj_NPC, false, true);
-			show_debug_message(_speaker);
 		}
 		if (facing == 3) {
 			_speaker =  collision_line(x, y + 26, x - 16, y + 26, obj_NPC, false, true);
-			show_debug_message(_speaker);
 		}
 		if (facing == 4) {
 			_speaker =  collision_line(x + 16, y + 26, x + 16, y + 26, obj_NPC, false, true);
-			show_debug_message(_speaker);
 		}
-		
+		if (global.location == 0 && _speaker == obj_cool_wizard.id
+		&& !obj_cool_wizard.id.joined) {
+			show_debug_message("Added");
+			addPlayer();
+			obj_cool_wizard.id.joined = true;
+		}
 		if (_speaker != noone && _speaker != _prev_speaker) {
+			show_debug_message(obj_cool_wizard.id);
+			show_debug_message(_speaker);
 			CreateTextbox(self, _speaker);
 			_prev_speaker = _speaker;
 		}
