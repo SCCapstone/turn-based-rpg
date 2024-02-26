@@ -21,13 +21,13 @@ if (_selected_type == noone) { // Draws available move types
 			_c = c_yellow;
 		}
 		if (_selected_type == 3) {
-			draw_text_ext_transformed_color(244, y+123+(i*12), _move_choices[i].item._name, 3000, 3000, .1, .1, 0, _c, _c, _c, _c, 1)
+			draw_text_ext_transformed_color(x+244, y+123+(i*12), _move_choices[i].item._name, 3000, 3000, .1, .1, 0, _c, _c, _c, _c, 1)
 		} else {
-			draw_text_ext_transformed_color(244, y+123+(i*12), _move_choices[i]._name, 3000, 3000, .1, .1, 0, _c, _c, _c, _c, 1);
+			draw_text_ext_transformed_color(x+244, y+123+(i*12), _move_choices[i]._name, 3000, 3000, .1, .1, 0, _c, _c, _c, _c, 1);
 		}
 	}
 } else if (_selected_move == noone && _exists != noone) { // Draws what moveset is empty
-	draw_text_ext_transformed(244, y+123, _exists, 3000, 3000, .1, .1, 0)
+	draw_text_ext_transformed(x+244, y+123, _exists, 3000, 3000, .1, .1, 0)
 }
 
 if (_selected_type != noone && _selected_move != noone && _pos != noone) { // Draws player's targeting arrow
