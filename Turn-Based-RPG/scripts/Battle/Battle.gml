@@ -73,6 +73,7 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 			if(p_select == p_turn) {
 				state = turn.gameover;
 				show_debug_message("Enemy team is victorious. [BATTLE OVER]");
+				game_end();
 				break;
 			} 
 		}
