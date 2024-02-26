@@ -12,9 +12,23 @@ function enemy_roaming(){
 		if (++wait >= wait_duration) { // sets a new destination for the enemy
 			wait = 0;
 			time_passed = 0;
-			dir = point_direction(x,y,xstart,ystart) + irandom_range(-35,50);
-			x_to = x + lengthdir_x(roam_distance, dir);
-			y_to = y + lengthdir_y(roam_distance, dir);
+			var random_direction = irandom(3);
+			if (random_direction == 0) {
+                x_to = x;
+                y_to = y - roam_distance;
+            } else if (random_direction == 1) {
+                x_to = x;
+                y_to = y + roam_distance;
+            } else if (random_direction == 2) {
+                x_to = x - roam_distance;
+                y_to = y;
+            } else {
+                x_to = x + roam_distance;
+                y_to = y;
+            }
+			/*dir = point_direction(x,y,xstart,ystart) + irandom_range(-35,50);
+			x_to =  lengthdir_x(roam_distance, dir);
+			y_to =  lengthdir_y(roam_distance, dir);*/
 		}
 	} else {  // moves to a new destination
 		time_passed++;
