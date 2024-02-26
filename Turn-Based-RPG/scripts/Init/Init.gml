@@ -20,6 +20,11 @@ function init(){
 	inv_test();
 }
 
+init();
+
+// Randomize seed
+randomize();
+
 // Sets default text properties
 global.op_border = 8;
 global.op_space = 16;
@@ -57,4 +62,48 @@ function get_move_num() {
 	} else { 
 		return -1
 	}
+}
+
+function addPlayer() {
+coolStruct = 
+		{
+			_name : "Cool Wizard",
+		
+			// Stats
+			_hp: 150,		// Current HP
+			_mp: 50,		// Current MP
+		
+			_lvl: 1,		// Level
+			_xp: 0,			// Experience/XP
+			_max_xp: 100,	// Max XP
+
+			_max_hp: 150,    // Health
+			_max_mp: 100,    // Mana
+			_spd: 10,		// Speed
+			_str: 0,		// Strength
+			_dex: 0,		// Dexterity
+			_int: 15,        // Intelligence
+			_agi: 10,		// Agility
+
+			// Movesets
+			_spells: [global.spells.fireball],
+			_prayers: [global.prayers.chill, global.prayers.scorch,
+			global.prayers.zap, global.prayers.poison],
+		
+			// Equipment
+			_weapon: noone,
+			_magic_weapon: global.magic_weapons.staff,
+			_prayer_book: global.prayer_books.scroll,
+		
+			_armor_head: global.armor.mage_hood,
+			_armor_chest: global.armor.mage_robes,
+			_armor_legs: global.armor.leather_boots,
+			
+			// Misc
+			_sprites: {idle: spr_cool_wizard},
+			_effects: [],
+			_effects_remaining_turns: [],
+			_is_dead: false,
+		}
+ds_list_add(global.party, coolStruct)
 }

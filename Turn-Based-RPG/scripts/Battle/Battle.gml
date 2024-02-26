@@ -37,6 +37,9 @@ function battle_start(enemies, background) {
 }
 
 function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_units) {
+	// Randomize seed regardless of which party moves
+	randomize();
+		
 	// Switch to player turn
 	if (state == turn.enemy) {
 		// Update status effects before turn begins
@@ -129,12 +132,17 @@ function change_hp(attacker, defender, _dmg, dmg_type, dmg_source) {
 	if(_dmg > 0) {
 		// Roll dodge chance
 		if (roll_dodge(attacker, defender, dmg_source)) {
+			instance_create_depth(defender.x, defender.y, defender.depth-1,
+			obj_battle_text, {color: c_white, text: "Dodge"});
 			return 0;	
 		}
 		// Factor in the attacker's stats to increase damage
 		_dmg = calculate_damage_scaling(attacker, _dmg, dmg_source);
 		// Factor in the defender's resistances to reduce damage
 		_dmg = calculate_resistance(defender, _dmg, dmg_type);
+		// Show damage text
+		instance_create_depth(defender.x, defender.y, defender.depth-1,
+		obj_battle_text, {color: c_white, text: "-" + string(_dmg)})
 		// Change defender HP
 		defender._hp -= _dmg;
 		// Check to see if this killed the selected character
@@ -143,6 +151,9 @@ function change_hp(attacker, defender, _dmg, dmg_type, dmg_source) {
 		}
 		// Check if character was killed
 	} else {
+		// Show HP change
+		instance_create_depth(defender.x, defender.y, defender.depth-1,
+		obj_battle_text, {color: c_green, text: "+" + string(_dmg)})
 		// If _dmg <= 0, simply add HP
 		defender._hp -= _dmg;
 	}
@@ -282,8 +293,10 @@ function update_status_effects(party) {
 				if(party[e]._is_dead == false) {
 					// Inflict random damage
 					var temp = irandom_range(party[e]._effects[i]._dmg_min,
-					party[e]._effects[i]._dmg_max)
+					party[e]._effects[i]._dmg_max);
 					// Prayers ignore armor, so no need to call change_hp()
+					instance_create_depth(party[e].x, party[e].y-(i*10), party[e].depth-1,
+					obj_battle_text, {color: party[e]._effects[i]._txt_color, text: "-" + string(temp)})
 					party[e]._hp -= temp;
 					// Check to see if status effect killed character
 					if(party[e]._hp <= 0) { 
@@ -336,22 +349,22 @@ function flash_item(type) {
 	if (state == turn.player) {
 		if (type = display.weapon) { // Flash player weapon
 			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
-			obj_sprite, global.party[p_num])
+			obj_sprite, ds_list_find_value(global.party,p_num))
 			temp._sprite = party_units[p_num]._weapon._sprite;
 			temp._scale = 1;
 			temp._time = 1000;
 		}
 
-		if (type = display.spell) { // Flash player magic weapon
+		if (type = display.magic_weapon) { // Flash player magic weapon
 			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
-			obj_sprite, global.party[p_num]);
+			obj_sprite, ds_list_find_value(global.party,p_num));
 			temp._sprite = party_units[p_num]._magic_weapon._sprite;
 			temp._scale = 1;
 		}
 
-		if (type = display.magic_weapon) { // Flash player spell
+		if (type = display.spell) { // Flash player spell
 			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, party_units[p_num].depth-1,
-			obj_sprite, global.party[p_num]);
+			obj_projectile, ds_list_find_value(global.party,p_num));
 			temp._sprite = party_units[p_num]._spells[move_num]._sprite;
 			temp._scale = 1;
 			_show_spell = false;
@@ -359,7 +372,7 @@ function flash_item(type) {
 
 		if (type = display.prayer_book) { // Flash player prayer book
 			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
-			obj_sprite, global.party[p_num]);
+			obj_sprite, ds_list_find_value(global.party,p_num));
 			temp._sprite = party_units[p_num]._prayer_book._sprite;
 			temp._scale = 1;
 			_show_prayer_book = false;
@@ -367,7 +380,7 @@ function flash_item(type) {
 
 		if (type = display.prayer) { // Flash player prayer
 			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, party_units[p_num].depth-1,
-			obj_sprite, global.party[p_num]);
+			obj_projectile, ds_list_find_value(global.party,p_num));
 			temp._sprite = party_units[p_num]._prayers[move_num]._sprite;
 			temp._scale = 1;
 			_show_prayer = false;
@@ -384,7 +397,7 @@ function flash_item(type) {
 
 		if (type = display.spell) { // Flash enemy spell
 			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
-			obj_sprite, enemies[e_num])
+			obj_enemy_projectile, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._spells[move_num]._sprite;
 			temp._scale = -1;
 		}
@@ -405,7 +418,7 @@ function flash_item(type) {
 
 		if (type = display.prayer) { // Flash enemy prayer
 			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
-			obj_sprite, enemies[e_num])
+			obj_enemy_projectile, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._prayers[move_num]._sprite;
 			temp._scale = -1;
 		}
@@ -418,9 +431,27 @@ function battle_end(party_units, xp_gained) {
 	// Increase XP for each party member
 	for (var i = 0; i < array_length(party_units); i++) {
 		if (xp_gained[i] > 0) {
-			global.party[i]._xp += xp_gained[i];
-			show_debug_message(string(global.party[i]._name) + " gained "
+			ds_list_find_value(global.party,i)._xp += xp_gained[i];
+			show_debug_message(string(ds_list_find_value(global.party,i)._name) + " gained "
 			+ string(xp_gained[i]) + " XP!");
 		}
+	}
+}
+
+// TODO fix this buggy mess
+function show_status_effect(_character, _status) {
+	var offset = 0;
+	var find = function(_element, _index)
+	{
+		return (_element == party_units[p_num]._prayers[move_num]._effects[0]);
+	}
+	if (array_length(_character._effects) != 0) {
+		offset = 10 * (array_length(_character._effects)-1);
+	} 
+	if (state == turn.player) {
+		instance_create_depth(_character.x-6+offset, _character.y+7, _character.depth-1,
+		obj_status_effect, {_sprite: _status._sprite, _xscale: .5,
+		_yscale: .5, _caller: _character, _effect: _status,
+		_effect_index: array_find_index(_character._effects, find)});
 	}
 }

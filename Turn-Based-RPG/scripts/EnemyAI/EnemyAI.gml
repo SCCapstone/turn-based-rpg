@@ -16,6 +16,7 @@ function determine_move_type(_enemy) {
 			return 2;
 		} else if (_count >= 10) { // Prevents infinite loop if no valid moves are found
 		show_debug_message("No valid move!");
+		resolve_state_transition(state, p_num, e_num, party_units, enemy_units);
 		return -1;
 		}
 		_count++; 

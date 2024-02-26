@@ -92,6 +92,7 @@ if (state == turn.player && moved == false) {
 	
 	// Magic ('K')
 	if (move_type == 1) {
+		
 		// Determine random damage from the selected spells's damage range
 		dmg = irandom_range(party_units[p_num]._spells[move_num]._dmg_min, 
 		party_units[p_num]._spells[move_num]._dmg_max);
@@ -120,6 +121,7 @@ if (state == turn.player && moved == false) {
 	
 	// Prayers ('L')
 	if (move_type == 2) {
+		
 		// Determine length of prayer effect
 		
 		dmg = 0; // placeholder
@@ -133,32 +135,43 @@ if (state == turn.player && moved == false) {
 		
 		// Inflict status effect if prayer has one
 		
-		if(!is_undefined(party_units[p_num]._prayers[move_num]._effects)) {
-			if(!is_undefined(enemy_units[e_num]._effects) 
-			&& array_length(enemy_units[target]._effects) > 0 // Make sure enemy has an effect
-			&& party_units[p_num]._prayers[move_num]._effects[0] != enemy_units[target]._effects[0]) {
+		var find = function(_element, _index)
+		{
+			return (_element == party_units[p_num]._prayers[move_num]._effects[0]);
+		}
+		
+		// Check to see if player has any status effects
+		// If they do, make sure they aren't getting the same status effect twice
+		if (!is_undefined(party_units[p_num]._prayers[move_num]._effects) 
+		&& !is_undefined(enemy_units[target]._effects)
+		&& array_length(enemy_units[target]._effects) != 0) 
+		&& (array_find_index(enemy_units[target]._effects, find) != -1) {
 			// If player already has this status effect, do this
+			show_debug_message(enemy_units[target]._name + " already has "
+			+ party_units[p_num]._prayers[move_num]._effects[0]._name);
+		} else { 
+			// If player doesn't already have this effect, inflict it
+			// Currently hardcoded to 1 effect per prayer [0]
+			array_push(enemy_units[target]._effects, 
+			party_units[p_num]._prayers[move_num]._effects[0]);
 			
-			// TODO
-			} else { // If player doesn't already have this effect, inflict it
-				// Currently hardcoded to 1 effect per prayer [0]
-				array_push(enemy_units[target]._effects, 
-				party_units[p_num]._prayers[move_num]._effects[0]);
+			show_debug_message("Gave " + enemy_units[target]._name + " the " +
+			string(party_units[p_num]._prayers[move_num]._effects[0]._name) + " effect");
 			
-				show_debug_message("Gave " + string(enemy_units[target]._name) + " the " +
-				string(enemy_units[target]._effects[0]._name) + " effect");
-			
-				// Determine random status effect length
-				var temp = irandom_range(party_units[p_num]._prayers[move_num]._effects[0]._duration_min,
-				party_units[p_num]._prayers[move_num]._effects[0]._duration_max);
-				array_push(enemy_units[target]._effects_remaining_turns, temp);
+			// Determine random status effect length
+			var temp = irandom_range(party_units[p_num]._prayers[move_num]._effects[0]._duration_min,
+			party_units[p_num]._prayers[move_num]._effects[0]._duration_max);
+			array_push(enemy_units[target]._effects_remaining_turns, temp);
 				
-				show_debug_message("Effect duration: " + string(temp));
-			}
+			show_debug_message("Effect duration: " + string(temp));
+				
+			// Show status effect
+			// TODO this is really buggy
+			// show_status_effect(enemy_units[target], party_units[p_num]._prayers[move_num]._effects[0]);
 		}
 		
 		finished = true; // Jump to end
-	}
+		}
 	}
 	
 	// This executes after a move is complete (finished = true)
@@ -172,9 +185,9 @@ if (state == turn.player && moved == false) {
 			string(enemy_units[target]._xp_val) + " XP.");
 		}
 		
-		// Wait 120 frames and transition to next battle state
+		// Wait 150 frames and transition to next battle state
 		if (alarm[0] < 0) {
-			alarm[0] = 120; 
+			alarm[0] = 150; 
 		}
 		
 		// Reset move variables
@@ -298,13 +311,16 @@ if (state == turn.enemy && moved == false) {
 				show_debug_message("Effect duration: " + string(temp));
 			}
 		}
+		
+		// Show status effect
+		
 		finished = true; // Jump to end
 	}
 		
 	// This executes after a turn is complete (finished = true)
 	if (finished) {
-		// Wait 120 frames and transition to next battle state
-		alarm[0] = 120; 
+		// Wait 150 frames and transition to next battle state
+		alarm[0] = 150; 
 	}
 	
 	// Reset move variables

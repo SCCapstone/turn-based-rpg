@@ -11,8 +11,8 @@ skill_points[2] = 0;
 skill_points[3] = 0;
 //stat_party[0] = "party1";
 //stat_party[1] = "party2";
-for (var i = 0; i < array_length(global.party); i++) {
-	stat_party[i] = global.party[i];
+for (var i = 0; i < ds_list_size(global.party); i++) {
+	stat_party[i] = ds_list_find_value(global.party, i);
 }
 /*stat_party[2] = "party3";
 stat_party[3] = "party4";*/

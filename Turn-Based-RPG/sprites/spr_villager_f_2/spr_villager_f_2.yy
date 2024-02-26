@@ -29,7 +29,7 @@
   "origin": 0,
   "parent": {
     "name": "Non-Hostile NPCs",
-    "path": "folders/Sprites/Characters/Non-Hostile NPCs.yy",
+    "path": "folders/Sprites/Characters/Misc/Non-Hostile NPCs.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
