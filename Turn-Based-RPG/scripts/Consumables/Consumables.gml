@@ -25,7 +25,7 @@ global.consumables =
 		_name: "Antidote",
 		_sprite: spr_antidote,
 		_func: function(character) {
-			remove_status_effect(character, global.status_effects.frosty)
+			remove_status_effect(character, global.status_effects.poison)
 		}
 	},
 	// Removes burn effect
@@ -34,7 +34,7 @@ global.consumables =
 		_name: "Ointment",
 		_sprite: spr_ointment,
 		_func: function(character) {
-			remove_status_effect(character, global.status_effects.frosty)
+			remove_status_effect(character, global.status_effects.burn)
 		}
 	},
 	// Removes frosty effect

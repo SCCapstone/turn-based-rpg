@@ -346,79 +346,80 @@ function kill_target(_target) {
 
 // Code for showing move-related sprites
 function flash_item(type) {
+	show_debug_message("Move number " + string(move_num));
 	if (state == turn.player) {
-		if (type = display.weapon) { // Flash player weapon
+		if (type == display.weapon) { // Flash player weapon
 			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
-			obj_sprite, ds_list_find_value(global.party,p_num))
+			obj_sprite)
 			temp._sprite = party_units[p_num]._weapon._sprite;
 			temp._scale = 1;
 			temp._time = 1000;
 		}
 
-		if (type = display.magic_weapon) { // Flash player magic weapon
+		if (type == display.magic_weapon) { // Flash player magic weapon
 			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
-			obj_sprite, ds_list_find_value(global.party,p_num));
+			obj_sprite);
 			temp._sprite = party_units[p_num]._magic_weapon._sprite;
 			temp._scale = 1;
 		}
 
-		if (type = display.spell) { // Flash player spell
+		if (type == display.spell) { // Flash player spell
 			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, party_units[p_num].depth-1,
-			obj_projectile, ds_list_find_value(global.party,p_num));
+			obj_projectile2);
 			temp._sprite = party_units[p_num]._spells[move_num]._sprite;
 			temp._scale = 1;
 			_show_spell = false;
 		}
 
-		if (type = display.prayer_book) { // Flash player prayer book
+		if (type == display.prayer_book) { // Flash player prayer book
 			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
-			obj_sprite, ds_list_find_value(global.party,p_num));
+			obj_sprite);
 			temp._sprite = party_units[p_num]._prayer_book._sprite;
 			temp._scale = 1;
 			_show_prayer_book = false;
 		}
 
-		if (type = display.prayer) { // Flash player prayer
+		if (type == display.prayer) { // Flash player prayer
 			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, party_units[p_num].depth-1,
-			obj_projectile, ds_list_find_value(global.party,p_num));
+			obj_projectile2);
 			temp._sprite = party_units[p_num]._prayers[move_num]._sprite;
 			temp._scale = 1;
-			_show_prayer = false;
+			_show_prayer_book = false
 		}
 	}
 	
 	if (state == turn.enemy) {
-		if (type = display.weapon) { // Flash enemy weapon
+		if (type == display.weapon) { // Flash enemy weapon
 			var temp = instance_create_depth(enemy_units[e_num].x-13, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
 			obj_sprite, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._weapon._sprite;
 			temp._scale = -1;
 		}
 
-		if (type = display.spell) { // Flash enemy spell
+		if (type == display.spell) { // Flash enemy spell
 			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
-			obj_enemy_projectile, enemies[e_num])
+			obj_enemy_projectile2, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._spells[move_num]._sprite;
 			temp._scale = -1;
 		}
 
-		if (type = display.magic_weapon) { // Flash enemy magic weapon
+		if (type == display.magic_weapon) { // Flash enemy magic weapon
 			var temp = instance_create_depth(enemy_units[e_num].x-13, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
 			obj_sprite, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._magic_weapon._sprite;
 			temp._scale = -1;
 		}
 
-		if (type = display.prayer_book) { // Flash enemy prayer book
+		if (type == display.prayer_book) { // Flash enemy prayer book
 			var temp = instance_create_depth(enemy_units[e_num].x-13, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
 			obj_sprite, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._prayer_book._sprite;
 			temp._scale = -1;
 		}
 
-		if (type = display.prayer) { // Flash enemy prayer
+		if (type == display.prayer) { // Flash enemy prayer
 			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
-			obj_enemy_projectile, enemies[e_num])
+			obj_enemy_projectile2, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._prayers[move_num]._sprite;
 			temp._scale = -1;
 		}

@@ -44,7 +44,6 @@ function inv_test() {
 	inventory.add_item(global.consumables.health_potion, item_type.consumable);
 	inventory.add_item(global.consumables.mana_potion, item_type.consumable);
 	inventory.add_item(global.consumables.hot_tea, item_type.consumable);
-	inventory.add_item(global.consumables.ointment, item_type.consumable);
 	inventory.add_item(global.consumables.antidote, item_type.consumable);
 	//consume_item(global.party[0], 0);
 	//consume_item(global.party[0], 0);
