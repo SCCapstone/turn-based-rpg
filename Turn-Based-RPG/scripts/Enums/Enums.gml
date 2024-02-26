@@ -9,5 +9,7 @@ enum STAT {
 	AGIL,
 	ENDU,
 	CC,
-	SPD
+	SPD,
+	INT,
+	DEX
 }

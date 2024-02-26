@@ -19,47 +19,55 @@ if (target < 0) {
 
 // Player turn
 if (state == turn.player && moved == false) {
-	// Determine move type (mutually exclusive)
-	if (attack_key && 
-		party_units[p_num]._weapon != noone) { // 'J' keypress
-		move_type = 0;
-		move_num = -1;
-	} else if (magic_key &&
-		!is_undefined(party_units[p_num]._spells)
-		&& array_length(party_units[p_num]._spells) > 0) { // 'K keypress
-		move_type = 1;
-		move_num = -1;
-	} else if (prayer_key &&
-		!is_undefined(party_units[p_num]._prayers)
-		&& array_length(party_units[p_num]._prayers) > 0) { // 'L' keypress
-		move_type = 2;
-		move_num = -1;
+	if (_menu == noone) {
+		CreateBattleMenu(party_units, enemy_units, p_num);
 	}
+	//// Determine move type (mutually exclusive)
+	//if (attack_key && 
+	//	party_units[p_num]._weapon != noone) { // 'J' keypress
+	//	move_type = 0;
+	//	move_num = -1;
+	//} else if (magic_key &&
+	//	!is_undefined(party_units[p_num]._spells)
+	//	&& array_length(party_units[p_num]._spells) > 0) { // 'K keypress
+	//	move_type = 1;
+	//	move_num = -1;
+	//} else if (prayer_key &&
+	//	!is_undefined(party_units[p_num]._prayers)
+	//	&& array_length(party_units[p_num]._prayers) > 0) { // 'L' keypress
+	//	move_type = 2;
+	//	move_num = -1;
+	//}
 	
-	// Determine move choice from number keypress (1-9)
-	if (get_move_num() != -1) {
-		move_num = get_move_num();
-		if (move_type == 0 && array_length(party_units[p_num]._weapon._attacks) < move_num) {
-			move_num = 0; // Default to first attack
-		} else if (move_type == 1 && array_length(party_units[p_num]._spells) < move_num) {
-			move_num = 0;
-		} else if (move_type == 2 && array_length(party_units[p_num]._prayers) < move_num) {
-			move_num = 0;
-		} else {
-		move_num-- // Decrement by 1 (i.e., pressing '1' = move 0)
-		}
+	//// Determine move choice from number keypress (1-9)
+	//if (get_move_num() != -1) {
+	//	move_num = get_move_num();
+	//	if (move_type == 0 && array_length(party_units[p_num]._weapon._attacks) < move_num) {
+	//		move_num = 0; // Default to first attack
+	//	} else if (move_type == 1 && array_length(party_units[p_num]._spells) < move_num) {
+	//		move_num = 0;
+	//	} else if (move_type == 2 && array_length(party_units[p_num]._prayers) < move_num) {
+	//		move_num = 0;
+	//	} else {
+	//	move_num-- // Decrement by 1 (i.e., pressing '1' = move 0)
+	//	}
 		
-		// Ensure player has enough MP to cast spell
-		if (move_type == 1 && array_length(party_units[p_num]._spells) > 0
-		&& party_units[p_num]._mp < party_units[p_num]._spells[move_num]._mp_cost) {
-			move_type = -1; // Reset move type
-			move_num = -1; // Reset move num
-			show_debug_message("Not enough MP to cast!");
-		}
-	}
+	//	// Ensure player has enough MP to cast spell
+	//	if (move_type == 1 && array_length(party_units[p_num]._spells) > 0
+	//	&& party_units[p_num]._mp < party_units[p_num]._spells[move_num]._mp_cost) {
+	//		move_type = -1; // Reset move type
+	//		move_num = -1; // Reset move num
+	//		show_debug_message("Not enough MP to cast!");
+	//	}
+	//}
 	
+	if (_menu._delay == false) {
+		move_type = _menu._selected_type;
+		move_num = _menu._selected_move;
+		target = _menu._selected_target;
+		
 	// Attack ('J')
-	if (move_type == 0 && move_num != -1) {
+	if (move_type == 0) {
 
 		// Determine random damage from the selected attack's damage range
 		dmg = irandom_range(party_units[p_num]._weapon._attacks[move_num]._dmg_min, 
@@ -75,14 +83,15 @@ if (state == turn.player && moved == false) {
 		flash_item(display.weapon);
 		
 		// Change targeted enemy health
-		change_hp(enemy_units[target], 
-		party_units[p_num]._weapon._attacks[move_num]._dmgtype, dmg)
+		change_hp(party_units[p_num], enemy_units[target], dmg,
+		party_units[p_num]._weapon._attacks[move_num]._dmgtype,
+		party_units[p_num]._weapon._type)
 			
 		finished = true; // Jump to end
 	}
 	
 	// Magic ('K')
-	if (move_type == 1 && move_num != -1) {
+	if (move_type == 1) {
 		// Determine random damage from the selected spells's damage range
 		dmg = irandom_range(party_units[p_num]._spells[move_num]._dmg_min, 
 		party_units[p_num]._spells[move_num]._dmg_max);
@@ -100,8 +109,8 @@ if (state == turn.player && moved == false) {
 		}
 		
 		// Decrease targeted enemy health
-		change_hp(enemy_units[target], 
-		party_units[p_num]._spells[move_num]._dmgtype, dmg)
+		change_hp(party_units[p_num], enemy_units[target], dmg,
+		party_units[p_num]._spells[move_num]._dmgtype, damage_source.spell);
 		
 		// Decrease player MP
 		party_units[p_num]._mp -= party_units[p_num]._spells[move_num]._mp_cost
@@ -110,7 +119,7 @@ if (state == turn.player && moved == false) {
 	}
 	
 	// Prayers ('L')
-	if (move_type == 2 && move_num != -1) {
+	if (move_type == 2) {
 		// Determine length of prayer effect
 		
 		dmg = 0; // placeholder
@@ -150,6 +159,7 @@ if (state == turn.player && moved == false) {
 		
 		finished = true; // Jump to end
 	}
+	}
 	
 	// This executes after a move is complete (finished = true)
 	if (finished) { 
@@ -171,6 +181,8 @@ if (state == turn.player && moved == false) {
 		moved = true;
 		move_type = -1;
 		finished = false;
+		_menu._finished = true;
+		_menu = noone;
 	}
 } // End player turn
 
@@ -213,8 +225,9 @@ if (state == turn.enemy && moved == false) {
 		flash_item(display.weapon);
 		
 		// Decrease target's health
-		change_hp(party_units[target], 
-		enemy_units[e_num]._weapon._attacks[move_num]._dmgtype, dmg)
+		change_hp(enemy_units[e_num], party_units[target], dmg,
+		enemy_units[e_num]._weapon._attacks[move_num]._dmgtype, 
+		enemy_units[e_num]._weapon._type)
 		
 		finished = true; // Jump to end
 	}
@@ -238,8 +251,8 @@ if (state == turn.enemy && moved == false) {
 		}
 		
 		// Decrease targeted player health
-		change_hp(party_units[target], 
-		enemy_units[e_num]._spells[move_num]._dmgtype, dmg)
+		change_hp(enemy_units[e_num], party_units[target], dmg,
+		enemy_units[e_num]._spells[move_num]._dmgtype, damage_source.spell)
 		
 		// Decrease enemy MP
 		enemy_units[e_num]._mp -= enemy_units[e_num]._spells[move_num]._mp_cost
