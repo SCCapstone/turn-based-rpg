@@ -104,7 +104,7 @@ if (_disabled == false) {
 			obj_cool_wizard.id.joined = true;
 		}
 		if (_speaker != noone && _speaker != _prev_speaker) {
-			show_debug_message(obj_cool_wizard.id);
+			//show_debug_message(obj_cool_wizard.id);
 			show_debug_message(_speaker);
 			CreateTextbox(self, _speaker);
 			_prev_speaker = _speaker;
