@@ -1,4 +1,4 @@
-//runs when instance of object is 
+//runs when instance of object is created
 _collision_dist = 16;
 
 _disabled = false;
@@ -21,3 +21,5 @@ facing guide:
 4 = right
 */
 
+//number of times e is pressed. used to determine when to move a character during dialogue
+_e_pressed = 0;

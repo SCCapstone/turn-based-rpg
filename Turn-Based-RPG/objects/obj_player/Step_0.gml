@@ -97,11 +97,17 @@ if (_disabled == false) {
 		if (facing == 4) {
 			_speaker =  collision_line(x + 16, y + 26, x + 16, y + 26, obj_NPC, false, true);
 		}
-		if (global.location == 0 && _speaker == obj_cool_wizard.id
-		&& !obj_cool_wizard.id.joined) {
-			show_debug_message("Added");
-			addPlayer();
-			obj_cool_wizard.id.joined = true;
+		
+		
+		if (global.location == 0 && _speaker == obj_cool_wizard.id) {
+			if (keyboard_check(ord("E"))) {
+				_e_pressed += 1
+			}
+			if (_e_pressed >= 3) {
+				addPlayer();
+				show_debug_message("Added");
+				obj_cool_wizard.id.x = 4000;
+			}
 		}
 		if (_speaker != noone && _speaker != _prev_speaker) {
 			//show_debug_message(obj_cool_wizard.id);
