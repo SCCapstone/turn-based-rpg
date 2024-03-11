@@ -133,37 +133,37 @@ if (state == turn.player && moved == false) {
 			flash_item(display.prayer_book);
 		}
 		
-		// Inflict status effect if prayer has one
+		// Attempt to inflict the selected prayer's status effect
 		
-		var find = function(_element, _index)
-		{
-			return (_element == party_units[p_num]._prayers[move_num]._effects[0]);
-		}
-		
-		// Check to see if player has any status effects
-		// If they do, make sure they aren't getting the same status effect twice
-		if (!is_undefined(party_units[p_num]._prayers[move_num]._effects) 
-		&& !is_undefined(enemy_units[target]._effects)
-		&& array_length(enemy_units[target]._effects) != 0) 
-		&& (array_find_index(enemy_units[target]._effects, find) != -1) {
-			// If player already has this status effect, do this
+		// Check to see if enemy already has this status effect
+		// so it isn't given twice
+		var already_has_effect = false;
+		for (var i = 0; i < ds_list_size(enemy_units[target]._effects); i++) {
+			// See if intended effect already exists in the ds_list
+			var temp = ds_list_find_value(enemy_units[target]._effects, i)
+			// If effect exists, don't give it again
+			if (temp[0] == party_units[p_num]._prayers[move_num]._effects) {
+			already_has_effect = true;
 			show_debug_message(enemy_units[target]._name + " already has "
 			+ party_units[p_num]._prayers[move_num]._effects[0]._name);
-		} else { 
-			// If player doesn't already have this effect, inflict it
-			// Currently hardcoded to 1 effect per prayer [0]
-			array_push(enemy_units[target]._effects, 
-			party_units[p_num]._prayers[move_num]._effects[0]);
-			
-			show_debug_message("Gave " + enemy_units[target]._name + " the " +
-			string(party_units[p_num]._prayers[move_num]._effects[0]._name) + " effect");
-			
+			break;	
+			}
+		}
+		
+		// If player doesn't already have this effect, inflict it
+		if (!already_has_effect) { 
 			// Determine random status effect length
 			var temp = irandom_range(party_units[p_num]._prayers[move_num]._effects[0]._duration_min,
 			party_units[p_num]._prayers[move_num]._effects[0]._duration_max);
-			array_push(enemy_units[target]._effects_remaining_turns, temp);
-				
-			show_debug_message("Effect duration: " + string(temp));
+	
+			// Inflict the prayer's status effect and duration
+			// Currently hardcoded to 1 effect per prayer [0]
+			ds_list_add(enemy_units[target]._effects, 
+			[party_units[p_num]._prayers[move_num]._effects[0], temp]); // [effect, duration]
+			
+			// Debug message
+			show_debug_message("Gave " + enemy_units[target]._name + " the " +
+			string(party_units[p_num]._prayers[move_num]._effects[0]._name) + " effect. Duration: " + string(temp));
 				
 			// Show status effect
 			// TODO this is really buggy
@@ -291,30 +291,41 @@ if (state == turn.enemy && moved == false) {
 			flash_item(display.prayer_book);
 		}
 		
-		// Inflict status effect if prayer has one
+		// Attempt to inflict the selected prayer's status effect
 		
-		if(!is_undefined(enemy_units[e_num]._prayers[move_num]._effects)) {
-			if(!is_undefined(enemy_units[e_num]._effects) 
-			&& array_length(enemy_units[target]._effects) > 0 // Make sure enemy has an effect
-			&& enemy_units[e_num]._prayers[move_num]._effects[0] != enemy_units[target]._effects[0]) {
-			// If player already has this status effect, do this
-			
-			// TODO
-			} else { // If player doesn't already have this effect, inflict it
-				// Currently hardcoded to 1 effect per prayer [0]
-				array_push(party_units[target]._effects, 
-				enemy_units[e_num]._prayers[move_num]._effects[0]);
-			
-				show_debug_message("Gave " + string(party_units[target]._name) + " the " +
-				string(party_units[target]._effects[0]._name) + " effect");
-			
-				// Determine random status effect length
-				var temp = irandom_range(enemy_units[e_num]._prayers[move_num]._effects[0]._duration_min,
-				enemy_units[e_num]._prayers[move_num]._effects[0]._duration_max);
-				array_push(party_units[target]._effects_remaining_turns, temp);
-				
-				show_debug_message("Effect duration: " + string(temp));
+		// Check to see if player already has this status effect
+		// so it isn't given twice
+		var already_has_effect = false;
+		for (var i = 0; i < ds_list_size(party_units[target]._effects); i++) {
+			// See if intended effect already exists in the ds_list
+			var temp = ds_list_find_value(party_units[target]._effects, i)
+			// If effect exists, don't give it again
+			if (temp[0] == enemy_units[e_num]._prayers[move_num]._effects) {
+			already_has_effect = true;
+			show_debug_message(party_units[target]._name + " already has "
+			+ enemy_units[e_num]._prayers[move_num]._effects[0]._name);
+			break;	
 			}
+		}
+		
+		// If player doesn't already have this effect, inflict it
+		if (!already_has_effect) { 
+			// Determine random status effect length
+			var temp = irandom_range(enemy_units[e_num]._prayers[move_num]._effects[0]._duration_min,
+			enemy_units[e_num]._prayers[move_num]._effects[0]._duration_max);
+	
+			// Inflict the prayer's status effect and duration
+			// Currently hardcoded to 1 effect per prayer [0]
+			ds_list_add(party_units[target]._effects, 
+			[enemy_units[e_num]._prayers[move_num]._effects[0], temp]); // [effect, duration]
+			
+			// Debug message
+			show_debug_message("Gave " + party_units[target]._name + " the " +
+			string(enemy_units[e_num]._prayers[move_num]._effects[0]._name) + " effect. Duration: " + string(temp));
+				
+			// Show status effect
+			// TODO this is really buggy
+			// show_status_effect(enemy_units[target], party_units[p_num]._prayers[move_num]._effects[0]);
 		}
 		
 		// Show status effect

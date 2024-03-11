@@ -9,6 +9,7 @@
     {"name":"spr_flower_sparce","order":17,"path":"sprites/spr_flower_sparce/spr_flower_sparce.yy",},
     {"name":"spr_bench","order":16,"path":"sprites/spr_bench/spr_bench.yy",},
     {"name":"obj_projectile2","order":1,"path":"objects/obj_projectile2/obj_projectile2.yy",},
+    {"name":"snd_sword_stab","order":1,"path":"sounds/snd_sword_stab/snd_sword_stab.yy",},
     {"name":"obj_castle_flower_lover","order":9,"path":"objects/obj_castle_flower_lover/obj_castle_flower_lover.yy",},
     {"name":"spr_grassy","order":15,"path":"sprites/spr_grassy/spr_grassy.yy",},
     {"name":"obj_enemy_projectile2","order":2,"path":"objects/obj_enemy_projectile2/obj_enemy_projectile2.yy",},

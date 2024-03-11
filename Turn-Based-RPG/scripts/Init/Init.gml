@@ -18,6 +18,9 @@ function init(){
 	
 	// Run inventory test
 	inv_test();
+	
+	// Testing for status effects
+	//global.party[| 0]._effects[| 0] = [global.status_effects.poison, 2];
 }
 
 init();

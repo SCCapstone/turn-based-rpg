@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_chill.mp3",
   "type": 1,
-  "volume": 0.65,
+  "volume": 0.5,
 }

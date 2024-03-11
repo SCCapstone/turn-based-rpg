@@ -202,6 +202,7 @@ function roll_dodge(attacker, defender, dmg_source) {
 		
 	// If accuracy < dodge, attack misses
 	var accuracy = irandom_range(1, 100);
+	show_debug_message("Roll: " + string(accuracy));
 	if (accuracy <= dodge) {
 		show_debug_message("MISS!"); 
 		return true;
@@ -285,44 +286,43 @@ function calculate_resistance(character, dmg, type) {
 
 // Update the targeted party's status effects
 function update_status_effects(party) {
-	// Check each character in the party
-	for (var e = 0; e < array_length(party); e++) {
-		// Check each status effect of selected character
-		if(!is_undefined(party[e]._effects)) {
-			for(var i = 0; i < array_length(party[e]._effects); i++) {
-				// If character is alive, inflict damage
-				if(party[e]._is_dead == false) {
+	// Check each living character in the party
+	for (var i = 0; i < array_length(party); i++) {
+		if (party[i]._is_dead == false) {
+			// Check if character has any status effects
+			if (ds_list_size(party[i]._effects) != 0) {
+				// If so, update each one
+				for (var j = 0; j < ds_list_size(party[i]._effects); j++) {
+					var effect = ds_list_find_value(party[i]._effects, j);
 					// Inflict random damage
-					var temp = irandom_range(party[e]._effects[i]._dmg_min,
-					party[e]._effects[i]._dmg_max);
+					var temp = irandom_range(effect[0]._dmg_min, effect[0]._dmg_max);
 					// Prayers ignore armor, so no need to call change_hp()
-					instance_create_depth(party[e].x, party[e].y-(i*10), party[e].depth-1,
-					obj_battle_text, {color: party[e]._effects[i]._txt_color, text: "-" + string(temp)})
-					party[e]._hp -= temp;
-					// Check to see if status effect killed character
-					if(party[e]._hp <= 0) { 
-						kill_target(party[e]);
+					party[i]._hp -= temp;
+					// Show damage text
+					instance_create_depth(party[i].x, party[i].y-(i*10), party[i].depth-1,
+					obj_battle_text, {color: effect[0]._txt_color, text: "-" + string(temp)})
+					// Check to see if damage tick killed character
+					if(party[i]._hp <= 0) { 
+						kill_target(party[i]);
+						// Clear status effect list
+						ds_list_clear(party[i]._effects);
 					}
-					show_debug_message(string(party[e]._effects[i]._name) + " dealt "
-					+ string(temp) + " damage to " + string(party[e]._name) + "!");
-				}
-				
-				// Check if character is alive again, in case they were just killed
-				if(party[e]._is_dead == false) {
-					// If alive, decrease their current status effect length by 1
-					party[e]._effects_remaining_turns[i]--;
-					show_debug_message("Resulting duration of " + 
-					string(party[e]._effects[i]._name) + ": "
-					+ string(party[e]._effects_remaining_turns[i]));
 					
-					// If the status effect has run its course, delete it from the character
-					if (party[e]._effects_remaining_turns[i] < 1) {
-						array_delete(party[e]._effects, i, 1);
-						array_delete(party[e]._effects_remaining_turns, i, 1);
+					// Reduce duration of effect by 1
+					if (party[i]._effects[| j][1] > 1) {
+						party[i]._effects[| j][1] -= 1;
+						show_debug_message(string(effect[0]._name) + " dealt "
+						+ string(temp) + " damage to " + string(party[i]._name) + "! "+
+						"Remaining duration: " + string(party[i]._effects[| j][1]));
+					} else {
+					// If duration has run out, remove the effect
+					ds_list_delete(party[i]._effects, j);
+					show_debug_message(string(effect[0]._name) + " dealt "
+						+ string(temp) + " damage to " + string(party[i]._name) + "! "+
+						"The effect has run its course.");
+					// Compensate for ds_list size decreasing by 1
+					j--;
 					}
-				} else {
-					// If character is dead, set remaining turns on current status effect to 0
-					party[e]._effects_remaining_turns[i] = 0;
 				}
 			}
 		}
@@ -347,7 +347,6 @@ function kill_target(_target) {
 
 // Code for showing move-related sprites
 function flash_item(type) {
-	show_debug_message("Move number " + string(move_num));
 	if (state == turn.player) {
 		if (type == display.weapon) { // Flash player weapon
 			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
@@ -442,18 +441,4 @@ function battle_end(party_units, xp_gained) {
 
 // TODO fix this buggy mess
 function show_status_effect(_character, _status) {
-	var offset = 0;
-	var find = function(_element, _index)
-	{
-		return (_element == party_units[p_num]._prayers[move_num]._effects[0]);
-	}
-	if (array_length(_character._effects) != 0) {
-		offset = 10 * (array_length(_character._effects)-1);
-	} 
-	if (state == turn.player) {
-		instance_create_depth(_character.x-6+offset, _character.y+7, _character.depth-1,
-		obj_status_effect, {_sprite: _status._sprite, _xscale: .5,
-		_yscale: .5, _caller: _character, _effect: _status,
-		_effect_index: array_find_index(_character._effects, find)});
-	}
 }

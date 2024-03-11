@@ -15,7 +15,7 @@ global.attacks =
 		_dmgtype: "pierce",
 		_dmg_min: 10,
 		_dmg_max: 30,
-		_sound: snd_bow_shoot
+		_sound: snd_sword_stab
 	},
 	scythe_slash:
 	{

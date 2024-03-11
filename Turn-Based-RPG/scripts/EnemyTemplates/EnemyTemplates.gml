@@ -1,4 +1,6 @@
 function enemy_templates() {
+effects = ds_list_create();
+effects2 = ds_list_create();
 global.enemies = 
 {
 	dark_wizard:
@@ -32,8 +34,6 @@ global.enemies =
 			
 		// Misc
 		_sprites: {idle: spr_sorcerer},
-		_effects: [],
-		_effects_remaining_turns: [],
 		_is_dead: false,
 		_xp_val: 50
 	},
@@ -68,8 +68,6 @@ global.enemies =
 			
 		// Misc
 		_sprites: {idle: spr_knight},
-		_effects: [],
-		_effects_remaining_turns: [],
 		_is_dead: false,
 		_xp_val: 65
 	},
@@ -104,8 +102,6 @@ global.enemies =
 		
 		// Misc
 		_sprites: { idle: spr_archer },
-		_effects: [],
-		_effects_remaining_turns: [],
 		_is_dead: false,
 		_xp_val: 40
 	},
@@ -137,11 +133,9 @@ global.enemies =
 		_armor_head: global.armor.mage_hood,
 		_armor_chest: global.armor.mage_robes,
 		_armor_legs: global.armor.leather_boots,
-			
+		
 		// Misc
 		_sprites: {idle: spr_bandit},
-		_effects: [],
-		_effects_remaining_turns: [],
 		_is_dead: false,
 		_xp_val: 50
 	},

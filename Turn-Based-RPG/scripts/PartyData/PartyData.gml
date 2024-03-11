@@ -2,6 +2,7 @@
 // members of the player party, including stats, health, mp, etc.
 function party_data() {
 global.party = ds_list_create();
+effects = ds_list_create();
 //sorcerer =
 //	{
 //		_name: "Sorcerer",
@@ -38,8 +39,6 @@ global.party = ds_list_create();
 			
 //		// Misc
 //		_sprites: {idle: spr_sorcerer},
-//		_effects: [],
-//		_effects_remaining_turns: [],
 //		_is_dead: false,
 //	}
 //	ds_list_add(global.party, sorcerer);
@@ -79,8 +78,6 @@ knight =
 			
 		// Misc
 		_sprites: {idle: spr_knight},
-		_effects: [],
-		_effects_remaining_turns: [],
 		_is_dead: false,
 	}
 	ds_list_add(global.party, knight);

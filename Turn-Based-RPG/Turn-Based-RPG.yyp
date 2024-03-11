@@ -96,6 +96,7 @@
     {"id":{"name":"spr_menu_border","path":"sprites/spr_menu_border/spr_menu_border.yy",},},
     {"id":{"name":"obj_projectile2","path":"objects/obj_projectile2/obj_projectile2.yy",},},
     {"id":{"name":"Attacks","path":"scripts/Attacks/Attacks.yy",},},
+    {"id":{"name":"snd_sword_stab","path":"sounds/snd_sword_stab/snd_sword_stab.yy",},},
     {"id":{"name":"obj_battle","path":"objects/obj_battle/obj_battle.yy",},},
     {"id":{"name":"spr_archer","path":"sprites/spr_archer/spr_archer.yy",},},
     {"id":{"name":"obj_enemy_test","path":"objects/obj_enemy_test/obj_enemy_test.yy",},},
