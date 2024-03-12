@@ -9,10 +9,14 @@ skill_points[0] = 0; // stat points available
 skill_points[1] = 0;
 skill_points[2] = 0;
 skill_points[3] = 0;
+//stat_party = ds_list_create()
 //stat_party[0] = "party1";
 //stat_party[1] = "party2";
+//party_size = ds_list_size(global.party);
+//ds_list_size(global.party);
 for (var i = 0; i < ds_list_size(global.party); i++) {
 	stat_party[i] = ds_list_find_value(global.party, i);
+	//= ds_list_find_value(global.party, i);
 }
 /*stat_party[2] = "party3";
 stat_party[3] = "party4";*/
@@ -43,16 +47,18 @@ height = 0;
 
 show_stats = false; // Shows true if the stats screen is the on the screen
 
-pos = 0; // Position of the selection
+statpos = 0; // Position of the selection
 op_space = global.op_space;
 op_margin = global.op_margin;
 op_border = global.op_border;
 op_length = array_length(selection);
 
 party_switch = array_length(stat_party);
-pos2 = 0;
+partypos = 0;
+party_disable = false;
 
 spr_stat_ui = spr_menu_background; // Sprite used for the menu
+spr_stat_party = spr_menu_border;
 stat_ui_width = 314;  // Stat screen width
 stat_ui_height = 174; // Stat screen height
 stat_ui_x = 3; // Stat screen x postion

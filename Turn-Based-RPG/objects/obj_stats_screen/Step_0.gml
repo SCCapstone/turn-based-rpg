@@ -21,37 +21,47 @@ if (keyboard_check_pressed(ord("P")) && room != rm_world_map && room != rm_acces
 
 if (!show_stats) exit;
 
+
 /*
  When the show stats variable switches from false to true the code below will run
 */
-if (keyboard_check_pressed(ord("O"))) {
-	pos2 += 1;
+if (!party_disable) {
+	partypos += down_key - up_key;
+      if (partypos >= party_switch) {
+         partypos = 0;
+      }
+      if (partypos < 0) {
+      partypos = party_switch - 1;
+    }
 }
-if (pos2 >= party_switch) {
-	pos2 = 0;
-}
-if (pos2 < 0) {
-	pos2 = party_switch - 1;
+   // show_debug_message(ds_list_size(stat_party));
+
+// Check if party operations should be disabled
+if (keyboard_check_pressed(ord("E"))) {
+    party_disable = !party_disable;
 }
 
-pos += down_key - up_key;
+// Execute statpos operations if party operations are disabled
+if (party_disable) {
+    statpos += down_key - up_key;
 
-if (pos >= op_length) {
-	pos = 0;
-}
+    if (statpos >= op_length) {
+        statpos = 0;
+    }
 
-if (pos < 0) {
-	pos = op_length - 1;
+    if (statpos < 0) {
+        statpos = op_length - 1;
+    }
 }
 
 
 // adds a skill point to the respective stat and reduces the skill point number by 1
-switch (pos2) {
+switch (partypos) {
 	case 0:
 		if (right_key && skill_points[0] > 0) {
 		/*character[0].allocate_add(selection);
 		character[0].stat_points -= 1;*/
-		switch (pos) {
+		switch (statpos) {
 			case 0:
 				hp += 1; // value to show the points in the hp stat
 				new_hp = hp/10; // convets the stat into a percentage
@@ -90,7 +100,7 @@ switch (pos2) {
 	// unable to grant a skill point when trying to go under 1
 	if (left_key) {
 		//character[0].allocate_minus(selection);
-		switch (pos) {
+		switch (statpos) {
 			case 0:
 				if ( hp > 0) {
 					hp -= 1;
@@ -162,7 +172,7 @@ switch (pos2) {
 		if (right_key && skill_points[1] > 0) {
 		/*character[0].allocate_add(selection);
 		character[0].stat_points -= 1;*/
-		switch (pos) {
+		switch (statpos) {
 			case 0:
 				hp2 += 1; // value to show the points in the hp stat
 				new_hp2 = hp2/10; // convets the stat into a percentage
@@ -201,7 +211,7 @@ switch (pos2) {
 	// unable to grant a skill point when trying to go under 1
 	if (left_key) {
 		//character[0].allocate_minus(selection);
-		switch (pos) {
+		switch (statpos) {
 			case 0:
 				if ( hp2 > 0) {
 					hp2 -= 1;
@@ -273,7 +283,7 @@ switch (pos2) {
 		if (right_key && skill_points[2] > 0) {
 		/*character[0].allocate_add(selection);
 		character[0].stat_points -= 1;*/
-		switch (pos) {
+		switch (statpos) {
 			case 0:
 				hp3 += 1; // value to show the points in the hp stat
 				new_hp3 = hp3/10; // convets the stat into a percentage
@@ -312,7 +322,7 @@ switch (pos2) {
 	// unable to grant a skill point when trying to go under 1
 	if (left_key) {
 		//character[0].allocate_minus(selection);
-		switch (pos) {
+		switch (statpos) {
 			case 0:
 				if ( hp3 > 0) {
 					hp3 -= 1;
@@ -384,7 +394,7 @@ switch (pos2) {
 		if (right_key && skill_points[3] > 0) {
 		/*character[0].allocate_add(selection);
 		character[0].stat_points -= 1;*/
-		switch (pos) {
+		switch (statpos) {
 			case 0:
 				hp4 += 1; // value to show the points in the hp stat
 				new_hp4 = hp4/10; // convets the stat into a percentage
@@ -423,7 +433,7 @@ switch (pos2) {
 	// unable to grant a skill point when trying to go under 1
 	if (left_key) {
 		//character[0].allocate_minus(selection);
-		switch (pos) {
+		switch (statpos) {
 			case 0:
 				if ( hp4 > 0) {
 					hp4 -= 1;
