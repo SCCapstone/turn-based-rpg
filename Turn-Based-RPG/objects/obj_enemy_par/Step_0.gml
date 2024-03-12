@@ -24,3 +24,5 @@ if (place_meeting(x, y + y_spd, obj_wall) == true) {
 
 
 
+
+
