@@ -1,4 +1,14 @@
-enum item_type {
+function Inventory() constructor {
+	_inventory = ds_map_create();
+	
+	add_item = function(_item) {
+		ds_map_app(_inventory, _item, 1);
+	}
+	
+}
+
+
+/*enum item_type {
 	consumable,
 	weapon,
 	magic_weapon,
@@ -54,3 +64,4 @@ function inv_test() {
 	item_selected  = function(_index) {
 		_inventory[_index].hover = true;
 	}
+*/
