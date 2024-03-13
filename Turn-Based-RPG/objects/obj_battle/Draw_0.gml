@@ -36,6 +36,8 @@ for(var i = 0; i < p_length; i++) {
 	draw_set_color(c_white);	// Sets font back to white
 }
 
-	for (var i = 0; i < e_length; i++) {
+for (var i = 0; i < e_length; i++) {
+	if (enemy_units[i]._hp > 0) {
 		draw_text_ext_transformed(enemy_units[i].x - 61,enemy_units[i].y + 6, "HP: " + string(enemy_units[i]._hp), op_space, 3000, .1, .1, 0)
+	}
 }
