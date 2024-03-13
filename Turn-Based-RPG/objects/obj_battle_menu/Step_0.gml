@@ -3,7 +3,7 @@
 var up_key = keyboard_check_pressed(ord("W"));
 var down_key = keyboard_check_pressed(ord("S"));
 var accept_key = keyboard_check_pressed(ord("E"));
-var back_key = keyboard_check_pressed(ord("Q"));
+var back_key = keyboard_check_pressed(vk_escape);
 
 if (_selected_type == noone && _selected_move == noone && _selected_target == noone) { // Select move type
 	_pos += down_key - up_key; // Player selection indicator
@@ -20,6 +20,7 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 		_pos = 0;
 	}
 } else if (_selected_type != noone && _selected_move == noone && _selected_target == noone) { // Select move of the chosen move type
+	show_debug_message(_pos);
 	switch (_selected_type)
 	{
 		case 0: // Move type = Attack
@@ -47,22 +48,13 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 			}
 		break;
 		case 3: // Move type = Item
-			//TODO Actual item use functionality
 			if (array_length(global.inventory._inventory) != 0) {
 				_move_choices = global.inventory._inventory;
 				_choices_length = array_length(global.inventory._inventory);
-				show_debug_message(_move_choices);
 			} else {
 				_exists = "No items!"
 			}
 		break;
-	}
-	// Checking which spells are unastable based on the current player's MP, lists them as "MP too low!" instead of their actual name
-	for (i = 0; i < _choices_length; i++) {
-		if (_selected_type == 1 && array_length(_player_party[_p_num]._spells) > 0
-		&& _player_party[_p_num]._mp < _player_party[_p_num]._spells[i]._mp_cost) {
-			_move_choices[i] = "MP too low!"
-		}	
 	}
 	_pos += down_key - up_key;
 	if (_pos >= _choices_length) {
