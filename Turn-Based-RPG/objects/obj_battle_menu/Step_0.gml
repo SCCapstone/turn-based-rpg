@@ -20,7 +20,6 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 		_pos = 0;
 	}
 } else if (_selected_type != noone && _selected_move == noone && _selected_target == noone) { // Select move of the chosen move type
-	show_debug_message(_pos);
 	switch (_selected_type)
 	{
 		case 0: // Move type = Attack
@@ -32,7 +31,7 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 			}
 		break;
 		case 1: // Move type = Magic
-			if (_player_party[_p_num]._spells != noone) {
+			if (array_length(_player_party[_p_num]._spells) != 0) {
 				_move_choices = _player_party[_p_num]._spells;
 				_choices_length = array_length(_move_choices);
 			} else {
@@ -40,7 +39,7 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 			}
 		break;
 		case 2: // Move type = Prayer
-			if (_player_party[_p_num]._prayers != noone) {
+			if (array_length(_player_party[_p_num]._prayers) != 0) {
 				_move_choices = _player_party[_p_num]._prayers;
 				_choices_length = array_length(_move_choices);
 			} else {
