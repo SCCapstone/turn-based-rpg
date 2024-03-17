@@ -17,4 +17,4 @@ _spr_inventory_background = spr_menu_background;
 _spr_inventory_slots = spr_inventory_slots;
 
 // testing add inventory method
-inventory.add_item(global.weapons_map[? "Sword"], global.weapons_map);
+//inventory.add_item(global.weapons_map[? "sword"], global.weapons_map);

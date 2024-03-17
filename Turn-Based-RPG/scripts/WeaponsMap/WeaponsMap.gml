@@ -9,7 +9,7 @@ function weapons_map(){
 	ds_map_add(_item, "_type", damage_source.melee);
 	ds_map_add(_item, "_description", "Slashing. A medium weight sword commonly used by guards and bandits alike. Unremarkable in construction but readily available even in the smallest villages. Great for hunting.");
 	// adds sword to weapons
-	ds_map_add(global.weapons_map, "Sword", _item);
+	ds_map_add(global.weapons_map, "sword", _item);
 	
 	// creating sycthe
 	var _item = ds_map_create();
