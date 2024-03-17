@@ -1,5 +1,5 @@
 function weapons_map(){
-	global.weapons  = ds_map_create();
+	global.weapons_map  = ds_map_create();
 	
 	// creating sword
 	var _item = ds_map_create();
@@ -9,7 +9,7 @@ function weapons_map(){
 	ds_map_add(_item, "_type", damage_source.melee);
 	ds_map_add(_item, "_description", "Slashing. A medium weight sword commonly used by guards and bandits alike. Unremarkable in construction but readily available even in the smallest villages. Great for hunting.");
 	// adds sword to weapons
-	ds_map_add(global.weapons, "Sword", _item);
+	ds_map_add(global.weapons_map, "Sword", _item);
 	
 	// creating sycthe
 	var _item = ds_map_create();
@@ -19,7 +19,7 @@ function weapons_map(){
 	ds_map_add(_item, "_type", damage_source.melee);
 	ds_map_add(_item, "_description", "Slashing. The player’s starting weapon. A scythe handed down in a family for farming. Has seen better days but its wear is testament to its build.");
 	// adds scythe to weapons
-	ds_map_add(global.weapons, "Scythe", _item);
+	ds_map_add(global.weapons_map, "Scythe", _item);
 	
 	// creating bow
 	var _item = ds_map_create();
@@ -29,5 +29,5 @@ function weapons_map(){
 	ds_map_add(_item, "_type", damage_source.melee);
 	ds_map_add(_item, "_description", "Piercing. A sturdy bow used for hunting game. A touch more difficult to use than standard melee weapons, a skilled ranger or huntsman can make this into a precise, deadly tool.");
 	// adds bow to weapons
-	ds_map_add(global.weapons, "Bow", _item);
+	ds_map_add(global.weapons_map, "Bow", _item);
 }
