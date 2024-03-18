@@ -224,6 +224,9 @@ function calculate_damage_scaling(attacker, _dmg, dmg_source) {
 		case damage_source.melee:
 			attacker_stat = string(attacker._str) + " STR";
 			increase = (attacker._str / 20);
+			if (attacker_stat >= 10) {
+				_dmg += 2;
+			}
 			break;
 		case damage_source.ranged:
 			attacker_stat = string(attacker._dex) + " DEX"

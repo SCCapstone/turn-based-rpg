@@ -50,17 +50,18 @@ function enemy_roaming(){
 			image_xscale = sign(x_spd);*/
 	}
   //Aggro check
-	if (instance_exists(obj_player) && point_distance(x, y, obj_player.x, obj_player.y) <= aggro_radius) {
-    var _to_player = point_direction(x, y, obj_player.x, obj_player.y);
-    var _angle = angle_difference(image_angle, _to_player);
-    if (abs(_angle) < 45) {
-        if (!collision_line(x, y, obj_player.x, obj_player.y, obj_tree, false, true)) {
-            obj_player._disabled = !obj_player._disabled;
-            state = ENEMY_STATE.CHASE;
-        }
-    }
-}
-	/*if (++aggro >= aggro_duration) { // checks for the aggro variable and
+	/*if (instance_exists(obj_player) && point_distance(x, y, obj_player.x, obj_player.y) <= aggro_radius) {
+	    var _to_player = point_direction(x, y, obj_player.x, obj_player.y);
+		state = ENEMY_STATE.CHASE;
+	    var _angle = angle_difference(image_angle, _to_player);
+	    if (abs(_angle) < 45) {
+	        if (!collision_line(x, y, obj_player.x, obj_player.y, obj_tree, false, true)) {
+	            obj_player._disabled = !obj_player._disabled;
+	            state = ENEMY_STATE.CHASE;
+	        }
+	    }
+	}*/
+	if (++aggro >= aggro_duration) { // checks for the aggro variable and
 								   // compares it to the duration vatiable
 		aggro = 0;
 		if (instance_exists(obj_player)) && 
@@ -68,5 +69,5 @@ function enemy_roaming(){
 		state = ENEMY_STATE.CHASE;  // calls the chase script if the player
 	                              // is within a certain distance
 		}
-	}*/
+	}
 }

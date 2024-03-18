@@ -27,14 +27,14 @@ if (!show_stats) exit;
 */
 if (!party_disable) {
 	partypos += down_key - up_key;
-      if (partypos >= party_switch) {
+      if (partypos >= ds_list_size(global.party)) {
          partypos = 0;
       }
       if (partypos < 0) {
-      partypos = party_switch - 1;
+      partypos = ds_list_size(global.party) - 1;
     }
 }
-   // show_debug_message(ds_list_size(stat_party));
+    //show_debug_message(party_switch);
 
 // Check if party operations should be disabled
 if (keyboard_check_pressed(ord("E"))) {
@@ -109,6 +109,10 @@ switch (partypos) {
 					//ds_list_find_value(global.party,0)._max_hp -= 1;
 					skill_points[0] += 1;
 					ds_list_find_value(global.party,0)._hp = ds_list_find_value(global.party,0)._max_hp;
+					if (hp == 0) {
+						ds_list_find_value(global.party,0)._max_hp -= round(ds_list_find_value(global.party,0)._max_hp * 0.1);
+						ds_list_find_value(global.party,0)._hp = ds_list_find_value(global.party,0)._max_hp;
+					}
 				} else {
 					hp = 0;
 				}
@@ -218,6 +222,10 @@ switch (partypos) {
 					new_hp2 = hp2/10;
 					ds_list_find_value(global.party,1)._max_hp -= round(ds_list_find_value(global.party,1)._max_hp * new_hp2);
 					//ds_list_find_value(global.party,0)._max_hp -= 1;
+					if (hp2 == 0) {
+						ds_list_find_value(global.party,1)._max_hp -= round(ds_list_find_value(global.party,1)._max_hp * 0.1);
+						ds_list_find_value(global.party,1)._hp = ds_list_find_value(global.party,1)._max_hp;
+					}
 					skill_points[1] += 1;
 					ds_list_find_value(global.party,1)._hp = ds_list_find_value(global.party,1)._max_hp;
 				} else {
@@ -329,6 +337,10 @@ switch (partypos) {
 					new_hp3 = hp3/10;
 					ds_list_find_value(global.party,2)._max_hp -= round(ds_list_find_value(global.party,2)._max_hp * new_hp3);
 					//ds_list_find_value(global.party,0)._max_hp -= 1;
+					if (h3 == 0) {
+						ds_list_find_value(global.party,2)._max_hp -= round(ds_list_find_value(global.party,2)._max_hp * 0.1);
+						ds_list_find_value(global.party,2)._hp = ds_list_find_value(global.party,2)._max_hp;
+					}
 					skill_points[2] += 1;
 					ds_list_find_value(global.party,2)._hp = ds_list_find_value(global.party,2)._max_hp;
 				} else {
@@ -440,6 +452,10 @@ switch (partypos) {
 					new_hp4 = hp4/10;
 					ds_list_find_value(global.party,3)._max_hp -= round(ds_list_find_value(global.party,3)._max_hp * new_hp4);
 					//ds_list_find_value(global.party,0)._max_hp -= 1;
+					if (hp4 == 0) {
+						ds_list_find_value(global.party,3)._max_hp -= round(ds_list_find_value(global.party,3)._max_hp * 0.1);
+						ds_list_find_value(global.party,3)._hp = ds_list_find_value(global.party,3)._max_hp;
+					}
 					skill_points[3] += 1;
 					ds_list_find_value(global.party,3)._hp = ds_list_find_value(global.party,3)._max_hp;
 				} else {
@@ -505,7 +521,7 @@ switch (partypos) {
 
 
 
-for (var i = 0; i < array_length(global.party); i++) {
+for (var i = 0; i < ds_list_size(global.party); i++) {
 	if (ds_list_find_value(global.party,i)._xp >= ds_list_find_value(global.party,i)._max_xp) {
 		ds_list_find_value(global.party,i)._lvl += 1;
 		ds_list_find_value(global.party,i)._xp -= ds_list_find_value(global.party,0)._max_xp;
