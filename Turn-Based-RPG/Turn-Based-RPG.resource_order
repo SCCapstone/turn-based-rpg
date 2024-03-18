@@ -3,6 +3,7 @@
   "ResourceOrderSettings": [
     {"name":"spr_green1px","order":20,"path":"sprites/spr_green1px/spr_green1px.yy",},
     {"name":"spr_1x1","order":19,"path":"sprites/spr_1x1/spr_1x1.yy",},
+    {"name":"obj_scarecrow","order":1,"path":"objects/obj_scarecrow/obj_scarecrow.yy",},
     {"name":"obj_castle_soldier2","order":11,"path":"objects/obj_castle_soldier2/obj_castle_soldier2.yy",},
     {"name":"spr_nu_tree","order":18,"path":"sprites/spr_nu_tree/spr_nu_tree.yy",},
     {"name":"obj_to_map_castle","order":2,"path":"objects/obj_to_map_castle/obj_to_map_castle.yy",},
@@ -33,8 +34,12 @@
     {"name":"spr_flowers","order":4,"path":"sprites/spr_flowers/spr_flowers.yy",},
     {"name":"obj_castle_door_guard","order":7,"path":"objects/obj_castle_door_guard/obj_castle_door_guard.yy",},
     {"name":"obj_castle_door_guard2","order":12,"path":"objects/obj_castle_door_guard2/obj_castle_door_guard2.yy",},
+    {"name":"snd_nothing","order":2,"path":"sounds/snd_nothing/snd_nothing.yy",},
     {"name":"obj_castle_entrance","order":1,"path":"objects/obj_castle_entrance/obj_castle_entrance.yy",},
+    {"name":"obj_sign_scarecrows","order":1,"path":"objects/obj_sign_scarecrows/obj_sign_scarecrows.yy",},
     {"name":"spr_castle_entrance","order":3,"path":"sprites/spr_castle_entrance/spr_castle_entrance.yy",},
+    {"name":"spr_scarecrow","order":1,"path":"sprites/spr_scarecrow/spr_scarecrow.yy",},
     {"name":"spr_leave_map","order":1,"path":"sprites/spr_leave_map/spr_leave_map.yy",},
+    {"name":"spr_nothing","order":1,"path":"sprites/spr_nothing/spr_nothing.yy",},
   ],
 }

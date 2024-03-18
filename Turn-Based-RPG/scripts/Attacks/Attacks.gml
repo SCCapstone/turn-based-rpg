@@ -40,6 +40,14 @@ global.attacks =
 		_dmg_min: 25,
 		_dmg_max: 35,
 		_sound: snd_fireball
+	},
+	nothing:
+	{
+		_name: "nothing",
+		_dmgtype: "nothing",
+		_dmg_min: 0,
+		_dmg_max: 0,
+		_sound: snd_nothing
 	}
 }
 }
