@@ -21,6 +21,13 @@ global.weapons =
 		_sprite: spr_bow,
 		_attacks: [global.attacks.bow_shoot],
 		_type: damage_source.ranged
+	},
+	nothing:
+	{
+		_name: "Nothing",
+		_sprite: spr_nothing,
+		_attacks: [global.attacks.nothing],
+		_type: damage_source.misc
 	}
 }
 }
