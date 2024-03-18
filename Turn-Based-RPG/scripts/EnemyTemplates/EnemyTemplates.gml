@@ -139,5 +139,39 @@ global.enemies =
 		_is_dead: false,
 		_xp_val: 50
 	},
+	scarecrow:
+	{
+		_name: "Scarecrow",
+		
+		// Stats
+		_hp: 300,		// Current HP
+		_mp: 0,		// Current MP
+
+		_max_hp: 60,    // Health
+		_max_mp: 0,    // Mana
+		_spd: 7,		// Speed
+		_str: 0,		// Strength
+		_dex: 0,		// Dexterity
+		_int: 0,        // Intelligence
+		_agi: 12,		// Agility
+
+		// Movesets
+		_spells: [],
+		_prayers: [],
+		
+		// Equipment
+		_weapon: global.weapons.nothing,
+		_magic_weapon: noone,
+		_prayer_book: noone,
+		
+		_armor_head: global.armor.mage_hood,
+		_armor_chest: global.armor.mage_robes,
+		_armor_legs: global.armor.leather_boots,
+		
+		// Misc
+		_sprites: {idle: spr_scarecrow},
+		_is_dead: false,
+		_xp_val: 50
+	},
 }
 }

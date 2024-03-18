@@ -138,36 +138,36 @@ if (state == turn.player && moved == false) {
 		// Check to see if enemy already has this status effect
 		// so it isn't given twice
 		var already_has_effect = false;
+		var intended_effect = party_units[p_num]._prayers[move_num]._effects[0];
+		
 		for (var i = 0; i < ds_list_size(enemy_units[target]._effects); i++) {
 			// See if intended effect already exists in the ds_list
 			var temp = ds_list_find_value(enemy_units[target]._effects, i)
 			// If effect exists, don't give it again
-			if (temp[0] == party_units[p_num]._prayers[move_num]._effects) {
-			already_has_effect = true;
-			show_debug_message(enemy_units[target]._name + " already has "
-			+ party_units[p_num]._prayers[move_num]._effects[0]._name);
-			break;	
+			if (temp[0] == intended_effect) {
+				already_has_effect = true;
+				show_debug_message(enemy_units[target]._name + " already has "
+				+ party_units[p_num]._prayers[move_num]._effects[0]._name);
+				break;	
 			}
 		}
 		
-		// If player doesn't already have this effect, inflict it
+		// If enemy doesn't already have this effect, inflict it
 		if (!already_has_effect) { 
 			// Determine random status effect length
-			var temp = irandom_range(party_units[p_num]._prayers[move_num]._effects[0]._duration_min,
-			party_units[p_num]._prayers[move_num]._effects[0]._duration_max);
+			var temp = irandom_range(intended_effect._duration_min, intended_effect._duration_max);
 	
 			// Inflict the prayer's status effect and duration
 			// Currently hardcoded to 1 effect per prayer [0]
 			ds_list_add(enemy_units[target]._effects, 
-			[party_units[p_num]._prayers[move_num]._effects[0], temp]); // [effect, duration]
+			[intended_effect, temp]); // [effect, duration]
 			
 			// Debug message
 			show_debug_message("Gave " + enemy_units[target]._name + " the " +
-			string(party_units[p_num]._prayers[move_num]._effects[0]._name) + " effect. Duration: " + string(temp));
+			string(intended_effect._name) + " effect. Duration: " + string(temp));
 				
-			// Show status effect
-			// TODO this is really buggy
-			// show_status_effect(enemy_units[target], party_units[p_num]._prayers[move_num]._effects[0]);
+			// Call alarm 1 to update status effect icons
+			alarm[1] = 10;
 		}
 		
 		finished = true; // Jump to end
@@ -296,14 +296,16 @@ if (state == turn.enemy && moved == false) {
 		// Check to see if player already has this status effect
 		// so it isn't given twice
 		var already_has_effect = false;
+		var intended_effect = enemy_units[e_num]._prayers[move_num]._effects[0];
+		
 		for (var i = 0; i < ds_list_size(party_units[target]._effects); i++) {
 			// See if intended effect already exists in the ds_list
 			var temp = ds_list_find_value(party_units[target]._effects, i)
 			// If effect exists, don't give it again
-			if (temp[0] == enemy_units[e_num]._prayers[move_num]._effects) {
+			if (temp[0] == intended_effect) {
 			already_has_effect = true;
 			show_debug_message(party_units[target]._name + " already has "
-			+ enemy_units[e_num]._prayers[move_num]._effects[0]._name);
+			+ intended_effect._name);
 			break;	
 			}
 		}
@@ -311,25 +313,23 @@ if (state == turn.enemy && moved == false) {
 		// If player doesn't already have this effect, inflict it
 		if (!already_has_effect) { 
 			// Determine random status effect length
-			var temp = irandom_range(enemy_units[e_num]._prayers[move_num]._effects[0]._duration_min,
-			enemy_units[e_num]._prayers[move_num]._effects[0]._duration_max);
+			var temp = irandom_range(intended_effect._duration_min, intended_effect._duration_max);
 	
 			// Inflict the prayer's status effect and duration
 			// Currently hardcoded to 1 effect per prayer [0]
 			ds_list_add(party_units[target]._effects, 
-			[enemy_units[e_num]._prayers[move_num]._effects[0], temp]); // [effect, duration]
+			[intended_effect, temp]); // [effect, duration]
 			
 			// Debug message
 			show_debug_message("Gave " + party_units[target]._name + " the " +
-			string(enemy_units[e_num]._prayers[move_num]._effects[0]._name) + " effect. Duration: " + string(temp));
+			string(intended_effect._name) + " effect. Duration: " + string(temp));
 				
-			// Show status effect
-			// TODO this is really buggy
-			// show_status_effect(enemy_units[target], party_units[p_num]._prayers[move_num]._effects[0]);
+			// Call alarm 1 to update status effect icons
+			alarm[1] = 10;
 		}
 		
-		// Show status effect
 		
+
 		finished = true; // Jump to end
 	}
 		

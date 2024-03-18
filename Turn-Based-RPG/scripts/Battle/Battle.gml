@@ -295,14 +295,16 @@ function update_status_effects(party) {
 			// Check if character has any status effects
 			if (ds_list_size(party[i]._effects) != 0) {
 				// If so, update each one
+				var temp_count = 0;
 				for (var j = 0; j < ds_list_size(party[i]._effects); j++) {
+					temp_count++;
 					var effect = ds_list_find_value(party[i]._effects, j);
 					// Inflict random damage
 					var temp = irandom_range(effect[0]._dmg_min, effect[0]._dmg_max);
 					// Prayers ignore armor, so no need to call change_hp()
 					party[i]._hp -= temp;
 					// Show damage text
-					instance_create_depth(party[i].x, party[i].y-(i*10), party[i].depth-1,
+					instance_create_depth(party[i].x-15+(temp_count*15), party[i].y-10, party[i].depth-1,
 					obj_battle_text, {color: effect[0]._txt_color, text: "-" + string(temp)})
 					// Check to see if damage tick killed character
 					if(party[i]._hp <= 0) { 
@@ -321,8 +323,8 @@ function update_status_effects(party) {
 					// If duration has run out, remove the effect
 					ds_list_delete(party[i]._effects, j);
 					show_debug_message(string(effect[0]._name) + " dealt "
-						+ string(temp) + " damage to " + string(party[i]._name) + "! "+
-						"The effect has run its course.");
+					+ string(temp) + " damage to " + string(party[i]._name) + "! "+
+					"The effect has run its course.");
 					// Compensate for ds_list size decreasing by 1
 					j--;
 					}
@@ -442,6 +444,21 @@ function battle_end(party_units, xp_gained) {
 	}
 }
 
-// TODO fix this buggy mess
-function show_status_effect(_character, _status) {
+// Shows status effect icons next to afflicted characters
+// And ensures they are updated with each turn
+// _team == 0: player turn, 1: enemy turn
+function update_status_icons(_character, _team) {
+	// Offset for player party
+	if (_team == 0) {
+		var x_offset = -4;
+	} else { // Offset for enemy party
+		var x_offset = 4
+	}
+	// Iterate through each status effect of this character
+	for (var i = 0; i < ds_list_size(_character._effects); i++) {
+		// Create new status icon
+		instance_create_depth(_character.x + x_offset, _character.y+(i*9), _character.depth-1,
+		obj_status_effect, {_sprite: _character._effects[| i][0]._sprite, _xscale: .5,
+		_yscale: .5, _caller: _character});
+	}
 }
