@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_scythe_slash",
+  "name": "snd_bash",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 3,
   "conversionMode": 0,
-  "duration": 1.582896,
+  "duration": 0.53517,
   "parent": {
     "name": "Weapon Effects",
     "path": "folders/Sounds/Weapon Effects.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_scythe_slash.wav",
+  "soundFile": "snd_bash.wav",
   "type": 1,
-  "volume": 0.7,
+  "volume": 0.8,
 }

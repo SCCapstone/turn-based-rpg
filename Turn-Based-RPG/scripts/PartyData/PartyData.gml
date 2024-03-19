@@ -68,7 +68,7 @@ knight =
 		_prayers: [global.prayers.chill, global.prayers.scorch],
 		
 		// Equipment
-		_weapon: global.weapons.sword,
+		_weapon: global.weapons.greatsword,
 		_magic_weapon: noone,
 		_prayer_book: global.prayer_books.scroll,
 		

@@ -354,7 +354,7 @@ function kill_target(_target) {
 function flash_item(type) {
 	if (state == turn.player) {
 		if (type == display.weapon) { // Flash player weapon
-			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
+			var temp = instance_create_depth(party_units[p_num].x+5, party_units[p_num].y+24, party_units[p_num].depth-1,
 			obj_sprite)
 			temp._sprite = party_units[p_num]._weapon._sprite;
 			temp._scale = 1;
@@ -362,7 +362,7 @@ function flash_item(type) {
 		}
 
 		if (type == display.magic_weapon) { // Flash player magic weapon
-			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
+			var temp = instance_create_depth(party_units[p_num].x+5, party_units[p_num].y+24, party_units[p_num].depth-1,
 			obj_sprite);
 			temp._sprite = party_units[p_num]._magic_weapon._sprite;
 			temp._scale = 1;
@@ -377,7 +377,7 @@ function flash_item(type) {
 		}
 
 		if (type == display.prayer_book) { // Flash player prayer book
-			var temp = instance_create_depth(party_units[p_num].x+13, party_units[p_num].y+24, party_units[p_num].depth-1,
+			var temp = instance_create_depth(party_units[p_num].x+5, party_units[p_num].y+24, party_units[p_num].depth-1,
 			obj_sprite);
 			temp._sprite = party_units[p_num]._prayer_book._sprite;
 			temp._scale = 1;
@@ -395,7 +395,7 @@ function flash_item(type) {
 	
 	if (state == turn.enemy) {
 		if (type == display.weapon) { // Flash enemy weapon
-			var temp = instance_create_depth(enemy_units[e_num].x-13, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
+			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
 			obj_sprite, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._weapon._sprite;
 			temp._scale = -1;
@@ -409,14 +409,14 @@ function flash_item(type) {
 		}
 
 		if (type == display.magic_weapon) { // Flash enemy magic weapon
-			var temp = instance_create_depth(enemy_units[e_num].x-13, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
+			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
 			obj_sprite, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._magic_weapon._sprite;
 			temp._scale = -1;
 		}
 
 		if (type == display.prayer_book) { // Flash enemy prayer book
-			var temp = instance_create_depth(enemy_units[e_num].x-13, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
+			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
 			obj_sprite, enemies[e_num])
 			temp._sprite = enemy_units[e_num]._prayer_book._sprite;
 			temp._scale = -1;
