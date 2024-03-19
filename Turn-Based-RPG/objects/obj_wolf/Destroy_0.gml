@@ -1,0 +1,1 @@
+battle_start([global.enemies.wolf, global.enemies.wolf], spr_field_background);

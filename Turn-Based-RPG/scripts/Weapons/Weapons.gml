@@ -71,5 +71,12 @@ global.weapons =
 		_attacks: [global.attacks.axe_chop],
 		_type: damage_source.melee
 	},
+	fangs:
+	{
+		_name: "Fangs",
+		_sprite: spr_nothing,
+		_attacks: [global.attacks.bite],
+		_type: damage_source.melee
+	}
 }
 }

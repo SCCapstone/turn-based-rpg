@@ -129,5 +129,13 @@ global.attacks =
 		_dmg_max: 40,
 		_sound: snd_heavy_swing
 	},
+	bite:
+	{
+		_name: "Bite",
+		_dmgtype: "pierce",
+		_dmg_min: 15,
+		_dmg_max: 35,
+		_sound: snd_crunch
+	}
 }
 }
