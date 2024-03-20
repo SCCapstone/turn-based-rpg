@@ -63,12 +63,10 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 				show_debug_message("Beginning player " + string(p_select) + "'s turn")
 				
 				// Check to see if frozen effect is present, if so, skip turn
-				for (var i = 0; i < ds_list_size(party_units[p_select]._effects); i++) {
-					var temp = ds_list_find_value(party_units[p_select]._effects, i)
-					if (temp[0] == global.status_effects.frosty) {
-						show_debug_message("Frozen! Skipping turn.")
-						instance_create_depth(party_units[p_select].x-15, party_units[p_select].y-10, party_units[p_select].depth-1,
-						obj_battle_text, {color: c_aqua, text: "Frozen"});
+				if(check_has_effect(party_units[p_select], global.status_effects.frosty)) {
+					show_debug_message("Frozen! Skipping turn.")
+						instance_create_depth(party_units[p_select].x-15, party_units[p_select].y-10, 
+						party_units[p_select].depth-1, obj_battle_text, {color: c_aqua, text: "Frozen"});
 						// Still update player status effects
 						for (var i = 0; i < array_length(party_units); i++) {
 							update_status_effects(party_units[i], true);
@@ -76,7 +74,6 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 						p_num++;
 						return turn.enemy;
 					}
-				}
 				// Update player team's status effects before turn begins
 				for (var i = 0; i < array_length(party_units); i++) {
 					update_status_effects(party_units[i], true);
@@ -120,9 +117,7 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 				show_debug_message("Beginning enemy " + string(e_select) + "'s turn");
 				
 				// Check to see if frozen effect is present, if so, skip turn
-				for (var i = 0; i < ds_list_size(enemy_units[e_select]._effects); i++) {
-					var temp = ds_list_find_value(enemy_units[e_select]._effects, i)
-					if (temp[0] == global.status_effects.frosty) {
+				if(check_has_effect(enemy_units[e_select], global.status_effects.frosty)) {
 						show_debug_message("Frozen! Skipping turn.")
 						instance_create_depth(enemy_units[e_select].x+15, enemy_units[e_select].y-10, enemy_units[e_select].depth-1,
 						obj_battle_text, {color: c_aqua, text: "Frozen"});
@@ -133,7 +128,6 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 						e_num++;
 						return turn.player;
 					}
-				}
 				// Update enemy team's status effects before turn begins
 				for (var i = 0; i < array_length(enemy_units); i++) {
 					update_status_effects(enemy_units[i], true);
@@ -175,8 +169,27 @@ function change_hp(attacker, defender, _dmg, dmg_type, dmg_source) {
 		}
 		// Factor in the attacker's stats to increase damage
 		_dmg = calculate_damage_scaling(attacker, _dmg, dmg_source);
+		
 		// Factor in the defender's resistances to reduce damage
 		_dmg = calculate_resistance(defender, _dmg, dmg_type);
+		
+		// Factor in attacker's effects
+		// Increase damage by 25% if defender has Attack Up
+		if (check_has_effect(attacker, global.status_effects.attack_up)) {
+			show_debug_message("Damage increased by 25% due to Attack Up!");
+			_dmg *= 1.25;
+		}
+		
+		// Factor in defender's effects
+		// Reduce damage by 25% if defender has Defense Up
+		if (check_has_effect(defender, global.status_effects.defense_up)) {
+			show_debug_message("Damage decreased by 25% due to Defense Up!");
+			_dmg *= .75;
+		}
+		
+		// Round damage number
+		_dmg = round(_dmg);
+		
 		// Show damage text
 		instance_create_depth(defender.x, defender.y, defender.depth-1,
 		obj_battle_text, {color: c_white, text: "-" + string(_dmg)})
@@ -224,12 +237,12 @@ function roll_dodge(attacker, defender, dmg_source) {
 			break;
 	}
 	// Min dodge capped at 3%, because why not?
-	if (dodge < 3) {
-		dodge = 3;	
+	if (dodge < 1) {
+		dodge = 1;	
 	}
-	// Max dodge capped at 85%
-	else if (dodge > 85) {
-		dodge = 85;	
+	// Max dodge capped at 75%
+	else if (dodge > 75) {
+		dodge = 75;	
 	}
 	
 	show_debug_message(string(defender._name) + " has " + string(defender._agi) 
@@ -238,6 +251,10 @@ function roll_dodge(attacker, defender, dmg_source) {
 		
 	// If accuracy < dodge, attack misses
 	var accuracy = irandom_range(1, 100);
+	// Check if stunned, reduce accuracy by 50% if so
+	if (check_has_effect(attacker, global.status_effects.shock)) {
+		accuracy /= 2;	
+	}
 	show_debug_message("Roll: " + string(accuracy));
 	if (accuracy <= dodge) {
 		show_debug_message("MISS!"); 
@@ -551,5 +568,17 @@ function update_status_icons(_character, _team) {
 		instance_create_depth(_character.x + x_offset, _character.y+(i*11), _character.depth-1,
 		obj_status_effect, {_sprite: _character._effects[| i][0]._sprite, _xscale: .5,
 		_yscale: .5, _caller: _character});
+	}
+}
+	
+// Checks whether or not a character has a particular status effect.
+// Returns true if yes, false if not.
+function check_has_effect(_character, _effect) {
+	// Check entire array of character's status effects
+	for (var i = 0; i < ds_list_size(_character._effects); i++) {
+		if (_character._effects[|i][0] == _effect) {
+			return true; // Immediately return true if match is found
+		}
+		return false; // If no matches found, return false
 	}
 }
