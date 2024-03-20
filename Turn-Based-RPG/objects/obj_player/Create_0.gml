@@ -1,6 +1,8 @@
 //runs when instance of object is created
 _collision_dist = 16;
 
+_step_allow = true;
+
 _disabled = false;
 
 _speaker = noone;
