@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_bow_shoot.wav",
   "type": 1,
-  "volume": 1.0,
+  "volume": 0.9,
 }

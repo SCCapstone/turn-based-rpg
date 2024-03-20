@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_stab.wav",
   "type": 1,
-  "volume": 0.35,
+  "volume": 0.4,
 }

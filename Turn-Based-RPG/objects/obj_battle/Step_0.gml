@@ -133,6 +133,15 @@ if (state == turn.player && moved == false) {
 			flash_item(display.prayer_book);
 		}
 		
+		
+		// Determine target party: enemy or player party
+		var prayer_target = enemy_units[target]
+		var update_now = false;
+		if (party_units[p_num]._prayers[move_num]._targets_friendly == true) {
+			prayer_target = party_units[target];
+			update_now = true; // Friendly status effects should update immediately
+		}
+		
 		// Attempt to inflict the selected prayer's status effect
 		
 		// Check to see if enemy already has this status effect
@@ -140,14 +149,14 @@ if (state == turn.player && moved == false) {
 		var already_has_effect = false;
 		var intended_effect = party_units[p_num]._prayers[move_num]._effects[0];
 		
-		for (var i = 0; i < ds_list_size(enemy_units[target]._effects); i++) {
+		for (var i = 0; i < ds_list_size(prayer_target._effects); i++) {
 			// See if intended effect already exists in the ds_list
-			var temp = ds_list_find_value(enemy_units[target]._effects, i)
+			var temp = ds_list_find_value(prayer_target._effects, i)
 			// If effect exists, don't give it again
 			if (temp[0] == intended_effect) {
 				already_has_effect = true;
-				show_debug_message(enemy_units[target]._name + " already has "
-				+ party_units[p_num]._prayers[move_num]._effects[0]._name);
+				show_debug_message(prayer_target._name + " already has "
+				+ intended_effect._name);
 				break;	
 			}
 		}
@@ -159,12 +168,17 @@ if (state == turn.player && moved == false) {
 	
 			// Inflict the prayer's status effect and duration
 			// Currently hardcoded to 1 effect per prayer [0]
-			ds_list_add(enemy_units[target]._effects, 
-			[intended_effect, temp]); // [effect, duration]
+			ds_list_add(prayer_target._effects, 
+			[intended_effect, temp, false]); // [effect, duration, activated_yet]
 			
 			// Debug message
-			show_debug_message("Gave " + enemy_units[target]._name + " the " +
+			show_debug_message("Gave " + prayer_target._name + " the " +
 			string(intended_effect._name) + " effect. Duration: " + string(temp));
+			
+			// In case of friendly prayer, update immediately
+			if (update_now) {
+				update_status_effects(prayer_target, false);
+			}
 				
 			// Call alarm 1 to update status effect icons
 			alarm[1] = 10;
@@ -291,6 +305,14 @@ if (state == turn.enemy && moved == false) {
 			flash_item(display.prayer_book);
 		}
 		
+		// Determine target party: enemy or player party
+		var prayer_target = party_units[target]
+		var update_now = false;
+		if (enemy_units[e_num]._prayers[move_num]._targets_friendly == true) {
+			prayer_target = enemy_units[target];
+			update_now = true; // Friendly status effects should update immediately
+		}
+		
 		// Attempt to inflict the selected prayer's status effect
 		
 		// Check to see if player already has this status effect
@@ -298,13 +320,13 @@ if (state == turn.enemy && moved == false) {
 		var already_has_effect = false;
 		var intended_effect = enemy_units[e_num]._prayers[move_num]._effects[0];
 		
-		for (var i = 0; i < ds_list_size(party_units[target]._effects); i++) {
+		for (var i = 0; i < ds_list_size(prayer_target._effects); i++) {
 			// See if intended effect already exists in the ds_list
-			var temp = ds_list_find_value(party_units[target]._effects, i)
+			var temp = ds_list_find_value(prayer_target._effects, i)
 			// If effect exists, don't give it again
 			if (temp[0] == intended_effect) {
 			already_has_effect = true;
-			show_debug_message(party_units[target]._name + " already has "
+			show_debug_message(prayer_target._name + " already has "
 			+ intended_effect._name);
 			break;	
 			}
@@ -317,13 +339,18 @@ if (state == turn.enemy && moved == false) {
 	
 			// Inflict the prayer's status effect and duration
 			// Currently hardcoded to 1 effect per prayer [0]
-			ds_list_add(party_units[target]._effects, 
-			[intended_effect, temp]); // [effect, duration]
+			ds_list_add(prayer_target._effects, 
+			[intended_effect, temp, false]); // [effect, duration, activated_yet]
 			
 			// Debug message
-			show_debug_message("Gave " + party_units[target]._name + " the " +
+			show_debug_message("Gave " + prayer_target._name + " the " +
 			string(intended_effect._name) + " effect. Duration: " + string(temp));
-				
+			
+			// In case of friendly prayer, update immediately
+			if (update_now) {
+				update_status_effects(prayer_target, false);
+			}
+			
 			// Call alarm 1 to update status effect icons
 			alarm[1] = 10;
 		}

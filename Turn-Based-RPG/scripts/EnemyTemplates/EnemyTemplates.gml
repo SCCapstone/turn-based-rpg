@@ -89,7 +89,7 @@ global.enemies =
 		
 		// Movesets
 		_spells: [],
-		_prayers: [],
+		_prayers: [global.prayers.heal],
 		
 		// Equipment
 		_weapon: global.weapons.bow,

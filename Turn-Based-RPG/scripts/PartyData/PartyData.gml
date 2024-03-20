@@ -49,14 +49,14 @@ knight =
 		
 		// Stats
 		_hp: 220,		// Current HP
-		_mp: 0,		// Current MP
+		_mp: 200,		// Current MP
 		
 		_lvl: 1,		// Level
 		_xp: 0,			// Experience/XP
 		_max_xp: 100,	// Max XP
 
 	    _max_hp: 220,    // Health
-		_max_mp: 0,     // Mana
+		_max_mp: 200,     // Mana
 		_spd: 9,		// Speed
 		_str: 10,		// Strength
 		_dex: 5,		// Dexterity
@@ -64,12 +64,13 @@ knight =
 		_agi: 5,		// Agility
 		  
 		// Movesets
-		_spells: [],
-		_prayers: [global.prayers.chill, global.prayers.scorch],
+		_spells: [global.spells.fireball, global.spells.ice_spike, global.spells.magic_knife],
+		_prayers: [global.prayers.chill, global.prayers.scorch, global.prayers.stun,
+		global.prayers.poison, global.prayers.heal, global.prayers.attack_up, global.prayers.defense_up],
 		
 		// Equipment
 		_weapon: global.weapons.greatsword,
-		_magic_weapon: noone,
+		_magic_weapon: global.magic_weapons.staff,
 		_prayer_book: global.prayer_books.scroll,
 		
 		_armor_head: global.armor.knightly_plumed_helmet,

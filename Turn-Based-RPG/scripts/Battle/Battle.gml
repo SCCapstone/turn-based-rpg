@@ -42,8 +42,6 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 		
 	// Switch to player turn
 	if (state == turn.enemy) {
-		// Update status effects before turn begins
-		update_status_effects(party_units);
 		// Save the position of the character that previously moved
 		var p_select = p_turn;
 		// Find the next living character to give the turn to
@@ -63,7 +61,27 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 				// Give this character and their party the next turn
 				p_num = p_select;
 				show_debug_message("Beginning player " + string(p_select) + "'s turn")
-				return turn.player;
+				
+				// Check to see if frozen effect is present, if so, skip turn
+				for (var i = 0; i < ds_list_size(party_units[p_select]._effects); i++) {
+					var temp = ds_list_find_value(party_units[p_select]._effects, i)
+					if (temp[0] == global.status_effects.frosty) {
+						show_debug_message("Frozen! Skipping turn.")
+						instance_create_depth(party_units[p_select].x-15, party_units[p_select].y-10, party_units[p_select].depth-1,
+						obj_battle_text, {color: c_aqua, text: "Frozen"});
+						// Still update player status effects
+						for (var i = 0; i < array_length(party_units); i++) {
+							update_status_effects(party_units[i], true);
+						}
+						p_num++;
+						return turn.enemy;
+					}
+				}
+				// Update player team's status effects before turn begins
+				for (var i = 0; i < array_length(party_units); i++) {
+					update_status_effects(party_units[i], true);
+				}
+			return turn.player;
 			}
 			
 			show_debug_message("Player " + string(p_select) + " is dead, skipping...");
@@ -81,8 +99,6 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 	
 	// Switch to enemy turn
 	if (state == turn.player) {
-		// Update status effects before turn begins
-		update_status_effects(enemy_units);
 		// Save the position of the character that previously moved
 		var e_select = e_turn;
 		// Find the next living character to give the turn to
@@ -101,7 +117,27 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 			if (enemy_units[e_select]._is_dead == false) {
 				// Give this character and their party the next turn
 				e_num = e_select;
-				show_debug_message("Beginning enemy " + string(e_select) + "'s turn")
+				show_debug_message("Beginning enemy " + string(e_select) + "'s turn");
+				
+				// Check to see if frozen effect is present, if so, skip turn
+				for (var i = 0; i < ds_list_size(enemy_units[e_select]._effects); i++) {
+					var temp = ds_list_find_value(enemy_units[e_select]._effects, i)
+					if (temp[0] == global.status_effects.frosty) {
+						show_debug_message("Frozen! Skipping turn.")
+						instance_create_depth(enemy_units[e_select].x+15, enemy_units[e_select].y-10, enemy_units[e_select].depth-1,
+						obj_battle_text, {color: c_aqua, text: "Frozen"});
+						// Still update enemy status effects
+						for (var i = 0; i < array_length(enemy_units); i++) {
+							update_status_effects(enemy_units[i], true);
+						}
+						e_num++;
+						return turn.player;
+					}
+				}
+				// Update enemy team's status effects before turn begins
+				for (var i = 0; i < array_length(enemy_units); i++) {
+					update_status_effects(enemy_units[i], true);
+				}
 				return turn.enemy;
 			}
 			
@@ -288,45 +324,100 @@ function calculate_resistance(character, dmg, type) {
 }
 
 // Update the targeted party's status effects
-function update_status_effects(party) {
-	// Check each living character in the party
-	for (var i = 0; i < array_length(party); i++) {
-		if (party[i]._is_dead == false) {
-			// Check if character has any status effects
-			if (ds_list_size(party[i]._effects) != 0) {
-				// If so, update each one
-				var temp_count = 0;
-				for (var j = 0; j < ds_list_size(party[i]._effects); j++) {
-					temp_count++;
-					var effect = ds_list_find_value(party[i]._effects, j);
-					// Inflict random damage
-					var temp = irandom_range(effect[0]._dmg_min, effect[0]._dmg_max);
-					// Prayers ignore armor, so no need to call change_hp()
-					party[i]._hp -= temp;
-					// Show damage text
-					instance_create_depth(party[i].x-15+(temp_count*15), party[i].y-10, party[i].depth-1,
-					obj_battle_text, {color: effect[0]._txt_color, text: "-" + string(temp)})
-					// Check to see if damage tick killed character
-					if(party[i]._hp <= 0) { 
-						kill_target(party[i]);
-						// Clear status effect list
-						ds_list_clear(party[i]._effects);
-					}
+// _check_all == true: update all status effects
+// _check_all == false: only update most recently added status effect
+function update_status_effects(_character, _check_all) {
+	if (_character._is_dead == false) {
+		// Determine whether checking all or just most recent effect
+		var start = 0;
+		if (_check_all == false) {
+			start = ds_list_size(_character._effects) - 1;
+		} 
+		// Check if character has any status effects
+		if (ds_list_size(_character._effects) != 0) {
+			// If so, update each one
+			var temp_count = 0;
+			for (var j = start; j < ds_list_size(_character._effects); j++) {
+				temp_count++;
+				var effect = ds_list_find_value(_character._effects, j);
+				
+				// Show optional effect activation text
+				// if this is the first time it's being updated
+				if (_character._effects[| j][2] == false) {
+					instance_create_depth(_character.x-15+(temp_count*15), _character.y-10, _character.depth-1,
+					obj_battle_text, {color: effect[0]._txt_color, text: effect[0]._txt})
+					_character._effects[| j][2] = true; // Mark as activated
+				}
+				
+				// Inflict random damage
+				var temp = irandom_range(effect[0]._dmg_min, effect[0]._dmg_max);
+				// Prayers ignore armor, so no need to call change_hp()
+				var before = _character._hp;
+				_character._hp -= temp;
 					
+				// Show effect text
+				if (temp < 0) { // If character gains HP
+					// Ensure hp doesn't rise above max
+					if(_character._hp > _character._max_hp) {
+						temp = _character._max_hp - before;
+						_character._hp = _character._max_hp;
+					}
+					// Show health increase
+					instance_create_depth(_character.x-15+(temp_count*15), _character.y-10, _character.depth-1,
+					obj_battle_text, {color: c_white, text: "+" + string(temp)});
 					// Reduce duration of effect by 1
-					if (party[i]._effects[| j][1] > 1) {
-						party[i]._effects[| j][1] -= 1;
-						show_debug_message(string(effect[0]._name) + " dealt "
-						+ string(temp) + " damage to " + string(party[i]._name) + "! "+
-						"Remaining duration: " + string(party[i]._effects[| j][1]));
+					if (_character._effects[| j][1] > 1) {
+						_character._effects[| j][1] -= 1;
+						show_debug_message(string(effect[0]._name) + " increased " + string(_character._name)
+						+ "'s HP by " + string(temp) + "! "+
+						"Remaining duration: " + string(_character._effects[| j][1]));
 					} else {
 					// If duration has run out, remove the effect
-					ds_list_delete(party[i]._effects, j);
-					show_debug_message(string(effect[0]._name) + " dealt "
-					+ string(temp) + " damage to " + string(party[i]._name) + "! "+
-					"The effect has run its course.");
-					// Compensate for ds_list size decreasing by 1
-					j--;
+						ds_list_delete(_character._effects, j);
+						show_debug_message(string(effect[0]._name) + " increased " + string(_character._name)
+						+ "'s HP by " + string(temp) + "! "+
+						"The effect has run its course.");
+						// Compensate for ds_list size decreasing by 1
+						j--;
+					}
+				} else if (temp > 0) { // If character loses HP
+					instance_create_depth(_character.x-15+(temp_count*15), _character.y-10, _character.depth-1,
+					obj_battle_text, {color: effect[0]._txt_color, text: "-" + string(temp)})
+					// Check to see if damage tick killed character
+					if(_character._hp <= 0) { 
+						kill_target(_character);
+						// Clear status effect list
+						ds_list_clear(_character._effects);
+					} 
+					// Reduce duration of effect by 1
+					if (_character._effects[| j][1] > 1) {
+						_character._effects[| j][1] -= 1;
+						show_debug_message(string(effect[0]._name) + " dealt "
+						+ string(temp) + " damage to " + string(_character._name) + "! "+
+						"Remaining duration: " + string(_character._effects[| j][1]));
+					} else {
+						// If duration has run out, remove the effect
+						ds_list_delete(_character._effects, j);
+						show_debug_message(string(effect[0]._name) + " dealt "
+						+ string(temp) + " damage to " + string(_character._name) + "! "+
+						"The effect has run its course.");
+						// Compensate for ds_list size decreasing by 1
+						j--;
+					}
+				} else {
+					// Reduce duration of effect by 1
+					if (_character._effects[| j][1] > 1) {
+						_character._effects[| j][1] -= 1;
+						show_debug_message("Remaining duration of " + string(effect[0]._name)
+						+ ": " + string(_character._effects[| j][1]));
+					} else {
+					// If duration has run out, remove the effect
+						ds_list_delete(_character._effects, j);
+						show_debug_message(string(effect[0]._name) + " increased " + string(_character._name)
+						+ "'s HP by " + string(temp) + "! "+
+						"The effect has run its course.");
+						// Compensate for ds_list size decreasing by 1
+						j--;
 					}
 				}
 			}
@@ -370,7 +461,7 @@ function flash_item(type) {
 
 		if (type == display.spell) { // Flash player spell
 			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, party_units[p_num].depth-1,
-			obj_projectile2);
+			obj_projectile2, {speed: 2.5});
 			temp._sprite = party_units[p_num]._spells[move_num]._sprite;
 			temp._scale = 1;
 			_show_spell = false;
@@ -385,8 +476,8 @@ function flash_item(type) {
 		}
 
 		if (type == display.prayer) { // Flash player prayer
-			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, party_units[p_num].depth-1,
-			obj_projectile2);
+			var temp = instance_create_depth(party_units[p_num].x+25, party_units[p_num].y-2, party_units[p_num].depth-1,
+			obj_projectile2, {speed: 0});
 			temp._sprite = party_units[p_num]._prayers[move_num]._sprite;
 			temp._scale = 1;
 			_show_prayer_book = false
@@ -396,35 +487,35 @@ function flash_item(type) {
 	if (state == turn.enemy) {
 		if (type == display.weapon) { // Flash enemy weapon
 			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
-			obj_sprite, enemies[e_num])
+			obj_sprite)
 			temp._sprite = enemy_units[e_num]._weapon._sprite;
 			temp._scale = -1;
 		}
 
 		if (type == display.spell) { // Flash enemy spell
 			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
-			obj_enemy_projectile2, enemies[e_num])
+			obj_enemy_projectile2, {speed: 2.5})
 			temp._sprite = enemy_units[e_num]._spells[move_num]._sprite;
 			temp._scale = -1;
 		}
 
 		if (type == display.magic_weapon) { // Flash enemy magic weapon
 			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
-			obj_sprite, enemies[e_num])
+			obj_sprite)
 			temp._sprite = enemy_units[e_num]._magic_weapon._sprite;
 			temp._scale = -1;
 		}
 
 		if (type == display.prayer_book) { // Flash enemy prayer book
 			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
-			obj_sprite, enemies[e_num])
+			obj_sprite)
 			temp._sprite = enemy_units[e_num]._prayer_book._sprite;
 			temp._scale = -1;
 		}
 
 		if (type == display.prayer) { // Flash enemy prayer
-			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
-			obj_enemy_projectile2, enemies[e_num])
+			var temp = instance_create_depth(enemy_units[e_num].x-25, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
+			obj_enemy_projectile2, {speed: 0})
 			temp._sprite = enemy_units[e_num]._prayers[move_num]._sprite;
 			temp._scale = -1;
 		}
@@ -450,14 +541,14 @@ function battle_end(party_units, xp_gained) {
 function update_status_icons(_character, _team) {
 	// Offset for player party
 	if (_team == 0) {
-		var x_offset = -4;
+		var x_offset = -10;
 	} else { // Offset for enemy party
-		var x_offset = 4
+		var x_offset = -1
 	}
 	// Iterate through each status effect of this character
 	for (var i = 0; i < ds_list_size(_character._effects); i++) {
 		// Create new status icon
-		instance_create_depth(_character.x + x_offset, _character.y+(i*9), _character.depth-1,
+		instance_create_depth(_character.x + x_offset, _character.y+(i*11), _character.depth-1,
 		obj_status_effect, {_sprite: _character._effects[| i][0]._sprite, _xscale: .5,
 		_yscale: .5, _caller: _character});
 	}
