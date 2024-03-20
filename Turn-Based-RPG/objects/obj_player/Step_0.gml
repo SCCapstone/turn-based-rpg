@@ -1,6 +1,8 @@
 //runs each frame
 //IMPORTANT: OBJECTS MUST BE MARKED "Solid" TO HAVE WORKING NON-BASIC COLLISION WITH PLAYER
 
+
+if _step_allow == true{
 //Move the Sprite
 //right
 if (_target_x > x) {
@@ -117,5 +119,12 @@ if (_disabled == false) {
 		}
 	}
 }
-
+}
+if _step_allow == false {
+	_target_x = x;
+	_target_y = y;
+	_moving = false;
+	image_speed = 0;
+	_step_allow = true;
+}
  
