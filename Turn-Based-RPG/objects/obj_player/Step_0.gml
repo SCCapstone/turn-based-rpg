@@ -109,6 +109,19 @@ if (_disabled == false) {
 				addPlayer();
 				show_debug_message("Added");
 				obj_cool_wizard.id.x = 4000;
+				_e_pressed = 0;
+			}
+		}
+		
+		if (global.location == 0 && _speaker == obj_mercenary.id) {
+			if (keyboard_check(ord("E"))) {
+				_e_pressed += 1
+			}
+			if (_e_pressed >= 3) {
+				addMercenary();
+				show_debug_message("Added");
+				obj_mercenary.id.x = 4000;
+				_e_pressed = 0;
 			}
 		}
 		if (_speaker != noone && _speaker != _prev_speaker) {
