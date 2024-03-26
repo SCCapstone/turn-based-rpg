@@ -101,6 +101,7 @@
     {"name":"spr_scarecrow","order":1,"path":"sprites/spr_scarecrow/spr_scarecrow.yy",},
     {"name":"obj_to_town_smithy","order":3,"path":"objects/obj_to_town_smithy/obj_to_town_smithy.yy",},
     {"name":"obj_from_castle_smithy","order":20,"path":"objects/obj_from_castle_smithy/obj_from_castle_smithy.yy",},
+    {"name":"obj_mercenary","order":3,"path":"objects/obj_mercenary/obj_mercenary.yy",},
     {"name":"spr_greatsword","order":7,"path":"sprites/spr_greatsword/spr_greatsword.yy",},
     {"name":"spr_defense_up","order":6,"path":"sprites/spr_defense_up/spr_defense_up.yy",},
     {"name":"spr_leave_map","order":1,"path":"sprites/spr_leave_map/spr_leave_map.yy",},

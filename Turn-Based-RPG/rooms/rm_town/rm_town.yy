@@ -272,6 +272,7 @@
     {"name":"inst_3B893FF6","path":"rooms/rm_town/rm_town.yy",},
     {"name":"inst_701A792D","path":"rooms/rm_town/rm_town.yy",},
     {"name":"inst_52E7F6B8","path":"rooms/rm_town/rm_town.yy",},
+    {"name":"inst_20B8DAF7","path":"rooms/rm_town/rm_town.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -285,6 +286,7 @@
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"wizard","depth":200,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_520066E0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_cool_wizard","path":"objects/obj_cool_wizard/obj_cool_wizard.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1072.0,"y":1286.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_20B8DAF7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_mercenary","path":"objects/obj_mercenary/obj_mercenary.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1248.0,"y":1286.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"bounds","depth":300,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_21EA1820","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_wall1x1","path":"objects/obj_wall1x1/obj_wall1x1.yy",},"properties":[],"rotation":0.0,"scaleX":1303.8,"scaleY":1.0,"x":0.0,"y":0.0,},
@@ -1213,7 +1215,7 @@
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"toMap","depth":2300,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_33AA0BF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_to_map_village","path":"objects/obj_to_map_village/obj_to_map_village.yy",},"properties":[],"rotation":0.0,"scaleX":3.0283873,"scaleY":1.516129,"x":1344.0,"y":-16.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_67D0E7CF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_to_map_village_entrance","path":"objects/obj_to_map_village_entrance/obj_to_map_village_entrance.yy",},"properties":[],"rotation":0.0,"scaleX":1.6774192,"scaleY":1.0,"x":1345.9678,"y":1454.0,},
-      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
   ],
   "parent": {
     "name": "Rooms",
