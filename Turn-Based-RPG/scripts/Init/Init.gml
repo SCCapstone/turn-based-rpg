@@ -87,6 +87,7 @@ coolStruct =
 			_dex: 0,		// Dexterity
 			_int: 15,        // Intelligence
 			_agi: 10,		// Agility
+			_fai: 0,		// Faith
 
 			// Movesets
 			_spells: [global.spells.fireball, global.spells.ice_spike],
@@ -130,6 +131,7 @@ mercStruct =
 			_dex: 8,		// Dexterity
 			_int: 3,        // Intelligence
 			_agi: 8,		// Agility
+			_fai: 0,
 
 			// Movesets
 			_spells: [global.spells.magic_knife],

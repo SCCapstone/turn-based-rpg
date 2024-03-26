@@ -14,3 +14,4 @@ for (var i = 0; i < e_length; i++) {
 	instance_destroy(enemy_units[i]);
 	instance_destroy(enemy_shadows[i]);
 }
+

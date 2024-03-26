@@ -22,6 +22,7 @@ sorcerer =
 		_dex: 0,		// Dexterity
 		_int: 15,        // Intelligence
 		_agi: 10,		// Agility
+		_fai: 0,
 
 		// Movesets
 		_spells: [global.spells.fireball],
@@ -62,6 +63,7 @@ knight =
 		_dex: 5,		// Dexterity
 		_int: 0,        // Intelligence
 		_agi: 5,		// Agility
+		_fai: 0,		// Faith
 		  
 		// Movesets
 		_spells: [global.spells.fireball, global.spells.ice_spike, global.spells.magic_knife],

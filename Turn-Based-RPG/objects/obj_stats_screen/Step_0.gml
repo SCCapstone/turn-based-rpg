@@ -89,8 +89,11 @@ switch (partypos) {
 				ds_list_find_value(global.party,0)._int += 1;
 				break;
 			case 6:
-				ds_list_find_value(global.party,0)._spd += 1;
+				ds_list_find_value(global.party,0)._fai += 1;
 				break;
+			case 7:
+				ds_list_find_value(global.party,0)._spd += 1;
+				break;	
 		}
 		skill_points[0] -= 1;
 	}
@@ -162,6 +165,14 @@ switch (partypos) {
 				}
 				break;
 			case 6:
+				if ( ds_list_find_value(global.party,0)._fai > 1) {
+					ds_list_find_value(global.party,0)._fai-= 1;
+					skill_points[0] += 1;
+				} else {
+					ds_list_find_value(global.party,0)._fai = 0;
+				}
+				break;
+			case 7:
 				if ( ds_list_find_value(global.party,0)._spd > 1) {
 					ds_list_find_value(global.party,0)._spd -= 1;
 					skill_points[0] += 1;
@@ -204,6 +215,9 @@ switch (partypos) {
 				ds_list_find_value(global.party,1)._int += 1;
 				break;
 			case 6:
+				ds_list_find_value(global.party,1)._fai += 1;
+				break;
+			case 7:
 				ds_list_find_value(global.party,1)._spd += 1;
 				break;
 		}
@@ -277,6 +291,14 @@ switch (partypos) {
 				}
 				break;
 			case 6:
+				if ( ds_list_find_value(global.party,1)._fai > 1) {
+					ds_list_find_value(global.party,1)._fai-= 1;
+					skill_points[1] += 1;
+				} else {
+					ds_list_find_value(global.party,1)._fai = 0;
+				}
+				break;
+			case 7:
 				if ( ds_list_find_value(global.party,1)._spd > 1) {
 					ds_list_find_value(global.party,1)._spd -= 1;
 					skill_points[1] += 1;
@@ -319,6 +341,9 @@ switch (partypos) {
 				ds_list_find_value(global.party,2)._int += 1;
 				break;
 			case 6:
+				ds_list_find_value(global.party,2)._fai += 1;
+				break;
+			case 7:
 				ds_list_find_value(global.party,2)._spd += 1;
 				break;
 		}
@@ -392,6 +417,14 @@ switch (partypos) {
 				}
 				break;
 			case 6:
+				if ( ds_list_find_value(global.party,2)._fai > 1) {
+					ds_list_find_value(global.party,2)._fai-= 1;
+					skill_points[2] += 1;
+				} else {
+					ds_list_find_value(global.party,2)._fai = 0;
+				}
+				break;
+			case 7:
 				if ( ds_list_find_value(global.party,2)._spd > 1) {
 					ds_list_find_value(global.party,2)._spd -= 1;
 					skill_points[2] += 1;
@@ -434,6 +467,9 @@ switch (partypos) {
 				ds_list_find_value(global.party,3)._int += 1;
 				break;
 			case 6:
+				ds_list_find_value(global.party,3)._fai += 1;
+				break;
+			case 7:
 				ds_list_find_value(global.party,3)._spd += 1;
 				break;
 		}
@@ -507,6 +543,14 @@ switch (partypos) {
 				}
 				break;
 			case 6:
+				if ( ds_list_find_value(global.party,3)._fai > 1) {
+					ds_list_find_value(global.party,3)._fai-= 1;
+					skill_points[3] += 1;
+				} else {
+					ds_list_find_value(global.party,3)._fai = 0;
+				}
+				break;
+			case 7:
 				if ( ds_list_find_value(global.party,3)._spd > 1) {
 					ds_list_find_value(global.party,3)._spd -= 1;
 					skill_points[3] += 1;
@@ -519,6 +563,29 @@ switch (partypos) {
 	break;
 }
 
+for (var i = 0; i < ds_list_size(global.party); i++) {
+	if (ds_list_find_value(global.party,i)._fai >= 5 && ds_list_find_value(global.party,i)._fai <= 9) {
+		global.status_effects.burn._duration_max += 1;
+		global.status_effects.frosty._duration_max += 1
+		global.status_effects.poison._duration_max += 1;
+		global.status_effects.shock._duration_max += 1;
+	}
+	
+}
+/*if (ds_list_find_value(global.party,i)._fai >= 5 && ds_list_find_value(global.party,i)._fai <= 9) {
+		global.status_effects.burn._duration_max += 1;
+		global.status_effects.frosty._duration_max += 1
+		global.status_effects.poison._duration_max += 1;
+		global.status_effects.shock._duration_max += 1;
+	}*/
+
+/*var arr_stats = struct_names_count(global.status_effects);
+
+for (var i = 0; i < array_length(arr_stats); i++) {
+	if (ds_list_find_value(global.party,i)._fai >= 5 && ds_list_find_value(global.party,i)._fai <= 9) {
+		global.status_effects.burn._duration_max += 1;
+	}
+}*/
 
 
 for (var i = 0; i < ds_list_size(global.party); i++) {

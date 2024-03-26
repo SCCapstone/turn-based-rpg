@@ -61,7 +61,7 @@ function enemy_roaming(){
 	        }
 	    }
 	}*/
-	if (++aggro >= aggro_duration) { // checks for the aggro variable and
+	/*if (++aggro >= aggro_duration) { // checks for the aggro variable and
 								   // compares it to the duration vatiable
 		aggro = 0;
 		if (instance_exists(obj_player)) && 
@@ -69,5 +69,5 @@ function enemy_roaming(){
 		state = ENEMY_STATE.CHASE;  // calls the chase script if the player
 	                              // is within a certain distance
 		}
-	}
+	}*/
 }
