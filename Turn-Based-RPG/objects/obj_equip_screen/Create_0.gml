@@ -8,6 +8,6 @@ show_equip = false;
 op_space = global.op_space;
 op_margin = global.op_margin;
 op_border = global.op_border;
-p_length = ds_list_size(global.party);
+//p_length = ds_list_size(global.party);
 text_size = .085;
 selected_character = 0;

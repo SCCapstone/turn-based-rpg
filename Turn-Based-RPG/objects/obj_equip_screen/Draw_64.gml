@@ -30,7 +30,7 @@ draw_sprite_stretched(spr_menu_background, 0, ui_x+66, ui_y+140, 25, 25);
 
 // Text for equipment slots
 draw_text_ext_transformed_color(ui_x+97, ui_y+96,"Weapon", op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1); 
-draw_text_ext_transformed_color(ui_x+97, ui_y+122,"Staff", op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1); 
+draw_text_ext_transformed_color(ui_x+97, ui_y+122,"Magic Weapon", op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1); 
 draw_text_ext_transformed_color(ui_x+97, ui_y+148,"Prayer Book", op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1); 
 
 // Equipment sprites
