@@ -118,6 +118,10 @@ if (_disabled == false) {
 			_prev_speaker = _speaker;
 		}
 	}
+	
+	if (keyboard_check(ord("M"))) {
+		CreatePauseMenu(self);
+	}
 }
 }
 if _step_allow == false {
