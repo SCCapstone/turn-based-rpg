@@ -170,8 +170,14 @@ function change_hp(attacker, defender, _dmg, dmg_type, dmg_source) {
 		// Factor in the attacker's stats to increase damage
 		_dmg = calculate_damage_scaling(attacker, _dmg, dmg_source);
 		
+		// Factor in the attacker's magic weapon if applicable
+		if (dmg_source == damage_source.spell && attacker._magic_weapon != noone) {
+			_dmg *= attacker._magic_weapon._dmg_multiplier;
+			show_debug_message("Magic damage multiplied by " + string(attacker._magic_weapon._dmg_multiplier))
+		}
+		
 		// Factor in the defender's resistances to reduce damage
-		_dmg = calculate_resistance(defender, _dmg, dmg_type);
+		//_dmg = calculate_resistance(defender, _dmg, dmg_type);
 		
 		// Factor in attacker's effects
 		// Increase damage by 25% if defender has Attack Up
@@ -303,29 +309,20 @@ function calculate_resistance(character, dmg, type) {
 	var res = 0; // Target's armor resistance
 	
 	if (type == "slash") {
-		res = (character._armor_head._prot_slash 
-		+ character._armor_chest._prot_slash
-		+ character._armor_legs._prot_slash);
+		// Getting rid of this for now. Armor isn't a part of the final game
+		//res = (character._armor_head._prot_slash 
+		//+ character._armor_chest._prot_slash
+		//+ character._armor_legs._prot_slash);
 	} else if (type == "pierce") {
-		res = (character._armor_head._prot_pierce
-		+ character._armor_chest._prot_pierce
-		+ character._armor_legs._prot_pierce);
+		
 	} else if (type == "blunt") {
-		res = (character._armor_head._prot_blunt
-		+ character._armor_chest._prot_blunt
-		+ character._armor_legs._prot_blunt);
+		
 	} else if (type == "magic") {
-		res = (character._armor_head._prot_magic
-		+ character._armor_chest._prot_magic
-		+ character._armor_legs._prot_magic);
+		
 	} else if (type == "fire") {
-		res = (character._armor_head._prot_fire
-		+ character._armor_chest._prot_fire
-		+ character._armor_legs._prot_fire);
+		
 	} else if (type == "ice") {
-		res = (character._armor_head._prot_ice
-		+ character._armor_chest._prot_ice
-		+ character._armor_legs._prot_ice);
+		
 	}
 	else {
 		return 0;
@@ -402,9 +399,17 @@ function update_status_effects(_character, _check_all) {
 					obj_battle_text, {color: effect[0]._txt_color, text: "-" + string(temp)})
 					// Check to see if damage tick killed character
 					if(_character._hp <= 0) { 
-						kill_target(_character);
+						if (state == turn.player) { // Give XP to player who originally cast the prayer
+							var killer = _character._effects[| j][3];
+							xp_gained[killer] += _character._xp_val
+							show_debug_message(party_units[p_num]._name + " gained " + 
+							string(enemy_units[target]._xp_val) + " XP.");
+						}
 						// Clear status effect list
 						ds_list_clear(_character._effects);
+						kill_target(_character);
+						state = resolve_state_transition(state, p_num, e_num, party_units, enemy_units);
+						return;
 					} 
 					// Reduce duration of effect by 1
 					if (_character._effects[| j][1] > 1) {
@@ -449,12 +454,13 @@ function kill_target(_target) {
 	_target._is_dead = true;
 	// Make the target's shadow invisible
 	if (state == turn.enemy) {
-		party_shadows[target].visible = false;
+		party_shadows[_target._num].visible = false;
 	} else {
-		enemy_shadows[target].visible = false;
+		enemy_shadows[_target._num].visible = false;
 	}
 	// Make target invisible, can't 
 	// destroy it or it messes things up
+	show_debug_message(_target._name + " was killed.");
 	_target.visible = false; 
 }
 

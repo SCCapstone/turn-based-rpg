@@ -30,6 +30,7 @@ for (var i = 0; i < ds_list_size(global.party); i++) {
 		x_offset += 40;
 	}
 	party_units[i] = instance_create_depth((x+29+(8*(i%2)))+x_offset, y+56+((i%2)*20), -2*(i+1), obj_party_unit, ds_list_find_value(global.party, i));
+	party_units[i]._num = i; // For fixing infuriating shadow glitch
 	party_shadows[i] = instance_create_depth((x+23+(8*(i%2))+x_offset), y+65+((i%2)*20), -2*(i+1)+1, obj_shadow);
 	party_units[i]._effects = ds_list_create();
 	array_push(units, party_units[i]); // Push friendly units to units array
@@ -43,6 +44,7 @@ for (var i = 0; i < array_length(enemies); i++) {
 		x_offset += 40;
 	}
 	enemy_units[i] = instance_create_depth((x+281-((i%2)*8))-x_offset, y+56+((i%2)*20), -2*(i+1), obj_enemy_unit, enemies[i]);
+	enemy_units[i]._num = i;
 	enemy_shadows[i] = instance_create_depth((x+257-((i%2)*8))-x_offset, y+65+((i%2)*20), -2*(i+1)+1, obj_shadow);
 	enemy_units[i]._effects = ds_list_create();
 	array_push(units, enemy_units[i]); // Push enemy units to units array

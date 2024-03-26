@@ -31,7 +31,7 @@ sorcerer =
 		// Equipment
 		_weapon: noone,
 		_magic_weapon: global.magic_weapons.staff,
-		_prayer_book: global.prayer_books.scroll,
+		_prayer_book: global.prayer_books.book,
 		
 		_armor_head: global.armor.mage_hood,
 		_armor_chest: global.armor.mage_robes,
@@ -70,7 +70,7 @@ knight =
 		
 		// Equipment
 		_weapon: global.weapons.greatsword,
-		_magic_weapon: global.magic_weapons.staff,
+		_magic_weapon: global.magic_weapons.amulet,
 		_prayer_book: global.prayer_books.scroll,
 		
 		_armor_head: global.armor.knightly_plumed_helmet,
