@@ -62,6 +62,7 @@
     {"name":"obj_castle_technophobe","order":6,"path":"objects/obj_castle_technophobe/obj_castle_technophobe.yy",},
     {"name":"snd_burn","order":3,"path":"sounds/snd_burn/snd_burn.yy",},
     {"name":"spr_castle_tiles","order":11,"path":"sprites/spr_castle_tiles/spr_castle_tiles.yy",},
+    {"name":"spr_mercenary","order":3,"path":"sprites/spr_mercenary/spr_mercenary.yy",},
     {"name":"obj_castle_turnip_farmer","order":5,"path":"objects/obj_castle_turnip_farmer/obj_castle_turnip_farmer.yy",},
     {"name":"snd_stun","order":1,"path":"sounds/snd_stun/snd_stun.yy",},
     {"name":"spr_pot","order":10,"path":"sprites/spr_pot/spr_pot.yy",},
