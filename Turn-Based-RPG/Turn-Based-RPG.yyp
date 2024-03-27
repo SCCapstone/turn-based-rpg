@@ -54,6 +54,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Non-Hostile NPCs","folderPath":"folders/Sprites/Characters/Misc/Non-Hostile NPCs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Consumables","folderPath":"folders/Sprites/Consumables.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Inventory","folderPath":"folders/Sprites/Inventory.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stat sprites","folderPath":"folders/Sprites/Stat sprites.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Status Effects","folderPath":"folders/Sprites/Status Effects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tiles","folderPath":"folders/Sprites/Tiles.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Town","folderPath":"folders/Sprites/Town.yy",},
@@ -65,7 +66,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"World Map","folderPath":"folders/Sprites/World Map.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stat sprites","folderPath":"folders/Sprites/Stat sprites.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"bash.wav","CopyToMask":-1,"filePath":"datafiles",},

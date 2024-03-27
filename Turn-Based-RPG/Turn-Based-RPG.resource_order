@@ -6,6 +6,7 @@
     {"name":"Characters","order":2,"path":"folders/Sprites/Characters.yy",},
     {"name":"Consumables","order":3,"path":"folders/Sprites/Consumables.yy",},
     {"name":"Inventory","order":4,"path":"folders/Sprites/Inventory.yy",},
+    {"name":"Stat sprites","order":12,"path":"folders/Sprites/Stat sprites.yy",},
     {"name":"Status Effects","order":10,"path":"folders/Sprites/Status Effects.yy",},
     {"name":"Tiles","order":5,"path":"folders/Sprites/Tiles.yy",},
     {"name":"Town","order":6,"path":"folders/Sprites/Town.yy",},
@@ -15,7 +16,6 @@
     {"name":"Prayer Books","order":4,"path":"folders/Sprites/Weapons/Prayer Books.yy",},
     {"name":"Projectiles","order":12,"path":"folders/Sprites/Weapons/Projectiles.yy",},
     {"name":"World Map","order":9,"path":"folders/Sprites/World Map.yy",},
-    {"name":"Stat sprites","order":12,"path":"folders/Sprites/Stat sprites.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"snd_magic_knife","order":2,"path":"sounds/snd_magic_knife/snd_magic_knife.yy",},
