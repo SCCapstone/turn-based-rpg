@@ -43,6 +43,7 @@ global.text_y_buffer = 4;
 global.namebox_x_buffer = 3;
 global.namebox_y_buffer = 92;
 global.text_max_width = (global.textbox_width - (2 * (global.ui_x_buffer))) * 7.2;
+global.xp = ds_list_create();
 
 // Simpler draw text function
 function draw_text_relative(_text, _color, _size, _offset) {
@@ -87,6 +88,7 @@ coolStruct =
 			_dex: 0,		// Dexterity
 			_int: 15,        // Intelligence
 			_agi: 10,		// Agility
+			_fai: 0,		// Faith
 
 			// Movesets
 			_spells: [global.spells.fireball, global.spells.ice_spike],
@@ -130,6 +132,7 @@ mercStruct =
 			_dex: 8,		// Dexterity
 			_int: 3,        // Intelligence
 			_agi: 8,		// Agility
+			_fai: 0,
 
 			// Movesets
 			_spells: [global.spells.magic_knife],

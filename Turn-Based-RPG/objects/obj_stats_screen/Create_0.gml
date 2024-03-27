@@ -4,8 +4,8 @@ selection[2] = "STR: ";
 selection[3] = "AGIL: ";
 selection[4] = "DEX: ";
 selection[5] = "INT: ";
-//selection[6] = "FAI: ";
-selection[6] = "SPD: ";
+selection[6] = "FAI: ";
+selection[7] = "SPD: ";
 skill_points[0] = 0; // stat points available
 skill_points[1] = 0;
 skill_points[2] = 0;
@@ -70,11 +70,15 @@ stat_ui_x = 3; // Stat screen x postion
 stat_ui_y = 3; // Stat screen y postion
 //(gui_height * 0.5) - (stat_ui_height * 0.5 * scale);
 
-stat_info_x = stat_ui_x + 30; // Stat screen information x postion
-stat_info_y = stat_ui_y + 45; // Stat screen information y postion
-stat_description_x = stat_info_x + 50; // Stats description x postion
+stat_info_x = 33; // Stat screen information x postion
+stat_info_y = 38; // Stat screen information y postion
+stat_description_x = 83; // Stats description x postion
+stat_spr_x = 21;
+stat_spr_y = 37;
 
 text_size = .085; // size of the text
+text_size_party = .055;
+text_size_description = .065;
 spr_icon1 = ds_list_find_value(global.party,0)._sprites.idle;
 /*spr_icon2 = ds_list_find_value(global.party,1)._sprites.idle;
 spr_icon3 = ds_list_find_value(global.party,2)._sprites.idle;

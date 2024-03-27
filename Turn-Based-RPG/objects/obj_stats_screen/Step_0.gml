@@ -64,15 +64,15 @@ switch (partypos) {
 		switch (statpos) {
 			case 0:
 				hp += 1; // value to show the points in the hp stat
-				new_hp = hp/10; // convets the stat into a percentage
-				ds_list_find_value(global.party,0)._max_hp += round(ds_list_find_value(global.party,0)._max_hp * new_hp); // adds that percentage to the base hp stat
+				//new_hp = hp/10; // convets the stat into a percentage
+				ds_list_find_value(global.party,0)._max_hp += (10 * ds_list_find_value(global.party,0)._lvl); //round(ds_list_find_value(global.party,0)._max_hp * new_hp); // adds that percentage to the base hp stat
 				//ds_list_find_value(global.party,0)._max_hp += 1;
 				ds_list_find_value(global.party,0)._hp = ds_list_find_value(global.party,0)._max_hp; // sets current health to the new max
 				break;
 			case 1:
 				mp += 1;
 				new_mp = mp/10;
-				ds_list_find_value(global.party,0)._max_mp += round(ds_list_find_value(global.party,0)._max_mp * new_mp);
+				ds_list_find_value(global.party,0)._max_mp += (10 * ds_list_find_value(global.party,0)._lvl); //round(ds_list_find_value(global.party,0)._max_mp * new_mp);
 				//ds_list_find_value(global.party,0)._max_mp += 1;
 				ds_list_find_value(global.party,0)._mp = ds_list_find_value(global.party,0)._max_mp
 				break;
@@ -89,8 +89,11 @@ switch (partypos) {
 				ds_list_find_value(global.party,0)._int += 1;
 				break;
 			case 6:
-				ds_list_find_value(global.party,0)._spd += 1;
+				ds_list_find_value(global.party,0)._fai += 1;
 				break;
+			case 7:
+				ds_list_find_value(global.party,0)._spd += 1;
+				break;	
 		}
 		skill_points[0] -= 1;
 	}
@@ -104,15 +107,15 @@ switch (partypos) {
 			case 0:
 				if ( hp > 0) {
 					hp -= 1;
-					new_hp = hp/10;
-					ds_list_find_value(global.party,0)._max_hp -= round(ds_list_find_value(global.party,0)._max_hp * new_hp);
+					//new_hp = hp/10;
+					ds_list_find_value(global.party,0)._max_hp -= (10 * ds_list_find_value(global.party,0)._lvl); //round(ds_list_find_value(global.party,0)._max_hp * new_hp);
 					//ds_list_find_value(global.party,0)._max_hp -= 1;
 					skill_points[0] += 1;
 					ds_list_find_value(global.party,0)._hp = ds_list_find_value(global.party,0)._max_hp;
-					if (hp == 0) {
-						ds_list_find_value(global.party,0)._max_hp -= round(ds_list_find_value(global.party,0)._max_hp * 0.1);
+					/*if (hp == 0) {
+						ds_list_find_value(global.party,0)._max_hp -= (10 * ds_list_find_value(global.party,0)._lvl); //round(ds_list_find_value(global.party,0)._max_hp * 0.1);
 						ds_list_find_value(global.party,0)._hp = ds_list_find_value(global.party,0)._max_hp;
-					}
+					}*/
 				} else {
 					hp = 0;
 				}
@@ -120,8 +123,8 @@ switch (partypos) {
 			case 1:
 				if ( mp > 0) {
 					mp -= 1;
-					new_mp = mp/10;
-					ds_list_find_value(global.party,0)._max_mp -= round(ds_list_find_value(global.party,0)._max_mp * new_mp);
+					//new_mp = mp/10;
+					ds_list_find_value(global.party,0)._max_mp -= (10 * ds_list_find_value(global.party,0)._lvl); //round(ds_list_find_value(global.party,0)._max_mp * new_mp);
 					//ds_list_find_value(global.party,0)._max_mp -= 1;
 					skill_points[0] += 1;
 					ds_list_find_value(global.party,0)._mp = ds_list_find_value(global.party,0)._max_mp;
@@ -162,6 +165,14 @@ switch (partypos) {
 				}
 				break;
 			case 6:
+				if ( ds_list_find_value(global.party,0)._fai > 1) {
+					ds_list_find_value(global.party,0)._fai-= 1;
+					skill_points[0] += 1;
+				} else {
+					ds_list_find_value(global.party,0)._fai = 0;
+				}
+				break;
+			case 7:
 				if ( ds_list_find_value(global.party,0)._spd > 1) {
 					ds_list_find_value(global.party,0)._spd -= 1;
 					skill_points[0] += 1;
@@ -179,15 +190,15 @@ switch (partypos) {
 		switch (statpos) {
 			case 0:
 				hp2 += 1; // value to show the points in the hp stat
-				new_hp2 = hp2/10; // convets the stat into a percentage
-				ds_list_find_value(global.party,1)._max_hp += round(ds_list_find_value(global.party,1)._max_hp * new_hp2); // adds that percentage to the base hp stat
+				//new_hp2 = hp2/10; // convets the stat into a percentage
+				ds_list_find_value(global.party,1)._max_hp += (10 * ds_list_find_value(global.party,1)._lvl); //round(ds_list_find_value(global.party,1)._max_hp * new_hp2); // adds that percentage to the base hp stat
 				//ds_list_find_value(global.party,0)._max_hp += 1;
 				ds_list_find_value(global.party,1)._hp = ds_list_find_value(global.party,1)._max_hp; // sets current health to the new max
 				break;
 			case 1:
 				mp2 += 1;
-				new_mp2 = mp2/10;
-				ds_list_find_value(global.party,1)._max_mp += round(ds_list_find_value(global.party,1)._max_mp * new_mp2);
+				//new_mp2 = mp2/10;
+				ds_list_find_value(global.party,1)._max_mp += (10 * ds_list_find_value(global.party,1)._lvl); //round(ds_list_find_value(global.party,1)._max_mp * new_mp2);
 				//ds_list_find_value(global.party,0)._max_mp += 1;
 				ds_list_find_value(global.party,1)._mp = ds_list_find_value(global.party,1)._max_mp
 				break;
@@ -204,6 +215,9 @@ switch (partypos) {
 				ds_list_find_value(global.party,1)._int += 1;
 				break;
 			case 6:
+				ds_list_find_value(global.party,1)._fai += 1;
+				break;
+			case 7:
 				ds_list_find_value(global.party,1)._spd += 1;
 				break;
 		}
@@ -219,13 +233,13 @@ switch (partypos) {
 			case 0:
 				if ( hp2 > 0) {
 					hp2 -= 1;
-					new_hp2 = hp2/10;
-					ds_list_find_value(global.party,1)._max_hp -= round(ds_list_find_value(global.party,1)._max_hp * new_hp2);
+					//new_hp2 = hp2/10;
+					ds_list_find_value(global.party,1)._max_hp -= (10 * ds_list_find_value(global.party,1)._lvl); //round(ds_list_find_value(global.party,1)._max_hp * new_hp2);
 					//ds_list_find_value(global.party,0)._max_hp -= 1;
-					if (hp2 == 0) {
+					/*if (hp2 == 0) {
 						ds_list_find_value(global.party,1)._max_hp -= round(ds_list_find_value(global.party,1)._max_hp * 0.1);
 						ds_list_find_value(global.party,1)._hp = ds_list_find_value(global.party,1)._max_hp;
-					}
+					}*/
 					skill_points[1] += 1;
 					ds_list_find_value(global.party,1)._hp = ds_list_find_value(global.party,1)._max_hp;
 				} else {
@@ -235,8 +249,8 @@ switch (partypos) {
 			case 1:
 				if ( mp2 > 0) {
 					mp2 -= 1;
-					new_mp2 = mp2/10;
-					ds_list_find_value(global.party,1)._max_mp -= round(ds_list_find_value(global.party,1)._max_mp * new_mp2);
+					//new_mp2 = mp2/10;
+					ds_list_find_value(global.party,1)._max_mp -= (10 * ds_list_find_value(global.party,1)._lvl); //round(ds_list_find_value(global.party,1)._max_mp * new_mp2);
 					//ds_list_find_value(global.party,0)._max_mp -= 1;
 					skill_points[1] += 1;
 					ds_list_find_value(global.party,1)._mp = ds_list_find_value(global.party,1)._max_mp;
@@ -277,6 +291,14 @@ switch (partypos) {
 				}
 				break;
 			case 6:
+				if ( ds_list_find_value(global.party,1)._fai > 1) {
+					ds_list_find_value(global.party,1)._fai-= 1;
+					skill_points[1] += 1;
+				} else {
+					ds_list_find_value(global.party,1)._fai = 0;
+				}
+				break;
+			case 7:
 				if ( ds_list_find_value(global.party,1)._spd > 1) {
 					ds_list_find_value(global.party,1)._spd -= 1;
 					skill_points[1] += 1;
@@ -294,15 +316,15 @@ switch (partypos) {
 		switch (statpos) {
 			case 0:
 				hp3 += 1; // value to show the points in the hp stat
-				new_hp3 = hp3/10; // convets the stat into a percentage
-				ds_list_find_value(global.party,2)._max_hp += round(ds_list_find_value(global.party,2)._max_hp * new_hp3); // adds that percentage to the base hp stat
+				//new_hp3 = hp3/10; // convets the stat into a percentage
+				ds_list_find_value(global.party,2)._max_hp += (10 * ds_list_find_value(global.party,2)._lvl); //round(ds_list_find_value(global.party,2)._max_hp * new_hp3); // adds that percentage to the base hp stat
 				//ds_list_find_value(global.party,0)._max_hp += 1;
 				ds_list_find_value(global.party,2)._hp = ds_list_find_value(global.party,2)._max_hp; // sets current health to the new max
 				break;
 			case 1:
 				mp3 += 1;
-				new_mp3 = mp3/10;
-				ds_list_find_value(global.party,2)._max_mp += round(ds_list_find_value(global.party,2)._max_mp * new_mp3);
+				//new_mp3 = mp3/10;
+				ds_list_find_value(global.party,2)._max_mp += (10 * ds_list_find_value(global.party,2)._lvl); //round(ds_list_find_value(global.party,2)._max_mp * new_mp3);
 				//ds_list_find_value(global.party,0)._max_mp += 1;
 				ds_list_find_value(global.party,2)._mp = ds_list_find_value(global.party,2)._max_mp
 				break;
@@ -319,6 +341,9 @@ switch (partypos) {
 				ds_list_find_value(global.party,2)._int += 1;
 				break;
 			case 6:
+				ds_list_find_value(global.party,2)._fai += 1;
+				break;
+			case 7:
 				ds_list_find_value(global.party,2)._spd += 1;
 				break;
 		}
@@ -334,13 +359,13 @@ switch (partypos) {
 			case 0:
 				if ( hp3 > 0) {
 					hp3 -= 1;
-					new_hp3 = hp3/10;
-					ds_list_find_value(global.party,2)._max_hp -= round(ds_list_find_value(global.party,2)._max_hp * new_hp3);
+					//new_hp3 = hp3/10;
+					ds_list_find_value(global.party,2)._max_hp -= (10 * ds_list_find_value(global.party,2)._lvl); //round(ds_list_find_value(global.party,2)._max_hp * new_hp3);
 					//ds_list_find_value(global.party,0)._max_hp -= 1;
-					if (h3 == 0) {
+					/*if (h3 == 0) {
 						ds_list_find_value(global.party,2)._max_hp -= round(ds_list_find_value(global.party,2)._max_hp * 0.1);
 						ds_list_find_value(global.party,2)._hp = ds_list_find_value(global.party,2)._max_hp;
-					}
+					}*/
 					skill_points[2] += 1;
 					ds_list_find_value(global.party,2)._hp = ds_list_find_value(global.party,2)._max_hp;
 				} else {
@@ -350,8 +375,8 @@ switch (partypos) {
 			case 1:
 				if ( mp3 > 0) {
 					mp3 -= 1;
-					new_mp3 = mp3/10;
-					ds_list_find_value(global.party,2)._max_mp -= round(ds_list_find_value(global.party,2)._max_mp * new_mp3);
+					//new_mp3 = mp3/10;
+					ds_list_find_value(global.party,2)._max_mp -= (10 * ds_list_find_value(global.party,2)._lvl); //round(ds_list_find_value(global.party,2)._max_mp * new_mp3);
 					//ds_list_find_value(global.party,0)._max_mp -= 1;
 					skill_points[2] += 1;
 					ds_list_find_value(global.party,2)._mp = ds_list_find_value(global.party,2)._max_mp;
@@ -392,6 +417,14 @@ switch (partypos) {
 				}
 				break;
 			case 6:
+				if ( ds_list_find_value(global.party,2)._fai > 1) {
+					ds_list_find_value(global.party,2)._fai-= 1;
+					skill_points[2] += 1;
+				} else {
+					ds_list_find_value(global.party,2)._fai = 0;
+				}
+				break;
+			case 7:
 				if ( ds_list_find_value(global.party,2)._spd > 1) {
 					ds_list_find_value(global.party,2)._spd -= 1;
 					skill_points[2] += 1;
@@ -409,15 +442,15 @@ switch (partypos) {
 		switch (statpos) {
 			case 0:
 				hp4 += 1; // value to show the points in the hp stat
-				new_hp4 = hp4/10; // convets the stat into a percentage
-				ds_list_find_value(global.party,3)._max_hp += round(ds_list_find_value(global.party,3)._max_hp * new_hp4); // adds that percentage to the base hp stat
+				//new_hp4 = hp4/10; // convets the stat into a percentage
+				ds_list_find_value(global.party,3)._max_hp += (10 * ds_list_find_value(global.party,3)._lvl); //round(ds_list_find_value(global.party,3)._max_hp * new_hp4); // adds that percentage to the base hp stat
 				//ds_list_find_value(global.party,0)._max_hp += 1;
 				ds_list_find_value(global.party,3)._hp = ds_list_find_value(global.party,3)._max_hp; // sets current health to the new max
 				break;
 			case 1:
 				mp4 += 1;
-				new_mp4 = mp4/10;
-				ds_list_find_value(global.party,3)._max_mp += round(ds_list_find_value(global.party,3)._max_mp * new_mp4);
+				//new_mp4 = mp4/10;
+				ds_list_find_value(global.party,3)._max_mp += (10 * ds_list_find_value(global.party,3)._lvl); //round(ds_list_find_value(global.party,3)._max_mp * new_mp4);
 				//ds_list_find_value(global.party,0)._max_mp += 1;
 				ds_list_find_value(global.party,3)._mp = ds_list_find_value(global.party,3)._max_mp
 				break;
@@ -434,6 +467,9 @@ switch (partypos) {
 				ds_list_find_value(global.party,3)._int += 1;
 				break;
 			case 6:
+				ds_list_find_value(global.party,3)._fai += 1;
+				break;
+			case 7:
 				ds_list_find_value(global.party,3)._spd += 1;
 				break;
 		}
@@ -449,13 +485,13 @@ switch (partypos) {
 			case 0:
 				if ( hp4 > 0) {
 					hp4 -= 1;
-					new_hp4 = hp4/10;
-					ds_list_find_value(global.party,3)._max_hp -= round(ds_list_find_value(global.party,3)._max_hp * new_hp4);
+					//new_hp4 = hp4/10;
+					ds_list_find_value(global.party,3)._max_hp -= (10 * ds_list_find_value(global.party,3)._lvl); //round(ds_list_find_value(global.party,3)._max_hp * new_hp4);
 					//ds_list_find_value(global.party,0)._max_hp -= 1;
-					if (hp4 == 0) {
+					/*if (hp4 == 0) {
 						ds_list_find_value(global.party,3)._max_hp -= round(ds_list_find_value(global.party,3)._max_hp * 0.1);
 						ds_list_find_value(global.party,3)._hp = ds_list_find_value(global.party,3)._max_hp;
-					}
+					}*/
 					skill_points[3] += 1;
 					ds_list_find_value(global.party,3)._hp = ds_list_find_value(global.party,3)._max_hp;
 				} else {
@@ -465,8 +501,8 @@ switch (partypos) {
 			case 1:
 				if ( mp4 > 0) {
 					mp4 -= 1;
-					new_mp4 = mp4/10;
-					ds_list_find_value(global.party,3)._max_mp -= round(ds_list_find_value(global.party,3)._max_mp * new_mp4);
+					//new_mp4 = mp4/10;
+					ds_list_find_value(global.party,3)._max_mp -= (10 * ds_list_find_value(global.party,3)._lvl); //round(ds_list_find_value(global.party,3)._max_mp * new_mp4);
 					//ds_list_find_value(global.party,0)._max_mp -= 1;
 					skill_points[3] += 1;
 					ds_list_find_value(global.party,3)._mp = ds_list_find_value(global.party,3)._max_mp;
@@ -507,6 +543,14 @@ switch (partypos) {
 				}
 				break;
 			case 6:
+				if ( ds_list_find_value(global.party,3)._fai > 1) {
+					ds_list_find_value(global.party,3)._fai-= 1;
+					skill_points[3] += 1;
+				} else {
+					ds_list_find_value(global.party,3)._fai = 0;
+				}
+				break;
+			case 7:
 				if ( ds_list_find_value(global.party,3)._spd > 1) {
 					ds_list_find_value(global.party,3)._spd -= 1;
 					skill_points[3] += 1;
@@ -519,6 +563,29 @@ switch (partypos) {
 	break;
 }
 
+for (var i = 0; i < ds_list_size(global.party); i++) {
+	if (ds_list_find_value(global.party,i)._fai >= 5 && ds_list_find_value(global.party,i)._fai <= 9) {
+		global.status_effects.burn._duration_max += 1;
+		global.status_effects.frosty._duration_max += 1
+		global.status_effects.poison._duration_max += 1;
+		global.status_effects.shock._duration_max += 1;
+	}
+	
+}
+/*if (ds_list_find_value(global.party,i)._fai >= 5 && ds_list_find_value(global.party,i)._fai <= 9) {
+		global.status_effects.burn._duration_max += 1;
+		global.status_effects.frosty._duration_max += 1
+		global.status_effects.poison._duration_max += 1;
+		global.status_effects.shock._duration_max += 1;
+	}*/
+
+/*var arr_stats = struct_names_count(global.status_effects);
+
+for (var i = 0; i < array_length(arr_stats); i++) {
+	if (ds_list_find_value(global.party,i)._fai >= 5 && ds_list_find_value(global.party,i)._fai <= 9) {
+		global.status_effects.burn._duration_max += 1;
+	}
+}*/
 
 
 for (var i = 0; i < ds_list_size(global.party); i++) {

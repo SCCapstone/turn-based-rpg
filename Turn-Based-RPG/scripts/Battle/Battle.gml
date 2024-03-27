@@ -283,9 +283,12 @@ function calculate_damage_scaling(attacker, _dmg, dmg_source) {
 		case damage_source.melee:
 			attacker_stat = string(attacker._str) + " STR";
 			increase = (attacker._str / 20);
-			if (attacker_stat >= 10) {
+			/*if (attacker._str >= 10 && attacker._str <= 14) {
 				_dmg += 2;
 			}
+			if (attacker._str >= 15 && attacker._str <= 19) {
+				_dmg += 4;
+			}*/
 			break;
 		case damage_source.ranged:
 			attacker_stat = string(attacker._dex) + " DEX"
@@ -554,6 +557,7 @@ function battle_end(party_units, xp_gained) {
 			ds_list_find_value(global.party,i)._xp += xp_gained[i];
 			show_debug_message(string(ds_list_find_value(global.party,i)._name) + " gained "
 			+ string(xp_gained[i]) + " XP!");
+			ds_list_set(global.xp, i, xp_gained[i]);
 		}
 	}
 }
