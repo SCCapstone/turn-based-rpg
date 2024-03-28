@@ -1,6 +1,17 @@
 function prayers(){
-global.prayers = {
-	chill:
+	global.prayers = ds_map_create();
+	
+	var _item = ds_map_create();
+	_item[? "_name"] = "Chill"
+	_item[? "effects"] = global.status_effects.frosty;
+	_item[? "_sprite"] = spr_frozen;
+	_item[? "_sound"] = snd_chill;
+	_item[? "_targets_friendly"] = false;
+	_item[? "_txt"] = "";
+	_item[? "_description"] = "";
+	global.prayers[? "_chill"] = _item;
+}
+	/*chill:
 	{
 		_name: "Chill",
 		_effects: [global.status_effects.frosty],	
@@ -62,5 +73,5 @@ global.prayers = {
 		_sound: snd_powerup,
 		_targets_friendly: true,
 	}
-}
-}
+}*/
+
