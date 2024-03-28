@@ -151,7 +151,6 @@
     {"id":{"name":"obj_castle_potion_maniac","path":"objects/obj_castle_potion_maniac/obj_castle_potion_maniac.yy",},},
     {"id":{"name":"spr_forest","path":"sprites/spr_forest/spr_forest.yy",},},
     {"id":{"name":"Prayers","path":"scripts/Prayers/Prayers.yy",},},
-    {"id":{"name":"WeaponsMap","path":"scripts/WeaponsMap/WeaponsMap.yy",},},
     {"id":{"name":"obj_castle_soldier1","path":"objects/obj_castle_soldier1/obj_castle_soldier1.yy",},},
     {"id":{"name":"spr_heal","path":"sprites/spr_heal/spr_heal.yy",},},
     {"id":{"name":"PlayerStats","path":"scripts/PlayerStats/PlayerStats.yy",},},
