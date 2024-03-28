@@ -14,7 +14,6 @@ function init(){
 	party_data();
 	enemy_templates();
 	consumables();
-	weapons_map();
 	Inventory();
 	
 	// Run inventory test

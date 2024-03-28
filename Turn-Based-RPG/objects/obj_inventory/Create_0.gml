@@ -37,5 +37,5 @@ _y_pos_max = 6;
 
 // testing add inventory method
 //inventory.add_item(global.weapons_map, "_sword");
-inventory.add_item(global.weapons_map, "_scythe");
+inventory.add_item(global.weapons, "_scythe");
 //inventory.add_item(global.weapons_map, "_bow");

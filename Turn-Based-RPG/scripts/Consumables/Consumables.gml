@@ -1,54 +1,58 @@
 function consumables() {
-global.consumables =
-{
-	// Adds 50 HP
-	health_potion:
-	{
-		_name: "Health Potion",
-		_sprite: spr_health_potion,
-		_func: function(character) { 
-			change_stat(character, STAT.HP, 50)
+	global.consumables = ds_map_create();
+	
+	// adds 50 HP
+	var _item = ds_map_create();
+	_item[? "_name"] = "Health Potion";
+	_item[? "_sprite"] = spr_health_potion;
+	_item[? "_func"] = function(_character) { 
+			change_stat(_character, STAT.HP, 50)
 		}
-	},
-	// Adds 50 MP
-	mana_potion:
-	{
-		_name: "Mana Potion",
-		_sprite: spr_mana_potion,
-		_func: function(character) { 
-			change_stat(character, STAT.MP, 50)
+	_item[? "_description"] = "A small red potion that heals a decent amount of HP. Tastes like rotten fruit.";
+	global.consumables[? "_health_potion"] = _item;
+	
+	// adds 50 MP
+	var _item = ds_map_create();
+	_item[? "_name"] = "Mana Potion";
+	_item[? "_sprite"] = spr_mana_potion;
+	_item[? "_func"] = function(_character) { 
+			change_stat(_character, STAT.MP, 50)
 		}
-	},
-	// Removes poison effect
-	antidote:
-	{
-		_name: "Antidote",
-		_sprite: spr_antidote,
-		_func: function(character) {
-			remove_status_effect(character, global.status_effects.poison)
+	_item[? "_description"] = "A small blue potion that restores a decent amount of Mana. Tastes acrid.";
+	global.consumables[? "_mana_potion"] = _item;
+	
+	// removes poison effect
+	var _item = ds_map_create();
+	_item[? "_name"] = "Antidote";
+	_item[? "_sprite"] = spr_antidote;
+	_item[? "_func"] = function(_character) {
+			remove_status_effect(_character, global.status_effects.poison)
 		}
-	},
-	// Removes burn effect
-	ointment:
-	{
-		_name: "Ointment",
-		_sprite: spr_ointment,
-		_func: function(character) {
-			remove_status_effect(character, global.status_effects.burn)
+	_item[? "_description"] = "A small white vial that heals poisoning. Tastes like sewer water.";
+	global.consumables[? "_antidote"] = _item;
+	
+	// removes burn effect
+	var _item = ds_map_create();
+	_item[? "_name"] = "Ointment";
+	_item[? "_sprite"] = spr_ointment;
+	_item[? "_func"] = function(_character) {
+			remove_status_effect(_character, global.status_effects.burn)
 		}
-	},
-	// Removes frosty effect
-	hot_tea:
-	{
-		_name: "Hot Tea",
-		_sprite: spr_hot_tea,
-		_func: function(character) {
-			remove_status_effect(character, global.status_effects.frosty)
+	_item[? "_description"] = "A small vial of beige ointment that heals burns. Leaves the skin feeling greasy for a while.";
+	global.consumables[? "ointment"] = _item;
+	
+	// removes frosty effect
+	var _item = ds_map_create();
+	_item[? "_name"] = "Hot Tea";
+	_item[? "_sprite"] = spr_hot_tea;
+	_item[? "_func"] = function(_character) {
+			remove_status_effect(_character, global.status_effects.frosty)
 		}
-	},
-}
-}
+	_item[? "_description"] = "A warm cup of tea that unfreezes. Subtle yet pleasant in taste.";
+	global.consumables[? "_hot_tea"] = _item;
 
+}
+	
 // Functions for consumable items
 
 // Consume an item and remove it from the inventory
@@ -120,7 +124,7 @@ function change_stat(_character, _stat, _amount) {
 }
 
 function remove_status_effect(_character, _effect) {
-	var match_found = false;
+	var _match_found = false;
 	for (var i = 0; i < array_length(_character._effects); i++) {
 		// Check every current effect on the character, and
 		// remove it if it matches the passed status effect
@@ -129,10 +133,10 @@ function remove_status_effect(_character, _effect) {
 			array_delete(_character._effects_remaining_turns, i, 1);
 			show_debug_message("Removed " + _effect._name 
 			+ " effect from " + _character._name);
-			match_found = true;
+			_match_found = true;
 		} 
 	}
-	if (!match_found) {
+	if (!_match_found) {
 		show_debug_message("No effect to remove from "
 		+ _character._name + "!");
 	}
