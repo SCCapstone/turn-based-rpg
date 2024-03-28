@@ -12,6 +12,7 @@ draw_sprite_stretched(_spr_inventory_slots, 0, _inventory_x_start, _inventory_y_
 
 // draws items from inventory
 // item sprite is in ds_grid column 1
+
 if (ds_grid_height(global.inventory) == 1) {
 	var _item_name = ds_grid_get(global.inventory, 0, 0);
 	var _item_sprite = ds_grid_get(global.inventory, 1, 0);
@@ -32,4 +33,3 @@ if (ds_grid_height(global.inventory) == 1) {
 		draw_sprite_stretched(_item_sprite, 0, _sprite_x_start, _sprite_y_start, _sprite_width, _sprite_height);
 	}
 }*/
-

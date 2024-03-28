@@ -6,8 +6,7 @@ function Inventory() constructor {
 	
 	// takes in ds map and key
 	add_item = function(_category, _item) {
-		// initializing item attributes
-		if ds_map_exists(_category, _item) {
+	if ds_map_exists(_category, _item) {
 			var _item_map = _category[? _item];
 			var _item_name = _item_map[? "_name"];
 			var _item_sprite = _item_map[? "_sprite"];
@@ -27,7 +26,7 @@ function Inventory() constructor {
 			}
 		}
 	}
-
+	
 	// removes row from inventory at index
 	remove_item = function(_index) {
 		// moving evey row below index up one
@@ -42,5 +41,4 @@ function Inventory() constructor {
 			ds_grid_resize(global.inventory, _item_attributes, (ds_grid_height(global.inventory)-1));
 		}
 	}	
-}
-
+}	

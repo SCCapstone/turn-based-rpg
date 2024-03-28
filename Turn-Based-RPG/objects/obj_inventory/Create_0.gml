@@ -2,6 +2,7 @@ inventory = new Inventory();
 
 _show_inventory = false;
 
+
 // values used in drawing inventory slots & border
  _gui_width = 314;
 _gui_height = 174;
@@ -37,5 +38,5 @@ _y_pos_max = 6;
 
 // testing add inventory method
 //inventory.add_item(global.weapons_map, "_sword");
-inventory.add_item(global.weapons, "_scythe");
+inventory.add_item(global.weapons_map, "_scythe");
 //inventory.add_item(global.weapons_map, "_bow");

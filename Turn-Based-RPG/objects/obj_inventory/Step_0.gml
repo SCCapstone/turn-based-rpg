@@ -24,4 +24,4 @@ if (_y_pos > _y_pos_max) {
 	_y_pos = _y_pos_max;
 }
 
-// TO-DO: highlight current selected inventory item for display
+// TO-DO: highlight current selected inventory item for equipping

@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 3,
   "conversionMode": 0,
-  "duration": 2.45551,
+  "duration": 3.604875,
   "parent": {
-    "name": "Prayers",
-    "path": "folders/Sounds/Prayers.yy",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "preload": false,
   "sampleRate": 44100,
   "soundFile": "snd_chill.mp3",
   "type": 1,
-  "volume": 0.6,
+  "volume": 0.5,
 }

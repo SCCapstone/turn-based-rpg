@@ -4,8 +4,7 @@ selection[2] = "STR: ";
 selection[3] = "AGIL: ";
 selection[4] = "DEX: ";
 selection[5] = "INT: ";
-selection[6] = "FAI: ";
-selection[7] = "SPD: ";
+selection[6] = "SPD: ";
 skill_points[0] = 0; // stat points available
 skill_points[1] = 0;
 skill_points[2] = 0;
@@ -15,18 +14,15 @@ skill_points[3] = 0;
 //stat_party[1] = "party2";
 //party_size = ds_list_size(global.party);
 //ds_list_size(global.party);
-/*for (var i = 0; i < ds_list_size(global.party); i++) {
-	//stat_party[i] = ds_list_find_value(global.party, i);
-	party_switch = ds_list_find_value(global.party, i);
-	
-}*/
+for (var i = 0; i < ds_list_size(global.party); i++) {
+	stat_party[i] = ds_list_find_value(global.party, i);
+	//= ds_list_find_value(global.party, i);
+}
 /*stat_party[2] = "party3";
 stat_party[3] = "party4";*/
 //current_line = 0 // y axis line
 //spacing = 16;
 //scale = 4;
-//original_hp = ds_list_find_value(global.party,0)._hp;
-//original_max_hp = ds_list_find_value(global.party,0)._hp;
 hp = 0;
 new_hp = 0;
 mp = 0;
@@ -57,7 +53,7 @@ op_margin = global.op_margin;
 op_border = global.op_border;
 op_length = array_length(selection);
 
-//party_switch = array_length(stat_party);
+party_switch = array_length(stat_party);
 partypos = 0;
 party_disable = false;
 
@@ -70,19 +66,11 @@ stat_ui_x = 3; // Stat screen x postion
 stat_ui_y = 3; // Stat screen y postion
 //(gui_height * 0.5) - (stat_ui_height * 0.5 * scale);
 
-stat_info_x = 33; // Stat screen information x postion
-stat_info_y = 38; // Stat screen information y postion
-stat_description_x = 83; // Stats description x postion
-stat_spr_x = 21;
-stat_spr_y = 37;
+stat_info_x = stat_ui_x + 30; // Stat screen information x postion
+stat_info_y = stat_ui_y + 45; // Stat screen information y postion
+stat_description_x = stat_info_x + 50; // Stats description x postion
 
 text_size = .085; // size of the text
-text_size_party = .055;
-text_size_description = .065;
-spr_icon1 = ds_list_find_value(global.party,0)._sprites.idle;
-/*spr_icon2 = ds_list_find_value(global.party,1)._sprites.idle;
-spr_icon3 = ds_list_find_value(global.party,2)._sprites.idle;
-spr_icon4 = ds_list_find_value(global.party,3)._sprites.idle;*/
 
 
 

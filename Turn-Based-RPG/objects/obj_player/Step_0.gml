@@ -1,8 +1,6 @@
 //runs each frame
 //IMPORTANT: OBJECTS MUST BE MARKED "Solid" TO HAVE WORKING NON-BASIC COLLISION WITH PLAYER
 
-
-if _step_allow == true{
 //Move the Sprite
 //right
 if (_target_x > x) {
@@ -109,19 +107,6 @@ if (_disabled == false) {
 				addPlayer();
 				show_debug_message("Added");
 				obj_cool_wizard.id.x = 4000;
-				_e_pressed = 0;
-			}
-		}
-		
-		if (global.location == 0 && _speaker == obj_mercenary.id) {
-			if (keyboard_check(ord("E"))) {
-				_e_pressed += 1
-			}
-			if (_e_pressed >= 3) {
-				addMercenary();
-				show_debug_message("Added");
-				obj_mercenary.id.x = 4000;
-				_e_pressed = 0;
 			}
 		}
 		if (_speaker != noone && _speaker != _prev_speaker) {
@@ -131,17 +116,6 @@ if (_disabled == false) {
 			_prev_speaker = _speaker;
 		}
 	}
-	
-	if (keyboard_check(ord("M"))) {
-		CreatePauseMenu(self);
-	}
 }
-}
-if _step_allow == false {
-	_target_x = x;
-	_target_y = y;
-	_moving = false;
-	image_speed = 0;
-	_step_allow = true;
-}
+
  
