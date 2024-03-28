@@ -5,6 +5,6 @@ function prayer_books() {
 	var _item = ds_map_create();
 	_item[? "_name"] = "Prayer Scroll";
 	_item[? "_sprite"] = spr_prayer_slip;
-	_item[? "description"] = "";
+	_item[? "description"] = "A small slip with holy prayers written on it used to heal curses.";
 	global.prayer_books[? "_scroll"] = _item; 
 }
