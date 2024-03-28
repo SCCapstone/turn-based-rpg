@@ -1,7 +1,7 @@
 function weapons(){
 global.weapons =
 {
-	sword:
+	sword: 
 	{
 		_name: "Sword",
 		_sprite: spr_sword,
@@ -78,4 +78,5 @@ global.weapons =
 		_attacks: [global.attacks.bite],
 		_type: damage_source.melee
 	}
+}
 }

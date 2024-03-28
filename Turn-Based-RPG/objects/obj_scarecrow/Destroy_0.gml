@@ -1,0 +1,1 @@
+battle_start([global.enemies.scarecrow], spr_field_background);
