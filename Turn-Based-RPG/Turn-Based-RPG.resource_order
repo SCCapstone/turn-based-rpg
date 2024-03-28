@@ -77,6 +77,7 @@
     {"name":"obj_castle_villager1","order":3,"path":"objects/obj_castle_villager1/obj_castle_villager1.yy",},
     {"name":"spr_sign","order":9,"path":"sprites/spr_sign/spr_sign.yy",},
     {"name":"obj_castle_potion_maniac","order":4,"path":"objects/obj_castle_potion_maniac/obj_castle_potion_maniac.yy",},
+    {"name":"WeaponsMap","order":1,"path":"scripts/WeaponsMap/WeaponsMap.yy",},
     {"name":"obj_castle_soldier1","order":10,"path":"objects/obj_castle_soldier1/obj_castle_soldier1.yy",},
     {"name":"spr_walls","order":8,"path":"sprites/spr_walls/spr_walls.yy",},
     {"name":"obj_equip_screen","order":1,"path":"objects/obj_equip_screen/obj_equip_screen.yy",},

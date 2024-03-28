@@ -1,6 +1,6 @@
-function weapons_map(){
+function weapons_map() {
 	global.weapons_map  = ds_map_create();
-	
+
 	// creating sword
 	var _item = ds_map_create();
 	ds_map_add(_item, "_name", "Sword");
@@ -10,7 +10,7 @@ function weapons_map(){
 	ds_map_add(_item, "_description", "Slashing. A medium weight sword commonly used by guards and bandits alike. Unremarkable in construction but readily available even in the smallest villages. Great for hunting.");
 	// adds sword to weapons
 	ds_map_add(global.weapons_map, "sword", _item);
-	
+
 	// creating sycthe
 	var _item = ds_map_create();
 	ds_map_add(_item, "_name", "Scythe");
@@ -20,7 +20,7 @@ function weapons_map(){
 	ds_map_add(_item, "_description", "Slashing. The player’s starting weapon. A scythe handed down in a family for farming. Has seen better days but its wear is testament to its build.");
 	// adds scythe to weapons
 	ds_map_add(global.weapons_map, "Scythe", _item);
-	
+
 	// creating bow
 	var _item = ds_map_create();
 	ds_map_add(_item, "_name", "Bow");
