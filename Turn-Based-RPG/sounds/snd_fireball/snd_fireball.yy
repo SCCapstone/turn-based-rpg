@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 1.0,
   "parent": {
-    "name": "Weapon Effects",
-    "path": "folders/Sounds/Weapon Effects.yy",
+    "name": "Magic",
+    "path": "folders/Sounds/Magic.yy",
   },
   "preload": false,
   "sampleRate": 44100,

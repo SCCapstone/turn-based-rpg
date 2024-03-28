@@ -9,6 +9,6 @@ _time = 45;
 
 gravity = 0;
 direction = 0;
-speed = 2.5;
+//speed = 2.5;
 
 alarm[0] = _time

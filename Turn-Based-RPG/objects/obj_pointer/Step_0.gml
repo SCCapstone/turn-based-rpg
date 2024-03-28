@@ -14,7 +14,7 @@ if ( _disabled == false){
 		state = 2;
 	}
 
-	if state == 0 && global.location == 1 && obj_field_node.is_cleared = true && keyboard_check_pressed(ord("D")) {
+	if state == 0 && global.location == 1 && obj_field_node.is_cleared == true && keyboard_check_pressed(ord("D")) {
 		state = 3;
 	}
 
@@ -22,7 +22,7 @@ if ( _disabled == false){
 		state = 4;
 	}
 
-	if state == 0 && global.location == 2 && keyboard_check_pressed(ord("D")) {
+	if state == 0 && global.location == 2 && obj_forest_node.is_cleared == true && keyboard_check_pressed(ord("D")) {
 		state = 5;
 	}
 
