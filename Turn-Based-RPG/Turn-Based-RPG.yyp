@@ -198,7 +198,6 @@
     {"id":{"name":"obj_castle_soldier1","path":"objects/obj_castle_soldier1/obj_castle_soldier1.yy",},},
     {"id":{"name":"PlayerStats","path":"scripts/PlayerStats/PlayerStats.yy",},},
     {"id":{"name":"spr_walls","path":"sprites/spr_walls/spr_walls.yy",},},
-    {"id":{"name":"obj_level_clear_checker","path":"objects/obj_level_clear_checker/obj_level_clear_checker.yy",},},
     {"id":{"name":"obj_village_node","path":"objects/obj_village_node/obj_village_node.yy",},},
     {"id":{"name":"obj_access_menu","path":"objects/obj_access_menu/obj_access_menu.yy",},},
     {"id":{"name":"EnemyTemplates","path":"scripts/EnemyTemplates/EnemyTemplates.yy",},},

@@ -80,7 +80,6 @@
     {"name":"WeaponsMap","order":1,"path":"scripts/WeaponsMap/WeaponsMap.yy",},
     {"name":"obj_castle_soldier1","order":10,"path":"objects/obj_castle_soldier1/obj_castle_soldier1.yy",},
     {"name":"spr_walls","order":8,"path":"sprites/spr_walls/spr_walls.yy",},
-    {"name":"obj_level_clear_checker","order":1,"path":"objects/obj_level_clear_checker/obj_level_clear_checker.yy",},
     {"name":"obj_equip_screen","order":1,"path":"objects/obj_equip_screen/obj_equip_screen.yy",},
     {"name":"spr_frozen","order":1,"path":"sprites/spr_frozen/spr_frozen.yy",},
     {"name":"spr_magic_knife","order":4,"path":"sprites/spr_magic_knife/spr_magic_knife.yy",},
