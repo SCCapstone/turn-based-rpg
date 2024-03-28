@@ -7,6 +7,7 @@ function init(){
 	armor();
 	attacks();
 	weapons();
+	weapons_map();
 	magic_weapons();
 	prayer_books();
 	spells();
