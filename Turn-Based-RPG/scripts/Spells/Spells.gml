@@ -9,7 +9,7 @@ function spells(){
 	_item[? "_sound"] = snd_fireball;
 	_item[? "_sprite"] = spr_fireball;
 	_item[? "_mp_cost"] = 10;
-		_item[? "_description"] = "Conjure up a flame and hurl it at your enemy. Deals fire damage and chance to inflict the burn status effect.";
+	_item[? "_description"] = "Conjure up a flame and hurl it at your enemy. Deals fire damage and chance to inflict the burn status effect.";
 	global.spells[? "_fireball"] = _item;
 	
 	var _item = ds_map_create();
