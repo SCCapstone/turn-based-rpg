@@ -55,13 +55,6 @@ if (_selected_type == noone) { // Draws available move types
 	draw_text_ext_transformed(x+244, y+123, _exists, 3000, 3000, .1, .1, 0)
 }
 
-// Draws player's targeting arrow
-if (_selected_type != noone && _selected_move != noone && _pos != noone) { 
-	// Sets player's targeting to friendly side when selecting friendly prayers
-	if (_selected_type == 2 && _player_party[_p_num]._prayers[_selected_move]._targets_friendly == true) {
-		draw_sprite_ext(spr_arrow,0,_player_party[_pos].x,_player_party[_pos].y + 10,
-		-1, 1, 0, c_white, 1);
-	} else { // Otherwise, draws targeting arrow normally
-		draw_sprite(spr_arrow,0,_enemy_party[_pos].x,_enemy_party[_pos].y + 10);
-	}
+if (_selected_type != noone && _selected_move != noone && _pos != noone) { // Draws player's targeting arrow
+	draw_sprite(spr_arrow,0,_enemy_party[_pos].x,_enemy_party[_pos].y + 10);
 }
