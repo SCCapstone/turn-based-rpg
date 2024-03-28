@@ -8,7 +8,7 @@ function consumables() {
 	_item[? "_func"] = function(_character) { 
 			change_stat(_character, STAT.HP, 50)
 		}
-	_item[? "_description"] = "";
+	_item[? "_description"] = "A small red potion that heals a decent amount of HP. Tastes like rotten fruit.";
 	global.consumables[? "_health_potion"] = _item;
 	
 	// adds 50 MP
@@ -18,7 +18,7 @@ function consumables() {
 	_item[? "_func"] = function(_character) { 
 			change_stat(_character, STAT.MP, 50)
 		}
-	_item[? "_description"] = "";
+	_item[? "_description"] = "A small blue potion that restores a decent amount of Mana. Tastes acrid.";
 	global.consumables[? "_mana_potion"] = _item;
 	
 	// removes poison effect
@@ -28,7 +28,7 @@ function consumables() {
 	_item[? "_func"] = function(_character) {
 			remove_status_effect(_character, global.status_effects.poison)
 		}
-	_item[? "_description"] = "";
+	_item[? "_description"] = "A small white vial that heals poisoning. Tastes like sewer water.";
 	global.consumables[? "_antidote"] = _item;
 	
 	// removes burn effect
@@ -38,7 +38,7 @@ function consumables() {
 	_item[? "_func"] = function(_character) {
 			remove_status_effect(_character, global.status_effects.burn)
 		}
-	_item[? "_description"] = "";
+	_item[? "_description"] = "A small vial of beige ointment that heals burns. Leaves the skin feeling greasy for a while.";
 	global.consumables[? "ointment"] = _item;
 	
 	// removes frosty effect
@@ -48,7 +48,7 @@ function consumables() {
 	_item[? "_func"] = function(_character) {
 			remove_status_effect(_character, global.status_effects.frosty)
 		}
-	_item[? "_description"] = "";
+	_item[? "_description"] = "A warm cup of tea that unfreezes. Subtle yet pleasant in taste.";
 	global.consumables[? "_hot_tea"] = _item;
 
 }
