@@ -11,18 +11,28 @@ draw_sprite_stretched(_spr_inventory_background, 0, _gui_x_start, _gui_y_start, 
 draw_sprite_stretched(_spr_inventory_slots, 0, _inventory_x_start, _inventory_y_start, _inventory_width, _inventory_height);
 
 // draws items from inventory
-// item sprite is in ds_grid column 1
-
-if (ds_grid_height(global.inventory) == 1) {
-	var _item_name = ds_grid_get(global.inventory, 0, 0);
-	var _item_sprite = ds_grid_get(global.inventory, 1, 0);
-	var _item_desc = ds_grid_get(global.inventory, 2, 0);
-	draw_sprite_stretched(_item_sprite, 0, (_inventory_x_start+_slot_padding_x), (_inventory_y_start+_slot_padding_y), _sprite_width, _sprite_height);
+for (var i = 0; i < 6; i++) {
+	for (var j = 0; j < 10; j++) {
+		// Ensures empty slots are not drawn
+		if (global.inventory[# j, i] != noone) {
+			var _item_name = global.inventory[# j, i]._name;
+			var _item_sprite = global.inventory[# j, i]._sprite;
+			//var _item_desc = ds_grid_get(global.inventory, 2, 0);
+	
+			// Draw sprite in inventory
+			draw_sprite_stretched(_item_sprite, 0, (12+(_slot_padding_x*j)), 
+			(12+(_slot_padding_y*i)), _sprite_width, _sprite_height);
+		}
+	}
+}
+	
+	
+	
 	// TO-DO: info bar GUI on right side of inventory
 	//draw_sprite_stretched(_item_sprite, 0, _info_bar_start, _inventory_y_start, 25, 25);
 	//draw_text_ext_transformed_color(_info_bar_start, _name_y, _item_name, 2, _info_width, _font_size, _font_size, 0, c_white, c_white, c_white, c_white, 1);
 	//draw_text_ext_transformed_color(_info_bar_start, _desc_y, _item_desc, 2, _info_width, _font_size, _font_size, 0, c_white, c_white, c_white, c_white, 1);
-} /*else if (ds_grid_height(global.inventory) > 1) {
+ /*else if (ds_grid_height(global.inventory) > 1) {
 	for(var i = 0; i < ds_grid_height(global.inventory); i += 1) {
 		var _item_name = ds_grid_get(global.inventory, 0, i);
 		var _item_sprite = ds_grid_get(global.inventory, 1, i);
