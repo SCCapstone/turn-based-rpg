@@ -3,7 +3,11 @@ if (keyboard_check_pressed(ord("I")) && room != rm_world_map && room != rm_acces
 	_show_inventory = !_show_inventory;
 }
 
-if (!_show_inventory) exit;
+if (!_show_inventory) {
+	self.visible = false;	
+} else {
+	self.visible = true;	
+};
 
 // move through inventory
 var _up_key = keyboard_check_pressed(ord("W"));

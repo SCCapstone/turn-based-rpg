@@ -471,7 +471,7 @@ function kill_target(_target) {
 function flash_item(type) {
 	if (state == turn.player) {
 		if (type == display.weapon) { // Flash player weapon
-			var temp = instance_create_depth(party_units[p_num].x+5, party_units[p_num].y+24, party_units[p_num].depth-1,
+			var temp = instance_create_depth(party_units[p_num].x+5, party_units[p_num].y, party_units[p_num].depth-1,
 			obj_sprite)
 			temp._sprite = party_units[p_num]._weapon._sprite;
 			temp._scale = 1;
@@ -479,7 +479,7 @@ function flash_item(type) {
 		}
 
 		if (type == display.magic_weapon) { // Flash player magic weapon
-			var temp = instance_create_depth(party_units[p_num].x+5, party_units[p_num].y+24, party_units[p_num].depth-1,
+			var temp = instance_create_depth(party_units[p_num].x+5, party_units[p_num].y, party_units[p_num].depth-1,
 			obj_sprite);
 			temp._sprite = party_units[p_num]._magic_weapon._sprite;
 			temp._scale = 1;
@@ -494,7 +494,7 @@ function flash_item(type) {
 		}
 
 		if (type == display.prayer_book) { // Flash player prayer book
-			var temp = instance_create_depth(party_units[p_num].x+5, party_units[p_num].y+24, party_units[p_num].depth-1,
+			var temp = instance_create_depth(party_units[p_num].x+5, party_units[p_num].y+6, party_units[p_num].depth-1,
 			obj_sprite);
 			temp._sprite = party_units[p_num]._prayer_book._sprite;
 			temp._scale = 1;
@@ -512,7 +512,7 @@ function flash_item(type) {
 	
 	if (state == turn.enemy) {
 		if (type == display.weapon) { // Flash enemy weapon
-			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
+			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y, enemy_units[e_num].depth-1,
 			obj_sprite)
 			temp._sprite = enemy_units[e_num]._weapon._sprite;
 			temp._scale = -1;
@@ -526,14 +526,14 @@ function flash_item(type) {
 		}
 
 		if (type == display.magic_weapon) { // Flash enemy magic weapon
-			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
+			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y, enemy_units[e_num].depth-1,
 			obj_sprite)
 			temp._sprite = enemy_units[e_num]._magic_weapon._sprite;
 			temp._scale = -1;
 		}
 
 		if (type == display.prayer_book) { // Flash enemy prayer book
-			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+24, enemy_units[e_num].depth-1,
+			var temp = instance_create_depth(enemy_units[e_num].x-5, enemy_units[e_num].y+6, enemy_units[e_num].depth-1,
 			obj_sprite)
 			temp._sprite = enemy_units[e_num]._prayer_book._sprite;
 			temp._scale = -1;
@@ -592,3 +592,27 @@ function check_has_effect(_character, _effect) {
 		return false; // If no matches found, return false
 	}
 }
+
+// Returns loot and gold gained after battle
+// Takes in enemy party
+function roll_loot_table(_enemies) {
+	// Calculate loot drops and gold gain
+	for (var i = 0; i < array_length(_enemies); i++) { // For each enemy
+		// Roll gold amount and add to gold_gained temp variable
+		var temp_gold = irandom_range(0, _enemies[i]._gold_range[1]);
+		global.gold_gained += temp_gold;
+		// TODO actually add gold
+		// Roll loot table
+		for (var j = 0; j < array_length(_enemies[i]._loot_table); j++) { // Check each loot roll
+			var temp_loot = irandom_range(0, 100) // RNG roll out of 100
+			// If roll is below this loot table's % to drop, drop the item
+			if (temp_loot <= _enemies[i]._loot_table[j][1]) {
+				// Push item to item_gained temp array and inventory
+				array_push(global.item_gained, _enemies[i]._loot_table[j][0]);
+				global.inventory.add_item(_enemies[i]._loot_table[j][0]);
+			}
+		}
+	}
+		show_debug_message("Player party gained " + string(global.gold_gained) + " gold!");
+}
+	
