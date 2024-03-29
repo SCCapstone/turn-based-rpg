@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_beer",
-  "bbox_bottom": 15,
-  "bbox_left": 2,
-  "bbox_right": 14,
-  "bbox_top": 1,
+  "bbox_bottom": 14,
+  "bbox_left": 1,
+  "bbox_right": 13,
+  "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"19592007-53bf-426b-a251-e11383e069f4",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"838e1706-5dcb-4702-916c-eeea01b8cdf0",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 16,
+  "height": 15,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a8a744d9-dabb-4edf-8871-0718f6b810ca","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"20deed22-e10f-4dd1-9079-73253c078fec","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"19592007-53bf-426b-a251-e11383e069f4","path":"sprites/spr_beer/spr_beer.yy",},},},"Disabled":false,"id":"668c5c01-15ba-44e0-9d4c-f5b6fbdab66b","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"838e1706-5dcb-4702-916c-eeea01b8cdf0","path":"sprites/spr_beer/spr_beer.yy",},},},"Disabled":false,"id":"f08e52b1-5581-405b-8ed7-2ac1fde203f7","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 16,
+  "width": 15,
 }
