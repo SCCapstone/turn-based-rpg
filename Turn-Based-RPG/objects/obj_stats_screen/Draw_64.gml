@@ -7,13 +7,7 @@ draw_set_font(fnt_pixeloid);
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 
-//draw_sprite_stretched(spr_stat_ui, 0, stat_ui_x, stat_ui_y, stat_ui_width, stat_ui_height);
-//draw_sprite_stretched(spr_stat_party, 0, 230, 120, 80, 25);
-//draw_sprite_stretched(spr_stat_party, 0, 230, 95, 80, 25);
-// the background for the stats screen
-//draw_sprite_ext(spr_stat_ui, 0, stat_ui_x, stat_ui_y, 8.7, 4.8, 0, c_white, 1);
-// draws the current party member name and level then under displays the current XP and max XP to reach the next level
-//draw_text_ext_transformed_color(stat_info_x + 40, stat_info_y - 15, string("Press ' O ' to switch between party members"), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+// draws the sprites next to each stat name
 draw_sprite_stretched(spr_health, 0, stat_spr_x, stat_spr_y, 10, 10);
 
 draw_sprite_stretched(spr_mana, 0, stat_spr_x, stat_spr_y + 14, 10, 10);
@@ -30,9 +24,9 @@ draw_sprite_stretched(spr_faith, 0, stat_spr_x, stat_spr_y + 89, 10, 10);
 
 draw_sprite_stretched(spr_speed, 0, stat_spr_x, stat_spr_y + 104, 10, 10);
 
-/*
- When the stat is currently being selected it will be highlighted and give a brief description of the current stat
-*/
+
+// draws the current party member name and level then under displays the current XP and max XP to reach the next level
+// Will only highlight the current party member and show their stats
 if (!party_disable) {
 	if (partypos == 0) {
 	draw_sprite_stretched(spr_stat_party, 1, 230, 45, 80, 25);
@@ -432,6 +426,9 @@ if (!party_disable) {
 	draw_text_ext_transformed_color(stat_info_x + 210, stat_info_y + 105, "STAT POINTS: " + string(skill_points[0]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
 } else {
+	/*
+	 When the stat is currently being selected it will be highlighted and give a brief description of the current stat
+	*/
 	if (partypos == 0) {
 		draw_sprite_stretched(spr_stat_party, 1, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);

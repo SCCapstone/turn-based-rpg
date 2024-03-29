@@ -8,10 +8,9 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
 draw_sprite_stretched(spr_menu_background, 0, global.ui_x_buffer, global.ui_y_buffer, global.textbox_width, global.textbox_height);
-/*for (var i = 0; i < ds_list_size(global.party); i++) {
-	draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,1)._name) + " gained " + string(ds_list_find_value(global.xp, 1)) + " XP!", 99, global.text_max_width, .125, .125, 0);
-}*/
-//if (pos = 0)
+
+// Holds the xp values for the party and displays them on screen
+// Each case if for a different party member with the integer _page controlling them as shown in the step event
 switch (pos) {
 	case 0:
 		switch(_page) {
@@ -37,9 +36,14 @@ switch (pos) {
 			break;	
 		}
 	break;
+	// Will only show if bool _gained_item is true
+	// Should loop through the global item gained array
 	case 1:
 		if (_gained_item == true) {
-			draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, global.weapon_gained[_page]._name, 99, global.text_max_width, .125, .125, 0);
+			for (var i = 0; i < array_length(global.item_gained); i++) {
+				draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, "Party has gained " + global.item_gained[i]._name + "!", 99, global.text_max_width, .125, .125, 0);
+			}
+			//draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, global.item_gained[_page]._name, 99, global.text_max_width, .125, .125, 0);
 		}
 }
 
