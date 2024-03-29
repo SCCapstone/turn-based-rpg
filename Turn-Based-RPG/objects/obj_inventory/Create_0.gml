@@ -15,10 +15,10 @@ _inventory_y_start = 6;
 
 // values used in drawing sprites in each slot
 // TO-DO: inventory slot pixels count
-_sprite_width = 15;
-_sprite_height = 15;
-_slot_padding_x = 6;
-_slot_padding_y = 3;
+_sprite_width = 16;
+_sprite_height = 16;
+_slot_padding_x = 28;
+_slot_padding_y = 28;
 _info_bar_start = 290;
 _info_width = 30;
 _name_y = 48;
@@ -38,5 +38,11 @@ _y_pos_max = 6;
 
 // testing add inventory method
 //inventory.add_item(global.weapons_map, "_sword");
-inventory.add_item(global.weapons_map, "_scythe");
+inventory.add_item(global.weapons.bow);
+inventory.add_item(global.weapons.greatsword);
+inventory.add_item(global.weapons.dagger);
+inventory.add_item(global.spells.fireball);
+inventory.add_item(global.prayer_books.book);
+inventory.add_item(global.prayers.chill);
+
 //inventory.add_item(global.weapons_map, "_bow");
