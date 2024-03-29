@@ -2,24 +2,22 @@ up_key = keyboard_check_pressed(ord("W"))
 down_key = keyboard_check_pressed(ord("S"));
 left_key = keyboard_check_pressed(ord("A"));
 right_key = keyboard_check_pressed(ord("D"));
+accept_key = keyboard_check_pressed(ord("E"));
 
-/*
- When P is pressed as long as the current room is not the access menu or the world 
- map the player object will be unable to receive inputs and the stats screen will appear.
- If the world map is the current room the pointer object will be unable to receive inputs instead.
- If P is pressed again the stats screen will disappear and the respective object will be allowed 
- to receive inputs.
-*/
-if (keyboard_check_pressed(ord("P")) && room != rm_world_map && room != rm_access_menu) {
+
+/*if (keyboard_check_pressed(ord("P")) && room != rm_world_map && room != rm_access_menu) {
 	show_stats = !show_stats;
-	obj_player._disabled = !obj_player._disabled;
+	//obj_player._disabled = !obj_player._disabled;
 } else if (keyboard_check_pressed(ord("P")) && room == rm_world_map) {
 	show_stats = !show_stats;
 	obj_pointer._disabled = !obj_pointer._disabled;
-} 
+}*/
+
+// drawing and removal of the stats screen will be handled by the pause menu
 
 
 if (!show_stats) exit;
+
 
 
 /*
@@ -37,7 +35,7 @@ if (!party_disable) {
     //show_debug_message(party_switch);
 
 // Check if party operations should be disabled
-if (keyboard_check_pressed(ord("E"))) {
+if (accept_key) {
     party_disable = !party_disable;
 }
 
@@ -64,15 +62,13 @@ switch (partypos) {
 		switch (statpos) {
 			case 0:
 				hp += 1; // value to show the points in the hp stat
-				//new_hp = hp/10; // convets the stat into a percentage
-				ds_list_find_value(global.party,0)._max_hp += (10 * ds_list_find_value(global.party,0)._lvl); //round(ds_list_find_value(global.party,0)._max_hp * new_hp); // adds that percentage to the base hp stat
-				//ds_list_find_value(global.party,0)._max_hp += 1;
+				ds_list_find_value(global.party,0)._max_hp += (10 * ds_list_find_value(global.party,0)._lvl); // Now adds 10 health * the characters level
 				ds_list_find_value(global.party,0)._hp = ds_list_find_value(global.party,0)._max_hp; // sets current health to the new max
 				break;
 			case 1:
 				mp += 1;
 				new_mp = mp/10;
-				ds_list_find_value(global.party,0)._max_mp += (10 * ds_list_find_value(global.party,0)._lvl); //round(ds_list_find_value(global.party,0)._max_mp * new_mp);
+				ds_list_find_value(global.party,0)._max_mp += (10 * ds_list_find_value(global.party,0)._lvl);
 				//ds_list_find_value(global.party,0)._max_mp += 1;
 				ds_list_find_value(global.party,0)._mp = ds_list_find_value(global.party,0)._max_mp
 				break;

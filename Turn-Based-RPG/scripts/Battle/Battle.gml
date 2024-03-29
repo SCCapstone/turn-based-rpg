@@ -557,7 +557,7 @@ function battle_end(party_units, xp_gained) {
 			ds_list_find_value(global.party,i)._xp += xp_gained[i];
 			show_debug_message(string(ds_list_find_value(global.party,i)._name) + " gained "
 			+ string(xp_gained[i]) + " XP!");
-			ds_list_set(global.xp, i, xp_gained[i]);
+			global.xp[i] = xp_gained[i];
 		}
 	}
 }
