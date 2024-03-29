@@ -4,10 +4,10 @@ if (keyboard_check_pressed(ord("I")) && room != rm_world_map && room != rm_acces
 }
 
 if (!_show_inventory) {
-	self.visible = false;
+	self.visible = false;	
 } else {
 	self.visible = true;	
-}
+};
 
 // move through inventory
 var _up_key = keyboard_check_pressed(ord("W"));
