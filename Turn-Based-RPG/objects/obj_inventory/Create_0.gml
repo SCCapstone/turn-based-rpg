@@ -36,6 +36,17 @@ _x_pos_max = 10;
 _y_pos_max = 5;
 
 // testing add inventory method
+
+//inventory.add_item(global.weapons_map, "_sword");
+global.inventory.add_item(global.weapons.bow);
+global.inventory.add_item(global.weapons.greatsword);
+global.inventory.add_item(global.weapons.dagger);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.prayer_books.book);
+global.inventory.add_item(global.prayers.chill);
+
+//inventory.add_item(global.weapons_map, "_bow");
+
 global.inventory.add_item(global.weapons.bow);
 global.inventory.add_item(global.weapons.greatsword);
 //global.inventory.add_item(global.weapons.dagger);
@@ -51,3 +62,4 @@ global.inventory.add_item(global.weapons.greatsword);
 //		global.inventory.add_item(global.weapons.bow);
 //	}
 //}
+
