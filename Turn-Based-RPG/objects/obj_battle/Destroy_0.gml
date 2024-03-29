@@ -10,9 +10,10 @@ for (var i = 0; i < p_length; i++) {
 	instance_destroy(party_units[i]);
 	instance_destroy(party_shadows[i])
 }
+roll_loot_table(enemy_units);
 for (var i = 0; i < e_length; i++) {
 	instance_destroy(enemy_units[i]);
 	instance_destroy(enemy_shadows[i]);
 }
-instance_create_layer(0,0,"Player", obj_after_battle);
-
+instance_destroy(obj_status_effect);
+instance_create_layer(0,0,0, obj_after_battle);

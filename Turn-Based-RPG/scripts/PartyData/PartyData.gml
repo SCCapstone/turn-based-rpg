@@ -9,7 +9,7 @@ sorcerer =
 		
 		// Stats
 		_hp: 150,		// Current HP
-		_mp: 50,		// Current MP
+		_mp: 100,		// Current MP
 		
 		_lvl: 1,		// Level
 		_xp: 0,			// Experience/XP

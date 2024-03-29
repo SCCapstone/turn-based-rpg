@@ -62,5 +62,5 @@ function Inventory() constructor {
 			_y = temp_y;
 			show_debug_message("Removed " + _item._name + " from (" + string(_x) + ", " + string(_y) + ")");
 		}
-	}	
-}	
+	}
+}

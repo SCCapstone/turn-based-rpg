@@ -8,10 +8,10 @@ global.enemies =
 		_name: "Dark Wizard",
 		
 		// Stats
-		_hp: 60,		// Current HP
+		_hp: 5,		// Current HP
 		_mp: 100,		// Current MP
 
-		_max_hp: 60,    // Health
+		_max_hp: 5,    // Health
 		_max_mp: 100,    // Mana
 		_spd: 7,		// Speed
 		_str: 0,		// Strength
@@ -35,7 +35,11 @@ global.enemies =
 		// Misc
 		_sprites: {idle: spr_sorcerer},
 		_is_dead: false,
-		_xp_val: 50
+		_xp_val: 50,
+		
+		// Loot
+		_loot_table: [[global.consumables.mana_potion, 40], [global.magic_weapons.staff, 20]],
+		_gold_range: [0, 75]
 	},
 	dark_knight:
 	{
@@ -69,17 +73,22 @@ global.enemies =
 		// Misc
 		_sprites: {idle: spr_knight},
 		_is_dead: false,
-		_xp_val: 65
+		_xp_val: 65,
+		
+		// Loot
+		_loot_table: [[global.consumables.health_potion, 60], [global.weapons.sword, 20],
+		[global.weapons.scythe, 10], [global.weapons.greatsword, 5]],
+		_gold_range: [0, 75]
 	},
 	mercenary:
 	{
 		_name: "Mercenary Archer",
 		
 		//Stats
-		_hp: 75,
+		_hp: 5,
 		_mp: 0,
 
-		_max_hp: 75,    // Health
+		_max_hp: 5,    // Health
 		_max_mp: 0,     // Mana
 		_spd: 6,		// Speed
 		_str: 0,		// Strength
@@ -103,7 +112,11 @@ global.enemies =
 		// Misc
 		_sprites: { idle: spr_archer },
 		_is_dead: false,
-		_xp_val: 40
+		_xp_val: 40,
+		
+		// Loot
+		_loot_table: [[global.consumables.antidote, 30], [global.weapons.bow, 25]],
+		_gold_range: [0, 75]
 	},
 	bandit:
 	{
@@ -137,7 +150,11 @@ global.enemies =
 		// Misc
 		_sprites: {idle: spr_bandit},
 		_is_dead: false,
-		_xp_val: 50
+		_xp_val: 50,
+		
+		// Loot
+		_loot_table: [[global.consumables.hot_tea, 35], [global.weapons.dagger, 20]],
+		_gold_range: [0, 50]
 	},
 	scarecrow:
 	{
@@ -171,7 +188,11 @@ global.enemies =
 		// Misc
 		_sprites: {idle: spr_scarecrow},
 		_is_dead: false,
-		_xp_val: 50
+		_xp_val: 50,
+		
+		// Loot
+		_loot_table: [],
+		_gold_range: [0, 10]
 	},
 	wolf:
 	{
@@ -205,7 +226,11 @@ global.enemies =
 		// Misc
 		_sprites: {idle: spr_wolf},
 		_is_dead: false,
-		_xp_val: 50
+		_xp_val: 50,
+		
+		// Loot
+		_loot_table: [[global.consumables.ointment, 25]],
+		_gold_range: [0, 25]
 	},
 }
 }
