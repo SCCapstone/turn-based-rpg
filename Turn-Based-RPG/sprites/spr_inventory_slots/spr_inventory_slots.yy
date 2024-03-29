@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_inventory_slots",
-  "bbox_bottom": 171,
-  "bbox_left": 22,
-  "bbox_right": 298,
-  "bbox_top": 7,
+  "bbox_bottom": 167,
+  "bbox_left": 0,
+  "bbox_right": 307,
+  "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"908149af-0bf2-4d42-b9fc-6a0d826b220d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c05c44e3-4330-499e-8d2a-536f01e1bf26",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 180,
+  "height": 168,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4794e3c9-f8a9-4dda-8d34-6e994cf30e6c","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"bf34b626-4b3a-47fb-8cd7-a212754f7e31","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"908149af-0bf2-4d42-b9fc-6a0d826b220d","path":"sprites/spr_inventory_slots/spr_inventory_slots.yy",},},},"Disabled":false,"id":"1d7af81a-09a5-4242-baad-d00e228f0a59","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c05c44e3-4330-499e-8d2a-536f01e1bf26","path":"sprites/spr_inventory_slots/spr_inventory_slots.yy",},},},"Disabled":false,"id":"c8522b82-77ae-4510-9dfd-d0b1548ba007","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 320,
+  "width": 308,
 }

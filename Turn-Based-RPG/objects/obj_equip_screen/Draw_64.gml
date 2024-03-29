@@ -35,13 +35,13 @@ draw_text_ext_transformed_color(ui_x+97, ui_y+148,"Prayer Book", op_space, op_ma
 
 // Equipment sprites
 if (global.party[|selected_character]._weapon != noone) {
-	draw_sprite_ext(global.party[|selected_character]._weapon._sprite, 0, ui_x+69, ui_y+111, .75, .75, 0, c_white, 1);
+	draw_sprite_stretched_ext(global.party[|selected_character]._weapon._sprite, 0, ui_x+70, ui_y+92, 16, 16, c_white, 1);
 }
 if (global.party[|selected_character]._magic_weapon != noone) {
-	draw_sprite_ext(global.party[|selected_character]._magic_weapon._sprite, 0, ui_x+70, ui_y+135, .75, .75, 0, c_white, 1);
+	draw_sprite_stretched_ext(global.party[|selected_character]._magic_weapon._sprite, 0, ui_x+70, ui_y+119, 16, 16, c_white, 1);
 }
 if (global.party[|selected_character]._prayer_book != noone) {
-	draw_sprite_ext(global.party[|selected_character]._prayer_book._sprite, 0, ui_x+73, ui_y+159, .75, .75, 0, c_white, 1);
+	draw_sprite_stretched_ext(global.party[|selected_character]._prayer_book._sprite, 0, ui_x+70, ui_y+145, 16, 16, c_white, 1);
 }
 
 // Text for spell/prayer boxes
@@ -65,13 +65,13 @@ draw_sprite_stretched(spr_menu_background, 0, ui_x+279, ui_y+140, 25, 25);
 // Spell sprites
 if (array_length(global.party[|selected_character]._spells) != 0) {
 	for (var i = 0; i < array_length(global.party[|selected_character]._spells); i++) {
-		draw_sprite(global.party[|selected_character]._spells[i]._sprite, 0, 190+(26*i), 113)
+		draw_sprite_stretched(global.party[|selected_character]._spells[i]._sprite, 0, 183+(26*i), 106, 16, 16)
 	}
 }
 
 // Prayer sprites
 if (array_length(global.party[|selected_character]._prayers) != 0) {
 	for (var i = 0; i < array_length(global.party[|selected_character]._spells); i++) {
-		draw_sprite(global.party[|selected_character]._prayers[i]._sprite, 0, 190+(26*i), 155)
+		draw_sprite_stretched(global.party[|selected_character]._prayers[i]._sprite, 0, 183+(26*i), 148, 16, 16)
 	}
 }

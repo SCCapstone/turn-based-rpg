@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_bandage",
-  "bbox_bottom": 14,
-  "bbox_left": 3,
-  "bbox_right": 12,
-  "bbox_top": 1,
+  "bbox_bottom": 13,
+  "bbox_left": 2,
+  "bbox_right": 11,
+  "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"28fc189d-627f-4939-8d7c-1a8c4f89524b",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6911ae32-3129-42b2-aea3-6e7b7945cb08",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 16,
+  "height": 14,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"617fdfa5-c186-468b-9b36-ef81e72d2903","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"2de5dc97-ce06-4192-baf8-ab25c1ca97eb","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"28fc189d-627f-4939-8d7c-1a8c4f89524b","path":"sprites/spr_bandage/spr_bandage.yy",},},},"Disabled":false,"id":"cbdb3405-0e94-4025-bb2d-14b3be4a66ea","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"6911ae32-3129-42b2-aea3-6e7b7945cb08","path":"sprites/spr_bandage/spr_bandage.yy",},},},"Disabled":false,"id":"256b547e-976f-4273-b1ab-505ab445f1d0","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 16,
+  "width": 14,
 }

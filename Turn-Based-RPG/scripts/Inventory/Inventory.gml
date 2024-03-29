@@ -1,53 +1,66 @@
+enum item_type {
+	weapon,
+	magic_weapon,
+	prayer_book,
+	consumable,
+	spell,
+	prayer	
+}
+
 function Inventory() constructor {
-	_max_inventory_size = 60;
-	// name, sprite, and description are attributes every item has
-	_item_attributes = 3;
-	_inventory = ds_grid_create(_item_attributes, 1);
+	// Initialize global inventory object and (x,y) coordinates
+	global.inventory = ds_grid_create(10, 5);
+	_x = 0;
+	_y = 0;
 	
-	add_item = function(_item, _category) {
-		// initializing item attributes
-		_item_name = _category[? _item[? "_name"]];
-		_item_sprite = _category[? _item[? "_sprite"]];
-		_item_desc = _category[? _item[? "_description"]];
-		// adds new item when there are no items in inventory
-		if (ds_grid_height(_inventory) == 1) {
-			ds_grid_add(_inventory, 0, 0, _item_name);
-			ds_grid_add(_inventory, 0, 1, _item_sprite);
-			ds_grid_add(_inventory, 0, 2, _item_desc);
-		// adds a new item to "bottom" of inventory
-		} else {
-			while(ds_grid_height(_inventory) <= _max_inventory_size) {
-				// increases current grid height by 1
-				ds_grid_resize(_inventory, _item_attributes, (ds_grid_height(_inventory) + 1))
-				ds_grid_add(_inventory, (ds_grid_height(_inventory) - 1), 0, _item_name);
-				ds_grid_add(_inventory, (ds_grid_height(_inventory) - 1), 1, _item_sprite);
-				ds_grid_add(_inventory, (ds_grid_height(_inventory) - 1), 2, _item_desc);
+	// Initialize everything to noone (represents empty inventory slot)
+	for (var i = 0; i < 5; i++) {
+		for (var j = 0; j < 10; j++) {
+			global.inventory[# j, i] = noone;
+		}
+	}
+	
+	// Adds item to inventory
+	add_item = function(_item) {
+		var added = false;
+		while (true) { // Keep trying until empty slot is found
+			// Ensure item is not being added outside the bounds of the inventory
+			if (_x > 9 || _y > 4) {
+				show_debug_message("[ERROR] Attempting to add item outside inventory bounds");
+				return;	
+			} 
+			// Only add if slot is empty
+			if (global.inventory[# _x, _y] == noone) {
+				// Add item at current (x,y) coordinates
+				ds_grid_add(global.inventory, _x, _y, _item);
+				show_debug_message("Added " + _item._name + " at (" + string(_x) + ", " + string(_y) + ")");
+				added = true;
+			}
+			// Increment x by 1
+			_x++;
+			// Reset x to 0 and increment y by 1 upon hitting end of current row
+			if (_x == 10) {
+				_x = 0;
+				_y++;
+			}
+			// If successfully added, end loop
+			if (added == true) {
+				return;	
 			}
 		}
 	}
 	
-	/*remove_item = function(_index) {
-		TO-DO: remove row from grid at given index
-				move index of item items below up by 1
-				resize ds_grid to be height-1
-	}*/	
-}
-
-/*
-// Have to manually add items to inventory since no in-game way to access it yet
-function inv_test() {
-	inventory = new Inventory();
-	inventory.add_item(global.consumables.health_potion, item_type.consumable);
-	inventory.add_item(global.consumables.mana_potion, item_type.consumable);
-	inventory.add_item(global.consumables.hot_tea, item_type.consumable);
-	inventory.add_item(global.consumables.antidote, item_type.consumable);
-	inventory.add_item(global.consumables.hot_tea, item_type.consumable);
-	//consume_item(global.party[0], 0);
-	//consume_item(global.party[0], 0);
-	//consume_item(global.party[0], 0);
-  }
-  
-	item_selected  = function(_index) {
-		_inventory[_index].hover = true;
-	}
-*/
+	// Removes first instance of item from inventory
+	remove_item = function(_item) {
+		if (ds_grid_value_exists(global.inventory, 0, 0, 9, 4, _item)) {
+			var temp_x = ds_grid_value_x(global.inventory, 0, 0, 9, 4, _item);
+			var temp_y = ds_grid_value_y(global.inventory, 0, 0, 9, 4, _item);
+			// Set item to noone
+			global.inventory[# temp_x, temp_y] = noone
+			// Next item added should go to empty slot
+			_x = temp_x;
+			_y = temp_y;
+			show_debug_message("Removed " + _item._name + " from (" + string(_x) + ", " + string(_y) + ")");
+		}
+	}	
+}	
