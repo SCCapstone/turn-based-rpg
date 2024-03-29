@@ -11,16 +11,10 @@ function init(){
 	prayer_books();
 	spells();
 	prayers();
+	consumables();
 	party_data();
 	enemy_templates();
-	consumables();
 	Inventory();
-	
-	// Run inventory test
-	// inv_test();
-	
-	// Testing for status effects
-	//global.party[| 0]._effects[| 0] = [global.status_effects.poison, 2];
 }
 
 init();
@@ -48,6 +42,7 @@ global.text_max_width = (global.textbox_width - (2 * (global.ui_x_buffer))) * 7.
 // Both should be cleared when player makes contact with a new enemy
 global.xp = [];
 global.item_gained = [];
+global.gold_gained = 0;
 
 // Simpler draw text function
 function draw_text_relative(_text, _color, _size, _offset) {

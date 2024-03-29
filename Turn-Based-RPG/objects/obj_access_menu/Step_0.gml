@@ -24,6 +24,7 @@ if (accept_key) {
 		break;
 	
 		case 1:
+			global.inventory = new Inventory();
 			battle_start([global.enemies.mercenary, global.enemies.dark_wizard], spr_field_background);
 		break;
 	

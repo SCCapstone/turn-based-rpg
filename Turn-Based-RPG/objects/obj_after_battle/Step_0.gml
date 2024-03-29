@@ -1,5 +1,5 @@
 if (instance_exists(obj_after_battle) == true) {
-	obj_player._disabled = true;
+	//obj_player._disabled = true;
 }
 
 // Page control for displaying messages after battle

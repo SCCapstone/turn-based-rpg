@@ -1,7 +1,6 @@
-inventory = new Inventory();
+global.inventory = new Inventory();
 
 _show_inventory = false;
-
 
 // values used in drawing inventory slots & border
  _gui_width = 314;
@@ -37,18 +36,30 @@ _x_pos_max = 10;
 _y_pos_max = 5;
 
 // testing add inventory method
-//inventory.add_item(global.weapons.bow);
-//inventory.add_item(global.weapons.greatsword);
-//inventory.add_item(global.weapons.dagger);
-//inventory.add_item(global.spells.fireball);
-//inventory.add_item(global.prayer_books.book);
-//inventory.add_item(global.prayers.chill);
-//inventory.add_item(global.weapons.greatsword);
-//inventory.remove_item(global.weapons.greatsword);
-//inventory.add_item(global.prayers.chill);
-//inventory.add_item(global.weapons.sword);
+
+//inventory.add_item(global.weapons_map, "_sword");
+global.inventory.add_item(global.weapons.bow);
+global.inventory.add_item(global.weapons.greatsword);
+global.inventory.add_item(global.weapons.dagger);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.prayer_books.book);
+global.inventory.add_item(global.prayers.chill);
+
+//inventory.add_item(global.weapons_map, "_bow");
+
+global.inventory.add_item(global.weapons.bow);
+global.inventory.add_item(global.weapons.greatsword);
+//global.inventory.add_item(global.weapons.dagger);
+//global.inventory.add_item(global.spells.fireball);
+//global.inventory.add_item(global.prayer_books.book);
+//global.inventory.add_item(global.prayers.chill);
+//global.inventory.add_item(global.weapons.greatsword);
+//global.inventory.remove_item(global.weapons.greatsword);
+//global.inventory.add_item(global.prayers.chill);
+//global.inventory.add_item(global.weapons.sword);
 //for (var i = 0; i < 5; i++) { // Rows
 //	for (var j = 0; j < 10; j++) { // Columns
-//		inventory.add_item(global.weapons.bow);
+//		global.inventory.add_item(global.weapons.bow);
 //	}
 //}
+
