@@ -8,7 +8,9 @@ global.consumables =
 		_sprite: spr_health_potion,
 		_func: function(character) {
 			change_stat(character, STAT.HP, 50)
-		}
+		},
+		_description: "A small red potion that heals a decent amount of HP. Tastes like rotten fruit.",
+		_item_type: item_type.consumable
 	},
 	// Adds 50 MP
 	mana_potion:
@@ -17,7 +19,9 @@ global.consumables =
 		_sprite: spr_mana_potion,
 		_func: function(character) {
 			change_stat(character, STAT.MP, 50)
-		}
+		},
+		_description: "A small blue potion that restores a decent amount of Mana. Tastes acrid.",
+		_item_type: item_type.consumable
 	},
 	// Removes poison effect
 	antidote:
@@ -26,7 +30,9 @@ global.consumables =
 		_sprite: spr_antidote,
 		_func: function(character) {
 			remove_status_effect(character, global.status_effects.poison)
-		}
+		},
+		_description: "A small white vial that heals poisoning. Tastes like sewer water.",
+		_item_type: item_type.consumable
 	},
 	// Removes burn effect
 	ointment:
@@ -35,7 +41,9 @@ global.consumables =
 		_sprite: spr_ointment,
 		_func: function(character) {
 			remove_status_effect(character, global.status_effects.burn)
-		}
+		},
+		_description: "A small vial of beige ointment that heals burns. Leaves the skin feeling greasy for a while.",
+		_item_type: item_type.consumable
 	},
 	// Removes frosty effect
 	hot_tea:
@@ -44,7 +52,9 @@ global.consumables =
 		_sprite: spr_hot_tea,
 		_func: function(character) {
 			remove_status_effect(character, global.status_effects.frosty)
-		}
+		},
+		_description: "A warm cup of tea that unfreezes. Subtle yet pleasant in taste.",
+		_item_type: item_type.consumable
 	},
 }
 }

@@ -7,7 +7,9 @@ global.prayers = {
 		_sprite: spr_frozen,
 		_sound: snd_chill,
 		_targets_friendly: false,
-		_txt: ""
+		_txt: "",
+		_description: "A prayer that freezes the target in place for multiple turns leaving them unable to act.",
+		_item_type: item_type.prayer
 	},
 	scorch:
 	{
@@ -16,7 +18,9 @@ global.prayers = {
 		_sprite: spr_burn,
 		_sound: snd_burn,
 		_targets_friendly: false,
-		_txt: ""
+		_txt: "",
+		_description: "A prayer that burns the target, causing them to take damage after each turn.",
+		_item_type: item_type.prayer
 	},
 	poison:
 	{
@@ -25,7 +29,9 @@ global.prayers = {
 		_sprite: spr_poison,
 		_sound: snd_poison,
 		_targets_friendly: false,
-		_txt: ""
+		_txt: "",
+		_description: "A prayer that creates a poison cloud around the opponent, poisoning them and causing steadily increasing damage after every turn.",
+		_item_type: item_type.prayer
 	},
 	stun:
 	{
@@ -34,7 +40,9 @@ global.prayers = {
 		_sprite: spr_stun,
 		_sound: snd_stun,
 		_targets_friendly: false,
-		_txt: ""
+		_txt: "",
+		_description: "A prayer that makes the target very likely to miss their next attack.",
+		_item_type: item_type.prayer
 	},
 	heal:
 	{
@@ -43,7 +51,9 @@ global.prayers = {
 		_sprite: spr_heal,
 		_sound: snd_heal,
 		_targets_friendly: true,
-		_txt: ""
+		_txt: "",
+		_description: "A basic healing prayer. Used to target an ally or yourself to regain a set amount of health.",
+		_item_type: item_type.prayer
 	},
 	attack_up:
 	{
@@ -52,7 +62,9 @@ global.prayers = {
 		_sprite: spr_attack_up,
 		_sound: snd_powerup,
 		_targets_friendly: true,
-		_txt: "+STR!"
+		_txt: "+STR!",
+		_description: "Envelope yourself or an ally with invigorating power. Causes target to deal more damage",
+		_item_type: item_type.prayer
 	},
 	defense_up:
 	{
@@ -61,6 +73,8 @@ global.prayers = {
 		_sprite: spr_defense_up,
 		_sound: snd_powerup,
 		_targets_friendly: true,
+		_description: "Envelope yourself or an ally with a defensive aura. Decreases damage taken for the target.",
+		_item_type: item_type.prayer
 	}
 }
 }

@@ -10,14 +10,18 @@ draw_sprite_stretched(_spr_inventory_background, 0, _gui_x_start, _gui_y_start, 
 // drawing inventory slots
 draw_sprite_stretched(_spr_inventory_slots, 0, _inventory_x_start, _inventory_y_start, _inventory_width, _inventory_height);
 
+var _item_name;
+var _item_sprite;
+var _item_desc;
+			
 // draws items from inventory
-for (var i = 0; i < 6; i++) {
-	for (var j = 0; j < 10; j++) {
+for (var i = 0; i < 5; i++) { // Rows
+	for (var j = 0; j < 10; j++) { // Columns
 		// Ensures empty slots are not drawn
 		if (global.inventory[# j, i] != noone) {
-			var _item_name = global.inventory[# j, i]._name;
-			var _item_sprite = global.inventory[# j, i]._sprite;
-			//var _item_desc = ds_grid_get(global.inventory, 2, 0);
+			_item_name = global.inventory[# j, i]._name;
+			_item_sprite = global.inventory[# j, i]._sprite;
+			//_item_desc = ds_grid_get(global.inventory, 2, 0);
 	
 			// Draw sprite in inventory
 			draw_sprite_stretched(_item_sprite, 0, (12+(_slot_padding_x*j)), 
@@ -25,8 +29,6 @@ for (var i = 0; i < 6; i++) {
 		}
 	}
 }
-	
-	
 	
 	// TO-DO: info bar GUI on right side of inventory
 	//draw_sprite_stretched(_item_sprite, 0, _info_bar_start, _inventory_y_start, 25, 25);
