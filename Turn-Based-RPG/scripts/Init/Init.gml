@@ -43,7 +43,8 @@ global.text_y_buffer = 4;
 global.namebox_x_buffer = 3;
 global.namebox_y_buffer = 92;
 global.text_max_width = (global.textbox_width - (2 * (global.ui_x_buffer))) * 7.2;
-global.xp = ds_list_create();
+global.xp = [];
+global.weapon_gained = [];
 
 // Simpler draw text function
 function draw_text_relative(_text, _color, _size, _offset) {

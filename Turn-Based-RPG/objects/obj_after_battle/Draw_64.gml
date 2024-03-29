@@ -16,42 +16,30 @@ switch (pos) {
 	case 0:
 		switch(_page) {
 			case 0:
-				if (is_undefined(ds_list_find_index(global.xp,0))) {
-					draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,0)._name) + " gained 0 XP!", 99, global.text_max_width, .125, .125, 0);
-				} else {
-					draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,0)._name) + " gained " + string(ds_list_find_value(global.xp, 0)) + " XP!", 99, global.text_max_width, .125, .125, 0);
-				}
-				//draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,0)._name) + " gained " + string(ds_list_find_value(global.xp, 0)) + " XP!", 99, global.text_max_width, .125, .125, 0);
-			break;
+		        if (array_length(global.xp)) > 0 {
+		            draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,0)._name) + " gained " + string(global.xp[0]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+		        }
+	        break;
 			case 1:
-				if (is_undefined(ds_list_find_index(global.xp,1))) {
-					draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,1)._name) + " gained 0 XP!", 99, global.text_max_width, .125, .125, 0);
-				} else {
-					draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,1)._name) + " gained " + string(ds_list_find_value(global.xp, 1)) + " XP!", 99, global.text_max_width, .125, .125, 0);
-				}
-				//draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,1)._name) + " gained " + string(ds_list_find_value(global.xp, 1)) + " XP!", 99, global.text_max_width, .125, .125, 0);
-			break;
+		        if array_length(global.xp) > 1 {
+		            draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,1)._name) + " gained " + string(global.xp[1]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+		        }
+	        break;
 			case 2:
-				/*if (ds_list_find_index(global.xp,2) <= 0 || ds_list_find_index(global.xp,2) <= noone) {
-					draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,2)._name) + " gained 0 XP!", 99, global.text_max_width, .125, .125, 0);
-				} else {
-					draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,2)._name) + " gained " + string(ds_list_find_value(global.xp, 2)) + " XP!", 99, global.text_max_width, .125, .125, 0);
-				}*/
-				draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,2)._name) + " gained " + string(ds_list_find_value(global.xp, 2)) + " XP!", 99, global.text_max_width, .125, .125, 0);
+				if array_length(global.xp) > 2 {
+		            draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,2)._name) + " gained " + string(global.xp[2]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+		        }
 			break;
 			case 3:
-				/*if (ds_list_find_index(global.xp,3) <= 0 || ds_list_find_index(global.xp,3) <= noone) {
-					draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,3)._name) + " gained 0 XP!", 99, global.text_max_width, .125, .125, 0);
-				} else {
-					draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,3)._name) + " gained " + string(ds_list_find_value(global.xp, 3)) + " XP!", 99, global.text_max_width, .125, .125, 0);
-				}*/
-				draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,3)._name) + " gained " + string(ds_list_find_value(global.xp, 3)) + " XP!", 99, global.text_max_width, .125, .125, 0);
+				if array_length(global.xp) > 3 {
+		            draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,3)._name) + " gained " + string(global.xp[3]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+		        }
 			break;	
 		}
 	break;
 	case 1:
 		if (_gained_item == true) {
-			draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, "The Party has gained XX Items!", 99, global.text_max_width, .125, .125, 0);
+			draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, global.weapon_gained[_page]._name, 99, global.text_max_width, .125, .125, 0);
 		}
 }
 

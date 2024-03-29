@@ -2,6 +2,7 @@ up_key = keyboard_check_pressed(ord("W"))
 down_key = keyboard_check_pressed(ord("S"));
 left_key = keyboard_check_pressed(ord("A"));
 right_key = keyboard_check_pressed(ord("D"));
+accept_key = keyboard_check_pressed(ord("E"));
 
 /*
  When P is pressed as long as the current room is not the access menu or the world 
@@ -12,14 +13,15 @@ right_key = keyboard_check_pressed(ord("D"));
 */
 if (keyboard_check_pressed(ord("P")) && room != rm_world_map && room != rm_access_menu) {
 	show_stats = !show_stats;
-	obj_player._disabled = !obj_player._disabled;
+	//obj_player._disabled = !obj_player._disabled;
 } else if (keyboard_check_pressed(ord("P")) && room == rm_world_map) {
 	show_stats = !show_stats;
 	obj_pointer._disabled = !obj_pointer._disabled;
-} 
+}
 
 
 if (!show_stats) exit;
+
 
 
 /*
@@ -37,7 +39,7 @@ if (!party_disable) {
     //show_debug_message(party_switch);
 
 // Check if party operations should be disabled
-if (keyboard_check_pressed(ord("E"))) {
+if (accept_key) {
     party_disable = !party_disable;
 }
 
