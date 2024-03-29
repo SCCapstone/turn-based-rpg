@@ -42,6 +42,18 @@ global.inventory.add_item(global.weapons.bow);
 global.inventory.add_item(global.weapons.greatsword);
 global.inventory.add_item(global.weapons.dagger);
 global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.hot_tea);
 global.inventory.add_item(global.prayer_books.book);
 global.inventory.add_item(global.prayers.chill);
 
