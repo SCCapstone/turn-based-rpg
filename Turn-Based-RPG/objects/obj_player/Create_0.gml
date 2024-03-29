@@ -5,7 +5,9 @@ _step_allow = true;
 
 _disabled = false;
 
+_shop_speaker = noone;
 _speaker = noone;
+_prev_shop_speaker = noone;
 _prev_speaker = noone;
 
 _target_x = x;
