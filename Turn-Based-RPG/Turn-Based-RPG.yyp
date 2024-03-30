@@ -357,8 +357,8 @@
     {"id":{"name":"spr_node","path":"sprites/spr_node/spr_node.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_access_menu","path":"rooms/rm_access_menu/rm_access_menu.yy",},},
     {"roomId":{"name":"rm_start","path":"rooms/rm_start/rm_start.yy",},},
+    {"roomId":{"name":"rm_access_menu","path":"rooms/rm_access_menu/rm_access_menu.yy",},},
     {"roomId":{"name":"rm_end","path":"rooms/rm_end/rm_end.yy",},},
     {"roomId":{"name":"rm_unit_test","path":"rooms/rm_unit_test/rm_unit_test.yy",},},
     {"roomId":{"name":"rm_plains","path":"rooms/rm_plains/rm_plains.yy",},},

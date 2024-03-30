@@ -27,17 +27,20 @@ if (!_menu_disable) {
 	
 			case 1:
 				_menu_disable = true;
-				obj_inventory._show_inventory = true;
+				_inventory = instance_create_layer(x, y, "DepthSorter", obj_inventory);
+				_inventory._show_inventory = true;
 			break;
 	
 			case 2:
 				_menu_disable = true;
-				obj_equip_screen.show_equip = true;
+				_equip = instance_create_layer(x, y, "DepthSorter", obj_equip_screen);
+				_equip.show_equip = true;
 			break;
 		
 			case 3:
 				_menu_disable = true;
-				obj_stats_screen.show_stats = true;
+				_stats = instance_create_layer(x, y, "DepthSorter", obj_stats_screen);
+				_stats.show_stats = true;
 			break;
 		}
 	}
@@ -65,6 +68,13 @@ if (_show_pause) {
 				game_end();
 			break;
 			
+			case 2:
+				show_debug_message([ds_list_find_value(global.party,2)]);
+			break;
+			
+			case 3:
+				room_goto(0);
+			break;
 		}
 	}
 }
@@ -72,9 +82,15 @@ if (_show_pause) {
 if (back_key && _menu_disable) {
 	_menu_disable = false;
 	_show_pause = false;
-	obj_inventory._show_inventory = false;
-	obj_stats_screen.show_stats = false;
-	obj_equip_screen.show_equip = false;
+	if (_inventory != noone) {
+		instance_destroy(_inventory);
+	}
+	if (_equip != noone) {
+		instance_destroy(_equip);
+	}
+	if (_stats != noone) {
+		instance_destroy(_stats);
+	}
 } else if (back_key) {
 	obj_player._disabled = false;
 	instance_destroy(self);

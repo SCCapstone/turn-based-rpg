@@ -26,7 +26,7 @@ if (accept_key) {
 		break;
 	
 		case 1:
-			//TODO Load function here
+			Load();
 		break;
 	
 		case 2:

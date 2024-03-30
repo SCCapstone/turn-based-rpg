@@ -1,3 +1,5 @@
+// Don't add items from within the inventory object
+
 global.inventory = new Inventory();
 
 _show_inventory = false;
@@ -35,26 +37,3 @@ _x_pos = 0;
 _y_pos = 0;
 _x_pos_max = 9;
 _y_pos_max = 3;
-
-// testing add inventory method
-//inventory.add_item(global.weapons_map, "_sword");
-global.inventory.add_item(global.weapons.bow);
-global.inventory.add_item(global.weapons.greatsword);
-global.inventory.add_item(global.weapons.dagger);
-global.inventory.add_item(global.spells.fireball);
-global.inventory.add_item(global.spells.fireball);
-global.inventory.add_item(global.spells.fireball);
-global.inventory.add_item(global.spells.fireball);
-global.inventory.add_item(global.spells.fireball);
-global.inventory.add_item(global.spells.fireball);
-global.inventory.add_item(global.consumables.health_potion);
-global.inventory.add_item(global.consumables.health_potion);
-global.inventory.add_item(global.consumables.health_potion);
-global.inventory.add_item(global.consumables.health_potion);
-global.inventory.add_item(global.consumables.health_potion);
-global.inventory.add_item(global.consumables.health_potion);
-global.inventory.add_item(global.consumables.hot_tea);
-global.inventory.add_item(global.prayer_books.book);
-global.inventory.add_item(global.prayers.chill);
-
-//inventory.add_item(global.weapons_map, "_bow");
