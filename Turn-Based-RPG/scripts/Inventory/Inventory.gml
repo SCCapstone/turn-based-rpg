@@ -67,9 +67,15 @@ function Inventory() constructor {
 	// equips item and removes it from inventory; sends currently equipped item to inventory
 	equip_item = function(i, j) {
 		var _item = ds_grid_get(global.inventory, i, j);
-		// TO-DO: move to equip slot
-		global.inventory.remove_item(_item);
-		
-		// TO-DO: check equipped item and add to inventory
+		//var _item_type = _item.item_type;
+		//if global.party[|selected_character]._item_type != noone {
+			global.inventory.remove_item(_item);
+			//global.party[|selected_character]._item_type = _item;
+		//} else {
+		//	global.inventory.remove_item(_item);
+		//	var _temp_item = global.party[|selected_character]._item_type;
+		//	global.party[|selected_character]._item_type = _item;
+		//	global.inventory.add_item(_temp_item);
+		//}
 	}
 }	

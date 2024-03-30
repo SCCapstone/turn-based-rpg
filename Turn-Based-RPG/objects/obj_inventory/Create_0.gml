@@ -43,8 +43,3 @@ _tooltip_margin = 2180;
 op_border = global.op_border
 op_space = global.op_space
 op_margin = global.op_margin
-
-
-global.inventory.add_item(global.weapons.bow);
-global.inventory.add_item(global.weapons.sword);
-global.inventory.add_item(global.consumables.antidote);
