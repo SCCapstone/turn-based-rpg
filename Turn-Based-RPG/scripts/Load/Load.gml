@@ -25,7 +25,7 @@ function Load(){
 		
 		for (_i = 0; _i < 4; _i++) {
 			for (_j = 0; _j < 10; _j++) {
-				global.inventory[# _j, _i] == noone;
+				global.inventory[# _j, _i] = noone;
 			}
 		}
 		
