@@ -5,13 +5,13 @@ right_key = keyboard_check_pressed(ord("D"));
 accept_key = keyboard_check_pressed(ord("E"));
 
 
-/*if (keyboard_check_pressed(ord("P")) && room != rm_world_map && room != rm_access_menu) {
+if (keyboard_check_pressed(ord("P")) && room != rm_world_map && room != rm_access_menu) {
 	show_stats = !show_stats;
 	//obj_player._disabled = !obj_player._disabled;
 } else if (keyboard_check_pressed(ord("P")) && room == rm_world_map) {
 	show_stats = !show_stats;
 	obj_pointer._disabled = !obj_pointer._disabled;
-}*/
+}
 
 // drawing and removal of the stats screen will be handled by the pause menu
 
@@ -559,7 +559,7 @@ switch (partypos) {
 	break;
 }
 
-for (var i = 0; i < ds_list_size(global.party); i++) {
+/*for (var i = 0; i < ds_list_size(global.party); i++) {
 	if (ds_list_find_value(global.party,i)._fai >= 5 && ds_list_find_value(global.party,i)._fai <= 9) {
 		global.status_effects.burn._duration_max += 1;
 		global.status_effects.frosty._duration_max += 1
@@ -567,7 +567,7 @@ for (var i = 0; i < ds_list_size(global.party); i++) {
 		global.status_effects.shock._duration_max += 1;
 	}
 	
-}
+}*/
 /*if (ds_list_find_value(global.party,i)._fai >= 5 && ds_list_find_value(global.party,i)._fai <= 9) {
 		global.status_effects.burn._duration_max += 1;
 		global.status_effects.frosty._duration_max += 1

@@ -602,6 +602,7 @@ function roll_loot_table(_enemies) {
 		var temp_gold = irandom_range(0, _enemies[i]._gold_range[1]);
 		global.gold_gained += temp_gold;
 		// TODO actually add gold
+		global.gold += global.gold_gained
 		// Roll loot table
 		for (var j = 0; j < array_length(_enemies[i]._loot_table); j++) { // Check each loot roll
 			var temp_loot = irandom_range(0, 100) // RNG roll out of 100

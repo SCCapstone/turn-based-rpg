@@ -26,6 +26,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Plains and Forest","folderPath":"folders/Objects/Plains and Forest.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stats","folderPath":"folders/Objects/Stats.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Town","folderPath":"folders/Objects/Town.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"shop","folderPath":"folders/Objects/Town/shop.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"UI","folderPath":"folders/Objects/UI.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"World Map","folderPath":"folders/Objects/World Map.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Particle Systems","folderPath":"folders/Particle Systems.yy",},
@@ -66,7 +67,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"World Map","folderPath":"folders/Sprites/World Map.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"shop","folderPath":"folders/Objects/Town/shop.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"bash.wav","CopyToMask":-1,"filePath":"datafiles",},
