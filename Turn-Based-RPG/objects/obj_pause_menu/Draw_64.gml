@@ -8,13 +8,15 @@ draw_set_valign(fa_top);
 
 draw_sprite_stretched(spr_menu_background, 0, x + 3, y + 3, 314, 174)
 
-for (_i = 0; _i < _op_length; _i++) {
-	if (_i = _pos) {
-		draw_sprite_stretched(spr_menu_background, 2, x + 8 + (_i * 76), y + 9, 75, 22);
-		draw_text_ext_transformed(x + 15 + (_i * 76), y + 13, _options[_i], 1000, 1000, .125, .125, 0);
-	} else {
-		draw_sprite_stretched(spr_menu_background, 0, x + 8 + (_i * 76), y + 9, 75, 22);
-		draw_text_ext_transformed(x + 15 + (_i * 76), y + 13, _options[_i], 1000, 1000, .125, .125, 0);	
+if (!_menu_disable) {
+	for (_i = 0; _i < _op_length; _i++) {
+		if (_i = _pos) {
+			draw_sprite_stretched(spr_menu_background, 2, x + 8 + (_i * 76), y + 9, 75, 22);
+			draw_text_ext_transformed(x + 15 + (_i * 76), y + 13, _options[_i], 1000, 1000, .125, .125, 0);
+		} else {
+			draw_sprite_stretched(spr_menu_background, 0, x + 8 + (_i * 76), y + 9, 75, 22);
+			draw_text_ext_transformed(x + 15 + (_i * 76), y + 13, _options[_i], 1000, 1000, .125, .125, 0);	
+		}
 	}
 }
 

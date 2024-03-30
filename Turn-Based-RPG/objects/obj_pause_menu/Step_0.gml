@@ -22,6 +22,7 @@ if (!_menu_disable) {
 			case 0:
 				_menu_disable = true;
 				_show_pause = true;
+				_pressed = true;
 			break;
 	
 			case 1:
@@ -43,6 +44,9 @@ if (!_menu_disable) {
 }
 
 if (_show_pause) {
+	if (keyboard_check_released(accept_key)) {
+		_pressed = false;
+	}
 	_pos += down_key - up_key; // Player selection indicator
 	if (_pos >= _pause_length) {
 		_pos = 0;
@@ -51,10 +55,10 @@ if (_show_pause) {
 		_pos = _pause_length - 1;
 	}
 	
-	if (accept_key) {
+	if (accept_key && _pressed == false) {
 		switch (_pos) {
 			case 0: 
-				//TODO save functionality
+				Save();
 			break;
 			
 			case 1:
