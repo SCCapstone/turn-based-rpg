@@ -35,6 +35,7 @@ if (_disabled == false) {
 		image_index = 1;
 		facing = 2;
 		_prev_speaker = noone;
+		_prev_shop_speaker = noone;
 	}
 	
 	if keyboard_check(ord("W")) && place_free(x, y - _collision_dist) == false { //allows player to face towards obstacles that can't be moved into
@@ -49,6 +50,7 @@ if (_disabled == false) {
 		image_index = 2;
 		facing = 3;
 		_prev_speaker = noone;
+		_prev_shop_speaker = noone;
 	}
 	
 	if keyboard_check(ord("A")) && place_free(x - _collision_dist, y) == false { //allows player to face towards obstacles that can't be moved into
@@ -63,6 +65,7 @@ if (_disabled == false) {
 		image_index = 0;
 		facing = 1;
 		_prev_speaker = noone;
+		_prev_shop_speaker = noone;
 	}
 	
 	if keyboard_check(ord("S")) && place_free(x, y + _collision_dist) == false { //allows player to face towards obstacles that can't be moved into
@@ -77,6 +80,7 @@ if (_disabled == false) {
 		image_index = 3;
 		facing = 4;
 		_prev_speaker = noone;
+		_prev_shop_speaker = noone;
 	}
 	
 	if keyboard_check(ord("D")) && place_free(x + _collision_dist, y) == false { //allows player to face towards obstacles that can't be moved into
@@ -89,15 +93,19 @@ if (_disabled == false) {
 	if (keyboard_check(ord("E"))) {
 		if (facing == 1) {
 			_speaker = collision_line(x + 8, y, x, y + 44, obj_NPC, false, true);
+			_shop_speaker = collision_line(x + 8, y, x, y + 44, obj_shop_item, false, true);
 		} 
 		if (facing == 2) {
 			_speaker =  collision_line(x + 8, y + 28, x, y, obj_NPC, false, true);
+			_shop_speaker =  collision_line(x + 8, y + 28, x, y, obj_shop_item, false, true);
 		}
 		if (facing == 3) {
 			_speaker =  collision_line(x, y + 26, x - 16, y + 26, obj_NPC, false, true);
+			_shop_speaker =  collision_line(x, y + 26, x - 16, y + 26, obj_shop_item, false, true);
 		}
 		if (facing == 4) {
 			_speaker =  collision_line(x + 16, y + 26, x + 16, y + 26, obj_NPC, false, true);
+			_shop_speaker =  collision_line(x + 16, y + 26, x + 16, y + 26, obj_shop_item, false, true);
 		}
 		
 		
@@ -129,6 +137,12 @@ if (_disabled == false) {
 			show_debug_message(_speaker);
 			CreateTextbox(self, _speaker);
 			_prev_speaker = _speaker;
+		}
+		
+		if (_shop_speaker != noone && _shop_speaker != _prev_shop_speaker) {
+			show_debug_message(_shop_speaker);
+			CreatePurchaseBox(self, _shop_speaker);
+			_prev_shop_speaker = _shop_speaker;
 		}
 	}
 	

@@ -8,7 +8,7 @@ draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 
 // Equip screen background
-draw_sprite_stretched(spr_menu_background, 0, ui_x, ui_y+33, ui_width, ui_height-33); 
+//draw_sprite_stretched(spr_menu_background, 0, ui_x, ui_y+33, ui_width, ui_height-33); 
 
 // Character name
 draw_text_ext_transformed_color(124, 42, global.party[|selected_character]._name + " Lvl: " + string(global.party[|selected_character]._lvl), 

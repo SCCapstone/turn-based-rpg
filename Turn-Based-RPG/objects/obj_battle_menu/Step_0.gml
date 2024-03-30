@@ -47,10 +47,19 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 			}
 		break;
 		case 3: // Move type = Item
-			if (array_length(global.inventory._inventory) != 0) {
-				_move_choices = global.inventory._inventory;
-				_choices_length = array_length(global.inventory._inventory);
-			} else {
+			for (_i = 0; _i < 5; _i++) {
+				for (_j = 0; _j < 10; _j++) {
+					if (global.inventory[# _j, _i] != noone && _item_stop = false &&
+					global.inventory[# _j, _i]._item_type == item_type.consumable){
+						array_push(_move_choices, global.inventory[# _j, _i]);
+						array_push(_item_position, [_j, _i]);
+					}
+				}
+					
+			}
+			_item_stop = true;
+			_choices_length = array_length(_move_choices);
+			if (array_length(_move_choices) == 0) {
 				_exists = "No items!"
 			}
 		break;
@@ -104,7 +113,7 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 			_exists = noone;
 		}
 		if (_selected_type == 3) {
-			consume_item(_player_party[_p_num], _pos);
+			consume_item(_player_party[_p_num], _item_position[_pos]);
 			_pos = 0;
 			_exists = noone;
 			_selected_target = 0;

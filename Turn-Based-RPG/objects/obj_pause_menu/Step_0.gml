@@ -25,15 +25,18 @@ if (!_menu_disable) {
 			break;
 	
 			case 1:
-			
+				_menu_disable = true;
+				obj_inventory._show_inventory = true;
 			break;
 	
 			case 2:
-			
+				_menu_disable = true;
+				obj_equip_screen.show_equip = true;
 			break;
 		
 			case 3:
-		
+				_menu_disable = true;
+				obj_stats_screen.show_stats = true;
 			break;
 		}
 	}
@@ -51,11 +54,11 @@ if (_show_pause) {
 	if (accept_key) {
 		switch (_pos) {
 			case 0: 
-			
+				//TODO save functionality
 			break;
 			
 			case 1:
-			
+				game_end();
 			break;
 			
 		}
@@ -65,6 +68,9 @@ if (_show_pause) {
 if (back_key && _menu_disable) {
 	_menu_disable = false;
 	_show_pause = false;
+	obj_inventory._show_inventory = false;
+	obj_stats_screen.show_stats = false;
+	obj_equip_screen.show_equip = false;
 } else if (back_key) {
 	obj_player._disabled = false;
 	instance_destroy(self);
