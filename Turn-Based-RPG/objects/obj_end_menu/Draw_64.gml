@@ -4,7 +4,7 @@ var _vx = camera_get_view_width(view_camera[0]);
 var _vy = camera_get_view_height(view_camera[0]);
 display_set_gui_size(_vx, _vy); // sets the gui size to the same size as the camera
 
-draw_sprite(spr_field_old, 0, x, y - 1);
+draw_sprite(spr_field_background, 0, x, y - 1);
 
 for (_i = 0; _i < op_length; _i++) {
 	if (_i = pos) {
@@ -16,4 +16,5 @@ for (_i = 0; _i < op_length; _i++) {
 	}
 }
 
-draw_text_transformed(x + 18, y + 10, "Turn Based RPG", .35, .35, 0)
+draw_text_transformed(x + 65, y + 10, "Game over", .35, .35, 0)
+

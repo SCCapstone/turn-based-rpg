@@ -1,3 +1,5 @@
+/// @description Insert description here
+// You can write your code in this editor
 // Get inputs
 up_key = keyboard_check_pressed(ord("W"));
 down_key = keyboard_check_pressed(ord("S"));
@@ -24,8 +26,7 @@ if (accept_key) {
 		break;
 	
 		case 1:
-			global.inventory = new Inventory();
-			battle_start([global.enemies.mercenary, global.enemies.dark_wizard, global.enemies.dark_wizard], spr_field_background);
+			//TODO Load function here
 		break;
 	
 		case 2:

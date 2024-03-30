@@ -47,7 +47,7 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 			}
 		break;
 		case 3: // Move type = Item
-			for (_i = 0; _i < 5; _i++) {
+			for (_i = 0; _i < 4; _i++) {
 				for (_j = 0; _j < 10; _j++) {
 					if (global.inventory[# _j, _i] != noone && _item_stop = false &&
 					global.inventory[# _j, _i]._item_type == item_type.consumable){

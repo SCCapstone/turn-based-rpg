@@ -33,7 +33,7 @@ _spr_inventory_slots = spr_inventory_slots;
 // inventory postions
 _x_pos = 0;
 _y_pos = 0;
-_x_pos_max = 10;
+_x_pos_max = 9;
 _y_pos_max = 3;
 
 // testing add inventory method
