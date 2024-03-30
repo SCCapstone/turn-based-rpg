@@ -15,7 +15,7 @@ var _item_sprite;
 var _item_desc;
 			
 // draws items from inventory
-for (var i = 0; i < 5; i++) { // Rows
+for (var i = 0; i < 4; i++) { // Rows
 	for (var j = 0; j < 10; j++) { // Columns
 		// Ensures empty slots are not drawn
 		if (global.inventory[# j, i] != noone) {

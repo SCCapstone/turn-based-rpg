@@ -106,6 +106,7 @@
     {"name":"WeaponsMap","order":1,"path":"scripts/WeaponsMap/WeaponsMap.yy",},
     {"name":"obj_castle_soldier1","order":10,"path":"objects/obj_castle_soldier1/obj_castle_soldier1.yy",},
     {"name":"spr_walls","order":8,"path":"sprites/spr_walls/spr_walls.yy",},
+    {"name":"spr_cleric","order":4,"path":"sprites/spr_cleric/spr_cleric.yy",},
     {"name":"spr_spear","order":14,"path":"sprites/spr_spear/spr_spear.yy",},
     {"name":"obj_equip_screen","order":1,"path":"objects/obj_equip_screen/obj_equip_screen.yy",},
     {"name":"obj_for_sale_sword","order":15,"path":"objects/obj_for_sale_sword/obj_for_sale_sword.yy",},

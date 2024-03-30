@@ -34,7 +34,7 @@ _spr_inventory_slots = spr_inventory_slots;
 _x_pos = 0;
 _y_pos = 0;
 _x_pos_max = 10;
-_y_pos_max = 6;
+_y_pos_max = 3;
 
 // testing add inventory method
 //inventory.add_item(global.weapons_map, "_sword");
