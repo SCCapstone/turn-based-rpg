@@ -22,7 +22,7 @@ if (_selected_type == noone) { // Draws available move types
 				_c = c_yellow;
 			}
 			if (_selected_type == 3) {
-				draw_text_ext_transformed_color(x+244, y+123+(i*12), _move_choices[_pos+i-3].item._name, 3000, 3000, .1, .1, 0, _c, _c, _c, _c, 1)
+				draw_text_ext_transformed_color(x+244, y+123+(i*12), _move_choices[_pos+i-3]._name, 3000, 3000, .1, .1, 0, _c, _c, _c, _c, 1)
 			} else {
 				// Checking which spells are unusable based on the current player's MP, lists them as "MP too low!" instead of their actual name
 				if (_selected_type == 1 && array_length(_player_party[_p_num]._spells) > 0
@@ -39,7 +39,7 @@ if (_selected_type == noone) { // Draws available move types
 				_c = c_yellow;
 			}
 			if (_selected_type == 3 && i < 4) {
-				draw_text_ext_transformed_color(x+244, y+123+(i*12), _move_choices[i].item._name, 3000, 3000, .1, .1, 0, _c, _c, _c, _c, 1)
+				draw_text_ext_transformed_color(x+244, y+123+(i*12), _move_choices[i]._name, 3000, 3000, .1, .1, 0, _c, _c, _c, _c, 1)
 			} else if (i < 4) {
 				// Checking which spells are unusable based on the current player's MP, lists them as "MP too low!" instead of their actual name
 				if (_selected_type == 1 && array_length(_player_party[_p_num]._spells) > 0

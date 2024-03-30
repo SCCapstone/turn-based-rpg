@@ -6,6 +6,9 @@
 
 instance_destroy();
 //obj_player._disabled = !obj_player._disabled;
+for (var i = 0; i < array_length(global.xp); i++) {
+	global.xp[i] = 0;
+}
 
 
 

@@ -1,4 +1,3 @@
-
 /// The player's pause menu
 draw_set_font(fnt_pixeloid);
 draw_set_color(c_white);

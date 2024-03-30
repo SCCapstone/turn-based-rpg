@@ -71,14 +71,14 @@ stat_ui_y = 3; // Stat screen y postion
 //(gui_height * 0.5) - (stat_ui_height * 0.5 * scale);
 
 stat_info_x = 33; // Stat screen information x postion
-stat_info_y = 38; // Stat screen information y postion
+stat_info_y = 50; // Stat screen information y postion
 stat_description_x = 83; // Stats description x postion
 stat_spr_x = 21;
-stat_spr_y = 37;
+stat_spr_y = 50;
 
-text_size = .085; // size of the text
-text_size_party = .055;
-text_size_description = .065;
+text_size = .080; // size of the text
+text_size_party = .050;
+text_size_description = .060;
 spr_icon1 = ds_list_find_value(global.party,0)._sprites.idle;
 /*spr_icon2 = ds_list_find_value(global.party,1)._sprites.idle;
 spr_icon3 = ds_list_find_value(global.party,2)._sprites.idle;

@@ -9,12 +9,12 @@ enum item_type {
 
 function Inventory() constructor {
 	// Initialize global inventory object and (x,y) coordinates
-	global.inventory = ds_grid_create(10, 5);
+	global.inventory = ds_grid_create(10, 4);
 	_x = 0;
 	_y = 0;
 	
 	// Initialize everything to noone (represents empty inventory slot)
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < 4; i++) {
 		for (var j = 0; j < 10; j++) {
 			global.inventory[# j, i] = noone;
 		}
@@ -25,7 +25,7 @@ function Inventory() constructor {
 		var added = false;
 		while (true) { // Keep trying until empty slot is found
 			// Ensure item is not being added outside the bounds of the inventory
-			if (_x > 9 || _y > 4) {
+			if (_x > 9 || _y > 3) {
 				show_debug_message("[ERROR] Attempting to add item outside inventory bounds");
 				return;	
 			} 
@@ -52,9 +52,9 @@ function Inventory() constructor {
 	
 	// Removes first instance of item from inventory
 	remove_item = function(_item) {
-		if (ds_grid_value_exists(global.inventory, 0, 0, 9, 4, _item)) {
-			var temp_x = ds_grid_value_x(global.inventory, 0, 0, 9, 4, _item);
-			var temp_y = ds_grid_value_y(global.inventory, 0, 0, 9, 4, _item);
+		if (ds_grid_value_exists(global.inventory, 0, 0, 9, 3, _item)) {
+			var temp_x = ds_grid_value_x(global.inventory, 0, 0, 9, 3, _item);
+			var temp_y = ds_grid_value_y(global.inventory, 0, 0, 9, 3, _item);
 			// Set item to noone
 			global.inventory[# temp_x, temp_y] = noone
 			// Next item added should go to empty slot
@@ -79,3 +79,4 @@ function Inventory() constructor {
 		//}
 	}
 }	
+
