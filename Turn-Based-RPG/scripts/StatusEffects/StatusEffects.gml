@@ -5,7 +5,7 @@ global.status_effects =
 	{
 		_name: "Freeze",
 		_dmgtype: "ice",
-		_duration_min: 1,
+		_duration_min: 2,
 		_duration_max: 3,
 		_dmg_min: 0,
 		_dmg_max: 0,

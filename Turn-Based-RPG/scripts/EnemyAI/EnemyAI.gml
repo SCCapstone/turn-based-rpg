@@ -44,13 +44,13 @@ function determine_move_num(_enemy, _move_type) {
 // Determines party member to attack
 // Currently chooses party member at random
 // Takes in target party and number of members
-function select_target(party, p_length) {
+function select_target(party, party_length) {
 	while (true) {
-		_select = irandom_range(0,p_length-1);
-		if (party_units[_select]._is_dead == false) { // On selecting dead party member, try again
+		_select = irandom_range(0,party_length-1);
+		if (party[_select]._is_dead == false) { // On selecting dead party member, try again
 			break;
 		}	
 	}
-	show_debug_message("Targeting " + party_units[_select]._name);
+	show_debug_message("Targeting " + party[_select]._name);
 	return _select;
 }

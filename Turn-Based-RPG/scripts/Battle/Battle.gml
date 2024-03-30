@@ -57,23 +57,11 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 
 			// Check to see if this character is alive
 			// Otherwise, continue while() loop
-			if (party_units[p_select]._is_dead == false) {
+			if (instance_exists(party_units[p_select]) && party_units[p_select]._is_dead == false) {
 				// Give this character and their party the next turn
 				p_num = p_select;
 				show_debug_message("Beginning player " + string(p_select) + "'s turn")
 				
-				// Check to see if frozen effect is present, if so, skip turn
-				if(check_has_effect(party_units[p_select], global.status_effects.frosty)) {
-					show_debug_message("Frozen! Skipping turn.")
-						instance_create_depth(party_units[p_select].x-15, party_units[p_select].y-10, 
-						party_units[p_select].depth-1, obj_battle_text, {color: c_aqua, text: "Frozen"});
-						// Still update player status effects
-						for (var i = 0; i < array_length(party_units); i++) {
-							update_status_effects(party_units[i], true);
-						}
-						p_num++;
-						return turn.enemy;
-					}
 				// Update player team's status effects before turn begins
 				for (var i = 0; i < array_length(party_units); i++) {
 					update_status_effects(party_units[i], true);
@@ -111,23 +99,11 @@ function resolve_state_transition(state, p_turn, e_turn, party_units, enemy_unit
 
 			// Check to see if this character is alive
 			// Otherwise, continue while() loop
-			if (enemy_units[e_select]._is_dead == false) {
+			if (instance_exists(enemy_units[e_select]) && enemy_units[e_select]._is_dead == false) {
 				// Give this character and their party the next turn
 				e_num = e_select;
 				show_debug_message("Beginning enemy " + string(e_select) + "'s turn");
 				
-				// Check to see if frozen effect is present, if so, skip turn
-				if(check_has_effect(enemy_units[e_select], global.status_effects.frosty)) {
-						show_debug_message("Frozen! Skipping turn.")
-						instance_create_depth(enemy_units[e_select].x+15, enemy_units[e_select].y-10, enemy_units[e_select].depth-1,
-						obj_battle_text, {color: c_aqua, text: "Frozen"});
-						// Still update enemy status effects
-						for (var i = 0; i < array_length(enemy_units); i++) {
-							update_status_effects(enemy_units[i], true);
-						}
-						e_num++;
-						return turn.player;
-					}
 				// Update enemy team's status effects before turn begins
 				for (var i = 0; i < array_length(enemy_units); i++) {
 					update_status_effects(enemy_units[i], true);
@@ -218,8 +194,8 @@ function change_hp(attacker, defender, _dmg, dmg_type, dmg_source) {
 // Rolls the defender's dodge chance, determining if an attack lands or not.
 // Returns false if attacker lands the hit, returns true if defender dodges.
 function roll_dodge(attacker, defender, dmg_source) {
-	// Difference between defender's AGI*3
-	// and attacker's relevant attack stat*2
+	// Difference between defender's AGI*2
+	// and attacker's relevant attack stat
 	var dodge = 0;
 	var attacker_stat = "";
 	switch (dmg_source) {
@@ -231,24 +207,24 @@ function roll_dodge(attacker, defender, dmg_source) {
 			return false;
 		case damage_source.melee:
 			attacker_stat = string(attacker._str) + " STR";
-			dodge = 3*defender._agi - 2*attacker._str;
+			dodge = 2*defender._agi - attacker._str;
 			break;
 		case damage_source.ranged:
 			attacker_stat = string(attacker._dex) + " DEX"
-			dodge = 3*defender._agi - 2*attacker._dex;
+			dodge = 2*defender._agi - attacker._dex;
 			break;
 		case damage_source.spell:
 			attacker_stat = string(attacker._int) + " INT";
-			dodge = 3*defender._agi - 2*attacker._int;
+			dodge = 2*defender._agi - attacker._int;
 			break;
 	}
 	// Min dodge capped at 3%, because why not?
-	if (dodge < 1) {
-		dodge = 1;	
+	if (dodge < 3) {
+		dodge = 3;
 	}
-	// Max dodge capped at 75%
-	else if (dodge > 75) {
-		dodge = 75;	
+	// Max dodge capped at 50%
+	else if (dodge > 50) {
+		dodge = 50;
 	}
 	
 	show_debug_message(string(defender._name) + " has " + string(defender._agi) 
@@ -344,7 +320,7 @@ function calculate_resistance(character, dmg, type) {
 // _check_all == true: update all status effects
 // _check_all == false: only update most recently added status effect
 function update_status_effects(_character, _check_all) {
-	if (_character._is_dead == false) {
+	if (instance_exists(_character) && _character._is_dead == false) {
 		// Determine whether checking all or just most recent effect
 		var start = 0;
 		if (_check_all == false) {
@@ -461,6 +437,15 @@ function kill_target(_target) {
 	} else {
 		enemy_shadows[_target._num].visible = false;
 	}
+	// Update status effects immediately
+	ds_list_clear(_target._effects)
+	instance_destroy(obj_status_effect);
+	for (var i = 0; i < array_length(party_units); i++) {
+		update_status_icons(party_units[i], 0);
+	}
+	for (var i = 0; i < array_length(enemy_units); i++) {
+		update_status_icons(enemy_units[i], 1);
+	}
 	// Make target invisible, can't 
 	// destroy it or it messes things up
 	show_debug_message(_target._name + " was killed.");
@@ -568,9 +553,9 @@ function battle_end(party_units, xp_gained) {
 function update_status_icons(_character, _team) {
 	// Offset for player party
 	if (_team == 0) {
-		var x_offset = -10;
+		var x_offset = -14;
 	} else { // Offset for enemy party
-		var x_offset = -1
+		var x_offset = 3
 	}
 	// Iterate through each status effect of this character
 	for (var i = 0; i < ds_list_size(_character._effects); i++) {

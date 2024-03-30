@@ -35,8 +35,8 @@
   ],
   "solid": true,
   "spriteId": {
-    "name": "spr_villager_m_1",
-    "path": "sprites/spr_villager_m_1/spr_villager_m_1.yy",
+    "name": "spr_villager_f_1",
+    "path": "sprites/spr_villager_f_1/spr_villager_f_1.yy",
   },
   "spriteMaskId": null,
   "visible": false,

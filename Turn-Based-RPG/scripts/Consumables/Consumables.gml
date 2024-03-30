@@ -64,10 +64,10 @@ global.consumables =
 // Consume an item and remove it from the inventory
 function consume_item(_character, _inv_index) {
 	// Run the item's specific member function
-	show_debug_message("Consumed " + global.inventory._inventory[_inv_index].item._name);
-	global.inventory._inventory[_inv_index].item._func(_character);
+	show_debug_message("Consumed " + global.inventory[# _inv_index[0], _inv_index[1]]._name);
+	global.inventory[# _inv_index[0], _inv_index[1]]._func(_character);
 	// Delete it from the inventory array
-	global.inventory.remove_item(_inv_index);
+	global.inventory.remove_item(global.inventory[# _inv_index[0], _inv_index[1]]);
 }
 
 // Alter a character's stat (HP, MP, STR, etc.)

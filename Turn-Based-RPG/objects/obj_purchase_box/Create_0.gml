@@ -10,4 +10,5 @@ _shop_speaker = [];
 _item_price = 0;
 _item = global.weapons.battleaxe;
 _page = 0;
-_choice = 1; //choice 0 is yes, 1 is no
+_choice = true; //choice true is yes, false is no
+_e_pressed = 0;

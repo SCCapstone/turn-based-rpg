@@ -17,6 +17,54 @@ if (target < 0) {
 	target = e_length - 1;
 }
 
+// Error catching: immediately skip turn on dead character or frozen
+if ((state == turn.player && (party_units[p_num]._is_dead)) 
+|| (state == turn.enemy && (enemy_units[e_num]._is_dead))) { 
+	show_debug_message("Character is dead, skipping...");
+	// Clear all previous status effect icons, just in case they change
+	instance_destroy(obj_status_effect);
+	// Create new status effect icons
+	for (var i = 0; i < array_length(party_units); i++) {
+		update_status_icons(party_units[i], 0);
+	}
+	for (var i = 0; i < array_length(enemy_units); i++) {
+		update_status_icons(enemy_units[i], 1);
+	}
+	state = resolve_state_transition(state, p_num, e_num, party_units, enemy_units);
+} 
+if((state == turn.player && 
+check_has_effect(party_units[p_num], global.status_effects.frosty))) {
+	show_debug_message("Frozen! Skipping turn.")
+	instance_create_depth(party_units[p_num].x-15, party_units[p_num].y-10, 
+	party_units[p_num].depth-1, obj_battle_text, {color: c_aqua, text: "Frozen"});
+	// Clear all previous status effect icons, just in case they change
+	instance_destroy(obj_status_effect);
+	// Create new status effect icons
+	for (var i = 0; i < array_length(party_units); i++) {
+		update_status_icons(party_units[i], 0);
+	}
+	for (var i = 0; i < array_length(enemy_units); i++) {
+		update_status_icons(enemy_units[i], 1);
+	}
+	state = resolve_state_transition(state, p_num, e_num, party_units, enemy_units);
+} 
+if ((state == turn.enemy && 
+check_has_effect(enemy_units[e_num], global.status_effects.frosty))) {
+	show_debug_message("Frozen! Skipping turn.")
+	instance_create_depth(enemy_units[e_num].x+15, enemy_units[e_num].y-10, enemy_units[e_num].depth-1,
+	obj_battle_text, {color: c_aqua, text: "Frozen"});
+	// Clear all previous status effect icons, just in case they change
+	instance_destroy(obj_status_effect);
+	// Create new status effect icons
+	for (var i = 0; i < array_length(party_units); i++) {
+		update_status_icons(party_units[i], 0);
+	}
+	for (var i = 0; i < array_length(enemy_units); i++) {
+		update_status_icons(enemy_units[i], 1);
+	}
+	state = resolve_state_transition(state, p_num, e_num, party_units, enemy_units);
+}
+
 // Player turn
 if (state == turn.player && moved == false) {
 	if (_menu == noone) {

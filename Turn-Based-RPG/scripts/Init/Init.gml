@@ -44,6 +44,8 @@ global.xp = [];
 global.item_gained = [];
 global.gold_gained = 0;
 
+global.location = -1;
+
 // Simpler draw text function
 function draw_text_relative(_text, _color, _size, _offset) {
 	return draw_text_ext_transformed_color(round(x + global.op_border), round(y + global.op_border + global.op_space * _offset), 
