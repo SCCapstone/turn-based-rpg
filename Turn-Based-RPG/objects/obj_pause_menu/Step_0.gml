@@ -95,5 +95,3 @@ if (back_key && _menu_disable) {
 	obj_player._disabled = false;
 	instance_destroy(self);
 }
-
-
