@@ -63,4 +63,13 @@ function Inventory() constructor {
 			show_debug_message("Removed " + _item._name + " from (" + string(_x) + ", " + string(_y) + ")");
 		}
 	}	
+	
+	// equips item and removes it from inventory; sends currently equipped item to inventory
+	equip_item = function(i, j) {
+		var _item = ds_grid_get(global.inventory, i, j);
+		// TO-DO: move to equip slot
+		global.inventory.remove_item(_item);
+		
+		// TO-DO: check equipped item and add to inventory
+	}
 }	

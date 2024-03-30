@@ -22,24 +22,34 @@ if (!_menu_disable) {
 			case 0:
 				_menu_disable = true;
 				_show_pause = true;
+				_pressed = true;
 			break;
 	
 			case 1:
-			
+				_menu_disable = true;
+				_inventory = instance_create_layer(x, y, "DepthSorter", obj_inventory);
+				_inventory._show_inventory = true;
 			break;
 	
 			case 2:
-			
+				_menu_disable = true;
+				_equip = instance_create_layer(x, y, "DepthSorter", obj_equip_screen);
+				_equip.show_equip = true;
 			break;
 		
 			case 3:
-		
+				_menu_disable = true;
+				_stats = instance_create_layer(x, y, "DepthSorter", obj_stats_screen);
+				_stats.show_stats = true;
 			break;
 		}
 	}
 }
 
 if (_show_pause) {
+	if (keyboard_check_released(accept_key)) {
+		_pressed = false;
+	}
 	_pos += down_key - up_key; // Player selection indicator
 	if (_pos >= _pause_length) {
 		_pos = 0;
@@ -48,16 +58,23 @@ if (_show_pause) {
 		_pos = _pause_length - 1;
 	}
 	
-	if (accept_key) {
+	if (accept_key && _pressed == false) {
 		switch (_pos) {
 			case 0: 
-			
+				Save();
 			break;
 			
 			case 1:
-			
+				game_end();
 			break;
 			
+			case 2:
+				show_debug_message([ds_list_find_value(global.party,2)]);
+			break;
+			
+			case 3:
+				room_goto(0);
+			break;
 		}
 	}
 }
@@ -65,9 +82,16 @@ if (_show_pause) {
 if (back_key && _menu_disable) {
 	_menu_disable = false;
 	_show_pause = false;
+	if (_inventory != noone) {
+		instance_destroy(_inventory);
+	}
+	if (_equip != noone) {
+		instance_destroy(_equip);
+	}
+	if (_stats != noone) {
+		instance_destroy(_stats);
+	}
 } else if (back_key) {
 	obj_player._disabled = false;
 	instance_destroy(self);
 }
-
-
