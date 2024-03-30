@@ -8,31 +8,42 @@
 //	}
 //}
 //moving to no
-if (keyboard_check_pressed(ord("D"))) {
-	_choice = 1;
+if (keyboard_check_pressed(ord("S"))) {
+	_choice = false;
 }
 //moving to yes
 if (keyboard_check_pressed(ord("W"))) {
-	_choice = 0;
+	_choice = true;
 }
 
 //choosing yes
-if (_choice = 0 && keyboard_check_pressed(ord("E")) && global.gold >= _item_price) {
-	global.gold -= _item_price;
-	global.inventory.add_item(_item);
-	obj_player._disabled = false;
-	instance_destroy();
-}
-//not enough gold
-if (_choice = 0 && keyboard_check_pressed(ord("E")) && global.gold < _item_price) {
-	_shop_text = ["You can't afford this!"];
+if (_choice = true && keyboard_check_pressed(ord("E")) && global.gold >= _item_price) {
+	_shop_text = ["Thank you for your purchase!"];
 	if (keyboard_check_pressed(ord("E"))) {
+		_e_pressed += 1;
+	if (_e_pressed = 2) {
+		global.gold -= _item_price;
+		global.inventory.add_item(_item);
 		obj_player._disabled = false;
 		instance_destroy();
+		_e_pressed = 0;
+	}
+	}
+}
+//not enough gold
+if (_choice = true && keyboard_check_pressed(ord("E")) && global.gold < _item_price) {
+	_shop_text = ["You can't afford this!"];
+	if (keyboard_check_pressed(ord("E"))) {
+		_e_pressed += 1;
+	if (_e_pressed = 2) {
+		obj_player._disabled = false;
+		instance_destroy();
+		_e_pressed = 0;
+	}
 	}
 }
 //choosing no
-if (_choice = 1 && keyboard_check_pressed(ord("E"))) {
+if (_choice = false && keyboard_check_pressed(ord("E"))) {
 	obj_player._disabled = false;
 	instance_destroy();
 }
