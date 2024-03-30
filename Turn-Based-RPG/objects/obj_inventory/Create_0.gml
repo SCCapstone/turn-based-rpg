@@ -33,7 +33,7 @@ _spr_inventory_slots = spr_inventory_slots;
 _x_pos = 0;
 _y_pos = 0;
 _x_pos_max = 10;
-_y_pos_max = 5;
+_y_pos_max = 3;
 
 // testing add inventory method
 global.inventory.add_item(global.weapons.bow);
@@ -46,7 +46,7 @@ global.inventory.add_item(global.weapons.greatsword);
 //global.inventory.remove_item(global.weapons.greatsword);
 //global.inventory.add_item(global.prayers.chill);
 //global.inventory.add_item(global.weapons.sword);
-//for (var i = 0; i < 5; i++) { // Rows
+//for (var i = 0; i < 4; i++) { // Rows
 //	for (var j = 0; j < 10; j++) { // Columns
 //		global.inventory.add_item(global.weapons.bow);
 //	}

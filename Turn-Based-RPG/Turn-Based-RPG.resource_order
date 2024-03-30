@@ -1,5 +1,6 @@
 {
   "FolderOrderSettings": [
+    {"name":"shop","order":16,"path":"folders/Objects/Town/shop.yy",},
     {"name":"Data Scripts","order":1,"path":"folders/Scripts/Data Scripts.yy",},
     {"name":"Enemy movement","order":2,"path":"folders/Scripts/Enemy movement.yy",},
     {"name":"Misc","order":3,"path":"folders/Scripts/Misc.yy",},
@@ -90,6 +91,7 @@
     {"name":"WeaponsMap","order":1,"path":"scripts/WeaponsMap/WeaponsMap.yy",},
     {"name":"obj_castle_soldier1","order":10,"path":"objects/obj_castle_soldier1/obj_castle_soldier1.yy",},
     {"name":"spr_walls","order":8,"path":"sprites/spr_walls/spr_walls.yy",},
+    {"name":"spr_cleric","order":4,"path":"sprites/spr_cleric/spr_cleric.yy",},
     {"name":"spr_spear","order":14,"path":"sprites/spr_spear/spr_spear.yy",},
     {"name":"obj_equip_screen","order":1,"path":"objects/obj_equip_screen/obj_equip_screen.yy",},
     {"name":"spr_magic_knife","order":4,"path":"sprites/spr_magic_knife/spr_magic_knife.yy",},

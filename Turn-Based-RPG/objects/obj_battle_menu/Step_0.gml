@@ -119,7 +119,11 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 		_pos = 0;
 	}
 } else if (_selected_type != noone && _selected_move != noone && _selected_target == noone) { // Select a target
-	_e_length = array_length(_enemy_party); // Sets the enemy's party size
+	if(_selected_type == 2 && _player_party[_p_num]._prayers[_selected_move]._targets_friendly == true) {
+		_e_length = array_length(_player_party)
+	} else {
+		_e_length = array_length(_enemy_party); // Sets the enemy's party size
+	}
 	_pos += down_key - up_key;
 	if (_pos >= _e_length) {
 		_pos = 0;

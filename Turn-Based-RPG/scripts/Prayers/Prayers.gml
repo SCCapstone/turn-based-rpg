@@ -40,7 +40,7 @@ global.prayers = {
 		_sprite: spr_stun,
 		_sound: snd_stun,
 		_targets_friendly: false,
-		_txt: "",
+		_txt: "-ACC!",
 		_description: "A prayer that makes the target very likely to miss their next attack.",
 		_item_type: item_type.prayer
 	},
@@ -73,6 +73,7 @@ global.prayers = {
 		_sprite: spr_defense_up,
 		_sound: snd_powerup,
 		_targets_friendly: true,
+		_txt: "+DEF!",
 		_description: "Envelope yourself or an ally with a defensive aura. Decreases damage taken for the target.",
 		_item_type: item_type.prayer
 	}
