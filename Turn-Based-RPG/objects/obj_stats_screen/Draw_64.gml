@@ -225,7 +225,7 @@ if (!party_disable) {
 	} else {
 		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,1)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
-	draw_text_ext_transformed_color(stat_info_x + 210, stat_info_y + 105, "STAT POINTS: " + string(skill_points[1]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[1]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos = 2) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -324,7 +324,7 @@ if (!party_disable) {
 	} else {
 		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,2)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
-	draw_text_ext_transformed_color(stat_info_x + 210, stat_info_y + 105, "STAT POINTS: " + string(skill_points[2]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[2]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos = 3) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -423,7 +423,7 @@ if (!party_disable) {
 	} else {
 		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,3)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
-	draw_text_ext_transformed_color(stat_info_x + 210, stat_info_y + 105, "STAT POINTS: " + string(skill_points[0]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[0]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
 } else {
 	/*
@@ -626,7 +626,7 @@ if (!party_disable) {
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,1)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
-		draw_text_ext_transformed_color(stat_info_x + 210, stat_info_y + 105, "STAT POINTS: " + string(skill_points[1]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[1]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos = 2) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -725,7 +725,7 @@ if (!party_disable) {
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,2)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
-		draw_text_ext_transformed_color(stat_info_x + 210, stat_info_y + 105, "STAT POINTS: " + string(skill_points[2]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[2]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos = 3) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -824,7 +824,7 @@ if (!party_disable) {
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,3)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
-		draw_text_ext_transformed_color(stat_info_x + 210, stat_info_y + 105, "STAT POINTS: " + string(skill_points[3]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[3]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
 }
 

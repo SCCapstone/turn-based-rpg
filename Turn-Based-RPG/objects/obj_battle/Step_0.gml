@@ -213,6 +213,9 @@ if (state == turn.player && moved == false) {
 		if (!already_has_effect) { 
 			// Determine random status effect length
 			var temp = irandom_range(intended_effect._duration_min, intended_effect._duration_max);
+			if (party_units[p_num]._fai >= 5 && party_units[p_num]._fai <= 14) {
+				temp += 1;
+			}
 			
 			// Roll extra duration chance if player has prayer book (not applicable to Heal)
 			if (intended_effect != global.status_effects.heal && party_units[p_num]._prayer_book != noone) {
@@ -394,6 +397,9 @@ if (state == turn.enemy && moved == false) {
 		if (!already_has_effect) { 
 			// Determine random status effect length
 			var temp = irandom_range(intended_effect._duration_min, intended_effect._duration_max);
+			if (enemy_units[e_num]._fai >= 5 && enemy_units[e_num]._fai <= 14) {
+				temp += 1;
+			}
 			
 			// Roll extra duration chance if player has prayer book (not applicable to Heal)
 			if (intended_effect != global.status_effects.heal && enemy_units[e_num]._prayer_book != noone) {

@@ -7,7 +7,7 @@ draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
-draw_sprite_stretched(spr_menu_background, 0, global.ui_x_buffer, global.ui_y_buffer, global.textbox_width, global.textbox_height);
+draw_sprite_stretched(spr_menu_background, 1, global.ui_x_buffer, global.ui_y_buffer, global.textbox_width, global.textbox_height);
 
 // Holds the xp values for the party and displays them on screen
 // Each case if for a different party member with the integer _page controlling them as shown in the step event
@@ -40,11 +40,15 @@ switch (pos) {
 	// Should loop through the global item gained array
 	case 1:
 		if (_gained_item == true) {
-			for (var i = 0; i < array_length(global.item_gained); i++) {
-				draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, "Party has gained " + global.item_gained[i]._name + "!", 99, global.text_max_width, .125, .125, 0);
-			}
-			//draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, global.item_gained[_page]._name, 99, global.text_max_width, .125, .125, 0);
+		    if (_page2 < array_length(global.item_gained)) {
+		        draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, "Party has gained " + string(global.item_gained[_page2]._name) + "!", 99, global.text_max_width, .125, .125, 0);
+		    }
+	    //draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, global.item_gained[_page]._name, 99, global.text_max_width, .125, .125, 0);
 		}
+	break;
+	case 2:
+		draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, "Party has gained " + string(global.gold_gained) +  " gold!", 99, global.text_max_width, .125, .125, 0);
+	break;	
 }
 
 

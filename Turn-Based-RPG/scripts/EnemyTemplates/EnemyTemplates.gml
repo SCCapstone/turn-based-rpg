@@ -18,6 +18,7 @@ global.enemies =
 		_dex: 0,		// Dexterity
 		_int: 12,        // Intelligence
 		_agi: 10,		// Agility
+		_fai: 0,
 
 		// Movesets
 		_spells: [global.spells.fireball],
@@ -56,6 +57,7 @@ global.enemies =
 		_dex: 0,		// Dexterity
 		_int: 0,        // Intelligence
 		_agi: 5,		// Agility
+		_fai: 0,
 		
 		// Movesets
 		_spells: [],
@@ -95,6 +97,7 @@ global.enemies =
 		_dex: 10,		// Dexterity
 		_int: 0,        // Intelligence
 		_agi: 15,		// Agility
+		_fai: 0,
 		
 		// Movesets
 		_spells: [],
@@ -133,6 +136,7 @@ global.enemies =
 		_dex: 8,		// Dexterity
 		_int: 0,        // Intelligence
 		_agi: 12,		// Agility
+		_fai: 0,
 
 		// Movesets
 		_spells: [],
@@ -161,7 +165,7 @@ global.enemies =
 		_name: "Scarecrow",
 		
 		// Stats
-		_hp: 300,		// Current HP
+		_hp: 30,		// Current HP
 		_mp: 0,		// Current MP
 
 		_max_hp: 60,    // Health
@@ -171,6 +175,7 @@ global.enemies =
 		_dex: 0,		// Dexterity
 		_int: 0,        // Intelligence
 		_agi: 12,		// Agility
+		_fai: 0,
 
 		// Movesets
 		_spells: [],
@@ -209,6 +214,7 @@ global.enemies =
 		_dex: 5,		// Dexterity
 		_int: 0,        // Intelligence
 		_agi: 15,		// Agility
+		_fai: 0,
 
 		// Movesets
 		_spells: [],
