@@ -8,21 +8,21 @@ global.enemies =
 		_name: "Dark Wizard",
 		
 		// Stats
-		_hp: 5,		// Current HP
+		_hp: 60,		// Current HP
 		_mp: 100,		// Current MP
 
-		_max_hp: 5,    // Health
+		_max_hp: 60,    // Health
 		_max_mp: 100,    // Mana
 		_spd: 7,		// Speed
 		_str: 0,		// Strength
 		_dex: 0,		// Dexterity
-		_int: 12,        // Intelligence
-		_agi: 10,		// Agility
+		_int: 6,        // Intelligence
+		_agi: 8,		// Agility
 		_fai: 0,
 
 		// Movesets
-		_spells: [global.spells.fireball],
-		_prayers: [global.prayers.chill],
+		_spells: [global.spells.fireball, global.spells.ice_spike],
+		_prayers: [global.prayers.poison],
 		
 		// Equipment
 		_weapon: noone,
@@ -47,13 +47,13 @@ global.enemies =
 		_name: "Dark Knight",
 		
 		// Stats
-		_hp: 90,		// Current HP
+		_hp: 75,		// Current HP
 		_mp: 0,		// Current MP
 
-		_max_hp: 90,    // Health
+		_max_hp: 75,    // Health
 		_max_mp: 0,     // Mana
 		_spd: 6,		// Speed
-		_str: 10,		// Strength
+		_str: 6,		// Strength
 		_dex: 0,		// Dexterity
 		_int: 0,        // Intelligence
 		_agi: 5,		// Agility
@@ -87,16 +87,16 @@ global.enemies =
 		_name: "Mercenary Archer",
 		
 		//Stats
-		_hp: 5,
+		_hp: 60,
 		_mp: 0,
 
-		_max_hp: 5,    // Health
+		_max_hp: 60,    // Health
 		_max_mp: 0,     // Mana
 		_spd: 6,		// Speed
 		_str: 0,		// Strength
-		_dex: 10,		// Dexterity
+		_dex: 6,		// Dexterity
 		_int: 0,        // Intelligence
-		_agi: 15,		// Agility
+		_agi: 8,		// Agility
 		_fai: 0,
 		
 		// Movesets
@@ -126,16 +126,16 @@ global.enemies =
 		_name: "Bandit",
 		
 		// Stats
-		_hp: 60,		// Current HP
+		_hp: 50,		// Current HP
 		_mp: 0,		// Current MP
 
-		_max_hp: 60,    // Health
+		_max_hp: 50,    // Health
 		_max_mp: 0,    // Mana
 		_spd: 7,		// Speed
-		_str: 8,		// Strength
-		_dex: 8,		// Dexterity
+		_str: 5,		// Strength
+		_dex: 5,		// Dexterity
 		_int: 0,        // Intelligence
-		_agi: 12,		// Agility
+		_agi: 9,		// Agility
 		_fai: 0,
 
 		// Movesets
@@ -174,7 +174,7 @@ global.enemies =
 		_str: 0,		// Strength
 		_dex: 0,		// Dexterity
 		_int: 0,        // Intelligence
-		_agi: 12,		// Agility
+		_agi: 8,		// Agility
 		_fai: 0,
 
 		// Movesets
@@ -210,10 +210,10 @@ global.enemies =
 		_max_hp: 40,    // Health
 		_max_mp: 0,    // Mana
 		_spd: 12,		// Speed
-		_str: 5,		// Strength
-		_dex: 5,		// Dexterity
+		_str: 3,		// Strength
+		_dex: 3,		// Dexterity
 		_int: 0,        // Intelligence
-		_agi: 15,		// Agility
+		_agi: 10,		// Agility
 		_fai: 0,
 
 		// Movesets

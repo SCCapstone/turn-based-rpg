@@ -144,7 +144,6 @@
     {"id":{"name":"obj_castle_soldier4","path":"objects/obj_castle_soldier4/obj_castle_soldier4.yy",},},
     {"id":{"name":"snd_heavy_swing","path":"sounds/snd_heavy_swing/snd_heavy_swing.yy",},},
     {"id":{"name":"spr_ice_spike","path":"sprites/spr_ice_spike/spr_ice_spike.yy",},},
-    {"id":{"name":"spr_coin","path":"sprites/spr_coin/spr_coin.yy",},},
     {"id":{"name":"obj_for_sale_mpotion","path":"objects/obj_for_sale_mpotion/obj_for_sale_mpotion.yy",},},
     {"id":{"name":"ts_house_interior","path":"tilesets/ts_house_interior/ts_house_interior.yy",},},
     {"id":{"name":"CreateBattleMenu","path":"scripts/CreateBattleMenu/CreateBattleMenu.yy",},},
