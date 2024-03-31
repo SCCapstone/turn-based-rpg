@@ -11,7 +11,9 @@ var _up_key = keyboard_check_pressed(ord("W"));
 var _down_key = keyboard_check_pressed(ord("S"));
 var _left_key = keyboard_check_pressed(ord("A"));
 var _right_key = keyboard_check_pressed(ord("D"));
+var _accept_key = keyboard_check_pressed(ord("E"));
 
+// navigating through inventory
 if (_show_inventory) {
 	_y_pos +=  _down_key - _up_key;
 	_x_pos += _right_key - _left_key;
@@ -27,5 +29,10 @@ if (_show_inventory) {
 	}
 }
 
+if (_show_tooltip) {
+	if (_accept_key) {
+		global.inventory.equip_item(_x_pos, _y_pos);
+	}
+}
 
 // TO-DO: highlight current selected inventory item for equipping

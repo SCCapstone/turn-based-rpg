@@ -3,7 +3,7 @@
 global.inventory = new Inventory();
 
 _show_inventory = false;
-
+_show_tooltip = false;
 
 // values used in drawing inventory slots & border
  _gui_width = 314;
@@ -21,11 +21,6 @@ _sprite_width = 16;
 _sprite_height = 16;
 _slot_padding_x = 28;
 _slot_padding_y = 28;
-_info_bar_start = 290;
-_info_width = 30;
-_name_y = 48;
-_desc_y = 60;
-_font_size = 0.5;
 
 // sprites
 _spr_inventory_border = spr_menu_border;
@@ -37,3 +32,14 @@ _x_pos = 0;
 _y_pos = 0;
 _x_pos_max = 9;
 _y_pos_max = 3;
+
+// tooltip pop-up dimensions
+_tooltip_width = 120;
+_tooltip_height = 60;
+_tooltip_space = 80;
+_tooltip_margin = 2180;
+
+// globals
+op_border = global.op_border
+op_space = global.op_space
+op_margin = global.op_margin
