@@ -29,8 +29,8 @@ global.attacks =
 	{
 		_name: "Single shot",
 		_dmgtype: "pierce",
-		_dmg_min: 20,
-		_dmg_max: 30,
+		_dmg_min: 15,
+		_dmg_max: 25,
 		_sound: snd_bow_shoot
 	},
 	fireball:
@@ -134,7 +134,7 @@ global.attacks =
 		_name: "Bite",
 		_dmgtype: "pierce",
 		_dmg_min: 15,
-		_dmg_max: 35,
+		_dmg_max: 30,
 		_sound: snd_crunch
 	}
 }

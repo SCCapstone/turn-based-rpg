@@ -8,7 +8,7 @@ knight =
 		_name: "Knight",
 		
 		// Stats
-		_hp: 250,		// Current HP
+		_hp: 300,		// Current HP
 		_mp: 100,		// Current MP
 		
 		_lvl: 1,		// Level
@@ -21,7 +21,7 @@ knight =
 		_str: 10,		// Strength
 		_dex: 5,		// Dexterity
 		_int: 0,        // Intelligence
-		_agi: 5,		// Agility
+		_agi: 8,		// Agility
 		_fai: 3,		// Faith
 		  
 		// Movesets
@@ -47,7 +47,7 @@ cleric =
 		_name: "Cleric",
 		
 		// Stats
-		_hp: 150,		// Current HP
+		_hp: 200,		// Current HP
 		_mp: 200,		// Current MP
 		
 		_lvl: 1,		// Level
@@ -60,7 +60,7 @@ cleric =
 		_str: 0,		// Strength
 		_dex: 0,		// Dexterity
 		_int: 15,        // Intelligence
-		_agi: 10,		// Agility
+		_agi: 11,		// Agility
 		_fai: 10,
 
 		// Movesets
