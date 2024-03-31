@@ -7,7 +7,7 @@ draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
-draw_sprite_stretched(spr_menu_background, 0, global.ui_x_buffer, global.ui_y_buffer, global.textbox_width, global.textbox_height);
+draw_sprite_stretched(spr_menu_background, 1, global.ui_x_buffer, global.ui_y_buffer, global.textbox_width, global.textbox_height);
 
 // Holds the xp values for the party and displays them on screen
 // Each case if for a different party member with the integer _page controlling them as shown in the step event

@@ -39,6 +39,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Movesets","folderPath":"folders/Scripts/Data Scripts/Movesets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Enemy movement","folderPath":"folders/Scripts/Enemy movement.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Misc","folderPath":"folders/Scripts/Misc.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"SaveLoad","folderPath":"folders/Scripts/SaveLoad.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"StatClass","folderPath":"folders/Scripts/StatClass.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Testing","folderPath":"folders/Scripts/Testing.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sequences","folderPath":"folders/Sequences.yy",},
@@ -67,7 +68,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"World Map","folderPath":"folders/Sprites/World Map.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"SaveLoad","folderPath":"folders/Scripts/SaveLoad.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"bash.wav","CopyToMask":-1,"filePath":"datafiles",},

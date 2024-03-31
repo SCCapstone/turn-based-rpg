@@ -4,6 +4,7 @@
     {"name":"Data Scripts","order":1,"path":"folders/Scripts/Data Scripts.yy",},
     {"name":"Enemy movement","order":2,"path":"folders/Scripts/Enemy movement.yy",},
     {"name":"Misc","order":3,"path":"folders/Scripts/Misc.yy",},
+    {"name":"SaveLoad","order":7,"path":"folders/Scripts/SaveLoad.yy",},
     {"name":"StatClass","order":4,"path":"folders/Scripts/StatClass.yy",},
     {"name":"Testing","order":5,"path":"folders/Scripts/Testing.yy",},
     {"name":"Magic","order":1,"path":"folders/Sounds/Magic.yy",},
@@ -22,7 +23,6 @@
     {"name":"Prayer Books","order":4,"path":"folders/Sprites/Weapons/Prayer Books.yy",},
     {"name":"Projectiles","order":12,"path":"folders/Sprites/Weapons/Projectiles.yy",},
     {"name":"World Map","order":9,"path":"folders/Sprites/World Map.yy",},
-    {"name":"SaveLoad","order":7,"path":"folders/Scripts/SaveLoad.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_antidote","order":1,"path":"sprites/spr_antidote/spr_antidote.yy",},
