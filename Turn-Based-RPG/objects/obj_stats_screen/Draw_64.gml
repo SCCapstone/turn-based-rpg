@@ -79,16 +79,16 @@ if (!party_disable) {
 	draw_text_ext_transformed_color(stat_info_x + 102, stat_info_y - 18, string(ds_list_find_value(global.party,0)._name) + " Lvl: " + string(ds_list_find_value(global.party,0)._lvl), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	draw_text_ext_transformed_color(stat_info_x + 105, stat_info_y - 10, "XP: " + string(ds_list_find_value(global.party,0)._xp) + " / " + string(ds_list_find_value(global.party,0)._max_xp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	if (statpos = 0) {
-	draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+	draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	
 	} else {
-		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		
 	}
 	if (statpos = 1) {
-		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else {
-		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
 	if ( statpos = 2) {
 		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 30, "STR: " + string(ds_list_find_value(global.party,0)._str), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
@@ -126,7 +126,7 @@ if (!party_disable) {
 	} else {
 		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,0)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
-	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[0]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(global.skill_points[0]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos == 1) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -178,16 +178,16 @@ if (!party_disable) {
 		draw_text_ext_transformed_color(stat_info_x + 102, stat_info_y - 18, string(ds_list_find_value(global.party,1)._name) + " Lvl: " + string(ds_list_find_value(global.party,1)._lvl), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		draw_text_ext_transformed_color(stat_info_x + 105, stat_info_y - 10, "XP: " + string(ds_list_find_value(global.party,1)._xp) + " / " + string(ds_list_find_value(global.party,1)._max_xp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		if (statpos = 0) {
-		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		//draw_text_ext_transformed_color(stat_description_x, stat_info_y, "Health: Total life energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if (statpos = 1) {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 			//draw_text_ext_transformed_color(stat_description_x, stat_info_y + 15, "Mana: Total Magical energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if ( statpos = 2) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 30, "STR: " + string(ds_list_find_value(global.party,1)._str), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
@@ -225,7 +225,7 @@ if (!party_disable) {
 	} else {
 		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,1)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
-	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[1]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(global.skill_points[1]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos = 2) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -277,16 +277,16 @@ if (!party_disable) {
 		draw_text_ext_transformed_color(stat_info_x + 102, stat_info_y - 18, string(ds_list_find_value(global.party,2)._name) + " Lvl: " + string(ds_list_find_value(global.party,2)._lvl), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		draw_text_ext_transformed_color(stat_info_x + 105, stat_info_y - 10, "XP: " + string(ds_list_find_value(global.party,2)._xp) + " / " + string(ds_list_find_value(global.party,2)._max_xp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		if (statpos = 0) {
-		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		//draw_text_ext_transformed_color(stat_description_x, stat_info_y, "Health: Total life energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if (statpos = 1) {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 			//draw_text_ext_transformed_color(stat_description_x, stat_info_y + 15, "Mana: Total Magical energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if ( statpos = 2) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 30, "STR: " + string(ds_list_find_value(global.party,2)._str), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
@@ -324,7 +324,7 @@ if (!party_disable) {
 	} else {
 		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,2)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
-	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[2]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(global.skill_points[2]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos = 3) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -376,16 +376,16 @@ if (!party_disable) {
 		draw_text_ext_transformed_color(stat_info_x + 102, stat_info_y - 18, string(ds_list_find_value(global.party,3)._name) + " Lvl: " + string(ds_list_find_value(global.party,3)._lvl), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		draw_text_ext_transformed_color(stat_info_x + 105, stat_info_y - 10, "XP: " + string(ds_list_find_value(global.party,3)._xp) + " / " + string(ds_list_find_value(global.party,3)._max_xp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		if (statpos = 0) {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		//draw_text_ext_transformed_color(stat_description_x, stat_info_y, "Health: Total life energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if (statpos = 1) {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 			//draw_text_ext_transformed_color(stat_description_x, stat_info_y + 15, "Mana: Total Magical energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if ( statpos = 2) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 30, "STR: " + string(ds_list_find_value(global.party,3)._str), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
@@ -423,7 +423,7 @@ if (!party_disable) {
 	} else {
 		draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,3)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
-	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[0]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+	draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(global.skill_points[3]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
 } else {
 	/*
@@ -480,16 +480,16 @@ if (!party_disable) {
 		draw_text_ext_transformed_color(stat_info_x + 102, stat_info_y - 18, string(ds_list_find_value(global.party,0)._name) + " Lvl: " + string(ds_list_find_value(global.party,0)._lvl), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		draw_text_ext_transformed_color(stat_info_x + 105, stat_info_y - 10, "XP: " + string(ds_list_find_value(global.party,0)._xp) + " / " + string(ds_list_find_value(global.party,0)._max_xp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		if (statpos = 0) {
-		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 		draw_text_ext_transformed_color(stat_description_x, stat_info_y, "Health: Total life energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if (statpos = 1) {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 15, "Mana: Total Magical energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if ( statpos = 2) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 30, "STR: " + string(ds_list_find_value(global.party,0)._str), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
@@ -517,7 +517,7 @@ if (!party_disable) {
 		}
 		if (statpos = 6) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 90, "FAITH: " + string(ds_list_find_value(global.party,0)._fai), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
-			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 90, "Faith: Increases proficiency of prayers", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 90, "Faith: Increases duration of prayers", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 90, "FAITH: " + string(ds_list_find_value(global.party,0)._fai), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
@@ -527,7 +527,7 @@ if (!party_disable) {
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,0)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
-		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[0]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(global.skill_points[0]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos == 1) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -579,13 +579,13 @@ if (!party_disable) {
 		draw_text_ext_transformed_color(stat_info_x + 102, stat_info_y - 18, string(ds_list_find_value(global.party,1)._name) + " Lvl: " + string(ds_list_find_value(global.party,1)._lvl), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		draw_text_ext_transformed_color(stat_info_x + 105, stat_info_y - 10, "XP: " + string(ds_list_find_value(global.party,1)._xp) + " / " + string(ds_list_find_value(global.party,1)._max_xp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		if (statpos = 0) {
-		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp2), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp2), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 		draw_text_ext_transformed_color(stat_description_x, stat_info_y, "Health: Total life energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if (statpos = 1) {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp2), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp2), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 15, "Mana: Total Magical energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp2), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
@@ -616,7 +616,7 @@ if (!party_disable) {
 		}
 		if (statpos = 6) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 90, "FAITH: " + string(ds_list_find_value(global.party,1)._fai), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
-			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 90, "Faith: Increases proficiency of prayers", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 90, "Faith: Increases duration of prayers", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 90, "FAITH: " + string(ds_list_find_value(global.party,1)._fai), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
@@ -626,7 +626,7 @@ if (!party_disable) {
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,1)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
-		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[1]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(global.skill_points[1]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos = 2) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -678,16 +678,16 @@ if (!party_disable) {
 		draw_text_ext_transformed_color(stat_info_x + 102, stat_info_y - 18, string(ds_list_find_value(global.party,2)._name) + " Lvl: " + string(ds_list_find_value(global.party,2)._lvl), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		draw_text_ext_transformed_color(stat_info_x + 105, stat_info_y - 10, "XP: " + string(ds_list_find_value(global.party,2)._xp) + " / " + string(ds_list_find_value(global.party,2)._max_xp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		if (statpos = 0) {
-		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp3), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp3), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 		draw_text_ext_transformed_color(stat_description_x, stat_info_y, "Health: Total life energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if (statpos = 1) {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp3), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp3), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 15, "Mana: Total Magical energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp3), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if ( statpos = 2) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 30, "STR: " + string(ds_list_find_value(global.party,2)._str), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
@@ -715,7 +715,7 @@ if (!party_disable) {
 		}
 		if (statpos = 6) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 90, "FAITH: " + string(ds_list_find_value(global.party,2)._fai), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
-			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 90, "Faith: Increases proficiency of prayers", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 90, "Faith: Increases duration of prayers", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 90, "FAITH: " + string(ds_list_find_value(global.party,2)._fai), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
@@ -725,7 +725,7 @@ if (!party_disable) {
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,2)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
-		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[2]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(global.skill_points[2]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	} else if (partypos = 3) {
 		draw_sprite_stretched(spr_stat_party, 0, 230, 45, 80, 25);
 		draw_text_ext_transformed_color(250, 50, string(ds_list_find_value(global.party,0)._name), op_space, op_margin, text_size_party, text_size_party, 0, c_white, c_white, c_white,c_white, 1);
@@ -777,16 +777,16 @@ if (!party_disable) {
 		draw_text_ext_transformed_color(stat_info_x + 102, stat_info_y - 18, string(ds_list_find_value(global.party,3)._name) + " Lvl: " + string(ds_list_find_value(global.party,3)._lvl), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		draw_text_ext_transformed_color(stat_info_x + 105, stat_info_y - 10, "XP: " + string(ds_list_find_value(global.party,3)._xp) + " / " + string(ds_list_find_value(global.party,3)._max_xp), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		if (statpos = 0) {
-		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp4), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+		draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp4), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 		draw_text_ext_transformed_color(stat_description_x, stat_info_y, "Health: Total life energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(hp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y, "HP: " + string(global.hp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if (statpos = 1) {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp4), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp4), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 15, "Mana: Total Magical energy.", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
-			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(mp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 15, "MP: " + string(global.mp4), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
 		if ( statpos = 2) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 30, "STR: " + string(ds_list_find_value(global.party,3)._str), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
@@ -814,7 +814,7 @@ if (!party_disable) {
 		}
 		if (statpos = 6) {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 90, "FAITH: " + string(ds_list_find_value(global.party,3)._fai), op_space, op_margin, text_size, text_size, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
-			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 90, "Faith: Increases proficiency of prayers", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
+			draw_text_ext_transformed_color(stat_description_x, stat_info_y + 90, "Faith: Increases duration of prayers", op_space, op_margin, text_size_description, text_size_description, 0, c_white, c_white, c_white, c_white, 1);
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 90, "FAITH: " + string(ds_list_find_value(global.party,3)._fai), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
@@ -824,7 +824,7 @@ if (!party_disable) {
 		} else {
 			draw_text_ext_transformed_color(stat_info_x, stat_info_y + 105, "SPD: " + string(ds_list_find_value(global.party,3)._spd), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 		}
-		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(skill_points[3]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
+		draw_text_ext_transformed_color(stat_info_x - 15, stat_info_y - 10, "STAT POINTS: " + string(global.skill_points[3]), op_space, op_margin, text_size, text_size, 0, c_white, c_white, c_white, c_white, 1);
 	}
 }
 

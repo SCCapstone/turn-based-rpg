@@ -44,6 +44,16 @@ global.xp = [];
 global.item_gained = [];
 global.gold_gained = 0;
 
+global.skill_points = [0,0,0,0];
+global.hp = 0;
+global.mp = 0;
+global.hp2 = 0;
+global.mp2 = 0;
+global.hp3 = 0;
+global.mp3 = 0;
+global.hp4 = 0;
+global.mp4 = 0;
+
 global.location = -1;
 
 // Simpler draw text function

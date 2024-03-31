@@ -15,7 +15,7 @@ knight =
 		_xp: 0,			// Experience/XP
 		_max_xp: 100,	// Max XP
 
-	    _max_hp: 250,    // Health
+	    _max_hp: 300,    // Health
 		_max_mp: 100,     // Mana
 		_spd: 9,		// Speed
 		_str: 10,		// Strength
@@ -47,7 +47,7 @@ cleric =
 		_name: "Cleric",
 		
 		// Stats
-		_hp: 200,		// Current HP
+		_hp: 150,		// Current HP
 		_mp: 200,		// Current MP
 		
 		_lvl: 1,		// Level

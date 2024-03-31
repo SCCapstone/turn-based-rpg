@@ -213,8 +213,16 @@ if (state == turn.player && moved == false) {
 		if (!already_has_effect) { 
 			// Determine random status effect length
 			var temp = irandom_range(intended_effect._duration_min, intended_effect._duration_max);
-			if (party_units[p_num]._fai >= 5 && party_units[p_num]._fai <= 14) {
+			if (party_units[p_num]._fai >= 5 && party_units[p_num]._fai <= 9 && intended_effect != global.status_effects.heal) {
 				temp += 1;
+			} else if (party_units[p_num]._fai >= 10 && party_units[p_num]._fai <= 14 && intended_effect != global.status_effects.heal) {
+				temp += 2;
+			} else if (party_units[p_num]._fai >= 15 && party_units[p_num]._fai <= 19 && intended_effect != global.status_effects.heal) {
+				temp += 3;
+			} else if (party_units[p_num]._fai >= 20 && party_units[p_num]._fai <= 24 && intended_effect != global.status_effects.heal) {
+				temp += 4;
+			} else if (party_units[p_num]._fai >= 25 && party_units[p_num]._fai <= 30 && intended_effect != global.status_effects.heal) {
+				temp += 5;
 			}
 			
 			// Roll extra duration chance if player has prayer book (not applicable to Heal)
@@ -397,8 +405,16 @@ if (state == turn.enemy && moved == false) {
 		if (!already_has_effect) { 
 			// Determine random status effect length
 			var temp = irandom_range(intended_effect._duration_min, intended_effect._duration_max);
-			if (enemy_units[e_num]._fai >= 5 && enemy_units[e_num]._fai <= 14) {
+			if (enemy_units[e_num]._fai >= 5 && enemy_units[e_num]._fai <= 9 && intended_effect != global.status_effects.heal) {
 				temp += 1;
+			} else if (enemy_units[e_num]._fai >= 10 && enemy_units[e_num]._fai <= 14 && intended_effect != global.status_effects.heal) {
+				temp += 2;
+			} else if (enemy_units[e_num]._fai >= 15 && enemy_units[e_num]._fai <= 19 && intended_effect != global.status_effects.heal) {
+				temp += 3;
+			} else if (enemy_units[e_num]._fai >= 20 && enemy_units[e_num]._fai <= 24 && intended_effect != global.status_effects.heal) {
+				temp += 4;
+			} else if (enemy_units[e_num]._fai >= 25 && enemy_units[e_num]._fai <= 30 && intended_effect != global.status_effects.heal) {
+				temp += 5;
 			}
 			
 			// Roll extra duration chance if player has prayer book (not applicable to Heal)
