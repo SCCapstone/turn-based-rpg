@@ -4,6 +4,9 @@ global.inventory = new Inventory();
 
 _show_inventory = false;
 _show_tooltip = false;
+_pressed = true;
+_equipping = false;
+_equippable = false;
 
 // values used in drawing inventory slots & border
  _gui_width = 314;
@@ -33,6 +36,8 @@ _y_pos = 0;
 _x_pos_max = 9;
 _y_pos_max = 3;
 
+_pos = 0;
+
 // tooltip pop-up dimensions
 _tooltip_width = 120;
 _tooltip_height = 60;
@@ -43,3 +48,22 @@ _tooltip_margin = 2180;
 op_border = global.op_border
 op_space = global.op_space
 op_margin = global.op_margin
+
+global.inventory.add_item(global.weapons.bow);
+global.inventory.add_item(global.weapons.greatsword);
+global.inventory.add_item(global.weapons.dagger);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.health_potion);
+global.inventory.add_item(global.consumables.hot_tea);
+global.inventory.add_item(global.prayer_books.book);
+global.inventory.add_item(global.prayers.chill);

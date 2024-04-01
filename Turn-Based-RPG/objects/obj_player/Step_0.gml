@@ -146,7 +146,7 @@ if (_disabled == false) {
 		}
 	}
 	
-	if (keyboard_check(ord("M"))) {
+	if (keyboard_check(ord("P"))) {
 		CreatePauseMenu(self);
 	}
 }

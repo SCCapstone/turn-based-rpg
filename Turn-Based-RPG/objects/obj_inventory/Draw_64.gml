@@ -47,46 +47,47 @@ draw_sprite(spr_coin, 0, x + 15, y + 37);
 draw_text_transformed(x + 27, y + 34, "Gold: " + string(global.gold), 0.125, 0.125, 0);
 
 // draws tooltip description pop-up
-if (global.inventory[# _x_pos, _y_pos] != noone) {
-	_show_tooltip = true;
+if (_show_tooltip) {
+	var _equip = "";
+	_item_name = global.inventory[# _x_pos, _y_pos]._name;
+	_item_desc = global.inventory[# _x_pos, _y_pos]._description;
+	if (_equippable) {
+		_equip = "Press 'E' to equip.";
+	}
 	
 	if (_show_tooltip) {
 			if (_x_pos < 6 && _y_pos < 2) {
-			_item_name = global.inventory[# _x_pos, _y_pos]._name;
-			_item_desc = global.inventory[# _x_pos, _y_pos]._description;
-			var _equip = "Press 'E' to equip item.";
-		
 			draw_sprite_stretched(spr_menu_background, 1, x + 33 + (_x_pos * 30), y + 75 + (_y_pos * 30), _tooltip_width, _tooltip_height);
 			draw_text_ext_transformed_color(x + 40 + (_x_pos * 30), y + 82 + (_y_pos * 30), _item_name, op_space, op_margin, .08, .08, 0, c_white, c_white, c_white, c_white, 1);
 			draw_text_ext_transformed_color(x + 40 + (_x_pos * 30), y + 82 + (_y_pos * 30) + 10, _item_desc, _tooltip_space, _tooltip_margin, .05, .05, 0, c_white, c_white, c_white, c_white, 1);
 			draw_text_ext_transformed_color(x + 40 + (_x_pos * 30), y + 82 + (_y_pos * 30) + 40, _equip, op_space, op_margin, .05, .05, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 		} else if (_x_pos >= 6 && _y_pos < 2) {
-			_item_name = global.inventory[# _x_pos, _y_pos]._name;
-			_item_desc = global.inventory[# _x_pos, _y_pos]._description;
-			var _equip = "Press 'E' to equip item.";
-		
 			draw_sprite_stretched(spr_menu_background, 1, x + 15 + (_x_pos * 30) - _tooltip_width, y + 75 + (_y_pos * 30), _tooltip_width, _tooltip_height);
 			draw_text_ext_transformed_color(x + 22 + (_x_pos * 30) - _tooltip_width, y + 82 + (_y_pos * 30), _item_name, op_space, op_margin, .08, .08, 0, c_white, c_white, c_white, c_white, 1);
 			draw_text_ext_transformed_color(x + 22 + (_x_pos * 30) - _tooltip_width, y + 82 + (_y_pos * 30) + 10, _item_desc, _tooltip_space, _tooltip_margin, .05, .05, 0, c_white, c_white, c_white, c_white, 1);
 			draw_text_ext_transformed_color(x + 22 + (_x_pos * 30) - _tooltip_width, y + 82 + (_y_pos * 30) + 40, _equip, op_space, op_margin, .05, .05, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 		} else if (_x_pos < 6 && _y_pos >= 2) {
-			_item_name = global.inventory[# _x_pos, _y_pos]._name;
-			_item_desc = global.inventory[# _x_pos, _y_pos]._description;
-			var _equip = "Press 'E' to equip item.";
-		
 			draw_sprite_stretched(spr_menu_background, 1, x + 33 + (_x_pos * 30), y + 58 + (_y_pos * 30) - _tooltip_height, _tooltip_width, _tooltip_height);
 			draw_text_ext_transformed_color(x + 40 + (_x_pos * 30), y + 65 + (_y_pos * 30) - _tooltip_height, _item_name, op_space, op_margin, .08, .08, 0, c_white, c_white, c_white, c_white, 1);
 			draw_text_ext_transformed_color(x + 40 + (_x_pos * 30), y + 65 + (_y_pos * 30) - _tooltip_height + 10, _item_desc, _tooltip_space, _tooltip_margin, .05, .05, 0, c_white, c_white, c_white, c_white, 1);
 			draw_text_ext_transformed_color(x + 40 + (_x_pos * 30), y + 65 + (_y_pos * 30) - _tooltip_height + 40, _equip, op_space, op_margin, .05, .05, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 		} else if (_x_pos >= 6 && _y_pos >= 2) {
-			_item_name = global.inventory[# _x_pos, _y_pos]._name;
-			_item_desc = global.inventory[# _x_pos, _y_pos]._description;
-			var _equip = "Press 'E' to equip item.";
-		
 			draw_sprite_stretched(spr_menu_background, 1, x + 15 + (_x_pos * 30) - _tooltip_width, y + 58 + (_y_pos * 30) - _tooltip_height, _tooltip_width, _tooltip_height);
 			draw_text_ext_transformed_color(x + 22 + (_x_pos * 30) - _tooltip_width, y + 65 + (_y_pos * 30) - _tooltip_height, _item_name, op_space, op_margin, .08, .08, 0, c_white, c_white, c_white, c_white, 1);
 			draw_text_ext_transformed_color(x + 22 + (_x_pos * 30) - _tooltip_width, y + 65 + (_y_pos * 30) - _tooltip_height + 10, _item_desc, _tooltip_space, _tooltip_margin, .05, .05, 0, c_white, c_white, c_white, c_white, 1);
 			draw_text_ext_transformed_color(x + 22 + (_x_pos * 30) - _tooltip_width, y + 65 + (_y_pos * 30) - _tooltip_height + 40, _equip, op_space, op_margin, .05, .05, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 		} 	
+	}
+	
+	if (_equipping) {
+		draw_sprite_stretched(spr_menu_background, 1, x + 120, y + 50, 80, 80);
+		for (_i = 0; _i < ds_list_size(global.party); _i++) {
+			if (_i = _pos) {
+				draw_set_color(c_yellow);
+			} else {
+				draw_set_color(c_white);
+			}
+			draw_text_ext_transformed(x + 127, y + 54 + (_i * 16), ds_list_find_value(global.party, _i)._name, 1000, 1000, .125, .125, 0);
+		}
 	}
 }

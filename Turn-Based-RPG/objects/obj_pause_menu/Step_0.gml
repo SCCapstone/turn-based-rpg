@@ -67,31 +67,32 @@ if (_show_pause) {
 			case 1:
 				game_end();
 			break;
-			
-			case 2:
-				show_debug_message([ds_list_find_value(global.party,2)]);
-			break;
-			
-			case 3:
-				room_goto(0);
-			break;
 		}
 	}
 }
 
 if (back_key && _menu_disable) {
-	_menu_disable = false;
 	_show_pause = false;
+	//show_debug_message("Inventory 1:" + string(_inventory) +":"+ string(_inventory._show_tooltip));
 	if (_inventory != noone) {
-		instance_destroy(_inventory);
+		if (_inventory._show_tooltip == false) {
+			instance_destroy(_inventory);
+			_inventory = noone;
+			_menu_disable = false;
+		}
 	}
 	if (_equip != noone) {
 		instance_destroy(_equip);
+		_equip = noone;
+		_menu_disable = false;
 	}
 	if (_stats != noone) {
 		instance_destroy(_stats);
+		_stats = noone;
+		_menu_disable = false;
 	}
 } else if (back_key) {
+	//show_debug_message("Inventory 3:" + string(_inventory));
 	obj_player._disabled = false;
 	instance_destroy(self);
 }
