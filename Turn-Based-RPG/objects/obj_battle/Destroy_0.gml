@@ -17,6 +17,6 @@ for (var i = 0; i < e_length; i++) {
 }
 instance_destroy(obj_status_effect);
 instance_create_layer(0,0,"Player", obj_after_battle);
-if (array_length(global.item_gained) > 1) {
+if (array_length(global.item_gained) > 0) {
 	obj_after_battle._gained_item = true;
 }

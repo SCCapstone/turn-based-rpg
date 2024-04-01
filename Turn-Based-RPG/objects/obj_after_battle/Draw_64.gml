@@ -16,22 +16,38 @@ switch (pos) {
 		switch(_page) {
 			case 0:
 		        if (array_length(global.xp)) > 0 {
-		            draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,0)._name) + " gained " + string(global.xp[0]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+					if (global.xp[0] = 0) {
+						_page += 1;
+					} else {
+						draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,0)._name) + " gained " + string(global.xp[0]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+					}
 		        }
 	        break;
 			case 1:
 		        if array_length(global.xp) > 1 {
-		            draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,1)._name) + " gained " + string(global.xp[1]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+		            if (global.xp[1] = 0) {
+						_page += 1;
+					} else {
+						draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,1)._name) + " gained " + string(global.xp[1]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+					}
 		        }
 	        break;
 			case 2:
 				if array_length(global.xp) > 2 {
-		            draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,2)._name) + " gained " + string(global.xp[2]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+		            if (global.xp[2] = 0) {
+						_page += 1;
+					} else {
+						draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,2)._name) + " gained " + string(global.xp[2]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+					}
 		        }
 			break;
 			case 3:
 				if array_length(global.xp) > 3 {
-		            draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,3)._name) + " gained " + string(global.xp[3]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+		            if (global.xp[3] = 0) {
+						_page += 1;
+					} else {
+						draw_text_ext_transformed(global.ui_x_buffer + global.text_x_buffer, global.ui_y_buffer + global.text_y_buffer, string(ds_list_find_value(global.party,3)._name) + " gained " + string(global.xp[3]) + " XP!", 99, global.text_max_width, .125, .125, 0);
+					}
 		        }
 			break;	
 		}
