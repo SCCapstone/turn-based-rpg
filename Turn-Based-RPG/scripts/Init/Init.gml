@@ -15,6 +15,7 @@ function init(){
 	party_data();
 	enemy_templates();
 	Inventory();
+	global.inventory = new Inventory();
 }
 
 init();

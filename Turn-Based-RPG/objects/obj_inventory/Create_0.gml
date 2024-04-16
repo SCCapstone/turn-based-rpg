@@ -1,7 +1,5 @@
 // Don't add items from within the inventory object
 
-global.inventory = new Inventory();
-
 _show_inventory = false;
 _show_tooltip = false;
 _pressed = true;
