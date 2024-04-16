@@ -56,7 +56,7 @@ if (party_disable) {
 // adds a skill point to the respective stat and reduces the skill point number by 1
 switch (partypos) {
 	case 0:
-		if (right_key && global.skill_points[0] > 0) {
+		if (right_key && global.skill_points[0] > 0 && party_disable) {
 		/*character[0].allocate_add(selection);
 		character[0].stat_points -= 1;*/
 		switch (statpos) {
@@ -95,7 +95,7 @@ switch (partypos) {
 	// removes points from respective stat and increases skill points
 	// Certain stats such as Hp, Mp, and Spd will be unable to be lower than 1 and as such will be
 	// unable to grant a skill point when trying to go under 1
-	if (left_key) {
+	if (left_key && party_disable) {
 		//character[0].allocate_minus(selection);
 		switch (statpos) {
 			case 0:
@@ -170,7 +170,7 @@ switch (partypos) {
 	}
 	break;
 	case 1:
-		if (right_key && global.skill_points[1] > 0) {
+		if (right_key && global.skill_points[1] > 0 && party_disable) {
 		switch (statpos) {
 			case 0:
 				global.hp[1] += 1; // value to show the points in the hp stat
@@ -207,7 +207,7 @@ switch (partypos) {
 	// removes points from respective stat and increases skill points
 	// Certain stats such as Hp, Mp, and Spd will be unable to be lower than 1 and as such will be
 	// unable to grant a skill point when trying to go under 1
-	if (left_key) {
+	if (left_key && party_disable) {
 		//character[0].allocate_minus(selection);
 		switch (statpos) {
 			case 0:
@@ -282,7 +282,7 @@ switch (partypos) {
 	}
 	break;
 	case 2:
-		if (right_key && global.skill_points[2] > 0) {
+		if (right_key && global.skill_points[2] > 0 && party_disable) {
 		switch (statpos) {
 			case 0:
 				global.hp[2] += 1; // value to show the points in the hp stat
@@ -319,7 +319,7 @@ switch (partypos) {
 	// removes points from respective stat and increases skill points
 	// Certain stats such as Hp, Mp, and Spd will be unable to be lower than 1 and as such will be
 	// unable to grant a skill point when trying to go under 1
-	if (left_key) {
+	if (left_key && party_disable) {
 		//character[0].allocate_minus(selection);
 		switch (statpos) {
 			case 0:
@@ -394,7 +394,7 @@ switch (partypos) {
 	}
 	break;
 	case 3:
-		if (right_key && global.skill_points[3] > 0) {
+		if (right_key && global.skill_points[3] > 0 && party_disable) {
 		switch (statpos) {
 			case 0:
 				global.hp[3] += 1; // value to show the points in the hp stat
@@ -431,7 +431,7 @@ switch (partypos) {
 	// removes points from respective stat and increases skill points
 	// Certain stats such as Hp, Mp, and Spd will be unable to be lower than 1 and as such will be
 	// unable to grant a skill point when trying to go under 1
-	if (left_key) {
+	if (left_key && party_disable) {
 		//character[0].allocate_minus(selection);
 		switch (statpos) {
 			case 0:
