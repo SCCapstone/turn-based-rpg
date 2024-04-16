@@ -4,7 +4,7 @@ function enemy_roaming(){
 	x += x_spd;
 	y += y_spd;
 	image_index = spr_move;
-	if (time_passed > roam_distance / enemy_speed) { // moves enemy
+	if (time_passed > roam_distance / enemy_speed && enemy_disable == false) { // moves enemy
 	                                                       // to a destination
 		x_spd = 0;
 		y_spd = 0;

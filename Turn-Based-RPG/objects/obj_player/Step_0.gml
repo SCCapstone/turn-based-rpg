@@ -147,7 +147,9 @@ if (_disabled == false) {
 	}
 	
 	if (keyboard_check(ord("P"))) {
-		CreatePauseMenu(self);
+		if (room != rm_start || room != rm_end || room != rm_access_menu) {
+			CreatePauseMenu(self);
+		}
 	}
 }
 }
