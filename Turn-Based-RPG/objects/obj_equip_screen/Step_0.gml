@@ -6,7 +6,7 @@ right_key = keyboard_check_pressed(ord("D"));
 accept_key = keyboard_check_pressed(ord("E"));
 
 // Get selected character
-selected_character += left_key - right_key;
+selected_character += right_key - left_key;
 if (selected_character >= ds_list_size(global.party)) {
 	selected_character = 0;
 }
