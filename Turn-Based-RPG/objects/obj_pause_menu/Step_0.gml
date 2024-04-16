@@ -94,5 +94,8 @@ if (back_key && _menu_disable) {
 } else if (back_key) {
 	//show_debug_message("Inventory 3:" + string(_inventory));
 	obj_player._disabled = false;
+	if (instance_exists(obj_enemy_par)){
+		obj_enemy_par.enemy_disable = false;
+	}
 	instance_destroy(self);
 }
