@@ -197,7 +197,6 @@
     {"name":"inst_5DC04436","path":"rooms/rm_castle/rm_castle.yy",},
     {"name":"inst_240DBB9D","path":"rooms/rm_castle/rm_castle.yy",},
     {"name":"inst_3FF09517","path":"rooms/rm_castle/rm_castle.yy",},
-    {"name":"inst_744FF758","path":"rooms/rm_castle/rm_castle.yy",},
     {"name":"inst_7FB6CB9D","path":"rooms/rm_castle/rm_castle.yy",},
     {"name":"inst_5D71EC97","path":"rooms/rm_castle/rm_castle.yy",},
     {"name":"inst_697E52D2","path":"rooms/rm_castle/rm_castle.yy",},
@@ -325,6 +324,7 @@
     {"name":"inst_6FC38128","path":"rooms/rm_castle/rm_castle.yy",},
     {"name":"inst_6D0A0554","path":"rooms/rm_castle/rm_castle.yy",},
     {"name":"inst_5ABEFD8F","path":"rooms/rm_castle/rm_castle.yy",},
+    {"name":"inst_718DB85D","path":"rooms/rm_castle/rm_castle.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -1842,7 +1842,7 @@
         {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_2711C04F","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_flower_sparce","path":"sprites/spr_flower_sparce/spr_flower_sparce.yy",},"x":752.0,"y":1376.0,},
       ],"depth":1200,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"sign","depth":1300,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_744FF758","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_sign","path":"objects/obj_sign/obj_sign.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":784.0,"y":1552.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_718DB85D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_sign_castleExit","path":"objects/obj_sign_castleExit/obj_sign_castleExit.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":784.0,"y":1552.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"courtyard_trees","depth":1400,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_46CA4A78","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_tree","path":"objects/obj_tree/obj_tree.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":624.0,"y":1184.0,},
