@@ -192,6 +192,7 @@
     {"id":{"name":"obj_from_castle_magic_shop","path":"objects/obj_from_castle_magic_shop/obj_from_castle_magic_shop.yy",},},
     {"id":{"name":"Spells","path":"scripts/Spells/Spells.yy",},},
     {"id":{"name":"obj_for_sale_staff","path":"objects/obj_for_sale_staff/obj_for_sale_staff.yy",},},
+    {"id":{"name":"obj_battle_hp","path":"objects/obj_battle_hp/obj_battle_hp.yy",},},
     {"id":{"name":"spr_sword","path":"sprites/spr_sword/spr_sword.yy",},},
     {"id":{"name":"spr_heal","path":"sprites/spr_heal/spr_heal.yy",},},
     {"id":{"name":"obj_castle_technophobe","path":"objects/obj_castle_technophobe/obj_castle_technophobe.yy",},},

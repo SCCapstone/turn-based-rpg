@@ -183,11 +183,14 @@ if (state == turn.player && moved == false) {
 		
 		
 		// Determine target party: enemy or player party
-		var prayer_target = enemy_units[target]
+		var prayer_target = 0;
 		var update_now = false;
 		if (party_units[p_num]._prayers[move_num]._targets_friendly == true) {
 			prayer_target = party_units[target];
 			update_now = true; // Friendly status effects should update immediately
+			skip_death_check = true;
+		} else {
+			prayer_target = enemy_units[target]	
 		}
 		
 		// Attempt to inflict the selected prayer's status effect
@@ -264,8 +267,8 @@ if (state == turn.player && moved == false) {
 	// This executes after a move is complete (finished = true)
 	if (finished) { 
 		// Check if player successfully killed target 
-		// Still needs to be implemented for status effects
-		if (enemy_units[target]._is_dead == true && move_type != 2) {
+		
+		if (!skip_death_check && enemy_units[target]._is_dead == true && move_type != 2) {
 			// Reward party member with XP
 			xp_gained[p_num] += enemy_units[target]._xp_val;
 			show_debug_message(party_units[p_num]._name + " gained " + 
@@ -281,6 +284,7 @@ if (state == turn.player && moved == false) {
 		moved = true;
 		move_type = -1;
 		finished = false;
+		skip_death_check = false;
 		_menu._finished = true;
 		_menu = noone;
 	}
@@ -374,12 +378,16 @@ if (state == turn.enemy && moved == false) {
 		}
 		
 		// Determine target party: enemy or player party
-		var prayer_target = party_units[target]
+		
+		var prayer_target = 0;
 		var update_now = false;
 		if (enemy_units[e_num]._prayers[move_num]._targets_friendly == true) {
 			target = select_target(enemy_units, e_length);
 			prayer_target = enemy_units[target];
+			skip_death_check = true;
 			update_now = true; // Friendly status effects should update immediately
+		} else {
+			prayer_target = party_units[target]
 		}
 		
 		// Attempt to inflict the selected prayer's status effect
@@ -443,9 +451,6 @@ if (state == turn.enemy && moved == false) {
 			// Call alarm 1 to update status effect icons
 			alarm[1] = 10;
 		}
-		
-		
-
 		finished = true; // Jump to end
 	}
 		
@@ -459,4 +464,5 @@ if (state == turn.enemy && moved == false) {
 	moved = true;
 	move_type = -1;
 	finished = false;
+	skip_death_check = false;
 } // End enemy turn

@@ -1,3 +1,5 @@
+// Delete GUI elements
+instance_destroy(hp_display);
 // Determine xp change
 battle_end(party_units, xp_gained);
 roll_loot_table(enemy_units);

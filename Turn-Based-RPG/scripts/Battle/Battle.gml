@@ -471,7 +471,7 @@ function flash_item(type) {
 		}
 
 		if (type == display.spell) { // Flash player spell
-			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, party_units[p_num].depth-1,
+			var temp = instance_create_depth(party_units[p_num].x+42, party_units[p_num].y-2, -99,
 			obj_projectile2, {speed: 2.5});
 			temp._sprite = party_units[p_num]._spells[move_num]._sprite;
 			temp._scale = 1;
@@ -487,7 +487,7 @@ function flash_item(type) {
 		}
 
 		if (type == display.prayer) { // Flash player prayer
-			var temp = instance_create_depth(party_units[p_num].x+25, party_units[p_num].y-2, party_units[p_num].depth-1,
+			var temp = instance_create_depth(party_units[p_num].x+25, party_units[p_num].y-2, -99,
 			obj_projectile2, {speed: 0});
 			temp._sprite = party_units[p_num]._prayers[move_num]._sprite;
 			temp._scale = 1;
@@ -504,7 +504,7 @@ function flash_item(type) {
 		}
 
 		if (type == display.spell) { // Flash enemy spell
-			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
+			var temp = instance_create_depth(enemy_units[e_num].x-42, enemy_units[e_num].y-2, -99,
 			obj_enemy_projectile2, {speed: 2.5})
 			temp._sprite = enemy_units[e_num]._spells[move_num]._sprite;
 			temp._scale = -1;
@@ -525,7 +525,7 @@ function flash_item(type) {
 		}
 
 		if (type == display.prayer) { // Flash enemy prayer
-			var temp = instance_create_depth(enemy_units[e_num].x-25, enemy_units[e_num].y-2, enemy_units[e_num].depth-1,
+			var temp = instance_create_depth(enemy_units[e_num].x-25, enemy_units[e_num].y-2, -99,
 			obj_enemy_projectile2, {speed: 0})
 			temp._sprite = enemy_units[e_num]._prayers[move_num]._sprite;
 			temp._scale = -1;

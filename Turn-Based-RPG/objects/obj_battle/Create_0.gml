@@ -16,12 +16,18 @@ e_num = 0; // Counter for enemy array
 
 moved = false; // Ensures units only move once
 finished = false; // Jumps to end of move
+skip_death_check = false; // Skips death check when using friendly prayers
 move_type = -1; // 0 - attack, 1 - magic, 2 - prayer
 move_num = -1; // Move number
 dmg = 0; // Attack damage value
 dmg_source = damage_source.misc; // Attack damage source
 _menu = noone;
 _active = false;
+
+// The margins around all text in the object
+op_border = 8;
+// The space between each line of text
+op_space = 12;
 
 // Create player party
 var x_offset = 0;
@@ -50,6 +56,8 @@ for (var i = 0; i < array_length(enemies); i++) {
 	array_push(units, enemy_units[i]); // Push enemy units to units array
 	array_push(shadows, enemy_shadows[i]); // Push enemy shadows to shadow array
 }
+
+hp_display = instance_create_depth(x, y, depth-1, obj_battle_hp);
 
 // Determine turn orders for both parties (two bubble sorts)
 p_length = array_length(party_units);

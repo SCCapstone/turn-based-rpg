@@ -1,4 +1,6 @@
 {
   "FolderOrderSettings": [],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"obj_battle_hp","order":1,"path":"objects/obj_battle_hp/obj_battle_hp.yy",},
+  ],
 }

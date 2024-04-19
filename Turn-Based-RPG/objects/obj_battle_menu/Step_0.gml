@@ -128,34 +128,61 @@ if (_selected_type == noone && _selected_move == noone && _selected_target == no
 		_pos = 0;
 	}
 } else if (_selected_type != noone && _selected_move != noone && _selected_target == noone) { // Select a target
+	// Targeting for friendly prayers
 	if(_selected_type == 2 && _player_party[_p_num]._prayers[_selected_move]._targets_friendly == true) {
-		_e_length = array_length(_player_party)
-	} else {
-		_e_length = array_length(_enemy_party); // Sets the enemy's party size
-	}
-	_pos += down_key - up_key;
-	if (_pos >= _e_length) {
-		_pos = 0;
-	}
-	if (_pos < 0) {
-		_pos = _e_length - 1;
-	}
-	if (_enemy_party[_pos]._is_dead == true) {
-		if (_pos + 1 < _e_length) {
-			_pos++;
-		}
-		if (_pos + 1 > _e_length) {
+		_p_length = array_length(_player_party);
+		_pos += down_key - up_key;
+		if (_pos >= _p_length) {
 			_pos = 0;
 		}
-	}
-	if (accept_key) { // Select target and continue battle object progression
-		_selected_target = _pos;
-		_pos = noone;
-		_delay = false;
-	}
-	if (back_key) { // Move back to move selection
-		_selected_move = noone;
-		_pos = 0;
+		if (_pos < 0) {
+			_pos = _p_length - 1;
+		}
+		if (_player_party[_pos]._is_dead == true) {
+			if (_pos + 1 < _p_length) {
+				_pos++;
+			}
+			if (_pos + 1 > _p_length) {
+				_pos = 0;
+			}
+		}
+		if (accept_key) { // Select target and continue battle object progression
+			_selected_target = _pos;
+			_pos = noone;
+			_delay = false;
+		}
+		if (back_key) { // Move back to move selection
+			_selected_move = noone;
+			_pos = 0;
+		}
+	} 
+	// Targeting for attacking enemies
+	else {
+		_e_length = array_length(_enemy_party); // Sets the enemy's party size
+		_pos += down_key - up_key;
+		if (_pos >= _e_length) {
+			_pos = 0;
+		}
+		if (_pos < 0) {
+			_pos = _e_length - 1;
+		}
+		if (_enemy_party[_pos]._is_dead == true) {
+			if (_pos + 1 < _e_length) {
+				_pos++;
+			}
+			if (_pos + 1 > _e_length) {
+				_pos = 0;
+			}
+		}
+		if (accept_key) { // Select target and continue battle object progression
+			_selected_target = _pos;
+			_pos = noone;
+			_delay = false;
+		}
+		if (back_key) { // Move back to move selection
+			_selected_move = noone;
+			_pos = 0;
+		}
 	}
 }
 if (_finished == true) { // Destroys particular instance of the battle menu
