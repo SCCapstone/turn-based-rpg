@@ -72,7 +72,10 @@ if (_show_pause) {
 }
 
 if (back_key && _menu_disable) {
-	_show_pause = false;
+	if (_show_pause == true) {
+		_show_pause = false;
+		_menu_disable = false;
+	}
 	//show_debug_message("Inventory 1:" + string(_inventory) +":"+ string(_inventory._show_tooltip));
 	if (_inventory != noone) {
 		if (_inventory._show_tooltip == false) {
@@ -99,3 +102,5 @@ if (back_key && _menu_disable) {
 	}
 	instance_destroy(self);
 }
+
+show_debug_message(_menu_disable)
