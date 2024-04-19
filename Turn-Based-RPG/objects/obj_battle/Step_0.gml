@@ -383,10 +383,16 @@ if (state == turn.enemy && moved == false) {
 		var update_now = false;
 		if (enemy_units[e_num]._prayers[move_num]._targets_friendly == true) {
 			target = select_target(enemy_units, e_length);
+			// If trying to heal character at max hp, choose someone else
+			while (enemy_units[e_num]._prayers[move_num] == global.prayers.heal 
+			&& (enemy_units[target]._hp == enemy_units[target]._max_hp)) {
+				target = select_target(enemy_units, e_length);
+			}
 			prayer_target = enemy_units[target];
 			skip_death_check = true;
 			update_now = true; // Friendly status effects should update immediately
 		} else {
+			target = select_target(party_units, p_length);
 			prayer_target = party_units[target]
 		}
 		

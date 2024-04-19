@@ -27,7 +27,7 @@ for(var i = 0; i < obj_battle.p_length; i++) {
 
 for (var i = 0; i < obj_battle.e_length; i++) {
 	if (obj_battle.enemy_units[i]._hp > 0) {
-		draw_text_ext_transformed(obj_battle.enemy_units[i].x,obj_battle.enemy_units[i].y-10, "HP: " + string(obj_battle.enemy_units[i]._hp), obj_battle.op_space, 3000, .075, .075, 0)
-		{depth = obj_battle.enemy_units[i].depth-1}
+		draw_text_ext_transformed(obj_battle.enemy_units[i].x-37,obj_battle.enemy_units[i].y-8, "HP: " + string(obj_battle.enemy_units[i]._hp), obj_battle.op_space, 3000, .075, .075, 0)
+		{depth = -99}
 	}
 }

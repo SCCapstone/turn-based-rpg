@@ -4,6 +4,9 @@
 function determine_move_type(_enemy) {
 	var _type;
 	var _count = 0;
+	var skip = false;
+	var temp = -1;
+	var all_max_hp = true;
 	while (true) { // Keep rerolling until valid move is found
 		_type = irandom_range(0,2);
 		if (_type == 0 && _enemy._weapon != noone) { // Attack
@@ -12,9 +15,28 @@ function determine_move_type(_enemy) {
 		&& array_length(_enemy._spells) > 0) { // Spell
 			return 1;
 		} else if (_type == 2 && !is_undefined(_enemy._prayers)
-		&& array_length(_enemy._prayers) > 0) { // Prayer
-			return 2;
-		} else if (_count >= 10) { // Prevents infinite loop if no valid moves are found
+		&& array_length(_enemy._prayers) > 0 && !skip) { // Prayer
+			// Check if whole team is max hp if using heal
+			for (var i = 0; i < array_length(obj_battle.enemy_units); i++) {
+				if (obj_battle.enemy_units[i]._hp != obj_battle.enemy_units[i]._max_hp) {
+					all_max_hp = false;
+					break;
+				}
+			}
+			
+			// Skip prayers half of the time because 
+			// they're REALLY annoying to play against
+			if (temp == -1) { // Generate random number
+				temp = irandom(9);
+			}
+			if (temp < 5) { // Skip using prayer 50% of the time
+				skip = true;
+			} else if (all_max_hp) { // Skip if trying to heal and whole team is max hp
+				skip = true;
+			} else {
+				return 2;
+			}
+		} else if (_count >= 20) { // Prevents infinite loop if no valid moves are found
 		show_debug_message("No valid move!");
 		resolve_state_transition(state, p_num, e_num, party_units, enemy_units);
 		return -1;
