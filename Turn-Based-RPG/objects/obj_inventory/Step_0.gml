@@ -30,7 +30,7 @@ if (_show_inventory && _show_tooltip == false) {
 	}
 }
 
-if (_show_tooltip == false && _accept_key && _pressed == false) {
+if (_show_tooltip == false && _accept_key && _pressed == false && global.inventory[# _x_pos, _y_pos] != noone) {
 	 show_debug_message("Testing 1");
 	_show_tooltip = true;
 	if (global.inventory[# _x_pos, _y_pos]._item_type == item_type.weapon || 
