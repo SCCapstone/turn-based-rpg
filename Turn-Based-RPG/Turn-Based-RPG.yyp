@@ -187,7 +187,6 @@
     {"id":{"name":"rm_forest","path":"rooms/rm_forest/rm_forest.yy",},},
     {"id":{"name":"snd_chill","path":"sounds/snd_chill/snd_chill.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},
-    {"id":{"name":"rm_access_menu","path":"rooms/rm_access_menu/rm_access_menu.yy",},},
     {"id":{"name":"obj_item_shopkeep","path":"objects/obj_item_shopkeep/obj_item_shopkeep.yy",},},
     {"id":{"name":"obj_from_castle_magic_shop","path":"objects/obj_from_castle_magic_shop/obj_from_castle_magic_shop.yy",},},
     {"id":{"name":"Spells","path":"scripts/Spells/Spells.yy",},},
@@ -359,7 +358,6 @@
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_start","path":"rooms/rm_start/rm_start.yy",},},
-    {"roomId":{"name":"rm_access_menu","path":"rooms/rm_access_menu/rm_access_menu.yy",},},
     {"roomId":{"name":"rm_end","path":"rooms/rm_end/rm_end.yy",},},
     {"roomId":{"name":"rm_unit_test","path":"rooms/rm_unit_test/rm_unit_test.yy",},},
     {"roomId":{"name":"rm_plains","path":"rooms/rm_plains/rm_plains.yy",},},
