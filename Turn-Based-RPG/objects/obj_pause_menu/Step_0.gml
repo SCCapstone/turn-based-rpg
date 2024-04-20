@@ -62,6 +62,7 @@ if (_show_pause) {
 		switch (_pos) {
 			case 0: 
 				Save();
+				instance_create_layer(x, y, "DepthSorter", obj_save_box);
 			break;
 			
 			case 1:

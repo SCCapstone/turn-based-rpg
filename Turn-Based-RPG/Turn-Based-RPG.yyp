@@ -127,6 +127,7 @@
     {"id":{"name":"snd_stab","path":"sounds/snd_stab/snd_stab.yy",},},
     {"id":{"name":"obj_battle","path":"objects/obj_battle/obj_battle.yy",},},
     {"id":{"name":"obj_pause_menu","path":"objects/obj_pause_menu/obj_pause_menu.yy",},},
+    {"id":{"name":"obj_save_box","path":"objects/obj_save_box/obj_save_box.yy",},},
     {"id":{"name":"spr_archer","path":"sprites/spr_archer/spr_archer.yy",},},
     {"id":{"name":"obj_enemy_test","path":"objects/obj_enemy_test/obj_enemy_test.yy",},},
     {"id":{"name":"snd_light_swing","path":"sounds/snd_light_swing/snd_light_swing.yy",},},
