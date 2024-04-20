@@ -23,6 +23,7 @@ dmg = 0; // Attack damage value
 dmg_source = damage_source.misc; // Attack damage source
 _menu = noone;
 _active = false;
+try_again = false;
 
 // The margins around all text in the object
 op_border = 8;

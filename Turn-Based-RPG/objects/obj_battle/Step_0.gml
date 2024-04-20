@@ -381,16 +381,19 @@ if (state == turn.enemy && moved == false) {
 		
 		var prayer_target = 0;
 		var update_now = false;
+		try_again = false;
 		if (enemy_units[e_num]._prayers[move_num]._targets_friendly == true) {
 			target = select_target(enemy_units, e_length);
 			// If trying to heal character at max hp, choose someone else
-			while (enemy_units[e_num]._prayers[move_num] == global.prayers.heal 
+			if (enemy_units[e_num]._prayers[move_num] == global.prayers.heal 
 			&& (enemy_units[target]._hp == enemy_units[target]._max_hp)) {
-				target = select_target(enemy_units, e_length);
+				try_again = true;
 			}
-			prayer_target = enemy_units[target];
-			skip_death_check = true;
-			update_now = true; // Friendly status effects should update immediately
+			if (!try_again) {
+				prayer_target = enemy_units[target];
+				skip_death_check = true;
+				update_now = true; // Friendly status effects should update immediately
+			}
 		} else {
 			target = select_target(party_units, p_length);
 			prayer_target = party_units[target]
@@ -416,7 +419,7 @@ if (state == turn.enemy && moved == false) {
 		}
 		
 		// If player doesn't already have this effect, inflict it
-		if (!already_has_effect) { 
+		if (!already_has_effect && !try_again) { 
 			// Determine random status effect length
 			var temp = irandom_range(intended_effect._duration_min, intended_effect._duration_max);
 			if (enemy_units[e_num]._fai >= 5 && enemy_units[e_num]._fai <= 9 && intended_effect != global.status_effects.heal) {
@@ -462,12 +465,16 @@ if (state == turn.enemy && moved == false) {
 		
 	// This executes after a turn is complete (finished = true)
 	if (finished) {
-		// Wait 150 frames and transition to next battle state
-		alarm[0] = 150; 
+		if (!try_again) {
+			// Wait 150 frames and transition to next battle state
+			alarm[0] = 150; 
+			// Reset move variables
+			moved = true;
+			
+		} else { 
+			// Try again if heal fail
+		}
 	}
-	
-	// Reset move variables
-	moved = true;
 	move_type = -1;
 	finished = false;
 	skip_death_check = false;
