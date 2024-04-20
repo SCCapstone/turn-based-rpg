@@ -1,6 +1,7 @@
 {
   "FolderOrderSettings": [],
   "ResourceOrderSettings": [
+    {"name":"obj_save_box","order":1,"path":"objects/obj_save_box/obj_save_box.yy",},
     {"name":"obj_battle_hp","order":1,"path":"objects/obj_battle_hp/obj_battle_hp.yy",},
   ],
 }

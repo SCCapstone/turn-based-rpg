@@ -38,5 +38,6 @@ if (_show_pause) {
 			draw_set_color(c_white);
 		}
 		draw_text_ext_transformed(x + 127, y + 54 + (_i * 16), _pause_options[_i], 1000, 1000, .125, .125, 0);
+		draw_set_color(c_white);
 	}
 }
