@@ -31,7 +31,7 @@ if (_show_inventory && _show_tooltip == false) {
 }
 
 if (_show_tooltip == false && _accept_key && _pressed == false && global.inventory[# _x_pos, _y_pos] != noone) {
-	 show_debug_message("Testing 1");
+	 //show_debug_message("Testing 1");
 	_show_tooltip = true;
 	if (global.inventory[# _x_pos, _y_pos]._item_type == item_type.weapon || 
 	global.inventory[# _x_pos, _y_pos]._item_type == item_type.magic_weapon || 
@@ -43,7 +43,7 @@ if (_show_tooltip == false && _accept_key && _pressed == false && global.invento
 		_equippable = false;
 	}
 } else if (_equippable && _accept_key && _equipping != true) {
-	show_debug_message("Testing 2");
+	//show_debug_message("Testing 2");
 	_equipping = true;
 } else if (_equipping && _magic_equip == false) {
 	_pos += _down_key - _up_key;
@@ -53,7 +53,7 @@ if (_show_tooltip == false && _accept_key && _pressed == false && global.invento
 	if (_pos < 0) {
 		_pos = ds_list_size(global.party) - 1;
 	}
-	show_debug_message("Testing 3");
+	//show_debug_message("Testing 3");
 	if (_accept_key) {
 		_show_tooltip = false;
 		var _member = ds_list_find_value(global.party, _pos);

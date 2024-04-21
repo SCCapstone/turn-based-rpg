@@ -5,7 +5,7 @@ var _down_key = keyboard_check_pressed(ord("S"));
 var _accept_key = keyboard_check_pressed(ord("E"));
 var _back_key = keyboard_check_pressed(vk_escape);
 
-show_debug_message(_in_magic)
+//show_debug_message(_in_magic)
 
 if (_in_magic._item_type == item_type.spell && _added == false) {
 	obj_inventory._show_tooltip = false;
