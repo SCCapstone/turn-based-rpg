@@ -65,3 +65,7 @@ if (_in_magic._item_type == item_type.prayer && _added == false) {
 		}
 	}
 }
+
+if (_back_key) {
+	instance_destroy(self);
+}
