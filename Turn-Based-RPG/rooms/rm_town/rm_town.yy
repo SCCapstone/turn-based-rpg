@@ -272,7 +272,6 @@
     {"name":"inst_701A792D","path":"rooms/rm_town/rm_town.yy",},
     {"name":"inst_52E7F6B8","path":"rooms/rm_town/rm_town.yy",},
     {"name":"inst_20B8DAF7","path":"rooms/rm_town/rm_town.yy",},
-    {"name":"inst_6B44B0D7","path":"rooms/rm_town/rm_town.yy",},
     {"name":"inst_508B392C","path":"rooms/rm_town/rm_town.yy",},
     {"name":"inst_331E95F9","path":"rooms/rm_town/rm_town.yy",},
     {"name":"inst_242AAA26","path":"rooms/rm_town/rm_town.yy",},
@@ -303,6 +302,7 @@
     {"name":"inst_765A95CA","path":"rooms/rm_town/rm_town.yy",},
     {"name":"inst_5DFB89EC","path":"rooms/rm_town/rm_town.yy",},
     {"name":"inst_5FF2C7E0","path":"rooms/rm_town/rm_town.yy",},
+    {"name":"inst_65F82598","path":"rooms/rm_town/rm_town.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -741,7 +741,7 @@
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Villager","depth":1600,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7C9C2052","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_villager","path":"objects/obj_villager/obj_villager.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1009.0,"y":1286.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6B44B0D7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_villager","path":"objects/obj_villager/obj_villager.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":849.0,"y":390.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_65F82598","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_park_villager","path":"objects/obj_park_villager/obj_park_villager.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":705.0,"y":359.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"shop_interiors","depth":1700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":188,"SerialiseWidth":90,"TileCompressedData":[
 -12678,-2147483648,12,1,2,3,3,4,5,6,7,8,9,11,12,-78,-2147483648,12,14,15,16,16,17,18,19,20,21,22,24,25,-78,-2147483648,2,27,28,-8,29,2,37,38,-78,-2147483648,2,40,41,-8,29,2,50,51,-78,-2147483648,2,27,28,-8,29,2,37,38,-78,-2147483648,2,40,41,-8,29,2,50,51,-78,-2147483648,2,40,41,-8,29,2,37,38,-78,-2147483648,2,53,54,-8,29,2,50,51,
