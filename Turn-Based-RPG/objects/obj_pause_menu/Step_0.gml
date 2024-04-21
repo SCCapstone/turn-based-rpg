@@ -102,6 +102,4 @@ if (back_key && _menu_disable) {
 		obj_enemy_par.enemy_disable = false;
 	}
 	instance_destroy(self);
-}
-
-show_debug_message(_menu_disable)
+}	

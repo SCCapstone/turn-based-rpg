@@ -35,7 +35,9 @@ if (_show_tooltip == false && _accept_key && _pressed == false && global.invento
 	_show_tooltip = true;
 	if (global.inventory[# _x_pos, _y_pos]._item_type == item_type.weapon || 
 	global.inventory[# _x_pos, _y_pos]._item_type == item_type.magic_weapon || 
-	global.inventory[# _x_pos, _y_pos]._item_type == item_type.prayer_book) {
+	global.inventory[# _x_pos, _y_pos]._item_type == item_type.prayer_book ||
+	global.inventory[# _x_pos, _y_pos]._item_type == item_type.prayer ||
+	global.inventory[# _x_pos, _y_pos]._item_type == item_type.spell) {
 		_equippable = true;
 	} else {
 		_equippable = false;
@@ -43,7 +45,7 @@ if (_show_tooltip == false && _accept_key && _pressed == false && global.invento
 } else if (_equippable && _accept_key && _equipping != true) {
 	show_debug_message("Testing 2");
 	_equipping = true;
-} else if (_equipping) {
+} else if (_equipping && _magic_equip == false) {
 	_pos += _down_key - _up_key;
 	if (_pos >= ds_list_size(global.party)) {
 		_pos = 0;
@@ -53,6 +55,7 @@ if (_show_tooltip == false && _accept_key && _pressed == false && global.invento
 	}
 	show_debug_message("Testing 3");
 	if (_accept_key) {
+		_show_tooltip = false;
 		var _member = ds_list_find_value(global.party, _pos);
 		var _member_equipment = noone;
 		if (global.inventory[# _x_pos, _y_pos]._item_type == item_type.weapon) {
@@ -82,6 +85,12 @@ if (_show_tooltip == false && _accept_key && _pressed == false && global.invento
 				global.inventory.remove_item(global.inventory[# _x_pos, _y_pos]);
 				global.inventory.add_item(_member_equipment);
 			}
+		} else if (global.inventory[# _x_pos, _y_pos]._item_type == item_type.spell || 
+		global.inventory[# _x_pos, _y_pos]._item_type == item_type.prayer) {
+			_magic_equip = true;
+			_magic_box = instance_create_depth(x , y, -100, obj_magic_box);
+			_magic_box._member = _member;
+			_magic_box._in_magic = global.inventory[# _x_pos, _y_pos];
 		}
 	}
 }
@@ -90,8 +99,13 @@ if (_show_tooltip && _back_key) {
 	_show_tooltip = false;
 } 
 
-if (_equipping && _back_key) {
-		_equipping = false;
+if (_equipping && _back_key && _magic_equip == false) {
+	_equipping = false;
+}
+
+if (_equipping && _back_key && _magic_equip) {
+	_equipping = false;
+	_magic_equip = false;
 }
 
 _pressed = false;
