@@ -5,6 +5,8 @@ _show_tooltip = false;
 _pressed = true;
 _equipping = false;
 _equippable = false;
+_magic_equip = false;
+
 
 // values used in drawing inventory slots & border
  _gui_width = 314;
@@ -46,3 +48,12 @@ _tooltip_margin = 2180;
 op_border = global.op_border
 op_space = global.op_space
 op_margin = global.op_margin
+
+global.inventory.add_item(global.prayers.scorch);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);
+global.inventory.add_item(global.spells.fireball);

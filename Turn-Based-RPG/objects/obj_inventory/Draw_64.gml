@@ -79,7 +79,7 @@ if (_show_tooltip) {
 		} 	
 	}
 	
-	if (_equipping) {
+	if (_equipping && _magic_equip == false) {
 		draw_sprite_stretched(spr_menu_background, 1, x + 120, y + 50, 80, 80);
 		for (_i = 0; _i < ds_list_size(global.party); _i++) {
 			if (_i = _pos) {
