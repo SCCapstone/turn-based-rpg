@@ -15,7 +15,7 @@ var _accept_key = keyboard_check_pressed(ord("E"));
 var _back_key = keyboard_check_pressed(vk_escape);
 
 // navigating through inventory
-if (_show_inventory && _show_tooltip == false) {
+if (_show_inventory && _show_tooltip == false && _magic_equip == false) {
 	_y_pos +=  _down_key - _up_key;
 	_x_pos += _right_key - _left_key;
 	if (_x_pos > _x_pos_max) {

@@ -79,7 +79,7 @@ if (back_key && _menu_disable) {
 	}
 	//show_debug_message("Inventory 1:" + string(_inventory) +":"+ string(_inventory._show_tooltip));
 	if (_inventory != noone) {
-		if (_inventory._show_tooltip == false) {
+		if (_inventory._equipping == false) {
 			instance_destroy(_inventory);
 			_inventory = noone;
 			_menu_disable = false;
