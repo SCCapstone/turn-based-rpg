@@ -389,6 +389,9 @@ if (state == turn.enemy && moved == false) {
 			&& (enemy_units[target]._hp == enemy_units[target]._max_hp)) {
 				try_again = true;
 			}
+			if (enemy_units[target]._is_dead == true) {
+				try_again = true;	
+			}
 			if (!try_again) {
 				prayer_target = enemy_units[target];
 				skip_death_check = true;
@@ -406,15 +409,17 @@ if (state == turn.enemy && moved == false) {
 		var already_has_effect = false;
 		var intended_effect = enemy_units[e_num]._prayers[move_num]._effects[0];
 		
-		for (var i = 0; i < ds_list_size(prayer_target._effects); i++) {
-			// See if intended effect already exists in the ds_list
-			var temp = ds_list_find_value(prayer_target._effects, i)
-			// If effect exists, don't give it again
-			if (temp[0] == intended_effect) {
-			already_has_effect = true;
-			show_debug_message(prayer_target._name + " already has "
-			+ intended_effect._name);
-			break;	
+		if (!try_again) {
+			for (var i = 0; i < ds_list_size(prayer_target._effects); i++) {
+				// See if intended effect already exists in the ds_list
+				var temp = ds_list_find_value(prayer_target._effects, i)
+				// If effect exists, don't give it again
+				if (temp[0] == intended_effect) {
+				already_has_effect = true;
+				show_debug_message(prayer_target._name + " already has "
+				+ intended_effect._name);
+				break;	
+				}
 			}
 		}
 		
