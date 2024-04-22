@@ -63,12 +63,12 @@ switch (partypos) {
 			case 0:
 				global.hp[0] += 1; // value to show the points in the hp stat
 				ds_list_find_value(global.party,0)._max_hp += (10 * ds_list_find_value(global.party,0)._lvl); // Now adds 10 health * the characters level
-				ds_list_find_value(global.party,0)._hp = ds_list_find_value(global.party,0)._max_hp; // sets current health to the new max
+				ds_list_find_value(global.party,0)._hp += (10 * ds_list_find_value(global.party,0)._lvl); // sets current health to the new max
 				break;
 			case 1:
 				global.mp[0] += 1;
 				ds_list_find_value(global.party,0)._max_mp += (10 * ds_list_find_value(global.party,0)._lvl);
-				ds_list_find_value(global.party,0)._mp = ds_list_find_value(global.party,0)._max_mp
+				ds_list_find_value(global.party,0)._mp += (10 * ds_list_find_value(global.party,0)._lvl);
 				break;
 			case 2:
 				ds_list_find_value(global.party,0)._str += 1;
@@ -103,7 +103,7 @@ switch (partypos) {
 					global.hp[0] -= 1;
 					ds_list_find_value(global.party,0)._max_hp -= (10 * ds_list_find_value(global.party,0)._lvl); //round(ds_list_find_value(global.party,0)._max_hp * new_hp);
 					global.skill_points[0] += 1;
-					ds_list_find_value(global.party,0)._hp = ds_list_find_value(global.party,0)._max_hp;
+					ds_list_find_value(global.party,0)._hp -= (10 * ds_list_find_value(global.party,0)._lvl);
 				} else {
 					global.hp[0] = 0;
 				}
@@ -113,7 +113,7 @@ switch (partypos) {
 					global.mp[0] -= 1;
 					ds_list_find_value(global.party,0)._max_mp -= (10 * ds_list_find_value(global.party,0)._lvl); //round(ds_list_find_value(global.party,0)._max_mp * new_mp);
 					global.skill_points[0] += 1;
-					ds_list_find_value(global.party,0)._mp = ds_list_find_value(global.party,0)._max_mp;
+					ds_list_find_value(global.party,0)._mp -= (10 * ds_list_find_value(global.party,0)._lvl);
 				} else {
 					global.mp[0] = 0;
 				}
@@ -175,12 +175,12 @@ switch (partypos) {
 			case 0:
 				global.hp[1] += 1; // value to show the points in the hp stat
 				ds_list_find_value(global.party,1)._max_hp += (10 * ds_list_find_value(global.party,1)._lvl);
-				ds_list_find_value(global.party,1)._hp = ds_list_find_value(global.party,1)._max_hp; // sets current health to the new max
+				ds_list_find_value(global.party,1)._hp += (10 * ds_list_find_value(global.party,1)._lvl); // sets current health to the new max
 				break;
 			case 1:
 				global.mp[1] += 1;
 				ds_list_find_value(global.party,1)._max_mp += (10 * ds_list_find_value(global.party,1)._lvl);
-				ds_list_find_value(global.party,1)._mp = ds_list_find_value(global.party,1)._max_mp
+				ds_list_find_value(global.party,1)._mp += (10 * ds_list_find_value(global.party,1)._lvl);
 				break;
 			case 2:
 				ds_list_find_value(global.party,1)._str += 1;
@@ -215,7 +215,7 @@ switch (partypos) {
 					global.hp[1] -= 1;
 					ds_list_find_value(global.party,1)._max_hp -= (10 * ds_list_find_value(global.party,1)._lvl);
 					global.skill_points[1] += 1;
-					ds_list_find_value(global.party,1)._hp = ds_list_find_value(global.party,1)._max_hp;
+					ds_list_find_value(global.party,1)._hp -= (10 * ds_list_find_value(global.party,1)._lvl);
 				} else {
 					global.hp[1] = 0;
 				}
@@ -225,7 +225,7 @@ switch (partypos) {
 					global.mp[1] -= 1;
 					ds_list_find_value(global.party,1)._max_mp -= (10 * ds_list_find_value(global.party,1)._lvl);
 					global.skill_points[1] += 1;
-					ds_list_find_value(global.party,1)._mp = ds_list_find_value(global.party,1)._max_mp;
+					ds_list_find_value(global.party,1)._mp -= (10 * ds_list_find_value(global.party,1)._lvl);
 				} else {
 					global.mp[1] = 0;
 				}
@@ -287,12 +287,12 @@ switch (partypos) {
 			case 0:
 				global.hp[2] += 1; // value to show the points in the hp stat
 				ds_list_find_value(global.party,2)._max_hp += (10 * ds_list_find_value(global.party,2)._lvl);
-				ds_list_find_value(global.party,2)._hp = ds_list_find_value(global.party,2)._max_hp; // sets current health to the new max
+				ds_list_find_value(global.party,2)._hp += (10 * ds_list_find_value(global.party,2)._lvl); // sets current health to the new max
 				break;
 			case 1:
 				global.mp[2] += 1;
 				ds_list_find_value(global.party,2)._max_mp += (10 * ds_list_find_value(global.party,2)._lvl);
-				ds_list_find_value(global.party,2)._mp = ds_list_find_value(global.party,2)._max_mp
+				ds_list_find_value(global.party,2)._mp += (10 * ds_list_find_value(global.party,2)._lvl);
 				break;
 			case 2:
 				ds_list_find_value(global.party,2)._str += 1;
@@ -327,7 +327,7 @@ switch (partypos) {
 					global.hp[2] -= 1;
 					ds_list_find_value(global.party,2)._max_hp -= (10 * ds_list_find_value(global.party,2)._lvl);
 					global.skill_points[2] += 1;
-					ds_list_find_value(global.party,2)._hp = ds_list_find_value(global.party,2)._max_hp;
+					ds_list_find_value(global.party,2)._hp -= (10 * ds_list_find_value(global.party,2)._lvl);
 				} else {
 					global.hp[2] = 0;
 				}
@@ -337,7 +337,7 @@ switch (partypos) {
 					global.mp[2] -= 1;
 					ds_list_find_value(global.party,2)._max_mp -= (10 * ds_list_find_value(global.party,2)._lvl);
 					global.skill_points[2] += 1;
-					ds_list_find_value(global.party,2)._mp = ds_list_find_value(global.party,2)._max_mp;
+					ds_list_find_value(global.party,2)._mp -= (10 * ds_list_find_value(global.party,2)._lvl);
 				} else {
 					global.mp[2] = 0;
 				}
@@ -399,12 +399,12 @@ switch (partypos) {
 			case 0:
 				global.hp[3] += 1; // value to show the points in the hp stat
 				ds_list_find_value(global.party,3)._max_hp += (10 * ds_list_find_value(global.party,3)._lvl);
-				ds_list_find_value(global.party,3)._hp = ds_list_find_value(global.party,3)._max_hp; // sets current health to the new max
+				ds_list_find_value(global.party,3)._hp += (10 * ds_list_find_value(global.party,3)._lvl); // sets current health to the new max
 				break;
 			case 1:
 				global.mp[3] += 1;
 				ds_list_find_value(global.party,3)._max_mp += (10 * ds_list_find_value(global.party,3)._lvl);
-				ds_list_find_value(global.party,3)._mp = ds_list_find_value(global.party,3)._max_mp
+				ds_list_find_value(global.party,3)._mp += (10 * ds_list_find_value(global.party,3)._lvl);
 				break;
 			case 2:
 				ds_list_find_value(global.party,3)._str += 1;
@@ -439,7 +439,7 @@ switch (partypos) {
 					global.hp[3] -= 1;
 					ds_list_find_value(global.party,3)._max_hp -= (10 * ds_list_find_value(global.party,3)._lvl);
 					global.skill_points[3] += 1;
-					ds_list_find_value(global.party,3)._hp = ds_list_find_value(global.party,3)._max_hp;
+					ds_list_find_value(global.party,3)._hp -= (10 * ds_list_find_value(global.party,3)._lvl);
 				} else {
 					global.hp[3] = 0;
 				}
@@ -449,7 +449,7 @@ switch (partypos) {
 					global.mp[3] -= 1;
 					ds_list_find_value(global.party,3)._max_mp -= (10 * ds_list_find_value(global.party,3)._lvl);
 					global.skill_points[3] += 1;
-					ds_list_find_value(global.party,3)._mp = ds_list_find_value(global.party,3)._max_mp;
+					ds_list_find_value(global.party,3)._mp -= (10 * ds_list_find_value(global.party,3)._lvl);
 				} else {
 					global.mp[3] = 0;
 				}
@@ -513,7 +513,7 @@ for (var i = 0; i < ds_list_size(global.party); i++) {
 	if (ds_list_find_value(global.party,i)._xp >= ds_list_find_value(global.party,i)._max_xp) {
 		ds_list_find_value(global.party,i)._lvl += 1;
 		ds_list_find_value(global.party,i)._xp -= ds_list_find_value(global.party,0)._max_xp;
-		ds_list_find_value(global.party,i)._max_xp = ds_list_find_value(global.party,i)._max_xp*1.5;
+		ds_list_find_value(global.party,i)._max_xp = round(ds_list_find_value(global.party,i)._max_xp*1.5);
 		global.skill_points[i] += 5;
 	}
 }

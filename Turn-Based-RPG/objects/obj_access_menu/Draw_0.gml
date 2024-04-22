@@ -1,8 +1,10 @@
 // Lets the menu draw itself as decided when placed in room
-draw_self();
+var _vx = camera_get_view_width(view_camera[0]);
+var _vy = camera_get_view_height(view_camera[0]);
+display_set_gui_size(_vx, _vy);
 
 // Draw background
-draw_sprite_ext(sprite_index, image_index, x, y, round(width/sprite_width), round(height/sprite_height), 0, c_white, 1);
+draw_sprite(spr_field_old, 0, x, y - 1);
 
 // Set the font and initial index for text drawing
 
