@@ -19,13 +19,19 @@ Open project in GameMaker. To run the code, press F5, or click the play button (
 
 # Testing
 
+All tests are located in the "Testing" directory, accessible from the root of the repo. Its subdirectories "Unit Testing" and "BehavioralTest" hold the unit tests and behavioral tests, respectively.
+
+## Running Tests
+
+To run the unit tests, navigate to the "Testing" directory and then navigate to the "Unit Tests" directory. From there, simply click on the "Run Unit Testing" shortcut. Press 'E' to cycle through the groups of unit tests.
+
+To run the behavioral tests, navigate to the "Testing" directory and then navigate to the "BehavioralTest" directory. From there, simply click on "BehavioralTest.exe". It will play itself, but some input will be required during the battle test. To navigate the battle menu, use WASD to move and 'E' to select a choice.
+
 ## Testing Technology
 
 Since unit testing is not a supported feature in GameMaker Studio, all unit tests are enabled by functions created by the team, which compare expected and received output and display the compiled results in an executable game window.
 
-## Running Tests
 
-To run Unit Test 1, enter the "Testing" folder and then navigate to the "Unit Tests" folder. From there, simply run "unit_text_1.exe" and the results will be displayed.
 
 # Authors
 
