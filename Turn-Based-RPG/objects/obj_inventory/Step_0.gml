@@ -62,6 +62,7 @@ if (_show_tooltip == false && _accept_key && _pressed == false && global.invento
 			_member_equipment = _member._weapon;
 			if (_member_equipment == noone) {
 				_member._weapon = global.inventory[# _x_pos, _y_pos];
+				global.inventory.remove_item(global.inventory[# _x_pos, _y_pos]);
 			} else if (_member_equipment != noone) {
 				_member._weapon = global.inventory[# _x_pos, _y_pos];
 				global.inventory.remove_item(global.inventory[# _x_pos, _y_pos]);
@@ -71,6 +72,7 @@ if (_show_tooltip == false && _accept_key && _pressed == false && global.invento
 			_member_equipment = _member._magic_weapon;
 			if (_member_equipment == noone) {
 				_member._magic_weapon = global.inventory[# _x_pos, _y_pos];
+				global.inventory.remove_item(global.inventory[# _x_pos, _y_pos]);
 			} else if (_member_equipment != noone) {
 				_member._magic_weapon = global.inventory[# _x_pos, _y_pos];
 				global.inventory.remove_item(global.inventory[# _x_pos, _y_pos]);
@@ -80,6 +82,7 @@ if (_show_tooltip == false && _accept_key && _pressed == false && global.invento
 			_member_equipment = _member._prayer_book;
 			if (_member_equipment == noone) {
 				_member._prayer_book = global.inventory[# _x_pos, _y_pos];
+				global.inventory.remove_item(global.inventory[# _x_pos, _y_pos]);
 			} else if (_member_equipment != noone) {
 				_member._prayer_book = global.inventory[# _x_pos, _y_pos];
 				global.inventory.remove_item(global.inventory[# _x_pos, _y_pos]);

@@ -10,19 +10,19 @@ function Save(){
 			facing: obj_player.facing,
 			current_room: room
 		}
-		cool = { // Cool wizard
-			obj: obj_cool_wizard,
-			x: obj_cool_wizard.x,
-			y: obj_cool_wizard.y,
-			current_room: room,
-		}
-		mercenary = { // Mercenary
-			obj: obj_mercenary,
-			x: obj_mercenary.x,
-			y: obj_mercenary.y,
-			current_room: room,
-		}
-	array_push(party_member_objects, player, cool, mercenary); 
+	//	cool = { // Cool wizard
+	//		obj: obj_cool_wizard,
+	//		x: obj_cool_wizard.x,
+	//		y: obj_cool_wizard.y,
+	//		current_room: room,
+	//	}
+	//	mercenary = { // Mercenary
+	//		obj: obj_mercenary,
+	//		x: obj_mercenary.x,
+	//		y: obj_mercenary.y,
+	//		current_room: room,
+	//	}
+	//array_push(party_member_objects, player, cool, mercenary); 
 	
 	party_info = [] // Stores player party information as an array of party member structs
 	array_push(party_info, ds_list_size(global.party));
@@ -46,8 +46,9 @@ function Save(){
 		field: global.field_clear,
 		forest: global.forest_clear,
 		castle: global.castle_clear,
-		gold: global.gold
-		
+		gold: global.gold,
+		hp: global.hp,
+		mp: global.mp
 	}
 	
 	array_push(save_data, party_member_objects, party_info, inventory, game);

@@ -38,6 +38,7 @@ function Load(){
 		global.forest_clear = game.forest;
 		global.castle_clear = game.castle;
 		global.gold = game.gold;
-
+		global.hp = game.hp;
+		global.mp = game.mp;
 	}
 }
