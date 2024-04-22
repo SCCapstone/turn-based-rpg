@@ -1,8 +1,15 @@
 {
-  "FolderOrderSettings": [],
+  "FolderOrderSettings": [
+    {"name":"Behavioral Test","order":4,"path":"folders/Objects/Game Objects/Behavioral Test.yy",},
+  ],
   "ResourceOrderSettings": [
+    {"name":"obj_behavioral_6","order":5,"path":"objects/obj_behavioral_6/obj_behavioral_6.yy",},
     {"name":"obj_save_box","order":1,"path":"objects/obj_save_box/obj_save_box.yy",},
+    {"name":"obj_behavioral_5","order":4,"path":"objects/obj_behavioral_5/obj_behavioral_5.yy",},
     {"name":"obj_battle_hp","order":1,"path":"objects/obj_battle_hp/obj_battle_hp.yy",},
     {"name":"obj_magic_box","order":1,"path":"objects/obj_magic_box/obj_magic_box.yy",},
+    {"name":"obj_behavioral_4","order":3,"path":"objects/obj_behavioral_4/obj_behavioral_4.yy",},
+    {"name":"obj_behavioral_3","order":2,"path":"objects/obj_behavioral_3/obj_behavioral_3.yy",},
+    {"name":"obj_behavioral_2","order":1,"path":"objects/obj_behavioral_2/obj_behavioral_2.yy",},
   ],
 }
