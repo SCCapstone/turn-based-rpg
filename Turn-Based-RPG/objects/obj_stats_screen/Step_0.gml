@@ -151,7 +151,7 @@ switch (partypos) {
 				}
 				break;
 			case 6:
-				if ( ds_list_find_value(global.party,0)._fai > 1) {
+				if ( ds_list_find_value(global.party,0)._fai >= 1) {
 					ds_list_find_value(global.party,0)._fai-= 1;
 					global.skill_points[0] += 1;
 				} else {
@@ -263,7 +263,7 @@ switch (partypos) {
 				}
 				break;
 			case 6:
-				if ( ds_list_find_value(global.party,1)._fai > 1) {
+				if ( ds_list_find_value(global.party,1)._fai >= 1) {
 					ds_list_find_value(global.party,1)._fai-= 1;
 					global.skill_points[1] += 1;
 				} else {
@@ -375,7 +375,7 @@ switch (partypos) {
 				}
 				break;
 			case 6:
-				if ( ds_list_find_value(global.party,2)._fai > 1) {
+				if ( ds_list_find_value(global.party,2)._fai >= 1) {
 					ds_list_find_value(global.party,2)._fai-= 1;
 					global.skill_points[2] += 1;
 				} else {
@@ -487,7 +487,7 @@ switch (partypos) {
 				}
 				break;
 			case 6:
-				if ( ds_list_find_value(global.party,3)._fai > 1) {
+				if ( ds_list_find_value(global.party,3)._fai >= 1) {
 					ds_list_find_value(global.party,3)._fai-= 1;
 					global.skill_points[3] += 1;
 				} else {
@@ -513,6 +513,9 @@ for (var i = 0; i < ds_list_size(global.party); i++) {
 	if (ds_list_find_value(global.party,i)._xp >= ds_list_find_value(global.party,i)._max_xp) {
 		ds_list_find_value(global.party,i)._lvl += 1;
 		ds_list_find_value(global.party,i)._xp -= ds_list_find_value(global.party,0)._max_xp;
+		if (ds_list_find_value(global.party,i)._xp < 0) {
+			ds_list_find_value(global.party,i)._xp = ds_list_find_value(global.party,i)._xp * -1;
+		}
 		ds_list_find_value(global.party,i)._max_xp = round(ds_list_find_value(global.party,i)._max_xp*1.5);
 		global.skill_points[i] += 5;
 	}

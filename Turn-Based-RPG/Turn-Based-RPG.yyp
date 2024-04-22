@@ -20,6 +20,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Castle","folderPath":"folders/Objects/Castle.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Depth System","folderPath":"folders/Objects/Depth System.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Game Objects","folderPath":"folders/Objects/Game Objects.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Behavioral Test","folderPath":"folders/Objects/Game Objects/Behavioral Test.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Game World","folderPath":"folders/Objects/Game World.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Enemy","folderPath":"folders/Objects/Game World/Enemy.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Inventory","folderPath":"folders/Objects/Inventory.yy",},
@@ -68,7 +69,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"World Map","folderPath":"folders/Sprites/World Map.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Behavioral Test","folderPath":"folders/Objects/Game Objects/Behavioral Test.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"bash.wav","CopyToMask":-1,"filePath":"datafiles",},
