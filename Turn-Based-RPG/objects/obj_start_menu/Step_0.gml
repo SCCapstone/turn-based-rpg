@@ -19,14 +19,17 @@ if (pos < 0) {
 // Use an option
 if (accept_key) {
 	switch (pos) {
-	
 		case 0:
 			global.location = 0;
 			room_goto(rm_world_map);
 		break;
 	
 		case 1:
-			Load();
+			if (file_exists("savedgame.save")) {
+				Load();
+			} else {
+				load = false;
+			}
 		break;
 	
 		case 2:

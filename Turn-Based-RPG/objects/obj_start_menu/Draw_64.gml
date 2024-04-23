@@ -10,9 +10,11 @@ for (_i = 0; _i < op_length; _i++) {
 	if (_i = pos) {
 		draw_sprite_stretched(spr_menu_background, 2, x + 122, y + 54 + (_i * 27), 82, 25);
 		draw_text_ext_transformed(x + 128, y + 59 + (_i * 27), options[_i], 1000, 1000, .125, .125, 0);	
+	} else if (_i == 1 && load == false) {
+		return;
 	} else {
 		draw_sprite_stretched(spr_menu_background, 0, x + 122, y + 54 + (_i * 27), 82, 25);
-		draw_text_ext_transformed(x + 128, y + 59 + (_i * 27), options[_i], 1000, 1000, .125, .125, 0);		
+		draw_text_ext_transformed(x + 128, y + 59 + (_i * 27), options[_i], 1000, 1000, .125, .125, 0);	
 	}
 }
 
