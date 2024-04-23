@@ -22,7 +22,7 @@ function Save(){
 	//		y: obj_mercenary.y,
 	//		current_room: room,
 	//	}
-	//array_push(party_member_objects, player, cool, mercenary); 
+	array_push(party_member_objects, player); 
 	
 	party_info = [] // Stores player party information as an array of party member structs
 	array_push(party_info, ds_list_size(global.party));
